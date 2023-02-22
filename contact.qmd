@@ -1,0 +1,12 @@
+---
+title: Contact
+---
+
+
+<ul class=fa-ul>
+  <li><i class="fa-li fas fa-map-marker fa-2x" aria-hidden=true></i> Monash University, Clayton Campus, Wellington Rd, Melbourne, 3800</li>
+  <li><i class="fa-li fas fa-compass fa-2x" aria-hidden=true></i> Enter Education Building, we are located primarily on level 3, and to the east.</li>
+  <li><i class="fa-li fab fa-twitter fa-2x" aria-hidden=true></i><a href=https://twitter.com/numbats_rise_up>@numbats_rise_up</a></li>
+</ul>
+
+<iframe width="900" height="450" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=145.1282358169556%2C-37.91752400787114%2C145.14043450355533%2C-37.910735616651344&amp;layer=mapnik&amp;marker=-37.91413852736896%2C145.13434080472712" style="border: 1px solid black"></iframe><br/><small><a href="https://www.openstreetmap.org/?mlat=-37.91414&amp;mlon=145.13434#map=17/-37.91413/145.13434&amp;layers=N">View Larger Map</a></small>
