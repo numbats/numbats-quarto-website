@@ -1,0 +1,11 @@
+---
+title: "Monash NUMBATs"
+---
+
+<a title="Helenabella, CC BY-SA 3.0 &lt;https://creativecommons.org/licenses/by-sa/3.0&gt;, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Numbat_Full_Standing.jpg"><img width="512" alt="Numbat Full Standing" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Numbat_Full_Standing.jpg/512px-Numbat_Full_Standing.jpg"></a>
+
+NUMBATs is the name for our research group, Non-Uniform Monash Business Analytics Team, in the [Econometrics and Business Statistics Department](https://www.monash.edu/business/ebs). We meet regularly to openly exchange and discuss research ideas and activity in an actively supportive and creative environment. People outside the group are welcome to attend, and can sign up to receive notifications about topics for each meeting, or check the calendar on the web site.
+
+Our mission is to advance methodology for making data analysis easier. We develop new techniques for statistical modeling and visualisation, and work hard to make these available to the general public by distributing open source software, mostly using R.
+
+It is also our goal to raise awareness of Australian fauna and flora, particularly many of the beautiful endangered species. For example, in reality, numbats are insectivores, mostly found in Western Australia, and we encourage you to contribute to the conservation efforts by donating or purchasing products from [Project Numbat](http://www.numbat.org.au/).
