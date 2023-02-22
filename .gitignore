@@ -4,3 +4,5 @@ _site/*
 *_files/
 .quarto/*
 .Rproj.user
+
+/.quarto/
