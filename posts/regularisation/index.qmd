@@ -1,0 +1,676 @@
+---
+title: "Trying to Save My Housements (Specifically Tom) from Alcohol Poisoning with Regularisation"
+authors: 
+  - Harriet Mason
+date: "2021-12-18T00:00:00Z"
+output:
+    math: true
+    fig_caption: true
+categories:
+  - data visualisation
+  - statistics
+  - teaching
+  - machine learning
+tags:
+  - R
+  - teaching
+  - data visualisation
+  - statistics
+  - machine learning
+editor: visual
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r, loadlibraries, include=FALSE}
+library(tidyverse)
+library(ggplot2)
+library(xkcd)
+library(glmnet)
+library(caret)
+library(extrafont)
+library(formattable)
+library(animation)
+```
+
+## The drinking game that killed Tom
+Back when I lived with my sister I barely managed to drink once a month, and health wise, I was living a good life. Unfortunately, my sister decided to get engaged and her fiance was all "its weird that we live with your hermit sister" and "you two have been co-dependent for years its unhealthy and it's time to stop". When I moved in with my friends at the beginning of the year I was immediately tossed in to a long strict lock down. I had to deal with living in a house of people I liked, all of which had no schedule and were all bored out of their minds, so, to cut a long story short, we all started drinking a lot. I have since significantly cut back (I have gone back to my original "barely once a month" amount), but during our trial period for high functioning alcoholism, our friend Fynn introduced us to a "guess your uni grades" drinking game. Here is how it works:
+
+1) Guess your mark for all the units you are taking this semester 
+2) When you get your results, calculate the difference between your guess and your actual result. *e.g. if you guess 51 for Topology and actually get a 73 because the exam was scaled, you get 22 points.*
+3) Take your points for each unit and sum them up. *e.g. If topology got you 22 points, data structures 7 points, and a project unit was 3 points, your total is 32 points.*
+4) If you did not do a 4 unit work load, you scale your points up and round to the nearest integer to match that. *e.g. if you had 32 points and did 3 units, your scaled score is 43.*
+5) The number of points you have is the number of drinks you have to do.
+
+Fynn's version is proper shots. Unfortunately because the example case was based on my housemate Tom, who apparently has next to no idea how he is doing in his courses, we had to change our rules to shots of mixed drinks. Even with this change we calculated that there was still a chance Tom would be killed by alcohol poisoning. After a 3-1 house vote we agreed we were willing to make that sacrifice for the sanctity of the game. My housemates in order of least to most points were: 
+
+1) Zac with 4 drinks
+2) Me with 13 drinks
+3) Em with 17 drinks
+4) Tom with 43 drinks
+
+![*A visualisation of both the guessing and social order of the house. Here, Tom has died of alchohol poisoning.*](placingsdraw.png)
+
+This game led into a discussion about whose grades are the most difficult to predict. For example, there are things that seem to make guessing easier, such as completely in semester units. While things like my and Tom's history of high variance puts us at a natural disadvantage. The first step to understanding what affects our changes in grades is to predict them. Figure 1 below gives a basic visualization of the house's grades. The x axis represents the year and semester, however it is mostly arbitrary.
+
+```{r, Grades Data, eval=FALSE}
+# Harriet Grades
+harriet_grades <- tibble(student = rep("Harriet",24),
+       year= c(rep(2018, 8), rep(2019, 6), rep(2020, 7), rep(2021, 3)),
+       semester=c(rep(1,4),rep(2,4), rep(1,2), rep(2,4),rep(1,3), rep(2,4),rep(1,3)),
+       plot_semester=c(rep(3,4),rep(4,4), rep(5,2), rep(6,4),rep(7,3), rep(8,4),rep(9,3)),
+       unitcode=c("ECC1000", "ETC2410", "FIT1045", "MTH1030",
+                  "ECC1100", "ECC2000", "MTH2010", "MTH2232",
+                  "ETC3410", "MTH2021", 
+                  "ETC3400", "ETC3450", "MTH2232", "MTH3051",
+                  "ETC3250", "MTH2222", "MTH3241",
+                  "ECC3840", "ETC3555", "MTH3230", "MTH3260", 
+                  "ETC3541", "ETC1512", "ETC3550"), 
+       #set 5512 to level 1 as it is a level 1 masters unit and 4541 to level 3 as its alone
+       mark = c(78, 72, 84, 68,
+                77, 76, 54, 39,
+                71, 63,
+                58, 56, 80, 67,
+                88, 91, 81,
+                90, 73, 74, 72,
+                83, 94, 76))
+       #unitlevel = c(1,2,1,1,1,2,2,2,3,2,3,3,2,3,3,2,3,3,3,3,3,4,1,3),
+       #grade = c("D","D","HD","C","D","D","P","N","D","C","P","P","HD","C","HD","HD","HD","HD","D","D","D","HD","HD","D"))
+
+#Tom Grades
+tom_grades <- tibble(student = rep("Tom",22),
+       year= c(rep(2018, 4), rep(2019, 8), rep(2020, 7), rep(2021, 3)),
+       semester= c(rep(2,4), rep(1,4),rep(2,4), rep(1,3), rep(2,4),rep(1,3)),
+       plot_semester= c(rep(4,4), rep(5,4),rep(6,4), rep(7,3), rep(8,4),rep(9,3)),
+       unitcode= c("FIT1008","FIT1049", "FIT2099", "MTH1030",
+                   "FIT2004", "FIT3171", "MTH2021", "MTH3140",
+                   "FIT2014", "FIT2102", "FIT3155", "MTH2010",
+                   "FIT1047", "FIT3159", "MTH2121",
+                   "FIT3144", "FIT3161", "MTH2032", "MTH3170",
+                   "FIT3155", "FIT3162", "MTH3130"),
+       mark = c(71, 66, 61, 82,
+                66, 66, 74, 78,
+                73, 63, 34, 63,
+                68, 57, 71,
+                80, 63, 73, 80, 
+                68, 72, 73))
+
+# Em Grades
+em_grades <- tibble(student = rep("Em",20),
+       year= c(rep(2019, 8), rep(2020, 8), rep(2021, 4)),
+       semester= c(rep(1,4), rep(2,4),rep(1,4), rep(2,4), rep(1,4)),
+       plot_semester= c(rep(5,4), rep(6,4),rep(7,4), rep(8,4), rep(9,4)),
+       unitcode= c("ATS1353","ATS2065", "LAW1111", "LAW1114",
+                   "ATS1945", "ATS2066", "LAW1112", "LAW1113",
+                   "ATS2699", "ATS3067", "LAW2101", "LAW2112",
+                   "ATS2961", "ATS3068", "LAW2102", "LAW2111",
+                   "ATS2932", "ATS3082", "LAW3111", "LAW3112"),
+       mark = c(80, 88, 71, 82,
+                78, 84, 80, 77,
+                82, 83, 88, 80,
+                83, 81, 83, 80,
+                85, 82, 73, 65))
+
+# Zac Grades
+zac_grades <- tibble(student = rep("Zac",32),
+       year= c(rep(2017, 8), rep(2018, 8), rep(2019, 8), rep(2020, 8)),
+       semester= c(rep(1,4), rep(2,4),rep(1,4), rep(2,4),rep(1,4), rep(2,4),rep(1,4), rep(2,4)),
+       plot_semester = c(rep(1,4), rep(2,4),rep(3,4), rep(4,4),rep(5,4), rep(6,4),rep(7,4), rep(8,4)),
+       unitcode= c("ATS1338","ATS1353", "ATS1873", "ATS2065", 
+                   "ATS1339", "ATS1701", "ATS1945", "ATS2066", 
+                   "ATS2682", "ATS2699", "ATS2706", "ATS3067",
+                   "ATS2624", "ATS2671", "ATS2961", "ATS3068",
+                   "ATS3340", "ATS3695", "ATS3705", "ATS3069",
+                   "ATS2698", "ATS3903", "ATS3070", "ATS3235",
+                   "ATS2625", "ATS2640", "ATS3623", "ATS3849",
+                   "ATS2693", "ATS3335", "ATS3697", "ATS3974"),
+       mark = c(85, 74, 62, 71,
+                66, 73, 73, 66,
+                72, 78, 74, 70,
+                60, 67, 77, 64,
+                64, 77, 61, 66,
+                68, 73, 54, 77,
+                63, 75, 77, 67,
+                74, 61, 73, 70))
+
+house_grades <- rbind(harriet_grades, tom_grades, em_grades, zac_grades)
+
+#grade function
+grade_calc <- function(mark){
+  cut(mark, breaks=c(0,50,60,70,80,100), labels=c("N","P","C","D","HD"), right=FALSE)
+}
+
+#department function
+dep_calc <- function(unitcode){
+  substr(unitcode, 1, 3)  
+}
+#level function
+level_calc <- function(unitcode){
+  as.integer(substr(unitcode, 4, 4))
+}
+
+house_grades <- house_grades %>%
+  mutate(grades=grade_calc(mark),
+         department = as.factor(dep_calc(unitcode)),
+         unit_level= level_calc(unitcode))
+
+plot1 <- ggplot(house_grades, aes(x=plot_semester, y=mark)) +
+  geom_jitter(aes(colour= student), height=0, width=0.2) +
+  theme_xkcd() +
+  geom_hline(yintercept=50, linetype=2) +
+  geom_hline(yintercept=60, linetype=2) +
+  geom_hline(yintercept=70, linetype=2) +
+  geom_hline(yintercept=80, linetype=2) +
+  geom_text(x=0.9, y=52, label="Pass", colour="gray48", 
+            family="Harrietshandwriting")+
+  geom_text(x=1, y=62, label="Credit", colour="gray48", 
+            family="Harrietshandwriting")+
+  geom_text(x=1.2, y=72, label="Distinction", colour="gray48", 
+            family="Harrietshandwriting")+
+  geom_text(x=1.4, y=82, label="High Distinction", colour="gray48", 
+            family="Harrietshandwriting")+
+  geom_smooth(aes(colour= student, fill=student)) +
+  facet_wrap(~student, ncol=2)+
+  xlab("Semester") + 
+  ylab("Mark") + ggtitle("Figure 1") +
+  theme(text=element_text(family="Harrietshandwriting"),
+        axis.ticks.x = element_blank(),
+        axis.text.x = element_blank(),
+        legend.position="none") +
+  scale_fill_brewer(palette = "RdYlBu",
+                    aesthetics = c("colour", "fill"))
+plot1
+ggsave("plot1.jpg", plot1, width=10, height=8)
+```
+
+![*The house's grades for every semester of uni.*](plot1.jpg)
+
+Looking at this plot we can visually see some of our personality quirks in the data. This plot makes it rather obvious which semester I had a mental breakdown and was diagnosed with ADHD. Em's consistently high marks show the benefit of grade based anxiety, and the slight drop at the end shows the trade off that occurs when you start looking after your mental health. Zac's grades all sit around the same range, because despite being a reliably high achiever, he over commits to extra-curricula and often hands assignments in several days late, which essentially stops him from getting higher than an 80. Tom has no reason for being the way he is.
+
+We want to try and improve our predictions by building a model that forecasts next semesters results. Fynn's house had a total of 69 drinks, while we had 77 and losing to another household (especially one as inferior as Fynn's) is a blight on our competitive record. The problem with building a model is that there is very little data here, especially when compared to the number of variables at hand. This means even something as simple as a linear regression will have too much flexibility and will likely over fit, so to fix this, we need to turn to regularisation.
+
+## What is regularisation?
+Regularisation is essentially a systematic way to reduce the variance and increase the bias of a model and improve the overall error through the bias variance trade off. There are quite a few regularisation methods, but I'm not going to go through all of them here. Rather I have summarised three of the more common techniques below.
+
+- Subset selection: This technique selects a subset of the predictors to use in the regression. There are three common types of subset selection: forward subset selection, backward subset selection, and best subset selection. Forward subset selection starts with the null model and, at each step, adds the variable that reduces the test error the most, until the model is at a point where the addition of new variables don't improve the the test error. Backward subset selection does the same but in reverse, it starts with the model containing all the variables and removes predictors until the test error does not improve. Best subset selection makes every possible model (the power set of the predictors) and chooses the one with the minimum error, however this can also over fit and is often computationally infeasible.
+
+- PCA regression: You may remember principal component analysis (PCA) from one of my previous posts as an unsupervised learning method, but it can also be used as a regularisation technique. Using the principal components (which are just linear transformations of the original predictors) as predictors in an OLS regression can reduce the variance of the model. 
+
+- Shrinkage methods: these methods make a new error function that is the sum of the residual sum of squares (RSS) and a penalty term and selects coefficients by minimising this new error function. The two main methods are lasso, which minimises the function $RSS + \lambda\sum_{j=1}^{p}|\beta_j|$, and ridge which minimises the function $RSS + \lambda\sum_{j=1}^{p}\beta_j^2$, where $\lambda$ is a tuning parameter. These additional penalties force the coefficient estimates to be closer to 0.
+
+The method used in the example, and the main focus of the rest of this post, will be the shrinkage methods, as they have the most interesting theory and haven't been explained previously on the blog. Now that we have seen *how* we perform regularisation, this still leaves the question *why* it works. There are two main benefits to regularisation, lower error and better model interpretability. I will explain how each of them work below.
+
+The first reason to use regularisation is to reduce the variance of our model. Often, we do this implicitly by choosing a simple model due to a lack of data. For example, if we had built a neural network and found that the model had too much variance, we could instead build a random forest as a less flexible alternative. Regularisation is used when our model is already as simple as it can be, e.g. a linear regression or LDA in the case of classification, and it *still* has too much variance. We can't get more data, and to remove a level of flexibility from a linear regression would be to predict the average (a constant). Regularization allows us to reduce this error from variance by further restricting the model parameters and thus allowing a model that is even more inflexible than a normal least squares linear regression.
+
+The second reason to use regularisation is to improve the interpretability of the model. A large number of unnecessary variables not only introduces error, but also complicate the model. The benefit of using regularisation to improve model interpretability stems from the idea that there are signal and noise variables and we want to keep the signal variables while removing the noise variables. Regularisation removes predictors that have a spurious relationship to the response variable and leave us with less coefficients to interpret.
+  
+## Example: Do the grades need a regularised model?
+
+```{r, simplevscomplexmodel, eval=FALSE}
+#edit dataset to make it modelling friendly
+house_grades_reg <- house_grades %>%
+  mutate(semester = as.factor(semester),
+         online = ifelse(year>=2020, 1,0),
+         unit_level=as.factor(unit_level),
+         #online_x_harriet = online*ifelse(student=="Harriet",1,0),
+         student=as.factor(student)) %>%
+  select(-c(plot_semester, unitcode, grades, year))
+
+#set variables for the for loop
+m <- 50 #set m here, it is the number of models im going to run
+grade_coefs <- NULL
+train_error1 <- NULL
+test_error1 <- NULL
+train_error2 <- NULL
+test_error2 <- NULL
+train_error3 <- NULL
+test_error3 <- NULL
+
+# build a linear regression model on 50 different samples
+for(i in seq(m)){
+  # set train and test set
+  set.seed(i)
+  trainset <- sample(length(house_grades_reg$student), size=0.75*length(house_grades_reg$student))
+  house_train <- house_grades_reg[trainset,]
+  house_test <- house_grades_reg[-trainset,]
+  
+  #build a linear regression on the training set
+  fit_lm <- lm(formula=mark~. + (student+online+unit_level+department)^2,data=house_train)
+  #grade_coefs <- rbind(grade_coefs, coef(fit_lm))
+  train_error1 <- c(train_error1, mean((house_train$mark - predict(fit_lm))^2))
+  test_error1 <- c(test_error1, mean((house_test$mark - predict(fit_lm, house_test))^2))
+  
+  #compare to a much simpler model
+  fit_lm2 <- lm(formula=mark~student*online, data=house_train)
+  train_error2 <- c(train_error2, mean((house_train$mark - predict(fit_lm2))^2))
+  test_error2 <- c(test_error2, mean((house_test$mark - predict(fit_lm2, house_test))^2))
+  
+  #just calculate the mean
+  train_error3 <- c(train_error3, mean((house_train$mark - mean(house_train$mark))^2))
+  test_error3 <- c(test_error3, mean((house_test$mark - mean(house_train$mark))^2))
+}
+
+#plot error difference 
+error_data <- tibble(error = c(test_error1, test_error2, 
+                               train_error1, train_error2, 
+                               train_error3, test_error3),
+                     model = c(rep("Complex",50), rep("Simple",50), 
+                               rep("Complex",50), rep("Simple",50),
+                               rep("Basic", 100)),
+                     Type = c(rep("Test",100), 
+                            rep("Train",100),
+                            rep("Train", 50), rep("Test", 50))
+                   )
+error_data <- error_data %>%
+  mutate(model = factor(model, levels=c("Basic", "Simple", "Complex")))
+
+plot2 <- ggplot(error_data, aes(x=error, fill=Type, colour=Type)) + 
+  geom_density(alpha=0.5) +
+  geom_rug()+
+  facet_wrap(~model, ncol=1) +
+  theme_xkcd() +
+  theme(text=element_text(family="Harrietshandwriting")) +
+  ylab("Density") + xlab("Error")  +
+  scale_fill_manual(values = c("#d7191c", "#2c7bb6"),
+                      aesthetics = c("fill", "colour")) +
+  ggtitle("Figure 3")
+plot2
+ggsave("plot2.jpg", plot2, width=10, height=8)
+```
+
+```{r, trainvstesterror, eval=FALSE}
+#plot error difference method 2
+testerror <- NULL
+trainerror <- NULL
+
+fit1 <- lm(formula=mark~student,data=house_train)
+testerror <- c(testerror, mean((house_test$mark - predict(fit1, house_test))^2))
+trainerror <- c(trainerror, mean((house_train$mark - predict(fit1))^2))
+
+fit2 <- lm(formula=mark~student+unit_level,data=house_train)
+testerror <- c(testerror, mean((house_test$mark - predict(fit2, house_test))^2))
+trainerror <- c(trainerror, mean((house_train$mark - predict(fit2))^2))
+
+fit3 <- lm(formula=mark~student*online+unit_level,data=house_train)
+testerror <- c(testerror, mean((house_test$mark - predict(fit3, house_test))^2))
+trainerror <- c(trainerror, mean((house_train$mark - predict(fit3))^2))
+
+fit4 <- lm(formula=mark~student+online+unit_level,data=house_train)
+testerror <- c(testerror, mean((house_test$mark - predict(fit4, house_test))^2))
+trainerror <- c(trainerror, mean((house_train$mark - predict(fit4))^2))
+
+fit5 <- lm(formula=mark~.,data=house_train)
+testerror <- c(testerror, mean((house_test$mark - predict(fit5, house_test))^2))
+trainerror <- c(trainerror, mean((house_train$mark - predict(fit5))^2))
+
+fit6 <- lm(formula=mark~. + (student+online)^2,data=house_train)
+testerror <- c(testerror, mean((house_test$mark - predict(fit6, house_test))^2))
+trainerror <- c(trainerror, mean((house_train$mark - predict(fit6))^2))
+
+fit7 <- lm(formula=mark~. + (student+online+unit_level)^2,data=house_train)
+testerror <- c(testerror, mean((house_test$mark - predict(fit7, house_test))^2))
+trainerror <- c(trainerror, mean((house_train$mark - predict(fit7))^2))
+
+fit8 <- lm(formula=mark~. + (student+online+unit_level+department)^2,data=house_train)
+testerror <- c(testerror, mean((house_test$mark - predict(fit8, house_test))^2))
+trainerror <- c(trainerror, mean((house_train$mark - predict(fit8))^2))
+
+error_data <- tibble(error = c(trainerror, testerror),
+                     index = c(1:8, 1:8),
+                     type=c(rep("Train",8), rep("Test", 8)))
+
+#plot the flexibility
+plot3 <- ggplot(error_data, aes(x=index, y=error, colour=type))+
+  geom_point()+
+  geom_line() +
+  theme_xkcd() +
+  theme(text=element_text(family="Harrietshandwriting")) +
+  xlab("Flexibility") + ylab("Error") + labs(colour="Type")+
+  scale_colour_manual(values = c("#d7191c", "#2c7bb6"),
+                    aesthetics = c("colour")) + ggtitle("Figure 2")
+plot3
+ggsave("plot3.jpg", plot3, width=10, height=8)
+```
+
+Technically we don't *need* a reason to run a regularised model, it is just another method we can use to balance the bias and variance trade off, but in cases where there is a very small amount of data it is more useful to do than not. In this example we want to predict the grade of each unit in the up coming semester using several factors, such as student, department, whether the unit was in semester 1 or 2 (I suspect we do worse in semester 2 due to burn out), the level of the unit (most of us should do better in first year units), whether the unit was online, etc. There are also several interaction terms that could be useful, for example an interaction term between the Harriet student dummy and the online semesters would capture the later jump in my grades. There are obviously more interesting (and useful) variables we could include, such as whether we needed to move house during semester, if we went on a holidays during midsemester break, if we were seeing a therapist, etc. These variables would likely produce a better prediction and more easily interpreted coefficients, however I'm going to keep the model simple and leave it as is. Once we have our data set we can immediately see two reasons to use a regularised model over a normal OLS.
+
+First of all, the matrix is full rank, that is, we have variables that are a linear combination of other variables in the data set. For example, Tom and I are the only two students who take maths units (MTH), so with the student other department variables, the MTH variable becomes obsolete. There are several other variables with this issue. I'm not sure which variables are better to keep (department or student) and this issue will likely get worse as I add interaction terms. 
+
+Second of all, with such a small data set, any model with more than a handful of predictors will have a large amount of variance. Figure 2, below, shows the test and training error of a simple linear model that's flexibility has been increased (somewhat arbitrarily) with the addition of new predictors. In this plot, a 0 in flexibility indicates a model that predicts the mean, while an 8 indicates a model that contains all the predictors in the data set as well as every every interaction term. This plot only shows the change in mean squared error (MSE) over a single sample of the data. To see the MSE of the model over several samples (and properly assess the variance of each model) we should do some resampling.
+  
+![*The trainning and test error compared with model complexity.*](plot3.jpg)
+  
+Figure 3 shows the density of the test and training error of 50 samples of:
+  
+- a basic linear model which predicts the mean of the training set for all test observations
+  
+- a simple linear model which is an OLS model with only a handful of predictors I selected
+  
+- a complex linear model which is an OLS model with every predictor and their interaction terms.
+  
+This gives us a cross validated version of Figure 2, and confirms what the previous plot indicated. First of all, it shows, a basic model has slightly too much bias because the training and test error are, on average, higher than the error of the simple model. It also shows that the complex model has over fit the data, given its consistently low training error and high unpredictable test error. We need a model that is somewhere between the complex "every variable" model and a constant. To find this model, we will use regularisation, specifically a shrinkage method.
+ 
+![*Density plots of the training and test error of three linear models that differ in flexibility.*](plot2.jpg)
+
+## Shrinkage Methods
+The most common regularisation methods are ridge and lasso regressions. Lasso and Ridge follow the same general idea, which is to put additional restrictions on the coefficients of a linear regression, they only slightly differ on how they go about it. Lasso, will minimise $RSS + \lambda\sum_{j=1}^{p}|\beta_j|$, and ridge will minimiser $RSS + \lambda\sum_{j=1}^{p}\beta_j^2$. The turning parameter $\lambda$ decides how much the penalty term influences the final coefficient values. A large value of $\lambda$ means the penalty term outweighs the RSS and coefficients are estimated at 0, a small value of $\lambda$ means the penalty will not be factored in at all and the model will return the OLS coefficient estimates. Figure 4 shows a contour plot of the lasso penalty, RSS function, and lasso error term for a two variable model. The animation shows the contours of the lasso regression look more like the contour plot of the penalty term as $\lambda$ increases. In turn we can see the minimum value of the error function (and thus the estimated coefficients) moves from the OLS estimates (the minimum of the RSS) to 0 (the minimum of the penalty).
+
+```{r, eval=FALSE}
+#Make RSS data
+rss_sim <- expand.grid(b1 = rep(seq(-2,2,0.1),12), b2 = rep(seq(-2,2,0.1),12))
+rss_sim$lambda <- c(0.1, 0.2, 0.5, 1, 2, 3, 5, 10, 20, 35, 50, 100)
+rss_sim = unique(rss_sim) # terrible method, dont know how else
+rss_sim <- rss_sim %>%
+  mutate(RSS= (b1-2)^2+(2*b2+5)^2-1,
+         Penalty = lambda*(abs(b1)+abs(b2)),
+         lassoRSS = (b1-2)^2+(2*b2+5)^2-1 + lambda*(abs(b1)+abs(b2)))
+
+
+# Just rss and Penalty for contour plots
+contour_data <- rss_sim %>% 
+  select(-lassoRSS) %>% 
+  pivot_longer(cols=c(RSS, Penalty), names_to="Type", values_to="Error" ) %>%
+  filter(lambda==20)
+
+static_min <- contour_data %>%
+  group_by(Type) %>%
+  filter(Error == min(Error))%>%
+  ungroup()
+
+
+# make contour plots
+contourplot <- ggplot(contour_data, aes(x=b1, y=b2, z=Error, colour= Type)) +
+  geom_contour() +
+  geom_point(data = static_min, shape=4, colour="black", size=4) +
+  geom_text(data = static_min, label="Minimum", nudge_y = 0.1, nudge_x = -0.3,  colour="black",
+            family="Harrietshandwriting", size=6) +
+  facet_wrap(~Type) +
+  theme_xkcd() +
+  scale_colour_manual(values = c("#d7191c", "#2c7bb6")) +
+  theme(text=element_text(family="Harrietshandwriting"),
+        aspect.ratio = 1,legend.position = "none") +
+  xlab("Beta 1") + ylab("Beta 2") + ggtitle("Figure 4")
+contourplot
+ggsave("contourplot.jpg", contourplot, width=12, height=8) 
+```
+
+```{r, animateplot, eval=FALSE}
+#minimum for x on animated plot
+lambda_min <- rss_sim %>%
+  group_by(lambda) %>%
+  filter(lassoRSS == min(lassoRSS), Penalty!=1.85)%>%
+  ungroup()
+
+#colour for animated plot
+paletteblend <- tibble(
+  lambda = c(0.1, 0.2, 0.5, 1, 2, 3, 5, 10, 20, 35, 50, 100),
+  ocol = rev(c("#D7191C", "#C7222A", "#B82B38", "#A83446","#993D54", 
+           "#894662", "#7A4E70", "#6A577E", "#5B608C", "#4B699A", 
+           "#3C72A8","#2C7BB6")))
+
+#set animation settings
+ani.options(interval=1, ani.width=800, ani.heigh=800)
+
+#inside for loop
+saveGIF({
+  for(i in c(0.1, 0.2, 0.5, 1, 2, 3, 5, 10, 20, 35, 50, 100)){
+    #filter data
+    anim_data1 <- rss_sim %>% filter(lambda==i)
+    anim_data2 <- lambda_min %>% filter(lambda==i)
+    anim_data3 <- paletteblend %>% filter(lambda==i)
+    
+    #build animation frame
+    p <- ggplot(anim_data1, aes(x=b1, y=b2)) +
+      geom_contour(aes(z=lassoRSS), colour=anim_data3$ocol) +
+      theme_xkcd() +
+      theme(text=element_text(family="Harrietshandwriting"),
+            aspect.ratio = 1) +
+      labs(title = "Penalised RSS", x="Beta 1", y="Beta 2") +
+      geom_point(data = anim_data2, shape=4, colour="black") +
+      geom_text(data = anim_data2, label="Minimum", nudge_y = 0.1, nudge_x = -0.3,  colour="black",
+                family="Harrietshandwriting", size=6) +
+      geom_text(data=anim_data2, x=1.5, y=1.8, colour="black", family="Harrietshandwriting",
+                size=6, aes(label=paste0("Lambda = ", lambda)))
+    print(p)
+    } #close for loop
+}, movie.name = "lasso_animation.gif") #close animation building
+```
+  
+![](contourplot.jpg)
+![](lasso_animation.gif)
+
+What may not be clear from this animation, but does simplify our ability to visualise how this adjusted error works, is that for every value of $\lambda$ there is some value of $s$ such that we are minimising the RSS subject to the constraint  $\sum_{j=1}^{p}|\beta_j| \leq s$ in the case of lasso and $\sum_{j=1}^{p}\beta_j^2 \leq s$ in the case of ridge. This means that instead of trying to think about a complicated constantly changing error function, we picture our restraints as shown in the illustration below. Here I have drawn a contour plot of a hypothetical RSS for a two variable model. The plot on the left has the ridge regression constraints drawn over it, while the plot on the right has the lasso constraint.  The size of the circle/diamond is related to the tuning parameter $\lambda$. When $\lambda=0$ the area of the circle/diamond is infinite, and when $\lambda \rightarrow \infty$ the circle/diamond becomes so constrained it forces every coefficient to 0. This allows us to see how the constraint impacts the selected coefficient estimates.
+
+![*An illustration of the difference between the ridge and laso regression constraints*](ridgevslassodraw.PNG)
+
+Something that is important to note is that lasso regression is more likely to set coefficients to 0 (and thus more likely perform feature selection) than ridge due to the diamond shape of the constraint. The minimum RSS value in figure 4 showed this in practice, as the minimum coefficient estimate quickly set $\beta_1$ to 0 before further restricting $\beta_2$. Most commonly we will visualise the way the coefficients change as $\lambda$ increases with a plot of the coefficient vs $\lambda$ values, as drawn below.
+  
+![*An illustration of how the coefficients change as lambda increases.*](increasinglambda.PNG)
+
+There is one final question we need to answer before we move on. How do we decide whether to use ridge or lasso regression? Well, if you think all the variables are relevant, use ridge regression, if you suspect some variables to just be noise, use lasso. Now, with an understanding of how shrinkage methods work, we can go back to our example.  
+
+## Predicting the Grade
+Lets apply this theory to our grades model to see if we can improve our predictions. Some of the variables are linear combinations of others, so there is absolutely no need to keep all the predictors. This means we should opt for lasso over ridge regression, although this does have one downfall. This example has a large number of interaction terms, and when we include interaction terms, we typically need to maintain a hierarchy so our variables are interpretable, e.g. we need to keep the Harriet and the Online dummy variables in the model if we want to include the Harriet:Online interaction term. Ridge and lasso regression do not follow this hierarchy when they shrink variables. Usually this would make predictability worse, however since every single predictor in this data set is a dummy variable, it isn't going to cause (too) much of an issue. The main problem will be having almost no idea what the base line model is. From this point forward we will mostly focus on the improvements in test error, and continue with the lasso regression. 
+
+To find our lasso model, we need a $\lambda$ value. The best way to find this value is with cross validation, and thankfully the `glmnet` package does this for us. Figure 5, below, shows the mean test MSE and 95% confidence interval of the lasso regression for several values of $\lambda$. The vertical dotted line indicates the $\lambda$ value that minimises the model error.
+
+```{r crosslambda, eval=FALSE}
+# set up data according to glmnet method
+set.seed(1)
+tr_indx <- createDataPartition(house_grades$student, p=2/3)$Resample1
+x <- model.matrix(mark~.+ (student+online+unit_level+department)^2, house_grades_reg)[,-1]
+y <- house_grades_reg$mark
+
+# cross validated fit
+cvfit <- cv.glmnet(x[tr_indx,], y[tr_indx], alpha=1)
+lam <- cvfit$lambda.min
+
+# make into data frame
+cv_df <- tibble(lambda=cvfit$lambda, 
+                mse=cvfit$cvm,
+                mse_l=cvfit$cvlo, 
+                mse_h=cvfit$cvup)
+
+#ggpmot
+plot4 <- ggplot(cv_df, aes(x=lambda, y=mse, colour=mse)) + 
+  scale_colour_gradient(low="#313695", high = "#abd9e9") + 
+  scale_x_log10() +
+  geom_point()+
+  geom_linerange(aes(ymin=mse_l, ymax=mse_h))+
+  theme_xkcd() +
+  xlab("Lambda (Log Scale)") + ylab("MSE") +
+  geom_vline(xintercept=lam, linetype=2) +
+  geom_label(x=-0.5, y=100, label="Best Model", colour="black", family="Harrietshandwriting")+
+  theme(text=element_text(family="Harrietshandwriting"),
+        legend.position="none") +
+  ggtitle("Figure 5")
+plot4
+ggsave("plot4.jpg", plot4, width=10, height=8)
+```
+
+![*Selecting our lambda value with the glmnet package's cross validation method.*](plot4.jpg)
+
+We can also visualise how our coefficients change as  $\lambda$ increases. Figure 6 shows the change in the model coefficients as we allow $\lambda$ to approach 0 (or our L1 Norm to get infinitely large as shown on the x axis). The dashed line indicates the model associated with the $\lambda$ value found from cross validation. This allows us to better understand how some coefficients interact with each other. For example the Harriet:online interaction is the largest coefficient in every model, regardless of the $\lambda$ value, which indicates it is a consistently useful variable.
+
+```{r, eval=FALSE}
+# normal lasso fit
+fit_lasso <- glmnet(x[tr_indx,], y[tr_indx], alpha=1)
+
+# make into data frame from 
+
+# https://stackoverflow.com/questions/48978179/r-plotting-lasso-beta-coefficients
+
+beta=coef(fit_lasso)
+tmp <- as.data.frame(as.matrix(beta))
+tmp$coef <- row.names(tmp)
+tmp <- reshape::melt(tmp, id = "coef")
+tmp$variable <- as.numeric(gsub("s", "", tmp$variable))
+tmp$lambda <- fit_lasso$lambda[tmp$variable+1] # extract the lambda values
+tmp$norm <- apply(abs(beta[-1,]), 2, sum)[tmp$variable+1] # compute L1 norm
+
+#show final model in neat table
+lasso_mod <- as.data.frame(as.matrix(coef(cvfit, s = "lambda.min"))) 
+lasso_mod$Variable <- rownames(lasso_mod)
+colnames(lasso_mod)[1] <- "Coefficient"
+rownames(lasso_mod) <- NULL
+#get rid of 0 values
+lasso_mod <- lasso_mod %>%
+  filter(abs(Coefficient) >0)
+
+#l1 norm value
+l1norm <- tmp$norm[which(tmp$lambda==lam)[1]]
+
+#data to show text on plot
+text_data <- tmp[tmp$coef != "(Intercept)",] %>%
+  filter(lambda ==min(lambda), abs(value)>0) %>%
+  select(c(norm, coef, value))
+rownames(text_data)= NULL
+
+#increase max colours
+#colourCount = length(unique(tmp[tmp$coef != "(Intercept)",]$coef))
+#getPalette = colorRampPalette(brewer.pal(12, "Paired"))
+
+#ggplot it
+plot6 <- ggplot(tmp[tmp$coef != "(Intercept)",], aes(norm, value, color = coef, label=coef)) +
+  geom_line() +
+  #scale_colour_manual(values = getPalette(colourCount))+
+  geom_vline(xintercept=l1norm, linetype=2)+
+  theme_xkcd() +
+  theme(text=element_text(family="Harrietshandwriting"),
+        legend.position="none")+
+  xlab("L1 Norm (or s)") +
+  ylab("Coefficient Value") +
+  geom_text(data = text_data, check_overlap = TRUE, family="Harrietshandwriting", size=3, hjust="left") +
+  geom_label(x=l1norm, y=-15, label="Best Model", colour="black", , family="Harrietshandwriting") +
+  expand_limits(x=270) + ggtitle("Figure 6")
+plot6
+
+#save plot
+ggsave("plot6.jpg", plot6, width=10, height=8)
+# save data
+colnames(text_data)= c("Variable", "Coefficient")
+saveRDS(text_data, "regularisation/textdata.rds")
+
+```
+
+![*This plot shows the impact on our variables of a decreasing lambda (and thus increasing L1 norm).*](plot6.jpg)
+
+The model that contains every variables as well as every student, unit level, department and online interaction term has 54 variables, the regularised model has only 20 variables, so there has been some serious culling. Figure 7 shows the predictors that made it into the final model. Since the baseline model (the one that we compare each dummy variable to) is now a mess, these coefficients are almost impossible to interpret.
+
+```{r, coeftable, eval=FALSE}
+#textdata <- readRDS("textdata.rds")
+
+#levels
+levs = textdata$Variable[order(textdata$Coefficient, decreasing = FALSE)]
+#edit data
+textdata <- textdata %>%
+  mutate(Variable = factor(Variable, levels = levs),
+         coef_text = ifelse(Coefficient>0, Coefficient + 0.6, Coefficient - 0.6)) %>%
+   mutate(across(where(is.numeric), round, 2))
+
+# plot
+plot7 <- ggplot(textdata, aes(x=Coefficient, y=Variable)) + 
+  geom_bar(stat="identity", fill="#2c7bb6", colour="black") +
+  theme_xkcd() +
+  theme(text=element_text(family="Harrietshandwriting"),
+        axis.title.y = element_blank()) +
+  ggtitle("Figure 7") +
+  geom_text(aes(label = Coefficient, x=coef_text), family="Harrietshandwriting", size=3) 
+plot7
+ggsave("plot7.jpg", plot7, width=10, height=8)
+```
+
+![*The lasso model coefficients.*](plot7.jpg)
+
+Finally, we can compare the lasso model to the basic, simple, and complex models from figure 3. Figure 8 compares the cross validated RMSE of the three old models and the new lasso model. We can see that the simple model (that was just the student and online variables as well as all their interaction terms) may slightly outperform the lasso model, however there is so much overlap in the confidence intervals it is hard to say. In this example, the lasso model did not select variables that were better than my general intuition. Lasso can help you regularise to some degree, but even regularisation techniques can be given too many predictors to choose from, and it seems my intuition was enough to beat it this time.
+
+```{r, eval=FALSE}
+#compare RMSE of other models
+m <- 100 #set m here, it is the number of models im going to run
+mean_rmse <- NULL
+lasso_rmse <- NULL
+simple_rmse <- NULL
+lm_rmse <- NULL
+
+# build a linear regression model on 50 different samples
+for(i in seq(m)){
+  #set seed and test/training set
+  set.seed(i)
+  tr_indx <- createDataPartition(house_grades$department, p=2/3)$Resample1
+  
+  #mean rmse
+  mean_error <- y[-tr_indx] - mean(house_grades_reg[tr_indx,]$mark)
+  mean_rmse <- c(mean_rmse, sqrt(mean(mean_error^2)))
+  
+  #lasso RMSE
+  fit_lasso <- glmnet(x[tr_indx,], y[tr_indx], alpha=1)
+  cvfit <- cv.glmnet(x[tr_indx,], y[tr_indx], alpha=1)
+  lambda <- cvfit$lambda.min
+  lasso_error <- y[-tr_indx] - predict(fit_lasso, newx = x[-tr_indx,], s =lambda)
+  lasso_rmse <- c(lasso_rmse, sqrt(mean(lasso_error^2)))
+  
+  #compare to a much simpler model
+  fit_simple <- lm(formula=mark~student*online, data=house_grades_reg[tr_indx,])
+  simple_error <- y[-tr_indx] - predict(fit_simple, house_grades_reg[-tr_indx,])
+  simple_rmse <- c(simple_rmse,sqrt(mean(simple_error^2)))
+  
+  #lm RMSE
+  lm_fit <- lm(formula=mark~. + (student+online+unit_level+department)^2,
+            data=house_grades_reg[tr_indx,])
+  lm_error <- y[-tr_indx] - predict(lm_fit, house_grades_reg[-tr_indx,])
+  lm_rmse <- c(lm_rmse,sqrt(mean(lm_error^2)))
+}
+
+#sort(lm_rmse)[floor(0.05*length(lm_rmse))]
+
+#plot RSME distributions
+RMSE_data <- tibble(mean = c(mean(lm_rmse),
+                             mean(lasso_rmse),
+                             mean(simple_rmse),
+                             mean(mean_rmse)),
+                    #lower bound
+                    low = c(sort(lm_rmse)[5],
+                            sort(lasso_rmse)[5],
+                            sort(simple_rmse)[5],
+                            sort(mean_rmse)[5]),
+                    # upper bound
+                    high = c(sort(lm_rmse)[95],
+                            sort(lasso_rmse)[95],
+                            sort(simple_rmse)[95],
+                            sort(mean_rmse)[95]),
+                    model = c("OLS","Lasso","Simple", "Mean")) %>%
+  mutate(model = factor(model, levels =  c("Mean","Simple","Lasso", "OLS")))
+
+plot8 <- ggplot(RMSE_data, aes(x=model, colour=model)) + 
+  geom_linerange(aes(ymin=low, ymax=high), alpha=0.3, size=3) +
+  geom_point(aes(y=mean)) +
+  theme_xkcd() +
+  theme(text=element_text(family="Harrietshandwriting"), legend.posit="none") +
+  ggtitle("Figure 8") + 
+  scale_colour_brewer(palette = "RdYlBu") +
+  labs(x="Model", y="RMSE")
+plot8
+ggsave("plot8.jpg", plot8, width=10, height=8)
+```
+  
+![*The RSME of the final lasso model when compared to the previous models over several resamples.*](plot8.jpg)
+  
+## Conclusion
+Regularisation can be used to reduce the variance and improve the interpretability of our model, but human intuition can still outperform it if we know enough about our data. That being said the models for our grade predictions turned out to be useless. Results for this semester have been released and Tom was 32 off, while the simple model was 55 off. Really, the lesson here is that no model, no matter how fine tuned, can predict a response variable that has an inexplicably high variance.
+
+```{r, include=FALSE, eval=FALSE}
+library(spelling)
+rmd <- "regularisation/regularisation.rmd"
+ignore <- readLines("regularisation/WORDLIST")
+check_spelling <- spell_check_files(
+  rmd,
+  ignore = ignore,
+  lang = "en_GB"
+)
+if (nrow(check_spelling) > 0) {
+  print(check_spelling)
+  stop("Check spelling in Rmd files!")
+}
+```
