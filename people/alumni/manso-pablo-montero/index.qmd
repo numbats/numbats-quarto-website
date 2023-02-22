@@ -2,10 +2,10 @@
 authors:
 - manso-pablo-montero
 email: Pablo.MonteroManso@monash.edu
-name: Pablo Montero Manso
+title: Pablo Montero Manso
 organizations:
 - name: Monash University
-role: Post Doctoral Researcher (Statistics)
+description: Post Doctoral Researcher (Statistics)
 social:
 - icon: envelope
   icon_pack: fas

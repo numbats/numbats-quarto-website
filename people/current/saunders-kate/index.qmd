@@ -2,10 +2,10 @@
 authors:
 - saunders-kate
 email: kate.saunders@monash.edu
-name: Kate Saunders
+title: Kate Saunders
 organizations:
 - name: Monash University
-role: Lecturer in Statistics
+description: Lecturer in Statistics
 social:
 - icon: twitter
   icon_pack: fab
@@ -17,8 +17,8 @@ social:
   icon_pack: fas
   link: "mailto:kate.saunders@monash.edu"
 interests:
-- extreme value theory 
-- climate and weather extremes 
+- extreme value theory
+- climate and weather extremes
 - statistical post-processing
 - data science
 user_groups:

@@ -2,10 +2,10 @@
 authors:
 - ohara-wild-mitch
 email: mail@mitchelloharawild.com
-name: Mitch O'Hara-Wild
+title: Mitch O'Hara-Wild
 organizations:
 - name: Monash University
-role: Research Assistant
+description: Research Assistant
 social:
 - icon: link
   icon_pack: fas

@@ -2,10 +2,10 @@
 authors:
 - zhang-sherry
 email: Huize.Zhang@monash.edu
-name: Sherry Zhang
+title: Sherry Zhang
 organizations:
 - name: Monash University
-role: PhD (Statistics)
+description: PhD (Statistics)
 social:
 - icon: link
   icon_pack: fas

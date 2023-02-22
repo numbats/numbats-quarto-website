@@ -2,10 +2,10 @@
 authors:
 - laa-ursula
 email: ursula.laa@boku.ac.at
-name: Ursula Laa
+title: Ursula Laa
 organizations:
-- name: University of Natural Resources and Life Sciences (BOKU) 
-role: Lecturer (Statistics)
+- name: University of Natural Resources and Life Sciences (BOKU)
+description: Lecturer (Statistics)
 social:
 - icon: link
   icon_pack: fas

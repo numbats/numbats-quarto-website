@@ -2,10 +2,10 @@
 authors:
 - martin-gael
 email: Gael.Martin@monash.edu
-name: Gael Martin
+title: Gael Martin
 organizations:
 - name: Monash University
-role: Professor of Econometrics
+description: Professor of Econometrics
 social:
 - icon: link
   icon_pack: fas

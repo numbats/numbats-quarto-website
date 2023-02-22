@@ -1,11 +1,7 @@
 ---
-authors:
-- forbes-catherine
 email: Catherine.Forbes@monash.edu
-name: Catherine Forbes
-organizations:
-- name: Monash University
-role: Associate Professor
+title: Catherine Forbes
+description: Associate Professor
 social:
 - icon: link
   icon_pack: fas

@@ -4,18 +4,18 @@ listing:
   - id: current
     contents:
       - "current/"
-    sort: name
     type: grid
+    sort: title
     image-height: 225px
     grid-columns: 3
     page-size: 999
-    fields: [name, role, email, interests, image]
+    fields: [title, description, name, role, email, interests, image]
     field-display-names:
       name: " "
       role: " "
       email: "<i class='fa-regular fa-envelope'></i>"
       interests: "Interests:"
-    grid-item-align: center
+    grid-item-align: left
   - id: visitor
     contents:
       - "visitors/"

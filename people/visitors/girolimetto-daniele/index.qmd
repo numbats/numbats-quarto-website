@@ -2,10 +2,10 @@
 authors:
 - girolimetto-daniele
 email: daniele.girolimetto@phd.unipd.it
-name: Daniele Girolimetto
+title: Daniele Girolimetto
 organizations:
 - name: University of Padova
-role: Doctoral student
+description: Doctoral student
 social:
 - icon: github
   icon_pack: fab
@@ -14,9 +14,9 @@ social:
   icon_pack: fas
   link: "mailto:daniele.girolimetto@phd.unipd.it"
 interests:
-- forecasting 
+- forecasting
 - time series
-- statistical computing 
+- statistical computing
 user_groups:
 - Visitors
 image: avatar.png

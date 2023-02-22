@@ -2,10 +2,10 @@
 authors:
 - panagiotelis-anastasios
 email: Anastasios.Panagiotelis@monash.edu
-name: Anastasios Panagiotelis
+title: Anastasios Panagiotelis
 organizations:
 - name: Monash University
-role: Associate Professor
+description: Associate Professor
 social:
 - icon: envelope
   icon_pack: fas

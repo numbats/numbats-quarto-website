@@ -2,10 +2,10 @@
 authors:
 - wang-earo
 email: earo.wang@auckland.ac.nz
-name: Earo Wang
+title: Earo Wang
 organizations:
 - name: University of Auckland
-role: Lecturer in Statistics
+description: Lecturer in Statistics
 social:
 - icon: link
   icon_pack: fas

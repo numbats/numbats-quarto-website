@@ -2,10 +2,10 @@
 authors:
 - lydeamore-michael
 email: michael.lydeamore@monash.edu
-name: Michael Lydeamore
+title: Michael Lydeamore
 organizations:
 - name: Monash University
-role: Lecturer in Statistics
+description: Lecturer in Statistics
 social:
 - icon: link
   icon_pack: fas
@@ -20,7 +20,7 @@ social:
   icon_pack: fas
   link: "mailto:michael.lydeamore@monash.edu"
 interests:
-- computational statistics 
+- computational statistics
 - infectious diseases modelling and epidemiology
 - data science
 user_groups:

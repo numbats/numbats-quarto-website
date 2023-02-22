@@ -2,10 +2,10 @@
 authors:
 - tierney-nick
 email: Nicholas.Tierney@monash.edu
-name: Nick Tierney
+title: Nick Tierney
 organizations:
 - name: Telethon Kids Institute
-role: Research Software Engineer
+description: Research Software Engineer
 social:
 - icon: link
   icon_pack: fas

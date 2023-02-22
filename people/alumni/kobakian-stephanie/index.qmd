@@ -2,10 +2,10 @@
 authors:
 - kobakian-stephanie
 email: stephanie.kobakian@monash.edu
-name: Stephanie Kobakian
+title: Stephanie Kobakian
 organizations:
 - name: PWC
-role: Data scientist
+description: Data scientist
 social:
 - icon: twitter
   icon_pack: fab

@@ -2,10 +2,10 @@
 authors:
 - talagala-thiyanga
 email: ttalagala@sjp.ac.lk
-name: Thiyanga Talagala
+title: Thiyanga Talagala
 organizations:
 - name: University of Sri Jayewardenepura
-role: Lecturer in Statistics
+description: Lecturer in Statistics
 social:
 - icon: link
   icon_pack: fas

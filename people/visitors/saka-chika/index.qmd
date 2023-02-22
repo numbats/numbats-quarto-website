@@ -2,10 +2,10 @@
 authors:
 - saka-chika
 email: chika@kwansei.ac.jp
-name: Chika Saka
+title: Chika Saka
 organizations:
 - name: Kwansei Gakuin University
-role: Professor
+description: Professor
 social:
 - icon: github
   icon_pack: fab
@@ -14,8 +14,8 @@ social:
   icon_pack: fas
   link: "mailto:chika@kwansei.ac.jp"
 interests:
-- accounting 
-- exploratory data analysis 
+- accounting
+- exploratory data analysis
 user_groups:
 - Visitors
 image: avatar.png

@@ -2,10 +2,10 @@
 authors:
 - lee-stuart
 email: stuart.a.lee@monash.edu
-name: Stuart Lee
+title: Stuart Lee
 organizations:
 - name: Monash University
-role: Postdoctoral Researcher (Statistics)
+description: Postdoctoral Researcher (Statistics)
 social:
 - icon: link
   icon_pack: fas

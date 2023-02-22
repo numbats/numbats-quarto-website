@@ -2,10 +2,10 @@
 authors:
 - fui-swen-kuh
 email: swen.kuh@monash.edu
-name: Swen Kuh
+title: Swen Kuh
 organizations:
 - name: Monash University
-role: Postdoctoral Researcher
+description: Postdoctoral Researcher
 social:
 - icon: twitter
   icon_pack: fab
@@ -19,7 +19,7 @@ social:
 interests:
 - Social science
 - Hierarchical modelling
-- Bayesian inference 
+- Bayesian inference
 user_groups:
 - Current
 image: avatar.png

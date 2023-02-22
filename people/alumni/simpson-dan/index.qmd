@@ -2,10 +2,10 @@
 authors:
 - simpson-dan
 email: dan.simpson@monash.edu
-name: Dan Simpson
+title: Dan Simpson
 organizations:
 - name: Monash University
-role: Professor of Analytics Engagement
+description: Professor of Analytics Engagement
 social:
 - icon: link
   icon_pack: fas

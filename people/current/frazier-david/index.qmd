@@ -2,10 +2,10 @@
 authors:
 - frazier-david
 email: david.frazier@monash.edu
-name: David Frazier
+title: David Frazier
 organizations:
 - name: Monash University
-role: Associate Professor and ARC DECRA Fellow
+description: Associate Professor and ARC DECRA Fellow
 social:
 - icon: link
   icon_pack: fas
@@ -21,7 +21,7 @@ social:
   link: "mailto:david.frazier@monash.edu"
 interests:
  - simulation-based inference
- - Bayesian computation 
+ - Bayesian computation
 user_groups:
 - Faculty
 - Current

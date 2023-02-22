@@ -2,10 +2,10 @@
 authors:
 - abolghasemi-mahdi
 email: Mahdi.Abolghasemi@monash.edu
-name: Mahdi Abolghasemi
+title: Mahdi Abolghasemi
 organizations:
 - name: Monash University
-role: Post Doctoral Researcher (Data Science)
+description: Post Doctoral Researcher (Data Science)
 social:
 - icon: github
   icon_pack: fab

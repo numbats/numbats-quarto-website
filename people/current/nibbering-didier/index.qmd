@@ -2,10 +2,10 @@
 authors:
 - nibbering-didier
 email: Didier.Nibbering@monash.edu
-name: Didier Nibbering
+title: Didier Nibbering
 organizations:
 - name: Monash University
-role: Senior Lecturer in Econometrics
+description: Senior Lecturer in Econometrics
 social:
 - icon: envelope
   icon_pack: fas

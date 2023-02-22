@@ -2,10 +2,10 @@
 authors:
 - mason-harriet
 email: harriet.mason1@monash.edu
-name: Harriet Mason
+title: Harriet Mason
 organizations:
 - name: Monash University
-role: PhD (Statistics)
+description: PhD (Statistics)
 social:
 - icon: twitter
   icon_pack: fab

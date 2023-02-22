@@ -2,10 +2,10 @@
 authors:
 - spyrison-nicholas
 email: spyrison@gmail.com
-name: Nicholas Spyrison
+title: Nicholas Spyrison
 organizations:
 - name: Monash University
-role: PhD (Information Technology)
+description: PhD (Information Technology)
 social:
 - icon: link
   icon_pack: fas

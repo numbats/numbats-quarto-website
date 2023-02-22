@@ -2,10 +2,10 @@
 authors:
 - talagala-priyanga-dilini
 email: NA
-name: Priyanga Dilini Talagala
+title: Priyanga Dilini Talagala
 organizations:
 - name: University of Moratuwa
-role: Lecturer in Statistics
+description: Lecturer in Statistics
 social:
 - icon: link
   icon_pack: fas

@@ -2,10 +2,10 @@
 authors:
 - hyndman-rob-j
 email: Rob.Hyndman@monash.edu
-name: Rob J Hyndman
+title: Rob J Hyndman
 organizations:
 - name: Monash University
-role: Professor of Statistics
+description: Professor of Statistics
 social:
 - icon: link
   icon_pack: fas

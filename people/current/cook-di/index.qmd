@@ -2,10 +2,10 @@
 authors:
 - cook-di
 email: DiCook@monash.edu
-name: Di Cook
+title: Di Cook
 organizations:
 - name: Monash University
-role: Professor of Statistics
+description: Professor of Statistics
 social:
 - icon: link
   icon_pack: fas

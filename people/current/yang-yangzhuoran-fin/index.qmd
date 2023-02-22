@@ -2,10 +2,10 @@
 authors:
 - yang-yangzhuoran-fin
 email: Fin.Yang@monash.edu
-name: Yangzhuoran Fin Yang
+title: Yangzhuoran Fin Yang
 organizations:
 - name: Monash University
-role: PhD (Statistics)
+description: PhD (Statistics)
 social:
 - icon: link
   icon_pack: fas
@@ -18,7 +18,7 @@ social:
   link: https://github.com/FinYang
 - icon: google-scholar
   icon_pack: ai
-  link: https://scholar.google.com/citations?user=keAhMnIAAAAJ  
+  link: https://scholar.google.com/citations?user=keAhMnIAAAAJ
 - icon: envelope
   icon_pack: fas
   link: "mailto:Fin.Yang@monash.edu"

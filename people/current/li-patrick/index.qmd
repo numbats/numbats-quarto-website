@@ -2,10 +2,10 @@
 authors:
 - li-patrick
 email: Patrick.Li@monash.edu
-name: Patrick Li
+title: Patrick Li
 organizations:
 - name: Monash University
-role: PhD (Statistics)
+description: PhD (Statistics)
 social:
 - icon: twitter
   icon_pack: fab
@@ -17,8 +17,8 @@ social:
   icon_pack: fas
   link: "mailto:Patrick.Li@monash.edu"
 interests:
-- machine learning 
-- computer vision 
+- machine learning
+- computer vision
 - data visualisation
 user_groups:
 - PhD Student

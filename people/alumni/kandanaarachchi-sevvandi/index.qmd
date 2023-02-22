@@ -2,10 +2,10 @@
 authors:
 - kandanaarachchi-sevvandi
 email: sevvandi.kandanaarachchi@rmit.edu.au
-name: Sevvandi Kandanaarachchi
+title: Sevvandi Kandanaarachchi
 organizations:
 - name: RMIT
-role: Lecturer in Statistics
+description: Lecturer in Statistics
 social:
 - icon: link
   icon_pack: fas

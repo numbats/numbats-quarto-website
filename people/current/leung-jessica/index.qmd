@@ -2,10 +2,10 @@
 authors:
 - leung-jessica
 email: jessica.leung@monash.edu
-name: Jessica Leung
+title: Jessica Leung
 organizations:
 - name: Monash University
-role: Lecturer in Business Analytics
+description: Lecturer in Business Analytics
 social:
 - icon: link
   icon_pack: fas
@@ -20,7 +20,7 @@ social:
   icon_pack: fas
   link: "mailto:jessica.leung@monash.edu"
 interests:
-- optimisation 
+- optimisation
 - operations research
 - management science
 - visualisation

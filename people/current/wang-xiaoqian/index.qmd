@@ -2,10 +2,10 @@
 authors:
 - wang-xiaoqian
 email: Xiaoqian.Wang@monash.edu
-name: Xiaoqian Wang
+title: Xiaoqian Wang
 organizations:
 - name: Monash University
-role: Postdoctoral Researcher in Statistics
+description: Postdoctoral Researcher in Statistics
 social:
 - icon: link
   icon_pack: fas

@@ -2,10 +2,10 @@
 authors:
 - gupta-sayani
 email: Sayani.Gupta@monash.edu
-name: Sayani Gupta
+title: Sayani Gupta
 organizations:
 - name: Monash University
-role: PhD (Statistics)
+description: PhD (Statistics)
 social:
 - icon: link
   icon_pack: fas

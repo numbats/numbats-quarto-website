@@ -2,10 +2,10 @@
 authors:
 - kennedy-lauren
 email: lauren.kennedy@monash.edu
-name: Lauren Kennedy
+title: Lauren Kennedy
 organizations:
 - name: Monash University
-role: Lecturer in Statistics
+description: Lecturer in Statistics
 social:
 - icon: link
   icon_pack: fas

@@ -2,10 +2,10 @@
 authors:
 - cheng-fan
 email: Fan.Cheng@monash.edu
-name: Fan Cheng
+title: Fan Cheng
 organizations:
 - name: Monash University
-role: PhD (Statistics)
+description: PhD (Statistics)
 social:
 - icon: link
   icon_pack: fas
