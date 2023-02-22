@@ -1,29 +1,33 @@
 ---
-title: People
+title: Non-Uniform Monash Business Analytics Team
 listing:
   - id: current
     contents:
       - "current/"
     sort: name
-    type: grid 
+    type: grid
     image-height: 225px
     grid-columns: 3
-    fields: [name, role, interests, email, image]
+    page-size: 999
+    fields: [name, role, email, interests, image]
     field-display-names:
       name: " "
+      role: " "
+      email: "<i class='fa-regular fa-envelope'></i>"
+      interests: "Interests:"
     grid-item-align: center
-  - id: visitor 
+  - id: visitor
     contents:
-      - "visitor/"
-    type: grid 
+      - "visitors/"
+    type: grid
     image-height: 150px
     grid-columns: 4
     fields: [name, role, interests, email, image]
     grid-item-align: center
-  - id: alumni 
+  - id: alumni
     contents:
       - "alumni/"
-    type: table 
+    type: table
     image-height: 100px
     fields: [image, name, role, interests]
     grid-item-align: center

@@ -9,5 +9,4 @@ role: Data Scientist
 social:
 user_groups:
 - Alumni
-image: avatar.jpg
 ---
