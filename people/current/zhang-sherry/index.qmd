@@ -1,24 +1,10 @@
 ---
-authors:
-- zhang-sherry
 email: Huize.Zhang@monash.edu
 title: Sherry Zhang
-organizations:
-- name: Monash University
 description: PhD (Statistics)
-social:
-- icon: link
-  icon_pack: fas
-  link: https://huizezhangsh.netlify.com/
-- icon: twitter
-  icon_pack: fab
-  link: https://twitter.com/@huizezhangsh
-- icon: github
-  icon_pack: fab
-  link: https://github.com/huizezhang-sherry
-- icon: envelope
-  icon_pack: fas
-  link: "mailto:Huize.Zhang@monash.edu"
+www:   https://huizezhangsh.netlify.com/
+twitter: huizezhangsh
+github: huizezhang-sherry
 interests:
 - computational statistics
 - statistical graphics

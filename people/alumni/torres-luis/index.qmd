@@ -1,18 +1,8 @@
 ---
-authors:
-- torres-luis
 email: luis.torres@monash.edu
 title: Luis Torres
-organizations:
-- name: Monash University
 description: Postdoctoral Researcher (Statistics)
-social:
-- icon: github
-  icon_pack: fab
-  link: https://github.com/luisfciencias
-- icon: envelope
-  icon_pack: fas
-  link: "mailto:luis.torres@monash.edu"
+github: luisfciencias
 interests:
 - scientific computing
 - probabilistic programming

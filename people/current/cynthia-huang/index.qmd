@@ -1,24 +1,10 @@
 ---
-authors:
-- huang-cynthia
 email: cynthia.huang@monash.edu
 title: Cynthia Huang
-organizations:
-- name: Monash University
 description: PhD (Statistics)
-social:
-- icon: link
-  icon_pack: fas
-  link: https://cynthiahqy.com
-- icon: twitter
-  icon_pack: fab
-  link: https://twitter.com/@cynthiahqy
-- icon: github
-  icon_pack: fab
-  link: https://github.com/cynthiahqy
-- icon: envelope
-  icon_pack: fas
-  link: "mailto:cynthia.huang@monash.edu"
+www:   https://cynthiahqy.com
+twitter: cynthiahqy
+github: cynthiahqy
 interests:
 - data preparation and wrangling
 - research software engineering and design

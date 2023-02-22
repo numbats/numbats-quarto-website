@@ -1,15 +1,7 @@
 ---
-authors:
-- ackermann-klaus
 email: Klaus.Ackermann@monash.edu
 title: Klaus Ackermann
-organizations:
-- name: Monash University
 description: Senior Lecturer in Statistics
-social:
-- icon: envelope
-  icon_pack: fas
-  link: "mailto:Klaus.Ackermann@monash.edu"
 interests:
 - economics
 - machine learning

@@ -1,15 +1,7 @@
 ---
-authors:
-- nibbering-didier
 email: Didier.Nibbering@monash.edu
 title: Didier Nibbering
-organizations:
-- name: Monash University
 description: Senior Lecturer in Econometrics
-social:
-- icon: envelope
-  icon_pack: fas
-  link: "mailto:Didier.Nibbering@monash.edu"
 interests:
 - high-dimensional inference
 - forecasting

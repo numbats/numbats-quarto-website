@@ -1,24 +1,12 @@
 ---
-authors:
-- tierney-nick
 email: Nicholas.Tierney@monash.edu
 title: Nick Tierney
 organizations:
 - name: Telethon Kids Institute
 description: Research Software Engineer
-social:
-- icon: link
-  icon_pack: fas
-  link: https://www.njtierney.com/
-- icon: twitter
-  icon_pack: fab
-  link: https://twitter.com/@nj_tierney
-- icon: github
-  icon_pack: fab
-  link: https://github.com/njtierney
-- icon: envelope
-  icon_pack: fas
-  link: "mailto:Nicholas.Tierney@monash.edu"
+www:   https://www.njtierney.com/
+twitter: nj_tierney
+github: njtierney
 interests:
 - exploratory data analysis
 - statistical modelling

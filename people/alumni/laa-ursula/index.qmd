@@ -1,21 +1,11 @@
 ---
-authors:
-- laa-ursula
 email: ursula.laa@boku.ac.at
 title: Ursula Laa
 organizations:
 - name: University of Natural Resources and Life Sciences (BOKU)
 description: Lecturer (Statistics)
-social:
-- icon: link
-  icon_pack: fas
-  link: https://uschilaa.github.io/
-- icon: twitter
-  icon_pack: fab
-  link: https://twitter.com/@UschiLaa
-- icon: envelope
-  icon_pack: fas
-  link: "mailto:ursula.laa@boku.ac.at"
+www:   https://uschilaa.github.io/
+twitter: UschiLaa
 interests:
 - statistical graphics
 - high-dimensional data

@@ -1,27 +1,11 @@
 ---
-authors:
-- spyrison-nicholas
 email: spyrison@gmail.com
 title: Nicholas Spyrison
-organizations:
-- name: Monash University
 description: PhD (Information Technology)
-social:
-- icon: link
-  icon_pack: fas
-  link: https://nspyrison.netlify.com/
-- icon: twitter
-  icon_pack: fab
-  link: https://twitter.com/@nspyrison
-- icon: github
-  icon_pack: fab
-  link: https://github.com/nspyrison
-- icon: google-scholar
-  icon_pack: ai
-  link: https://scholar.google.com/citations?user=zzM9WVEAAAAJ&hl=en
-- icon: envelope
-  icon_pack: fas
-  link: "mailto:spyrison@gmail.com"
+www:   https://nspyrison.netlify.com/
+twitter: nspyrison
+github: nspyrison
+scholar: zzM9WVEAAAAJ
 interests:
 - high dimensional visualisation
 - human computer interaction

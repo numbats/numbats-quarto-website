@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="$lang$" xml:lang="$lang$" $if(dir)$ dir="$dir$" $endif$>
+
+<head>
+
+  $metadata.html()$
+
+  <style>
+    $styles.html()$
+
+  </style>
+
+  <!-- htmldependencies:E3FAD763 -->
+  $for(header-includes)$
+  $header-includes$
+  $endfor$
+
+  $if(math)$
+  $math$
+  $endif$
+
+  $for(css)$
+  <link rel="stylesheet" href="$css$" />
+  $endfor$
+</head>
+
+<body>
+
+  $for(include-before)$
+  $include-before$
+  $endfor$
+
+  $if(title)$
+  $title-block.html()$
+  $endif$
+
+  <table>
+    <tr>
+      <td style="padding-right:20px;">$if(image)$<img src=$image$ width="300">$endif$</td>
+      <td>
+        $if(email)$
+        <a href=mailto:$email$><i class="fa-regular fa-envelope"></i>&nbsp;&nbsp; $email$</a><br>
+        $endif$
+        $if(www)$
+        <a href=$www$><i class="fa-solid fa-link"></i>&nbsp;&nbsp; $www$</a><br>
+        $endif$
+        $if(twitter)$
+        <a href=https://twitter.org/$twitter$><i class="fa-brands fa-twitter"></i>&nbsp;&nbsp; @$twitter$</a><br>
+        $endif$
+        $if(github)$
+        <a href=https://github.com/$github$><i class="fa-brands fa-github"></i>&nbsp;&nbsp; @$github$</a><br>
+        $endif$
+        $if(scholar)$
+        <a href=https://scholar.google.com.au/citations?user=$scholar$><i class="ai ai-google-scholar"></i>&nbsp;&nbsp;
+          Google scholar</a><br>
+        $endif$
+        $if(interests)$
+        <br> <b>Interests:</b>
+        <ul>
+          $for(interests)$<li>$interests$</li>$endfor$
+          $endif$
+        </ul>
+      </td>
+    </tr>
+  </table>
+  $body$
+
+  $for(include-after)$
+  $include-after$
+  $endfor$
+
+</body>
+
+</html>

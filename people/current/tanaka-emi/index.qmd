@@ -1,24 +1,10 @@
 ---
-authors:
-- tanaka-emi
 email: emi.tanaka@monash.edu
 title: Emi Tanaka
-organizations:
-- name: Monash University
 description: Senior Lecturer in Statistics
-social:
-- icon: link
-  icon_pack: fas
-  link: http://emitanaka.org/
-- icon: twitter
-  icon_pack: fab
-  link: https://twitter.com/@statsgen
-- icon: github
-  icon_pack: fab
-  link: https://github.com/emitanaka
-- icon: envelope
-  icon_pack: fas
-  link: "mailto:emi.tanaka@monash.edu"
+www:   http://emitanaka.org/
+twitter: statsgen
+github: emitanaka
 interests:
 - applied statistics
 - mixed models

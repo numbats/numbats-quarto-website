@@ -1,18 +1,8 @@
 ---
-authors:
-- abolghasemi-mahdi
 email: Mahdi.Abolghasemi@monash.edu
 title: Mahdi Abolghasemi
-organizations:
-- name: Monash University
 description: Post Doctoral Researcher (Data Science)
-social:
-- icon: github
-  icon_pack: fab
-  link: https://github.com/mahdiabolghasemi
-- icon: envelope
-  icon_pack: fas
-  link: "mailto:Mahdi.Abolghasemi@monash.edu"
+github: mahdiabolghasemi
 interests:
 - forecasting
 - optimisation

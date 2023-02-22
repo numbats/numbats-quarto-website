@@ -1,21 +1,9 @@
 ---
-authors:
-- li-patrick
 email: Patrick.Li@monash.edu
 title: Patrick Li
-organizations:
-- name: Monash University
 description: PhD (Statistics)
-social:
-- icon: twitter
-  icon_pack: fab
-  link: https://twitter.com/@econoPatric
-- icon: github
-  icon_pack: fab
-  link: https://github.com/TengMCing
-- icon: envelope
-  icon_pack: fas
-  link: "mailto:Patrick.Li@monash.edu"
+twitter: econoPatric
+github: TengMCing
 interests:
 - machine learning
 - computer vision

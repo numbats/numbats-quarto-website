@@ -1,24 +1,12 @@
 ---
-authors:
-- kandanaarachchi-sevvandi
 email: sevvandi.kandanaarachchi@rmit.edu.au
 title: Sevvandi Kandanaarachchi
 organizations:
 - name: RMIT
 description: Lecturer in Statistics
-social:
-- icon: link
-  icon_pack: fas
-  link: https://sevvandi.netlify.com/
-- icon: twitter
-  icon_pack: fab
-  link: https://twitter.com/@Sevvandik
-- icon: github
-  icon_pack: fab
-  link: https://github.com/sevvandi
-- icon: envelope
-  icon_pack: fas
-  link: "mailto:sevvandi.kandanaarachchi@rmit.edu.au"
+www:   https://sevvandi.netlify.com/
+twitter: Sevvandik
+github: sevvandi
 interests:
 - anomaly detection
 - mathematical statistics

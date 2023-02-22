@@ -1,18 +1,8 @@
 ---
-authors:
-- martin-gael
 email: Gael.Martin@monash.edu
 title: Gael Martin
-organizations:
-- name: Monash University
 description: Professor of Econometrics
-social:
-- icon: link
-  icon_pack: fas
-  link: http://www-personal.buseco.monash.edu.au/~gmartin/
-- icon: envelope
-  icon_pack: fas
-  link: "mailto:Gael.Martin@monash.edu"
+www:   http://www-personal.buseco.monash.edu.au/~gmartin/
 interests:
 - bayesian inference
 - computational statistics

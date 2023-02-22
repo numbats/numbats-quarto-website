@@ -1,24 +1,12 @@
 ---
-authors:
-- wang-earo
 email: earo.wang@auckland.ac.nz
 title: Earo Wang
 organizations:
 - name: University of Auckland
 description: Lecturer in Statistics
-social:
-- icon: link
-  icon_pack: fas
-  link: https://earo.me/
-- icon: twitter
-  icon_pack: fab
-  link: https://twitter.com/@earowang
-- icon: github
-  icon_pack: fab
-  link: https://github.com/earowang
-- icon: envelope
-  icon_pack: fas
-  link: "mailto:earo.wang@auckland.ac.nz"
+www:   https://earo.me/
+twitter: earowang
+github: earowang
 interests:
 - time series
 - data visualisation

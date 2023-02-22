@@ -1,21 +1,10 @@
 ---
-authors:
-- simpson-dan
 email: dan.simpson@monash.edu
 title: Dan Simpson
-organizations:
-- name: Monash University
 description: Professor of Analytics Engagement
-social:
-- icon: link
-  icon_pack: fas
-  link: https://dpsimpson.github.io
-- icon: twitter
-  icon_pack: fab
-  link: https://twitter.com/@dan_p_simpson
-- icon: github
-  icon_pack: fab
-  link: https://github.com/dpsimpson
+www:   https://dpsimpson.github.io
+twitter: dan_p_simpson
+github: dpsimpson
 interests:
 - spatial statistics
 - bayesian methods

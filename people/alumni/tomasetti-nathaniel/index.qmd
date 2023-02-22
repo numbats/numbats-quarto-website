@@ -1,12 +1,9 @@
 ---
-authors:
-- tomasetti-nathaniel
 email: NA
 title: Nathaniel Tomasetti
 organizations:
 - name: Coles, Australia
 description: Data Scientist
-social:
 user_groups:
 - Alumni
 ---

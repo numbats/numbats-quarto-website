@@ -1,12 +1,7 @@
 ---
-authors:
-- thompson-ryan
 email: NA
 title: Ryan Thompson
-organizations:
-- name: Monash University
 description: PhD (Statistics)
-social:
 interests:
 - high-dimensional statistics
 - forecasting

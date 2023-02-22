@@ -1,21 +1,9 @@
 ---
-authors:
-- fui-swen-kuh
 email: swen.kuh@monash.edu
 title: Swen Kuh
-organizations:
-- name: Monash University
 description: Postdoctoral Researcher
-social:
-- icon: twitter
-  icon_pack: fab
-  link: https://twitter.com/@swenkuh
-- icon: github
-  icon_pack: fab
-  link: https://github.com/statsy238
-- icon: envelope
-  icon_pack: fas
-  link: "mailto:swen.kuh@monash.edu"
+twitter: swenkuh
+github: statsy238
 interests:
 - Social science
 - Hierarchical modelling

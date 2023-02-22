@@ -1,21 +1,12 @@
 ---
-authors:
-- talagala-priyanga-dilini
 email: NA
 title: Priyanga Dilini Talagala
 organizations:
 - name: University of Moratuwa
 description: Lecturer in Statistics
-social:
-- icon: link
-  icon_pack: fas
-  link: https://prital.netlify.com/
-- icon: twitter
-  icon_pack: fab
-  link: https://twitter.com/@pridiltal
-- icon: github
-  icon_pack: fab
-  link: https://github.com/pridiltal
+www:   https://prital.netlify.com/
+twitter: pridiltal
+github: pridiltal
 interests:
 - time series
 - forecasting

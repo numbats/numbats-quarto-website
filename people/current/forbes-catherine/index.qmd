@@ -2,13 +2,7 @@
 email: Catherine.Forbes@monash.edu
 title: Catherine Forbes
 description: Associate Professor
-social:
-- icon: link
-  icon_pack: fas
-  link: https://research.monash.edu/en/persons/catherine-forbes
-- icon: envelope
-  icon_pack: fas
-  link: "mailto:Catherine.Forbes@monash.edu"
+www:   https://research.monash.edu/en/persons/catherine-forbes
 interests:
 - bayesian time series analysis
 - financial econometrics

@@ -1,15 +1,7 @@
 ---
-authors:
-- manso-pablo-montero
 email: Pablo.MonteroManso@monash.edu
 title: Pablo Montero Manso
-organizations:
-- name: Monash University
 description: Post Doctoral Researcher (Statistics)
-social:
-- icon: envelope
-  icon_pack: fas
-  link: "mailto:Pablo.MonteroManso@monash.edu"
 interests:
 - time series
 - forecasting

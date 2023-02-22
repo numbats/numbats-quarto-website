@@ -1,15 +1,7 @@
 ---
-authors:
-- panagiotelis-anastasios
 email: Anastasios.Panagiotelis@monash.edu
 title: Anastasios Panagiotelis
-organizations:
-- name: Monash University
 description: Associate Professor
-social:
-- icon: envelope
-  icon_pack: fas
-  link: "mailto:Anastasios.Panagiotelis@monash.edu"
 interests:
 - forecasting
 - dependence modelling

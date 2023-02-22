@@ -1,15 +1,7 @@
 ---
-authors:
-- roach-cameron
 email: Cameron.Roach@monash.edu
 title: Cameron Roach
-organizations:
-- name: Monash University
 description: PhD (Statistics)
-social:
-- icon: envelope
-  icon_pack: fas
-  link: "mailto:Cameron.Roach@monash.edu"
 interests:
 - data science
 - machine learning

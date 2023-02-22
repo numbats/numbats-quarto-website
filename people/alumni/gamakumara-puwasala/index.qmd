@@ -1,12 +1,7 @@
 ---
-authors:
-- gamakumara-puwasala
 email: NA
 title: Puwasala Gamakumara
-organizations:
-- name: Monash University
 description: Post Doctoral Researcher (Statistics)
-social:
 interests:
 - time series
 - forecasting

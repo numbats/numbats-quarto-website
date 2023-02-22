@@ -1,24 +1,10 @@
 ---
-authors:
-- kennedy-lauren
 email: lauren.kennedy@monash.edu
 title: Lauren Kennedy
-organizations:
-- name: Monash University
 description: Lecturer in Statistics
-social:
-- icon: link
-  icon_pack: fas
-  link: https://jazzystats.com/about/
-- icon: twitter
-  icon_pack: fab
-  link: https://twitter.com/@jazzystats
-- icon: github
-  icon_pack: fab
-  link: https://github.com/lauken13
-- icon: envelope
-  icon_pack: fas
-  link: "mailto:lauren.kennedy@monash.edu"
+www:   https://jazzystats.com/about/
+twitter: jazzystats
+github: lauken13
 interests:
 - non-representative data
 - multilevel modelling

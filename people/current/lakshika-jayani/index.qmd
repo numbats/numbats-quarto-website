@@ -1,21 +1,9 @@
 ---
-authors:
-- lakshika-jayani
 email: jayani.piyadigamage@monash.edu
 title: P. G. Jayani Lakshika
-organizations:
-- name: Monash University
 description: PhD (Statistics)
-social:
-- icon: twitter
-  icon_pack: fab
-  link: https://twitter.com/@LakshikaJayani
-- icon: github
-  icon_pack: fab
-  link: https://github.com/JayaniLakshika
-- icon: envelope
-  icon_pack: fas
-  link: "mailto:jayani.piyadigamage@monash.edu"
+twitter: LakshikaJayani
+github: JayaniLakshika
 interests:
 - data visualization
 - computer vision

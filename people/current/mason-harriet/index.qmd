@@ -1,21 +1,9 @@
 ---
-authors:
-- mason-harriet
 email: harriet.mason1@monash.edu
 title: Harriet Mason
-organizations:
-- name: Monash University
 description: PhD (Statistics)
-social:
-- icon: twitter
-  icon_pack: fab
-  link: https://twitter.com/@marriethason
-- icon: github
-  icon_pack: fab
-  link: https://github.com/harriet-mason
-- icon: envelope
-  icon_pack: fas
-  link: "mailto:harriet.mason@monash.edu"
+twitter: marriethason
+github: harriet-mason
 interests:
 - statistical computing
 - data visualisation
