@@ -5,10 +5,8 @@ website:
   title: "Monash NUMBATs"
   navbar:
     left:
-      - href: index.qmd
-        text: Home
-      - href: about.qmd
-        text: About
+      - href: authors/index.qmd
+        text: People
       - events.qmd
       - href: courses.qmd
         text: Courses
