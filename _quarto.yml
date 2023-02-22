@@ -9,6 +9,7 @@ website:
         text: Home
       - href: about.qmd
         text: About
+      - events.qmd
       - href: courses.qmd
         text: Courses
       - contact.qmd
