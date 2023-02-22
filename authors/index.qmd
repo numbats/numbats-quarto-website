@@ -1,0 +1,8 @@
+---
+title: People
+listing:
+  type: default
+  sort-ui: [title]
+page-layout: full
+comments: false
+---
