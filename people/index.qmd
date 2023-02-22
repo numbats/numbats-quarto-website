@@ -9,12 +9,7 @@ listing:
     image-height: 225px
     grid-columns: 3
     page-size: 999
-    fields: [title, description, name, role, email, interests, image]
-    field-display-names:
-      name: " "
-      role: " "
-      email: "<i class='fa-regular fa-envelope'></i>"
-      interests: "Interests:"
+    fields: [title, description, image]
     grid-item-align: left
   - id: visitor
     contents:
@@ -22,14 +17,14 @@ listing:
     type: grid
     image-height: 150px
     grid-columns: 4
-    fields: [name, role, interests, email, image]
-    grid-item-align: center
+    fields: [title, description, image]
+    grid-item-align: left
   - id: alumni
     contents:
       - "alumni/"
     type: table
     image-height: 100px
-    fields: [image, name, role, interests]
+    fields: [image, title, description]
     grid-item-align: center
     sort-ui: [name]
     field-display-names:
