@@ -1,4 +1,3 @@
-.luarc.json
 _site/*
 *_cache/
 *_files/
@@ -43,3 +42,5 @@ Temporary Items
 *.icloud
 
 # End of https://www.toptal.com/developers/gitignore/api/macos
+
+/.luarc.json
