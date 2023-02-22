@@ -4,6 +4,7 @@ listing:
   - id: current
     contents:
       - "current/"
+    sort: name
     type: grid 
     image-height: 225px
     grid-columns: 3
