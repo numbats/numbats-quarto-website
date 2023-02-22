@@ -1,0 +1,16 @@
+---
+authors:
+- thompson-ryan
+email: NA
+name: Ryan Thompson
+organizations:
+- name: Monash University
+role: PhD (Statistics)
+social:
+interests:
+- high-dimensional statistics
+- forecasting
+- mathematical optimisation
+user_groups:
+- Alumni
+---

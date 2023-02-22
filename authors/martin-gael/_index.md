@@ -1,0 +1,27 @@
+---
+authors:
+- martin-gael
+email: Gael.Martin@monash.edu
+name: Gael Martin
+organizations:
+- name: Monash University
+role: Professor of Econometrics
+social:
+- icon: link
+  icon_pack: fas
+  link: http://www-personal.buseco.monash.edu.au/~gmartin/
+- icon: envelope
+  icon_pack: fas
+  link: "mailto:Gael.Martin@monash.edu"
+interests:
+- bayesian inference
+- computational statistics
+- probabilistic forecasting
+- financial econometrics
+- time series analysis
+- long memory time series
+- count time series
+user_groups:
+- Faculty
+- Current
+---

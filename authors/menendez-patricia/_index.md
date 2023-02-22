@@ -1,0 +1,29 @@
+---
+authors:
+- menendez-patricia
+email: Patricia.Menendez@monash.edu
+name: Patricia Menendez
+organizations:
+- name: Monash University
+role: Senior Lecturer in Statistics
+social:
+- icon: link
+  icon_pack: fas
+  link: https://www.patriciamenendez.com/
+- icon: twitter
+  icon_pack: fab
+  link: https://twitter.com/@PM_maths
+- icon: github
+  icon_pack: fab
+  link: https://github.com/okayama1
+- icon: envelope
+  icon_pack: fas
+  link: "mailto:Patricia.Menendez@monash.edu"
+interests:
+- statistics
+- applied statistics
+- mathematical modeling
+user_groups:
+- Faculty
+- Current
+---

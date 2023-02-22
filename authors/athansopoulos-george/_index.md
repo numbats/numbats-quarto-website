@@ -1,0 +1,20 @@
+---
+authors:
+- athanasopoulos-george
+email: george.athanasopoulos@monash.edu
+name: George Athanasopoulos
+organizations:
+- name: Monash University
+role: Professor of Statistics and Head of Department 
+social:
+- icon: envelope
+  icon_pack: fas
+  link: "mailto:george.athanasopoulos@monash.edu"
+interests:
+- forecasting 
+- time series
+- tourism modelling
+user_groups:
+- Faculty
+- Current
+---
