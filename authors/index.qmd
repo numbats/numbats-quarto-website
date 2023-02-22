@@ -1,8 +1,50 @@
 ---
 title: People
 listing:
-  type: default
-  sort-ui: [title]
+  - id: current
+    contents:
+      - "current/"
+    type: grid 
+    image-height: 225px
+    grid-columns: 3
+    fields: [name, role, interests, email, image]
+    field-display-names:
+      name: " "
+    grid-item-align: center
+  - id: visitor 
+    contents:
+      - "visitor/"
+    type: grid 
+    image-height: 150px
+    grid-columns: 4
+    fields: [name, role, interests, email, image]
+    grid-item-align: center
+  - id: alumni 
+    contents:
+      - "alumni/"
+    type: table 
+    image-height: 100px
+    fields: [image, name, role, interests]
+    grid-item-align: center
+    sort-ui: [name]
+    field-display-names:
+      name: ""
+      role: ""
 page-layout: full
 comments: false
 ---
+
+## Current
+
+:::{#current}
+:::
+
+## Visitors
+
+:::{#visitor}
+:::
+
+## Alumni
+
+:::{#alumni}
+:::

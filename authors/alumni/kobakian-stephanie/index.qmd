@@ -1,0 +1,26 @@
+---
+authors:
+- kobakian-stephanie
+email: stephanie.kobakian@monash.edu
+name: Stephanie Kobakian
+organizations:
+- name: PWC
+role: Data scientist
+social:
+- icon: twitter
+  icon_pack: fab
+  link: https://twitter.com/@srkobakian
+- icon: github
+  icon_pack: fab
+  link: https://github.com/srkobakian
+- icon: envelope
+  icon_pack: fas
+  link: "mailto:stephanie.kobakian@monash.edu"
+interests:
+- statistical graphics
+- data analytics
+- information visualisation
+user_groups:
+- Alumni
+image: avatar.jpg
+---
