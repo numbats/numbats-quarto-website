@@ -11,6 +11,8 @@ website:
       - href: courses.qmd
         text: Courses
       - contact.qmd
+      - href: posts/index.qmd
+        text: Posts
 
 
 format:
