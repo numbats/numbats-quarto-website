@@ -1,6 +1,5 @@
 _site/*
 *_cache/
-*_files/
 .quarto/*
 .Rproj.user
 /.quarto/
