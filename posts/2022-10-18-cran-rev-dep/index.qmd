@@ -1,0 +1,409 @@
+---
+title: 'Diving into dependen-"sea"'
+author: 
+  - H. Sherry Zhang
+date: '2022-10-18'
+slug: []
+categories: []
+tags: []
+subtitle: How CRAN packages are interconnected
+summary: ''
+lastmod: '2022-10-18T22:49:21+10:00'
+featured: no
+projects: []
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, 
+                      message = FALSE, warning = FALSE,
+                      fig.align = "center")
+library(tidyverse)
+library(gh)
+library(ggiraph)
+library(DT)
+library(tidygraph)
+library(ggraph)
+library(sads) # for fitting Zipf–Mandelbrot distribution
+theme_set(theme_bw())
+load("raw.rda")
+```
+
+When writing a package, we may want to use functions in other packages. This creates a dependency for our package and a reverse dependency on the package we borrow functions from. As one of the recipients of the `isoband` email[^1], I'm curious to know how interconnected CRAN packages are. Luckily, it is not too hard to get data on this, and so the journey begins...
+
+[^1]: On 5th Oct, CRAN sent out a massive email to inform 4747 downstream package maintainers of the potential archive of package `isoband` on 2022-10-19.
+
+# Preparing dependency data
+
+The `utils` package provides the function `available.packages()` to extract CRAN package information. The data includes information on the package name, version, dependency, and license:
+
+<details><summary>code</summary>
+```{r eval = FALSE, echo = TRUE}
+utils::available.packages() %>% as_tibble()
+```
+</details>
+
+```{r eval = FALSE, echo = FALSE}
+save(raw, file = here::here("content/post/2022-10-18-cran-rev-dep/raw.rda"))
+```
+
+```{r echo = FALSE}
+raw
+```
+
+From this, we can extract a table to map out the direct dependency every CRAN package has. In this post we will focus on the two strong dependencies: Depends and Imports:
+
+<details><summary>code</summary>
+
+```{r echo = TRUE, eval = FALSE}
+all_pkgs <- raw %>% 
+  tidyr::separate_rows(Imports, sep = ",") %>% 
+  tidyr::separate_rows(Depends, sep = ",") %>% 
+  mutate(
+    across(c(Depends, Imports), ~gsub("\\(.*\\)", "\\1", .x)),
+    across(c(Depends, Imports), str_trim)
+    )
+
+(dep_lookup_tbl <- all_pkgs %>% 
+  dplyr::select(Package, Depends, Imports) %>% 
+  rename(downstream = Package) %>% 
+  pivot_longer(Depends:Imports, names_to = "type", values_to = "upstream") %>% 
+  distinct() %>% 
+  filter(!upstream %in% c("R", "")) %>% 
+  filter(!is.na(upstream)) %>% 
+  arrange(downstream))
+```
+
+</details>
+
+```{r echo = FALSE}
+all_pkgs <- raw %>% 
+  tidyr::separate_rows(Imports, sep = ",") %>% 
+  tidyr::separate_rows(Depends, sep = ",") %>% 
+  mutate(
+    across(c(Depends, Imports), ~gsub("\\(.*\\)", "\\1", .x)),
+    across(c(Depends, Imports), str_trim)
+    )
+
+(dep_lookup_tbl <- all_pkgs %>% 
+  dplyr::select(Package, Depends, Imports) %>% 
+  rename(downstream = Package) %>% 
+  pivot_longer(Depends:Imports, names_to = "type", values_to = "upstream") %>% 
+  distinct() %>% 
+  filter(!upstream %in% c("R", "")) %>% 
+  filter(!is.na(upstream)) %>% 
+  arrange(downstream))
+```
+
+Dependency is a transitive relation. This means a package also (indirectly) depends on all the dependencies of the package of it imports and so on. Changes from an package will propagate downwards through its dependency chain. With the direct dependency table above, we can iteratively construct the extended dependency tree:
+
+<details><summary>code</summary>
+```{r eval = FALSE, echo=TRUE}
+find_all_deps <- function(upstream, data){
+  print(upstream)
+  dt <- tibble()
+  dt2 <- data
+  i <- 1
+  while(nrow(dt2) > nrow(dt)){
+    print(i)
+    dt <- dt2
+    n <- paste0("upstream", i) 
+    dt2 <- dt %>% 
+      rename(upstream = downstream) %>% 
+      left_join(dep_lookup_tbl %>% select(-type), by = "upstream") %>% 
+      rename(!!quo_name(n) := upstream)
+    i <- i + 1
+  }
+  
+  dep <- dt2 %>%
+    pivot_longer(
+      cols = c(contains("upstream"),  "downstream"),
+      names_to = "dump", values_to = "downstream") %>%
+    distinct(downstream) %>%
+    filter(!is.na(downstream)) %>%
+    mutate(downstream = sort(downstream))
+  return(dep)
+}
+
+dep_all <- dep_lookup_tbl %>% 
+  arrange(-desc(upstream)) %>% 
+  nest(direct_deps = -upstream) %>% 
+  mutate(all_deps = map2(upstream, direct_deps, find_all_deps))
+
+(edges <- dep_all %>% 
+    select(-direct_deps) %>% 
+    unnest(all_deps) %>% 
+    filter(!is.na(upstream), !is.na(downstream)))
+```
+</details>
+
+```{r eval = FALSE}
+save(edges, file = here::here("content/post/2022-10-18-cran-rev-dep/edges.rda"))
+```
+
+```{r echo = FALSE}
+load("edges.rda")
+```
+
+```{r echo = FALSE}
+edges
+```
+
+The plot below shows the number of dependencies and reverse dependencies a package has.
+
+<details><summary>code</summary>
+```{r echo = TRUE}
+nodes <- tibble(id = unique(c(edges$upstream, edges$downstream))) %>% 
+  left_join(edges %>% count(upstream, name = "n_revdep"), by = c("id" = "upstream")) %>% 
+  left_join(edges %>% count(downstream, name = "n_dep"), by = c("id" = "downstream")) %>% 
+  filter(!is.na(id)) %>% 
+  mutate(n_revdep = ifelse(is.na(n_revdep), 0, n_revdep),
+         n_dep = ifelse(is.na(n_dep), 0, n_dep))
+
+################################################################
+# deriving color categories
+recommended <- raw %>% filter(Priority == "recommended") %>% pull(Package)
+
+base <- c("base", "compiler", "datasets", "grDevices", "graphics", "grid", "methods", "parallel", "splines", "stats", "stats4", "tcltk", "tools", "translations", "utils")
+
+r_lib_gh <- gh("GET /orgs/{username}/repos", username = "r-lib", .limit = 200)
+r_lib <- vapply(r_lib_gh, "[[", "", "name")
+
+r_tidyverse_gh <- gh("GET /orgs/{username}/repos", username = "tidyverse", .limit = 40)
+tidyverse <- vapply(r_tidyverse_gh, "[[", "", "name")
+
+nodes <- nodes %>% 
+  mutate(category = 
+           case_when(id %in% tidyverse ~ "tidyverse", 
+                     id %in% base ~ "base",
+                     id %in% r_lib ~ "r-lib",
+                     id %in% recommended ~ "recommended",
+                     TRUE ~ "zzz"))
+################################################################
+# to deal with zero mark after sqrt tranform
+# https://github.com/tidyverse/ggplot2/issues/980
+mysqrt_trans <- function() {
+    scales::trans_new("mysqrt", 
+              transform = base::sqrt,
+              inverse = function(x) ifelse(x<0, 0, x^2),
+              domain = c(0, Inf))
+}
+
+p <- nodes %>% 
+  mutate(tooltip = glue::glue("Pkg: {id}, dep: {n_dep}, revdep: {n_revdep}")) %>% 
+  ggplot(aes(x = n_dep, y = n_revdep)) + 
+  geom_point_interactive(aes(tooltip = tooltip)) +
+  ggrepel::geom_text_repel(
+    data = nodes %>% filter(n_revdep > 3100),
+    aes(color= category, label = id), min.segment.length = 0) +
+  scale_color_brewer(palette = "Set1") + 
+  scale_y_continuous(breaks = c(0,  50, 200, 500, 1000, 2500, 5000, 7500, 10000, 15000), trans = "mysqrt") + 
+  scale_x_continuous(breaks = c(0, 1, 5, 10, 20, 40, 80, 120, 160, 200), trans = "mysqrt") + 
+  theme(panel.grid.minor = element_blank(),
+        legend.position = "bottom") + 
+  xlab("Number of dependencies") + 
+  ylab("Number of reverse dependencies")
+```
+
+```{r eval = FALSE, echo = TRUE}
+girafe(ggobj = p, width_svg = 16, height_svg = 12)
+```
+
+</details>
+
+```{r echo = FALSE, }
+girafe(ggobj = p, width_svg = 16, height_svg = 12)
+```
+
+
+The x and y-axes show the number of dependencies and reverse dependencies of a package. Both coordinates are square root transformed to accommodate for the skewness in both measures. Packages with more than 3100 reverse dependencies are labelled. The label color denotes four groups: those in base R, those labelled as "recommended" by CRAN, and those listed in the [`tidyverse`](https://github.com/tidyverse) and [`r-lib`](https://github.com/r-lib) organisations on GitHub. Expand the color group below to view the package membership:
+
+<details><summary>color group</summary>
+
+```{r}
+#| code-fold: true
+nodes %>% 
+  filter(category != "zzz") %>% 
+  group_by(category) %>% 
+  summarise(packages = paste(id, collapse = ", ")) %>% 
+  arrange(category = c("base", "recommended", "tidyverse", "r-lib")) %>% 
+  gt::gt()
+```
+
+</detail>
+
+The plot is interactive so you can hover over points of your interest to read the package name and its numbers of (reverse) dependency.
+
+# It's okay to be a couch Pareto
+
+As you would have already noticed, the distribution of the number of reverse dependencies is highly skewed, even after the square root transformation. To better visualise how the lower number of reverse dependency is distributed, we can plot its cumulative distribution:
+
+<details><summary>code</summary>
+```{r dist-cdf}
+#| echo: true
+#| code-fold: true
+prct_tbl <- purrr::map_dfr(
+  unique(nodes$n_revdep) %>% sort(), 
+  ~tibble(n = .x, prct = nrow(filter(nodes, n_revdep <= .x)) /nrow(nodes)))
+
+tgt_pnts <- prct_tbl %>% 
+  mutate(p = round(prct, digits = 3)) %>% 
+  filter(p %in% c(0.9, 0.95, 0.99, 0.995, 0.999) | prct == 1 | n %in% c(0, 1, 5)) %>% 
+  group_by(p) %>% 
+  filter(n == min(n))
+
+p2 <- prct_tbl %>% 
+  ggplot() +
+  geom_line(aes(x = n, y = prct)) + 
+  geom_point(data = tgt_pnts, aes(x = n, y = prct)) + 
+  geom_label(data = tgt_pnts, aes(x = n, y = prct + 0.01, label = p)) + 
+  scale_x_continuous(breaks = round(c(0:3, 10, 100, tgt_pnts$n, max(prct_tbl$n)))) + 
+  coord_trans("pseudo_log") + 
+  theme(panel.grid.minor = element_blank()) + 
+  ylab("Percentage of CRAN pkgs with <= n reverse dependencies")
+```
+
+```{r eval = FALSE, echo = TRUE}
+p2
+```
+
+</details>
+
+```{r echo = FALSE}
+p2
+```
+
+
+Whether you have guessed or not:
+
+-   73.9% of CRAN packages don't have any reverse dependency;
+-   fewer than 10% of the packages on CRAN have more than 5 reverse dependencies; and
+-   only 1% of the packages have more than 300 reverse dependencies
+
+So while the majority of the R packages do not need reverse dependency checks, a small number of core packages need to test against hundreds or even thousands of reverse dependencies for every new release.
+
+Alternatively, we can rank the packages by their number reverse dependencies (the package with the largest number of reverse dependencies is ranked first). The advantage of this is that there turns out to be a distribution that can capture the shape well: the Zipf--Mandelbrot distribution, the generalised zipf distribution, which is commonly used to model corpus frequency in linguistics:
+
+<details><summary>code</summary>
+
+```{r against-rank, echo = TRUE, fig.height=12, fig.width=16}
+#| code-fold: true
+nodes_rank <- nodes %>%  
+  mutate(rank = rank(-n_revdep, ties.method = "first")) %>% 
+  filter(n_revdep > 0)
+
+dt_pos <- nodes %>% filter(n_revdep > 0) %>% pull(n_revdep) %>% sort(decreasing = TRUE)
+pred1 <- fitrad(dt_pos, "mand") %>% radpred()
+fitted <- tibble(
+  rank = pred1$rank,
+  mand = pred1$abund, 
+  count = dt_pos)
+
+p3 <- nodes_rank %>% 
+  ggplot(aes(x = rank, y = n_revdep)) + 
+  geom_point_interactive(aes(tooltip = id)) + 
+  geom_line(data = fitted, aes(x = rank, y = mand), color = "#314f40") + 
+  ggrepel::geom_text_repel(
+    data = nodes_rank %>% filter(n_revdep > 3100), 
+    aes(label = id, color = category),
+    min.segment.length = 0) + 
+  scale_y_continuous(breaks = c(10, 50, 200, 500, 1000, 2500, 5000, 7500, 10000, 15000)) + 
+  scale_x_continuous(breaks = c(0, 1, 10, 50, 100, 200, 500, 1000, 2000, 5000, 10000, 20000)) + 
+  coord_trans(x = "sqrt", y = "sqrt") + 
+  scale_color_brewer(palette = "Set1") + 
+  theme_bw() + 
+  theme(panel.grid.minor = element_blank(), 
+        legend.position = "bottom") + 
+  ylab("number of reverse dependencies")
+
+```
+
+```{r eval = FALSE, echo = TRUE}
+girafe(ggobj = p3, width_svg = 16, height_svg = 12)
+```
+
+</details>
+
+```{r echo = FALSE}
+girafe(ggobj = p3, width_svg = 16, height_svg = 12)
+```
+
+
+# Contender for the next isoband
+
+We can also find packages with similar characteristics as `isoband`: those with a huge number of reverse dependencies (n \> 3000) while not managed by base R or RStudio or listed as recommended on CRAN:
+
+```{r}
+nodes_rank %>% 
+  filter(n_revdep > 3000, category == "zzz", id != "isoband") %>% 
+  select(id, n_revdep) %>% 
+  arrange(-n_revdep) %>% 
+  rename(Package = id, `# of reverse dependency` = n_revdep) %>% 
+  gt::gt()
+```
+
+In a quick glance, these packages fall into three categories:
+
+1.  **Color packages**: `colorspace`, `RColorBrewer`, `viridisLite`, `munsell`
+2.  **Super giants**:
+
+-   `Rcpp` for interfacing to C++ for fast computation;
+-   `jsonlite` for parsing JSON; and
+-   `stringi` for string manipulation.
+
+3.  **Hidden dependencies**: These packages don't have a huge number of direct dependencies themselves but is imported by a giant package:
+
+-   imported by `ggplot2`:
+    -   `digest` for hashing object in R, and
+    -   `farver` and `labelling` are imported by `scales`, which in turn is imported by `ggplot2`
+-   imported by `tibble`:
+    -   `fansi` for ANSI text formatting, and
+    -   `utf8` for processing UTF encoding, imported by `pillar`, which is imported by `tibble`
+-   imported by `shiny`: `mime` for converting file name extension, and
+-   imported by `knitr`: `yaml` for YAML text conversion
+
+# The social network
+
+Finally, the network diagram! I have tried to include all `r scales::comma(nrow(nodes))` nodes and `r scales::comma(nrow(edges))` pairs of edges in a single diagram and I do not blame my computer for rejecting it with
+
+    vector memory exhausted (limit reached?). 
+
+To avert this error, I plot a subset of the large number of packages with n ≤ 5 reverse dependencies. Specifically, for each n ≤ 5, I randomly select 40 packages with the given n. After playing around with layouts and other aesthetics, here is the result...
+
+<details><summary>code</summary>
+
+```{r eval = FALSE, echo = TRUE}
+#| code-fold: true
+wirdos <- c("brglm", "profileModel", "ExPosition", "prettyGraphs", "seasonal", "x13binary", "scalreg", "lars", "elasticnet")
+more_than5 <- nodes %>% filter(n_revdep > 5) %>% filter(!id %in% wirdos)
+set.seed(123)
+less_than5 <- nodes %>% 
+  filter(n_revdep <= 5) %>% 
+  nest_by(n_revdep, .key = "nested") %>% 
+  mutate(id = list(map(nested, ~sample(.x, size = 40))$id)) %>% 
+  unnest(id) %>% 
+  select(-nested) %>% 
+  ungroup()
+
+new_nodes <- bind_rows(more_than5, less_than5)
+new_edges <- dep_lookup_tbl %>% filter(upstream %in% new_nodes$id & downstream %in% new_nodes$id) %>% select(-type)
+new_nodes <- new_nodes %>% filter(id %in% c(new_edges$downstream, new_edges$upstream))
+g <- tbl_graph(nodes = new_nodes, edges = new_edges, directed = TRUE)
+
+ggraph(g, layout = "fr") + 
+  geom_edge_link(alpha = 0.1) + 
+  geom_node_label(data = ~ .x %>% filter(n_revdep >= 3200), aes(label =id), repel = TRUE) + 
+  geom_node_point(aes(size = n_revdep), alpha = 0.5) + 
+  theme_void() + 
+  theme(legend.position = "none")
+```
+
+</details>
+
+```{r eval = FALSE, echo = FALSE}
+ggsave(file = here::here("figures/test2.png"), bg = "white", width = 25, height = 25)
+```
+
+```{r}
+#| column: screen
+knitr::include_graphics("network.png")
+```
