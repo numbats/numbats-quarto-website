@@ -1,6 +1,5 @@
 ---
-authors:
-- Di Cook
+author: Di Cook
 categories: []
 date: "2020-02-19T00:00:00Z"
 draft: false
@@ -21,12 +20,12 @@ editor: visual
 The second ever NUMBAT hackathon was held at Abbotsford Convent Feb
 19-20, 2020. A hackathon is style like RopenSci events where attendees
 brainstorm potential projects, and join to gether in small groups to
-tackle a subset of these. 
+tackle a subset of these.
 
 ## Projects
 
 Planned projects can be found at
-https://github.com/numbats/numbathack20/issues. 
+https://github.com/numbats/numbathack20/issues.
 
 
 ![png](numbat1.png)

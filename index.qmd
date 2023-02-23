@@ -5,7 +5,7 @@ from: markdown+emoji
 
 ![](/img/numbats_webimage.jpeg)
 
-## Latest News
+<h2>Latest News</h2>
 
 * Welcome to post-doctoral research [Xiaoqian Wang](/people/current/wang-xiaoqian/) and visitors [Daniele Girolimetti](/people/visitors/girolimetto-daniele/) and [Chika Saka](/people/visitors/saka-chika/)!
 :smile: We're excited to welcome you!

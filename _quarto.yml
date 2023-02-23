@@ -4,6 +4,7 @@ project:
 website:
   title: "Monash NUMBATs"
   navbar:
+    background: "#006dae"
     left:
       - href: people/index.qmd
         text: People
