@@ -17,20 +17,20 @@ The third NUMBAT hackathon was held Feb 22-24, 2023 in San Remo, Vic. A hackatho
 
 Projects
 
-Projects tackled can be found at https://github.com/numbats/numbathackathon/issues.
+Projects tackled can be found on [github](https://github.com/numbats/numbathackathon/issues).
 
-![Participants](group.jpg) 
-
-
-![Brainstorming the projects](projects.jpg) 
+![Participants](group.jpg)
 
 
-
-![Making sushi](sushi.jpg) 
+![Brainstorming the projects](projects.jpg)
 
 
 
-![Aussie barbecue - love the aprons!](bbq.jpg) 
+![Making sushi](sushi.jpg)
 
 
-![Pelican feeding](pelicans.jpg) 
+
+![Aussie barbecue - love the aprons!](bbq.jpg)
+
+
+![Pelican feeding](pelicans.jpg)
