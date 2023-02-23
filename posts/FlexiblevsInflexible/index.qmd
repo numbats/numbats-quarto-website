@@ -1,7 +1,6 @@
 ---
 title: "4 Things We Can Learn About Conspiracy Theories and Model Flexibility"
-authors: 
-  - Harriet Mason
+author: Harriet Mason
 date: "2020-08-11T00:00:00Z"
 lastMod: "2020-08-11T00:00:00Z"
 categories:
@@ -43,8 +42,8 @@ In general, the larger your sample size, the more likely it is you have captured
 ## 2: The Internet - Deliverer of Facts and Local Cult Meet Ups
 The introduction of the internet was the age of new information. Conspiracy theories were on their way out, now anyone can use their phone and find the facts in seconds. Or can they? What I unfortunately discovered when mum got involved with conspiracy theories, is that for every website with legitimate information, there are 50 that don't. The sheer vastness of the internet means that whenever we expand our search for hidden truth, we are just as likely to discover falsities. This is a useful illustration in dimensionality.
 
-### Flexible Models Are Hurt More By Additional Parameters 
-Dimensionality interacts with the flexible vs inflexible models in two ways. The first is that in some occasions adding dimensions can literally be seen as making the model more flexible. Think of adding a squared variable to a linear regression to make it quadratic, we have made the model more flexible by adding a dimension. The second way it interacts with our models, is by increasing the distance between observations, and thus the amount of input space each observations needs to be used for. To get technical, each additional parameter makes the area each observation is responsible for increase exponentially. Just like how increasing flexibility increases the "weight" of observations by localising their impact on the model, dimensionality makes the total "area" bigger, and so it does a similar thing. Sometimes the relationship between our variables needs to be modeled with a highly flexible model, and so we need to keep this interaction between flexibility and dimensionality in mind so the variance doesn't get out of control. 
+### Flexible Models Are Hurt More By Additional Parameters
+Dimensionality interacts with the flexible vs inflexible models in two ways. The first is that in some occasions adding dimensions can literally be seen as making the model more flexible. Think of adding a squared variable to a linear regression to make it quadratic, we have made the model more flexible by adding a dimension. The second way it interacts with our models, is by increasing the distance between observations, and thus the amount of input space each observations needs to be used for. To get technical, each additional parameter makes the area each observation is responsible for increase exponentially. Just like how increasing flexibility increases the "weight" of observations by localising their impact on the model, dimensionality makes the total "area" bigger, and so it does a similar thing. Sometimes the relationship between our variables needs to be modeled with a highly flexible model, and so we need to keep this interaction between flexibility and dimensionality in mind so the variance doesn't get out of control.
 
 <centre>
 ![](draw3.png)

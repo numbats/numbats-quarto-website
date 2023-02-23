@@ -3,5 +3,3 @@ title: "Posts"
 listing:
   sort: "date desc"
 ---
-
-
