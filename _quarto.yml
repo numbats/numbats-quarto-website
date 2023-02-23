@@ -32,3 +32,5 @@ format:
 
 execute:
   freeze: auto
+resource:
+  - CNAME
