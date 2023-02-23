@@ -3,6 +3,7 @@ title: "Hexmaps with sugarbag make it easier to see the electoral map"
 author: Di Cook
 date: "2022-05-21T00:00:00Z"
 lastMod: "2022-05-2T00:00:00Z"
+image: index_files/figure-html/hexmap-1.png
 categories:
   - data visualisation
   - statistics
@@ -21,7 +22,7 @@ knitr::opts_chunk$set(
 	message = FALSE,
 	warning = FALSE,
 	cache = TRUE,
-	eval = FALSE
+	eval = TRUE
 )
 ```
 
@@ -44,12 +45,13 @@ library(plotly)
 Read in the spatial polygons, defining the boundaries. These files can be very large, and slow to draw. For these visualisations faster to draw is more important, so the boundaries can be simplified using `rmapshaper::ms_simplify`.
 
 ```{r spatial-polygons, echo=TRUE}
+#| output: false
 # Spatial polygons
 electorates <- sf::st_read("2021-Cwlth_electoral_boundaries_ESRI/2021_ELB_region.shp")
 electorates_small <- electorates %>% rmapshaper::ms_simplify(keep = 0.01, keep_shapes = TRUE)
 ```
 
-Next we need the elction results. The ones here are manually  constructed from the [ABC results website](https://www.abc.net.au/news/elections/federal/2022/results?filter=all&sort=az&state=all). These results are joined to the map polygons, and colours are manually constructed to be one typically used by the party. The `ggplotly()` function enables labels to pop up on mouseover.
+Next we need the election results. The ones here are manually  constructed from the [ABC results website](https://www.abc.net.au/news/elections/federal/2022/results?filter=all&sort=az&state=all). These results are joined to the map polygons, and colours are manually constructed to be one typically used by the party. The `ggplotly()` function enables labels to pop up on mouseover.
 
 ```{r electoral-map, echo=TRUE, fig.width=12, fig.height=6, out.width="100%"}
 # Read in data on current electoral results

@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.129">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Harriet Mason">
+<meta name="dcterms.date" content="2021-04-19">
+
+<title>Monash NUMBATs - Using PCA to Bully My Housemates (Specifically Tom)</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script src="https://kit.fontawesome.com/0fba9333d8.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Monash NUMBATs</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../people/index.html" rel="" target="">
+ <span class="menu-text">People</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../posts/index.html" rel="" target="">
+ <span class="menu-text">Posts</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../projects.html" rel="" target="">
+ <span class="menu-text">Projects</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../events.html" rel="" target="">
+ <span class="menu-text">Events</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../courses.html" rel="" target="">
+ <span class="menu-text">Courses</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html" rel="" target="">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../contact.html" rel="" target="">
+ <span class="menu-text">Contact</span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#surrounded-by-incompetence" id="toc-surrounded-by-incompetence" class="nav-link active" data-scroll-target="#surrounded-by-incompetence">Surrounded by Incompetence</a></li>
+  <li><a href="#what-is-pca" id="toc-what-is-pca" class="nav-link" data-scroll-target="#what-is-pca">What Is PCA?</a>
+  <ul class="collapse">
+  <li><a href="#the-theory" id="toc-the-theory" class="nav-link" data-scroll-target="#the-theory">The Theory</a></li>
+  <li><a href="#sharehouse-chat-data" id="toc-sharehouse-chat-data" class="nav-link" data-scroll-target="#sharehouse-chat-data">Sharehouse Chat Data</a></li>
+  </ul></li>
+  <li><a href="#the-loadings" id="toc-the-loadings" class="nav-link" data-scroll-target="#the-loadings">The Loadings</a>
+  <ul class="collapse">
+  <li><a href="#the-theory-1" id="toc-the-theory-1" class="nav-link" data-scroll-target="#the-theory-1">The Theory</a></li>
+  <li><a href="#sharehouse-chat-loadings" id="toc-sharehouse-chat-loadings" class="nav-link" data-scroll-target="#sharehouse-chat-loadings">Sharehouse Chat Loadings</a></li>
+  </ul></li>
+  <li><a href="#understanding-observations" id="toc-understanding-observations" class="nav-link" data-scroll-target="#understanding-observations">Understanding Observations</a>
+  <ul class="collapse">
+  <li><a href="#the-theory-2" id="toc-the-theory-2" class="nav-link" data-scroll-target="#the-theory-2">The Theory</a></li>
+  <li><a href="#sharehouse-chat-observations" id="toc-sharehouse-chat-observations" class="nav-link" data-scroll-target="#sharehouse-chat-observations">Sharehouse Chat Observations</a></li>
+  </ul></li>
+  <li><a href="#biplot-putting-it-all-together" id="toc-biplot-putting-it-all-together" class="nav-link" data-scroll-target="#biplot-putting-it-all-together">Biplot: Putting It All Together</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Using PCA to Bully My Housemates (Specifically Tom)</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">data visualisation</div>
+    <div class="quarto-category">statistics</div>
+    <div class="quarto-category">machine learning</div>
+    <div class="quarto-category">teaching</div>
+  </div>
+  </div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Harriet Mason </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">19 April 2021</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="surrounded-by-incompetence" class="level2">
+<h2 class="anchored" data-anchor-id="surrounded-by-incompetence">Surrounded by Incompetence</h2>
+<p>I recently moved into a share house with three of my friends, and while we generally get along pretty well, I would be lying if I said I never fantasised about burning the place down with them all in it. Today, after I woke up to the dishwasher run with less that half a load, I made this passive aggressive drawing and sent it to the group chat. I have great conflict resolution skills.</p>
+<p><img src="housematehate.png" class="img-fluid"></p>
+<p>The three people I live with all know me, but none of them know each other, and so as the central housemate, I have often wondered if this clear social dynamic appears in our communication (such as messenger data). This is something that could be easily found through a combination of a principal component analysis (PCA) and violating my housemates privacy. Both of which are enjoyable and straightforward. When PCA was introduced to me in uni, I struggled a bit to understand the plots. So, while I’m violating my housemates privacy, I’m also going to go over the ‘gist’ of PCA and unravel the plots that come with it.</p>
+</section>
+<section id="what-is-pca" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-pca">What Is PCA?</h2>
+<section id="the-theory" class="level3">
+<h3 class="anchored" data-anchor-id="the-theory">The Theory</h3>
+<p>I would have just jumped into a nice example of understanding the plots, but for the sake of completeness I will explain how PCA works. The idea of PCA is to summarise the “information” of a dataset into its principal components (PCs), and then interpret those instead. These PCs are built to be linear combinations of our variables in their most “interesting” direction. Where “interesting” means the direction of most variance. Think of a linear regression but instead of projecting our results onto a line that uses x to capture as much information as possible about y, we are using both variables trying to capture as much information as possible in the x <em>and</em> y direction that has the most variance. Explaining this with words is a bit difficult, so I have drawn a visualisation of this below.</p>
+<p><img src="linez.png" class="img-fluid"></p>
+<p>Following on from this illustration, an easy way to understand principal components is to shift your current understanding of linear regression (I’m assuming you have some current understanding of linear regression). The variable loadings are similar to variable weights in the regression line. We interpret the loadings as “how much that variable contributes to the PC”. Our prediction for a value in linear regression is its projection onto the regression line (with the error shown in the above illustration in red). When working with PCA, our observation’s values are their projection onto the PC line. It is important to note that the red lines in in the PCA drawing is not error, but rather the “remaining” value that will then be used to build the second PC. This is just a quick overview of what these values represent (if you want something more technical look at a textbook or something, this isn’t a maths class). Now, lets take a quick look at the data we are working with.</p>
+</section>
+<section id="sharehouse-chat-data" class="level3">
+<h3 class="anchored" data-anchor-id="sharehouse-chat-data">Sharehouse Chat Data</h3>
+<p>To put some faces (albeit badly drawn cartoon ones) to names, here is an illustration of my housemates. I have also added a fun fact (checked by them after a large amount of “is this what you think of me” arguing) to help give an idea of their personalities. I’m basically introducing them like a 2000’s MTV dating show, but hopefully this will age better and be less racist/homophobic/sexist.</p>
+<p><img src="familyphoto.png" class="img-fluid"></p>
+<p>The data we are going to be working with is the Facebook messenger records of the sharehouse group chat. When I downloaded it, there were about about 6000 messages, over 3000 of which were sent by me. I was originally interested in analysing all my messenger data but seeing that number stung enough for me to pretend I didn’t download my other chat files. I’d rather live in ignorance than face the fact that I feel the need to update all my friends on everything I do.</p>
+<p>So, after a bit of cleaning (removing punctuation, removing stop words, breaking observations up into single words, counting the frequency by person, diving each value by total number of words said in the chat by that person) I have a my dataframe. Each variable is someone who lives in the house, each observation is a word, and the values are how many times that word was said <em>relative to the number of words that person has sent in total</em>. So my value for the word “tom” is how many times I have said “tom” as a fraction of all the words I have sent to the chat. I could skip making the values a “relative” frequency, but then our PCA would likely just tell us that I am absolutely incapable of shutting up, rather than what words typify each speaker. Below is a glimpse at the data that we will run through the PCA.</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-sm table-striped">
+<thead>
+<tr class="header">
+<th style="text-align: center;">word</th>
+<th style="text-align: center;">Harriet</th>
+<th style="text-align: center;">Zac</th>
+<th style="text-align: center;">Em</th>
+<th style="text-align: center;">Tom</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">tom</td>
+<td style="text-align: center;">0.0178</td>
+<td style="text-align: center;">0.0171</td>
+<td style="text-align: center;">0.0107</td>
+<td style="text-align: center;">0.0081</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">house</td>
+<td style="text-align: center;">0.0165</td>
+<td style="text-align: center;">0.0155</td>
+<td style="text-align: center;">0.0135</td>
+<td style="text-align: center;">0.0129</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">zac</td>
+<td style="text-align: center;">0.0149</td>
+<td style="text-align: center;">0.0078</td>
+<td style="text-align: center;">0.0088</td>
+<td style="text-align: center;">0.0064</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">em</td>
+<td style="text-align: center;">0.0127</td>
+<td style="text-align: center;">0.0194</td>
+<td style="text-align: center;">0.0000</td>
+<td style="text-align: center;">0.0081</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">yeah</td>
+<td style="text-align: center;">0.0090</td>
+<td style="text-align: center;">0.0248</td>
+<td style="text-align: center;">0.0334</td>
+<td style="text-align: center;">0.0274</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">time</td>
+<td style="text-align: center;">0.0091</td>
+<td style="text-align: center;">0.0148</td>
+<td style="text-align: center;">0.0102</td>
+<td style="text-align: center;">0.0113</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">0.0080</td>
+<td style="text-align: center;">0.0054</td>
+<td style="text-align: center;">0.0088</td>
+<td style="text-align: center;">0.0064</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">shit</td>
+<td style="text-align: center;">0.0080</td>
+<td style="text-align: center;">0.0062</td>
+<td style="text-align: center;">0.0060</td>
+<td style="text-align: center;">0.0000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">stuff</td>
+<td style="text-align: center;">0.0074</td>
+<td style="text-align: center;">0.0023</td>
+<td style="text-align: center;">0.0037</td>
+<td style="text-align: center;">0.0064</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">people</td>
+<td style="text-align: center;">0.0067</td>
+<td style="text-align: center;">0.0078</td>
+<td style="text-align: center;">0.0042</td>
+<td style="text-align: center;">0.0081</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Now that we have some data, lets discuss how we interpret the loadings.</p>
+</section>
+</section>
+<section id="the-loadings" class="level2">
+<h2 class="anchored" data-anchor-id="the-loadings">The Loadings</h2>
+<section id="the-theory-1" class="level3">
+<h3 class="anchored" data-anchor-id="the-theory-1">The Theory</h3>
+<p>The loadings have two things about their interpretation that make them a bit tricky to understand: 1. We are plotting what would be on the axis of the plot in our typical scatter plot (the variables) as observations 2. We are using these “observations” to understand the axis (our PCs). I have drawn this relationship below for additional clarity.</p>
+<p><img src="loadingsexplain.png" class="img-fluid"></p>
+<p><em>Note: these aren’t the actual loading values of PC1 and PC2 from the example below, this is just an illustration</em></p>
+<p>To make matters even more complicated, we usually plot our PCA on a biplot with both loadings and observations. We will make and interpret this plot at the end, but since this is an “introduction to understanding PCA plots” we are going to start with only plotting the loadings, and work our way to the biplot.</p>
+<p>To interpret our loadings we need to keep three things in mind: 1. The principal components summarise information in descending order of importance. This means that each PC will represent a more overt trend in the data than the PC that follow it. 2. The direction of the PCs is the most important take away. If all your loadings are in the same direction then this PC is analysing the ways in which all your variables are the same. If they move in opposite directions, the PC is identifying a juxtaposition. The actual direction of the loading (positive or negative) doesn’t matter too much outside of the loading’s direction relative to the others. This might seem a bit confusing, it will make more sense once we look at the first loading in the example below. 3. The magnitude of the loading is the least important part. If you start getting so detailed that you are thinking deeply about the magnitude, you are likely overcomplicating the problem for yourself. Just pay attention to the loadings that are <em>significantly different from 0</em> (I marked these using a red line in the example).You can find your significance line as <span class="math inline">\frac1{\sqrt{p}}</span> where p is the number of variables in your PCA (in the example it’s 4). As with anything, this will be easier to understand with an example, so lets just look at what the sharehouse PCA produced.</p>
+</section>
+<section id="sharehouse-chat-loadings" class="level3">
+<h3 class="anchored" data-anchor-id="sharehouse-chat-loadings">Sharehouse Chat Loadings</h3>
+<p>To start off with, we need to use the loadings to interpret the PCs. The first two PC’s capture most of the variance, and so typically we focus on those two, however since we only have 4 variables (and so 4 possible PCs) I might as well do them all.</p>
+<div class="cell">
+
+</div>
+<p><img src="fig1.png" class="img-fluid"></p>
+<p>Keeping in mind what we covered above, we can analyse these plots. As a side note, the order of names (the x-axis of these plots) are arbitrary and organised only to make the words readable, so we only need to interpret the y-axis (the PC loadings). To begin lets start with PC1, the most important PC. Since all the loadings are negative, any persons use of a word will give that word a negative value on the first PC. To put it simply, words we say a lot as a combined group will have a large negative score, and words that we never say will sit around 0. There wont be any positive values on PC1 because each word’s value is the <span class="math inline">Housemate'sPCLoading\times{Housemate'sWordFrequency}</span>, summed up for all 4 of us. So since none of the words will have a negative frequency that could cancel out the negative loadings word’s wont have positive value on PC1. Here are the 4 loading interpreted in their positive direction:</p>
+<p><strong>PC1</strong>: Words <em>None</em> of us say - The overarching ways in which the four of us are similar thanks to generation and circumstances (of living together). This PC will likely contain words people who live together and people our age use. <strong>PC2</strong>: Words Tom never says - Out of all of us, the most distinct speaker of the group is Tom. <strong>PC3</strong>: Words that Em uses - Em is the next most distinct. <strong>PC4</strong>: Words Differentiate Zac and I - Zac and I were on the same side of all the other loadings, and so once all the other sources of variance have been dealt with, this is all that is left. It makes sense, as we are the oldest and closest friends, so our speech is the most similar.</p>
+<p>Interestingly, the loadings captured the underlying dynamics of the group pretty well. Since the PCs are organised such that they explain decreasing variance, this tells us that the overarching patterns of speech between the 4 of us (PC1) is more salient than the difference between Tom’s and the rest of us (PC2) and so on. I have drawn the social circles identified by the PC loadings below, both as an illustration of the analysis, and to personally attack Tom. Using this understanding of our <em>new</em> variables (the PCs) we can interpret our observations, just as we would normal variables.</p>
+<p><img src="socialcircles.png" class="img-fluid"></p>
+<p>Another note I want to make is that I could have set up this data frame so that the words were the variables instead of the sender (I actually did this the first time without thinking). The main problem with this comes in the analysis. If the variables are words and the largest loadings come from “yeah”, “tom” and “house”, it is hard to understand how these words are similar, and how they are different. That analysis is much easier to do on people, because I have prior understanding of the context of those variables.</p>
+</section>
+</section>
+<section id="understanding-observations" class="level2">
+<h2 class="anchored" data-anchor-id="understanding-observations">Understanding Observations</h2>
+<section id="the-theory-2" class="level3">
+<h3 class="anchored" data-anchor-id="the-theory-2">The Theory</h3>
+<p>Understanding the observations is very straight forward once you have the PC interpretations. Usually when analysing our data, the process looks something like this:</p>
+<p><centre> Variable Meaning -&gt; Understand Observations <centre></centre></centre></p>
+<p>For example, a low time in a 100m sprint can be interpreted as fast. Obviously, PC1 does not have an inherent meaning to us in the same way that the time for a 100m sprint does, but that is what the loading interpretations was for. The process for understanding the data plots in PCA is:</p>
+<p><centre> Construct PCs -&gt; Use loadings to find PC meaning -&gt; Understand Observations <centre></centre></centre></p>
+<p>So from this we can see that the interpretation of data in PCA vs regular analysis is almost the same, there is just an extra step (which we have already done in our example) that can complicate it a bit. Now that we understand how to interpret the observations in the PCA, let’s apply this to the sharehouse chat data to finish off the analysis.</p>
+</section>
+<section id="sharehouse-chat-observations" class="level3">
+<h3 class="anchored" data-anchor-id="sharehouse-chat-observations">Sharehouse Chat Observations</h3>
+<div class="cell">
+
+</div>
+<p><img src="fig2.png" class="img-fluid"></p>
+<p>How do we interpret these plots? Well we need to use our interpretations of the loadings to understand what our axis represent. Since we established that PC1 represents words we all use, the distance below the line indicates how frequently the word is used between us all. For example, “yeah” and “house” are the most used words across the chat. This makes sense as we are pretty informal and all live together. We can do the same thing for PC2, which identified the ways Tom speaks differently. He uses “nbn” a lot because he is the one who set up the internet. “Tom” is a common word for Zac and I, not only because we love to bully our housemate Tom, but because we also have a few mutual friends (and some not friends) called Tom that we talk about in the chat.</p>
+<p>I sent all these plots to the group (I like to keep them informed) and Em said “I’m apparently the only one who laughs in this chat”. Now this brings up an interesting point in how this analysis was run, and it shows how PCA can bring out some patterns that may not be immediately recognisable in the data.</p>
+<p>The data cleaning will correct for things like capitalisation (so here Here and HERE are all the same word) but if the words differ by letters (here and herez) thanks to typos or spelling mistakes, they are registered as different words. This creates a problem for registering words that I typically use, since: 1) I’m an absolutely abysmal speller and rarely spell a word the same way twice; and 2) I type laugher according to how funny I think something is (haha vs hahahahahahaha) This means, someone like Zac who almost always laughs in the same way with “lmfao”, or Em with “hahaha” and “hahahaha’, have all their chat laughter collected into one observation. Looking through the records I laugh to a similar degree, but almost all of them are recorded as unique words in the frequency count, and thus don’t make it to the analysis. Tom just never laughs at anything.</p>
+</section>
+</section>
+<section id="biplot-putting-it-all-together" class="level2">
+<h2 class="anchored" data-anchor-id="biplot-putting-it-all-together">Biplot: Putting It All Together</h2>
+<p>Now these plots only show one principal component each, and also don’t have the loadings on them. I started by separating the elements of the plot, but making several plots when the information could be conveyed with a single plot is tiresome. Now that we understand each of the components by themselves, lets make a biplot to show how this information is usually conveyed all together.</p>
+<div class="cell">
+
+</div>
+<p><img src="fig3.png" class="img-fluid"></p>
+<p>Typically we use the first two principal components when we build the biplot because they contain the most variance, and thus the most information. This final plot is usually how a PCA is presented to us, with the observations and loadings plotted together and each axis representing a principal component. While the plot looks a little different now, the interpretations are still the same, and as a matter of fact understanding the observation is a little easier than before. Since we have the loadings on the plot too, we no longer need to hold the interpretation of the PCs in our mind to understand the observations. On the x axis, the further to the left a word is, the more we all use it, on the y-axis, the further down an observation is, the more Tom specifically uses it. Now we can make analysis of our observations using this combined information, rather than separating it. For example, looking at the biplot we can see that while “tom” is used a LOT in the chat overall, that is largely due to Zac and I, rather than Tom saying his own name.</p>
+<p>The biplot allows us to summarise most of the information covered in this post in a single figure, and knowing how to interpret it makes your life much easier. That being said, if you have a lot of loadings you might still need to separate the plots as a biplot can get messy and crowded when we have too many.</p>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>While PCA plots can seem confusing at first, once you break them down into their components, they are pretty straight forward to understand. Also Zac said I need to include his twitter handle which is <span class="citation" data-cites="zaccheus_e">@zaccheus_e</span> so I can direct people to an illiterate and poorly structured rebuttal.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
