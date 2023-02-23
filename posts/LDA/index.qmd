@@ -17,6 +17,7 @@ tags:
   - statistics
   - machine learning
 editor: visual
+image: feature.png
 ---
 
 
@@ -111,7 +112,7 @@ fixstring <- function(string){
 }
 
 #load data
-foodreviews <- read.table(file = "https://numbat.space/post/LDA/data/Restaurant_Reviews.tsv",
+foodreviews <- read.table(file = "data/Restaurant_Reviews.tsv",
                           sep = '\t', header = TRUE)%>%
   mutate(Review=as.character(Review))
 
@@ -141,8 +142,8 @@ fixedreviews$id <- 1:length(fixedreviews$Liked)
 #  mutate(sentiment=ifelse(sentiment=="negative",-1,1))
 # write_csv(sent1, file = "data/sent1.csv")
 # write_csv(sent2, file = "data/sent2.csv")
-sent1 <- read_csv("https://raw.githubusercontent.com/numbats/numbats-website/master/static/post/LDA/data/sent1.csv")
-sent2 <- read_csv("https://raw.githubusercontent.com/numbats/numbats-website/master/static/post/LDA/data/sent2.csv")
+sent1 <- read_csv("data/sent1.csv")
+sent2 <- read_csv("data/sent2.csv")
 
 #get each word of the review and find sentiment
 test <- fixedreviews  %>%

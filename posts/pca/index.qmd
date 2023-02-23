@@ -15,6 +15,7 @@ tags:
   - machine learning
   - statistical models
 editor: visual
+image: feature.png
 ---
 
 ```{r setup, include=FALSE}

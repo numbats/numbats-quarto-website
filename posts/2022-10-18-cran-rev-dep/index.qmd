@@ -1,6 +1,6 @@
 ---
 title: 'Diving into dependen-"sea"'
-author: 
+author:
   - H. Sherry Zhang
 date: '2022-10-18'
 slug: []
@@ -11,10 +11,11 @@ summary: ''
 lastmod: '2022-10-18T22:49:21+10:00'
 featured: no
 projects: []
+image: feature.png
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE, 
+knitr::opts_chunk$set(echo = FALSE,
                       message = FALSE, warning = FALSE,
                       fig.align = "center")
 library(tidyverse)
@@ -55,42 +56,42 @@ From this, we can extract a table to map out the direct dependency every CRAN pa
 <details><summary>code</summary>
 
 ```{r echo = TRUE, eval = FALSE}
-all_pkgs <- raw %>% 
-  tidyr::separate_rows(Imports, sep = ",") %>% 
-  tidyr::separate_rows(Depends, sep = ",") %>% 
+all_pkgs <- raw %>%
+  tidyr::separate_rows(Imports, sep = ",") %>%
+  tidyr::separate_rows(Depends, sep = ",") %>%
   mutate(
     across(c(Depends, Imports), ~gsub("\\(.*\\)", "\\1", .x)),
     across(c(Depends, Imports), str_trim)
     )
 
-(dep_lookup_tbl <- all_pkgs %>% 
-  dplyr::select(Package, Depends, Imports) %>% 
-  rename(downstream = Package) %>% 
-  pivot_longer(Depends:Imports, names_to = "type", values_to = "upstream") %>% 
-  distinct() %>% 
-  filter(!upstream %in% c("R", "")) %>% 
-  filter(!is.na(upstream)) %>% 
+(dep_lookup_tbl <- all_pkgs %>%
+  dplyr::select(Package, Depends, Imports) %>%
+  rename(downstream = Package) %>%
+  pivot_longer(Depends:Imports, names_to = "type", values_to = "upstream") %>%
+  distinct() %>%
+  filter(!upstream %in% c("R", "")) %>%
+  filter(!is.na(upstream)) %>%
   arrange(downstream))
 ```
 
 </details>
 
 ```{r echo = FALSE}
-all_pkgs <- raw %>% 
-  tidyr::separate_rows(Imports, sep = ",") %>% 
-  tidyr::separate_rows(Depends, sep = ",") %>% 
+all_pkgs <- raw %>%
+  tidyr::separate_rows(Imports, sep = ",") %>%
+  tidyr::separate_rows(Depends, sep = ",") %>%
   mutate(
     across(c(Depends, Imports), ~gsub("\\(.*\\)", "\\1", .x)),
     across(c(Depends, Imports), str_trim)
     )
 
-(dep_lookup_tbl <- all_pkgs %>% 
-  dplyr::select(Package, Depends, Imports) %>% 
-  rename(downstream = Package) %>% 
-  pivot_longer(Depends:Imports, names_to = "type", values_to = "upstream") %>% 
-  distinct() %>% 
-  filter(!upstream %in% c("R", "")) %>% 
-  filter(!is.na(upstream)) %>% 
+(dep_lookup_tbl <- all_pkgs %>%
+  dplyr::select(Package, Depends, Imports) %>%
+  rename(downstream = Package) %>%
+  pivot_longer(Depends:Imports, names_to = "type", values_to = "upstream") %>%
+  distinct() %>%
+  filter(!upstream %in% c("R", "")) %>%
+  filter(!is.na(upstream)) %>%
   arrange(downstream))
 ```
 
@@ -106,14 +107,14 @@ find_all_deps <- function(upstream, data){
   while(nrow(dt2) > nrow(dt)){
     print(i)
     dt <- dt2
-    n <- paste0("upstream", i) 
-    dt2 <- dt %>% 
-      rename(upstream = downstream) %>% 
-      left_join(dep_lookup_tbl %>% select(-type), by = "upstream") %>% 
+    n <- paste0("upstream", i)
+    dt2 <- dt %>%
+      rename(upstream = downstream) %>%
+      left_join(dep_lookup_tbl %>% select(-type), by = "upstream") %>%
       rename(!!quo_name(n) := upstream)
     i <- i + 1
   }
-  
+
   dep <- dt2 %>%
     pivot_longer(
       cols = c(contains("upstream"),  "downstream"),
@@ -124,14 +125,14 @@ find_all_deps <- function(upstream, data){
   return(dep)
 }
 
-dep_all <- dep_lookup_tbl %>% 
-  arrange(-desc(upstream)) %>% 
-  nest(direct_deps = -upstream) %>% 
+dep_all <- dep_lookup_tbl %>%
+  arrange(-desc(upstream)) %>%
+  nest(direct_deps = -upstream) %>%
   mutate(all_deps = map2(upstream, direct_deps, find_all_deps))
 
-(edges <- dep_all %>% 
-    select(-direct_deps) %>% 
-    unnest(all_deps) %>% 
+(edges <- dep_all %>%
+    select(-direct_deps) %>%
+    unnest(all_deps) %>%
     filter(!is.na(upstream), !is.na(downstream)))
 ```
 </details>
@@ -152,10 +153,10 @@ The plot below shows the number of dependencies and reverse dependencies a packa
 
 <details><summary>code</summary>
 ```{r echo = TRUE}
-nodes <- tibble(id = unique(c(edges$upstream, edges$downstream))) %>% 
-  left_join(edges %>% count(upstream, name = "n_revdep"), by = c("id" = "upstream")) %>% 
-  left_join(edges %>% count(downstream, name = "n_dep"), by = c("id" = "downstream")) %>% 
-  filter(!is.na(id)) %>% 
+nodes <- tibble(id = unique(c(edges$upstream, edges$downstream))) %>%
+  left_join(edges %>% count(upstream, name = "n_revdep"), by = c("id" = "upstream")) %>%
+  left_join(edges %>% count(downstream, name = "n_dep"), by = c("id" = "downstream")) %>%
+  filter(!is.na(id)) %>%
   mutate(n_revdep = ifelse(is.na(n_revdep), 0, n_revdep),
          n_dep = ifelse(is.na(n_dep), 0, n_dep))
 
@@ -171,9 +172,9 @@ r_lib <- vapply(r_lib_gh, "[[", "", "name")
 r_tidyverse_gh <- gh("GET /orgs/{username}/repos", username = "tidyverse", .limit = 40)
 tidyverse <- vapply(r_tidyverse_gh, "[[", "", "name")
 
-nodes <- nodes %>% 
-  mutate(category = 
-           case_when(id %in% tidyverse ~ "tidyverse", 
+nodes <- nodes %>%
+  mutate(category =
+           case_when(id %in% tidyverse ~ "tidyverse",
                      id %in% base ~ "base",
                      id %in% r_lib ~ "r-lib",
                      id %in% recommended ~ "recommended",
@@ -182,25 +183,25 @@ nodes <- nodes %>%
 # to deal with zero mark after sqrt tranform
 # https://github.com/tidyverse/ggplot2/issues/980
 mysqrt_trans <- function() {
-    scales::trans_new("mysqrt", 
+    scales::trans_new("mysqrt",
               transform = base::sqrt,
               inverse = function(x) ifelse(x<0, 0, x^2),
               domain = c(0, Inf))
 }
 
-p <- nodes %>% 
-  mutate(tooltip = glue::glue("Pkg: {id}, dep: {n_dep}, revdep: {n_revdep}")) %>% 
-  ggplot(aes(x = n_dep, y = n_revdep)) + 
+p <- nodes %>%
+  mutate(tooltip = glue::glue("Pkg: {id}, dep: {n_dep}, revdep: {n_revdep}")) %>%
+  ggplot(aes(x = n_dep, y = n_revdep)) +
   geom_point_interactive(aes(tooltip = tooltip)) +
   ggrepel::geom_text_repel(
     data = nodes %>% filter(n_revdep > 3100),
     aes(color= category, label = id), min.segment.length = 0) +
-  scale_color_brewer(palette = "Set1") + 
-  scale_y_continuous(breaks = c(0,  50, 200, 500, 1000, 2500, 5000, 7500, 10000, 15000), trans = "mysqrt") + 
-  scale_x_continuous(breaks = c(0, 1, 5, 10, 20, 40, 80, 120, 160, 200), trans = "mysqrt") + 
+  scale_color_brewer(palette = "Set1") +
+  scale_y_continuous(breaks = c(0,  50, 200, 500, 1000, 2500, 5000, 7500, 10000, 15000), trans = "mysqrt") +
+  scale_x_continuous(breaks = c(0, 1, 5, 10, 20, 40, 80, 120, 160, 200), trans = "mysqrt") +
   theme(panel.grid.minor = element_blank(),
-        legend.position = "bottom") + 
-  xlab("Number of dependencies") + 
+        legend.position = "bottom") +
+  xlab("Number of dependencies") +
   ylab("Number of reverse dependencies")
 ```
 
@@ -221,11 +222,11 @@ The x and y-axes show the number of dependencies and reverse dependencies of a p
 
 ```{r}
 #| code-fold: true
-nodes %>% 
-  filter(category != "zzz") %>% 
-  group_by(category) %>% 
-  summarise(packages = paste(id, collapse = ", ")) %>% 
-  arrange(category = c("base", "recommended", "tidyverse", "r-lib")) %>% 
+nodes %>%
+  filter(category != "zzz") %>%
+  group_by(category) %>%
+  summarise(packages = paste(id, collapse = ", ")) %>%
+  arrange(category = c("base", "recommended", "tidyverse", "r-lib")) %>%
   gt::gt()
 ```
 
@@ -242,23 +243,23 @@ As you would have already noticed, the distribution of the number of reverse dep
 #| echo: true
 #| code-fold: true
 prct_tbl <- purrr::map_dfr(
-  unique(nodes$n_revdep) %>% sort(), 
+  unique(nodes$n_revdep) %>% sort(),
   ~tibble(n = .x, prct = nrow(filter(nodes, n_revdep <= .x)) /nrow(nodes)))
 
-tgt_pnts <- prct_tbl %>% 
-  mutate(p = round(prct, digits = 3)) %>% 
-  filter(p %in% c(0.9, 0.95, 0.99, 0.995, 0.999) | prct == 1 | n %in% c(0, 1, 5)) %>% 
-  group_by(p) %>% 
+tgt_pnts <- prct_tbl %>%
+  mutate(p = round(prct, digits = 3)) %>%
+  filter(p %in% c(0.9, 0.95, 0.99, 0.995, 0.999) | prct == 1 | n %in% c(0, 1, 5)) %>%
+  group_by(p) %>%
   filter(n == min(n))
 
-p2 <- prct_tbl %>% 
+p2 <- prct_tbl %>%
   ggplot() +
-  geom_line(aes(x = n, y = prct)) + 
-  geom_point(data = tgt_pnts, aes(x = n, y = prct)) + 
-  geom_label(data = tgt_pnts, aes(x = n, y = prct + 0.01, label = p)) + 
-  scale_x_continuous(breaks = round(c(0:3, 10, 100, tgt_pnts$n, max(prct_tbl$n)))) + 
-  coord_trans("pseudo_log") + 
-  theme(panel.grid.minor = element_blank()) + 
+  geom_line(aes(x = n, y = prct)) +
+  geom_point(data = tgt_pnts, aes(x = n, y = prct)) +
+  geom_label(data = tgt_pnts, aes(x = n, y = prct + 0.01, label = p)) +
+  scale_x_continuous(breaks = round(c(0:3, 10, 100, tgt_pnts$n, max(prct_tbl$n)))) +
+  coord_trans("pseudo_log") +
+  theme(panel.grid.minor = element_blank()) +
   ylab("Percentage of CRAN pkgs with <= n reverse dependencies")
 ```
 
@@ -287,32 +288,32 @@ Alternatively, we can rank the packages by their number reverse dependencies (th
 
 ```{r against-rank, echo = TRUE, fig.height=12, fig.width=16}
 #| code-fold: true
-nodes_rank <- nodes %>%  
-  mutate(rank = rank(-n_revdep, ties.method = "first")) %>% 
+nodes_rank <- nodes %>%
+  mutate(rank = rank(-n_revdep, ties.method = "first")) %>%
   filter(n_revdep > 0)
 
 dt_pos <- nodes %>% filter(n_revdep > 0) %>% pull(n_revdep) %>% sort(decreasing = TRUE)
 pred1 <- fitrad(dt_pos, "mand") %>% radpred()
 fitted <- tibble(
   rank = pred1$rank,
-  mand = pred1$abund, 
+  mand = pred1$abund,
   count = dt_pos)
 
-p3 <- nodes_rank %>% 
-  ggplot(aes(x = rank, y = n_revdep)) + 
-  geom_point_interactive(aes(tooltip = id)) + 
-  geom_line(data = fitted, aes(x = rank, y = mand), color = "#314f40") + 
+p3 <- nodes_rank %>%
+  ggplot(aes(x = rank, y = n_revdep)) +
+  geom_point_interactive(aes(tooltip = id)) +
+  geom_line(data = fitted, aes(x = rank, y = mand), color = "#314f40") +
   ggrepel::geom_text_repel(
-    data = nodes_rank %>% filter(n_revdep > 3100), 
+    data = nodes_rank %>% filter(n_revdep > 3100),
     aes(label = id, color = category),
-    min.segment.length = 0) + 
-  scale_y_continuous(breaks = c(10, 50, 200, 500, 1000, 2500, 5000, 7500, 10000, 15000)) + 
-  scale_x_continuous(breaks = c(0, 1, 10, 50, 100, 200, 500, 1000, 2000, 5000, 10000, 20000)) + 
-  coord_trans(x = "sqrt", y = "sqrt") + 
-  scale_color_brewer(palette = "Set1") + 
-  theme_bw() + 
-  theme(panel.grid.minor = element_blank(), 
-        legend.position = "bottom") + 
+    min.segment.length = 0) +
+  scale_y_continuous(breaks = c(10, 50, 200, 500, 1000, 2500, 5000, 7500, 10000, 15000)) +
+  scale_x_continuous(breaks = c(0, 1, 10, 50, 100, 200, 500, 1000, 2000, 5000, 10000, 20000)) +
+  coord_trans(x = "sqrt", y = "sqrt") +
+  scale_color_brewer(palette = "Set1") +
+  theme_bw() +
+  theme(panel.grid.minor = element_blank(),
+        legend.position = "bottom") +
   ylab("number of reverse dependencies")
 
 ```
@@ -333,11 +334,11 @@ girafe(ggobj = p3, width_svg = 16, height_svg = 12)
 We can also find packages with similar characteristics as `isoband`: those with a huge number of reverse dependencies (n \> 3000) while not managed by base R or RStudio or listed as recommended on CRAN:
 
 ```{r}
-nodes_rank %>% 
-  filter(n_revdep > 3000, category == "zzz", id != "isoband") %>% 
-  select(id, n_revdep) %>% 
-  arrange(-n_revdep) %>% 
-  rename(Package = id, `# of reverse dependency` = n_revdep) %>% 
+nodes_rank %>%
+  filter(n_revdep > 3000, category == "zzz", id != "isoband") %>%
+  select(id, n_revdep) %>%
+  arrange(-n_revdep) %>%
+  rename(Package = id, `# of reverse dependency` = n_revdep) %>%
   gt::gt()
 ```
 
@@ -365,7 +366,7 @@ In a quick glance, these packages fall into three categories:
 
 Finally, the network diagram! I have tried to include all `r scales::comma(nrow(nodes))` nodes and `r scales::comma(nrow(edges))` pairs of edges in a single diagram and I do not blame my computer for rejecting it with
 
-    vector memory exhausted (limit reached?). 
+    vector memory exhausted (limit reached?).
 
 To avert this error, I plot a subset of the large number of packages with n ≤ 5 reverse dependencies. Specifically, for each n ≤ 5, I randomly select 40 packages with the given n. After playing around with layouts and other aesthetics, here is the result...
 
@@ -376,12 +377,12 @@ To avert this error, I plot a subset of the large number of packages with n ≤ 
 wirdos <- c("brglm", "profileModel", "ExPosition", "prettyGraphs", "seasonal", "x13binary", "scalreg", "lars", "elasticnet")
 more_than5 <- nodes %>% filter(n_revdep > 5) %>% filter(!id %in% wirdos)
 set.seed(123)
-less_than5 <- nodes %>% 
-  filter(n_revdep <= 5) %>% 
-  nest_by(n_revdep, .key = "nested") %>% 
-  mutate(id = list(map(nested, ~sample(.x, size = 40))$id)) %>% 
-  unnest(id) %>% 
-  select(-nested) %>% 
+less_than5 <- nodes %>%
+  filter(n_revdep <= 5) %>%
+  nest_by(n_revdep, .key = "nested") %>%
+  mutate(id = list(map(nested, ~sample(.x, size = 40))$id)) %>%
+  unnest(id) %>%
+  select(-nested) %>%
   ungroup()
 
 new_nodes <- bind_rows(more_than5, less_than5)
@@ -389,11 +390,11 @@ new_edges <- dep_lookup_tbl %>% filter(upstream %in% new_nodes$id & downstream %
 new_nodes <- new_nodes %>% filter(id %in% c(new_edges$downstream, new_edges$upstream))
 g <- tbl_graph(nodes = new_nodes, edges = new_edges, directed = TRUE)
 
-ggraph(g, layout = "fr") + 
-  geom_edge_link(alpha = 0.1) + 
-  geom_node_label(data = ~ .x %>% filter(n_revdep >= 3200), aes(label =id), repel = TRUE) + 
-  geom_node_point(aes(size = n_revdep), alpha = 0.5) + 
-  theme_void() + 
+ggraph(g, layout = "fr") +
+  geom_edge_link(alpha = 0.1) +
+  geom_node_label(data = ~ .x %>% filter(n_revdep >= 3200), aes(label =id), repel = TRUE) +
+  geom_node_point(aes(size = n_revdep), alpha = 0.5) +
+  theme_void() +
   theme(legend.position = "none")
 ```
 

@@ -15,6 +15,7 @@ tags:
   - machine learning
   - statistical models
 editor: visual
+image: feature.png
 ---
 
 ## A Conspiracy Theory is Like a Bad Model

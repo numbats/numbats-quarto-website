@@ -16,6 +16,7 @@ tags:
   - data visualisation
   - statistics
   - machine learning
+image: feature.png
 ---
 
 ```{r setup, include=FALSE}
@@ -109,7 +110,7 @@ anim_line[,1:4]<- lapply(anim_line[,1:4], function(x) as.numeric(as.character(x)
 ```
 
 ## My Employment History
-I've had about... 13 jobs at this point in my life. Among them were jobs like tutoring, nannying, swim teaching, ect. so I have developed had a decent level of experience in teaching kids, specifically teaching them maths. While swim teaching doesn't seem like it employs a lot of maths, I would play a "who can get closest to the number I'm thinking" game to decide who goes first. I then used it to explain game theory and how to optimise their strategy based on what the other kids would pick if they were acting as rational agents. They didn't fully understand, but it was a fun exercise. 
+I've had about... 13 jobs at this point in my life. Among them were jobs like tutoring, nannying, swim teaching, ect. so I have developed had a decent level of experience in teaching kids, specifically teaching them maths. While swim teaching doesn't seem like it employs a lot of maths, I would play a "who can get closest to the number I'm thinking" game to decide who goes first. I then used it to explain game theory and how to optimise their strategy based on what the other kids would pick if they were acting as rational agents. They didn't fully understand, but it was a fun exercise.
 
 <center>
 ![](draw1.png)
@@ -121,7 +122,7 @@ I was never a very good tutor because I have a tendency to overcomplicate simple
 I have always seen boosting as the one of the most intuitive ensemble methods. For anyone who doesn't know, an ensemble model combines many individual models to create one aggregate model that tends to have greater accuracy and less variance than any of the individual models. Think of it as the machine learning version of everyone voting to make a decision instead of a single expert making a decision. If we relate them to human studying, boosting is like doing every question at least once and then only revising the questions we previously got wrong. This makes boosting more similar to the way I study, and try to teach my (previous) tutoring students. In machine learning, boosting builds the models sequentially where each new model is built on the residuals of our current model, and only takes a small amount of predictive power from each (known  as the learning rate).  To see how this in action, lets look at the animation below.
 
 ```{r, MAIN MODEL ANIMATION, include=FALSE, eval=FALSE, echo=FALSE}
-# plot of main 
+# plot of main
 plot2 <- ggplot(anim_grid, aes(x= x1,y=x2))+
   geom_point(alpha=0.3, shape=15, size=2.5, aes(col=fs)) +
   coord_fixed(ratio = 1) +
@@ -131,7 +132,7 @@ plot2 <- ggplot(anim_grid, aes(x= x1,y=x2))+
   geom_segment(data=anim_line, linetype=2, size=1, col="grey45",
                aes(group = seq_along(type),x=x, y=y, xend=xend, yend=yend)) +
   scale_colour_viridis_c() +
-  scale_size_area() + 
+  scale_size_area() +
   transition_states(type, 1, 5) +
   ggtitle('Main Model After Incorperating {closest_state}',
           subtitle = 'Frame {frame} of {nframes}')
@@ -184,14 +185,14 @@ anim_save("resid5.gif", plot1)
 ![](resid5.gif)
 </center>
 
-We can see that when we start our boosted model, the residuals are essentially our y value (since the initial prediction for the whole area is 0), and as the main model becomes more accurate, the residuals become 0, and new trees don't have any information to contribute to the model. If the model continued much further, it would just randomly build trees on the irreducible error.  
+We can see that when we start our boosted model, the residuals are essentially our y value (since the initial prediction for the whole area is 0), and as the main model becomes more accurate, the residuals become 0, and new trees don't have any information to contribute to the model. If the model continued much further, it would just randomly build trees on the irreducible error.
 
 By focusing on the residual space, the model ensures that we aren't wasting computations by relearning something we already know. In a similar way, the best way to learn as a human is not to revise the areas we get 100% in, but rather the areas we are failing in as they offer the most room for improvement.
 
 
 ## Part 2: The Learning Rate, The Number of Models, and The Model Complexity
 ### Rash Decisions in Tutoring Is a Dangerously Simple Method
-When I arrive at Riley's house, I explain I don't have any computer games or worksheets because I disagree with them morally, however I could cover future school work and invent some fun questions. Riley's mum was not a big fan of my moral plight to take down "big tutoring". After a brief discussion about how "we are all a little disorganised" which everyone knows is mum code for "you are disorganised", she sent me home. Later I received a call from my boss about being "ill-prepared" because I should have just brought computer games and worksheets like the last tutor recommended. I explained my side, and by boss was sympathetic, but I never got another tutoring job from them again. Unfortunately, due to Riley's mum being unsupportive of trying new teaching methods, the best speed at which Riley should cover new content wont be found. He might have learnt better with longer sessions, or with another student, or doing literally anything other than playing computer games. Much in the same way that we can tailor the environment and complexity of a tutoring session, boosting can improve its predictions by changing the learning rate, number of models and the model complexity.  
+When I arrive at Riley's house, I explain I don't have any computer games or worksheets because I disagree with them morally, however I could cover future school work and invent some fun questions. Riley's mum was not a big fan of my moral plight to take down "big tutoring". After a brief discussion about how "we are all a little disorganised" which everyone knows is mum code for "you are disorganised", she sent me home. Later I received a call from my boss about being "ill-prepared" because I should have just brought computer games and worksheets like the last tutor recommended. I explained my side, and by boss was sympathetic, but I never got another tutoring job from them again. Unfortunately, due to Riley's mum being unsupportive of trying new teaching methods, the best speed at which Riley should cover new content wont be found. He might have learnt better with longer sessions, or with another student, or doing literally anything other than playing computer games. Much in the same way that we can tailor the environment and complexity of a tutoring session, boosting can improve its predictions by changing the learning rate, number of models and the model complexity.
 
 ### Tinkering the Complexity of the Boosting Model
 When using boosting, we need to be aware of how the learning rate (or shrinkage), the number of models and the model complexity impact our final prediction. The learning rate decides how much "predictive power" we take from each trees. Smaller learning rates need more models to get a working prediction, larger learning rates run the risk of giving too much power to outlier models, and missing minor complexities. The number of models (trees in our example) is just decided in parallel with the learning rate, and is essentially how much computational time we are willing to dedicate to our model. The depth of the tree is similar, in the sense that with enough trees, a stump tree can capture any relationship, however if we don't have the capacity for enough models, we can increase the complexity of each individual model to add more nuance to the final prediction.

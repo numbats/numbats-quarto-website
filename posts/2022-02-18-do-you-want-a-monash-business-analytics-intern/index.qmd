@@ -1,6 +1,6 @@
 ---
 title: "Do you need some analytics help? Maybe our internship program is for you!"
-author: 
+author:
   - Dan Simpson
 date: "2022-02-18T00:00:00Z"
 lastMod: "2022-02-18T00:00:00Z"
@@ -30,7 +30,7 @@ The program is highly selective and has an annual intake of around 50-60 student
 The students will have advanced R and data science skills. As well as having experience with various types of statistical analysis and machine learning, they have strong training in modern techniques for building reproducible analysis pipelines, automated reporting, and building interactive tools for understanding data.
 
 The students will also meet regularly throughout the project with an academic from
-Monash and their fellow students to discuss problem solving and analysis techniques 
+Monash and their fellow students to discuss problem solving and analysis techniques
 that are relevant to their projects.
 Previous students have worked on a diverse selection of projects including
 
@@ -47,7 +47,7 @@ Previous students have worked on a diverse selection of projects including
 ### What you need to have
 
 **A project.**  Suitable projects  should involve a substantial data analysis or modelling component, and should address a problem of interest to the sponsoring organization. They should take 25-30 working days to complete. Students can work in teams as part of the project.
-The project can take place any time during the year, but most students will be available from late July to the end of October. 
+The project can take place any time during the year, but most students will be available from late July to the end of October.
 It is not a requirement that students are reimbursed for this work, although some organizations choose to pay students a nominal wage during their internship^[Monash will provide insurance for all students provided they are not classified as employees.].
 
 One important restriction on the project is that it must fit with our assessment structure for the unit. We are asking the students to produce a 10,000 word report^[This may be anonymised, deidentified, or redacted as required, as long as it is still possible to assess the student's work.] on their work (which may include interactive apps or software packages that they have developed if appropriate), give a short talk, and provide access to their analysis code, ideally in a private github repository^[We are happy to discuss other options for assessing the code if using github or sharing the code is not feasible for your company. This should be decided before the internship begins.]. The data does not need to be available to Monash.

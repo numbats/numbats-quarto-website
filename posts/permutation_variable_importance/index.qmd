@@ -13,6 +13,7 @@ tags:
   - teaching
   - data visualisation
 editor: visual
+image: feature.png
 ---
 
 The season of the bachelor is upon us, and what better way to celebrate my love of drawn out reality TV, than to use it to explain permutation variable importance in the random forest model. For those who are not familiar, The Bachelor is a dating show where each week female contestants are eliminated when they do not receive a rose during the rose ceremony. The winner is famously difficult to predict, and many complicated factors (screen time, number of dates, ect) mean our variables are ever evolving through the season and difficult to use in analysis. Today we will not be predicting the winner of the bachelor (as fun as it sounds) but rather, we will use The Bachelor as the basis of an example in calculating variable importance.

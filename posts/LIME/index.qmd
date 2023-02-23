@@ -17,6 +17,7 @@ tags:
   - statistics
   - machine learning
 editor: visual
+image: feature.png
 ---
 
 ```{r setup, include=FALSE}

@@ -10,6 +10,7 @@ subtitle: Coding together
 tags: []
 title: NUMBAT Hackathon 2020
 editor: visual
+image: feature.png
 ---
 
 

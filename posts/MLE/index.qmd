@@ -15,6 +15,7 @@ tags:
   - data visualisation
   - statistics
 editor: visual
+image: feature.png
 ---
 
 ```{r setup, include=FALSE}

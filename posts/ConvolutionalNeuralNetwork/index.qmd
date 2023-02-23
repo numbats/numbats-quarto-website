@@ -13,6 +13,7 @@ tags:
   - teaching
   - data visualisation
   - machine learning
+image: feature.png
 ---
 ### This is The Blog of a Mario Party Master
 In pre-COVID times, my friends and I would gather around for a fun activity called "lets ruin our friendship by taking Mario party way too seriously".  The night always starts with laughter and  few drinks, and ends with me standing on a chair, pointing at my closest friends, and screaming "I'm going to make you cry tears you thought were reserved for the death of your mother". Once the moment has passed it seems a little dramatic, but at the time, we all truly believe that the speed you can get virtual candy out of a jar is an appropriate measure of human worth.
