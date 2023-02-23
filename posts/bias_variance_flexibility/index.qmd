@@ -1,0 +1,293 @@
+---
+title: "A Deep Dive into How Flexibility Affects The Bias and Variance Trade Off"
+author: Harriet Mason
+date: "2020-07-20T00:00:00Z"
+lastMod: "2020-07-20T00:00:00Z"
+output:
+    math: true
+categories:
+  - data visualisation
+  - statistics
+  - machine learning
+  - teaching
+tags:
+  - R
+  - teaching
+  - data visualisation
+  - machine learning
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE,
+                      include = TRUE,
+                      warning = FALSE,
+                      message = FALSE,
+                      fig.align = "center",
+                      fig.height = 4,
+                      fig.width = 6)
+
+
+
+library(tidyverse)
+library(ISLR)
+library(GGally)
+library(broom)
+library(caret)
+library(kableExtra)
+library(extrafont)
+library(boot)
+library(gganimate)
+library(gridExtra)
+library(patchwork)
+
+
+
+```
+
+
+```{r, masterdataframe}
+#make MSE function
+mse <- function(sm) 
+    mean(sm$residuals^2)
+
+#Make a function that simluates the MSE test and training data for the Auto Data set LOOCV is too computational heavy for this function so i skipped it
+the_mse <- function(s,p,l) {
+  #input: (s = number of seeds we want to iterate through (s>1), 
+  #         p = highest polynomial degree (p>1), 
+  #         l = the training/test split you would like (0<l<1))
+  #output: Data Frame with Estimated test MSE for 5 Methods
+  training_mse <- NULL
+  test_mse <- NULL
+  k5cv <- NULL
+  k10cv <- NULL
+  base_mse <- NULL
+  for (i in 1:s){
+    set.seed(i)
+    tr_indx <- createDataPartition(Auto$mpg, p=(l))$Resample1
+    tr <- Auto[tr_indx,]
+    ts <- Auto[-tr_indx,]
+    tr_mse <- NULL
+    ts_mse <- NULL
+    k5mse <- NULL
+    k10mse <- NULL
+    bmse <- NULL
+    for (j in 1:p) {
+      fit <- glm(mpg~poly(horsepower, j), data=tr)
+      fit2 <- glm(mpg~poly(horsepower, j), data=Auto)
+      tr_aug <- augment(fit, tr)
+      ts_aug <- augment(fit, newdata=ts)
+      ts_aug$.resid <- ts_aug$mpg - ts_aug$.fitted
+      trm <- sum(tr_aug$.resid^2)/length(tr_aug$.resid)
+      tsm <- sum(ts_aug$.resid^2, na.rm=TRUE)/length(ts_aug$.resid)
+      k5m <- cv.glm(Auto, fit2, K=5)$delta[1]
+      k10m <- cv.glm(Auto, fit2, K=10)$delta[1]
+      tr_mse <- c(tr_mse, trm)
+      ts_mse <- c(ts_mse, tsm)
+      k5mse <- c(k5mse, k5m)
+      k10mse <- c(k10mse, k10m)
+      bmse <- c(bmse, mse(fit2))
+
+    }
+    training_mse <- cbind(training_mse, tr_mse)
+    test_mse <- cbind(test_mse, ts_mse)
+    k5cv <- cbind(k5cv, k5mse)
+    k10cv <- cbind(k10cv, k10mse)
+    base_mse <- cbind(base_mse, bmse)
+  }
+  mse_df <- rbind(training_mse, test_mse, base_mse, k5cv, k10cv)
+  mse_df <- cbind(c(rep.int(1:p, 5)), c(rep("Training", p),
+                                        rep("Test",p),
+                                        rep("basemse",p),
+                                        rep("k5cv",p), 
+                                        rep("k10cv",p)),
+                  mse_df)
+  colnames(mse_df) <- c('poldeg','type', 1:s)
+  mse_df <- as_tibble(mse_df)
+  mse_df <- mse_df %>% 
+    pivot_longer(cols=3:(s+2), names_to = "seed", values_to="mse") %>% 
+    pivot_wider(id_cols=c(poldeg,seed), names_from='type', 
+                values_from='mse')
+  return(mse_df)
+}
+
+#s=100 and p=15 is about as high as you can go before the computations start to get too costly and the function takes forever
+df <- the_mse(100,15,0.5)
+#dfmini <- the_mse(10,15,0.5)
+```
+When we are building a machine learning model you have a choice of a simple, which would be an inflexible, model vs a complicated, or very flexible model. We need to decide how flexible the model should be to work well for future samples. An inflexible model may not reflect a complex underlying process adequately and hence would be biased. A flexible model has the capacity to capture a complex underlying process but the fitted version might change from one sample to another enormously, which is called variance. This difference is illustrated in the figure below.
+
+![](biasandvariance_sketch.png)
+
+When we think of how the bias and variance change with flexibility, we typically only look at its behaviour on average. In the plot below, the left side corresponds to an inflexible model and the right side corresponds to a flexible model. We can see that the test error stay slightly above the training as flexibility increases, until the text error shoots up. Visualisations like this are shown frequently in the textbook *"An Introduction to Statistical Learning with Applications in R" by Gareth James, Daniela Witten, Trevor Hastie and Robert Tibshirani*, which largely inspired this blog post. While this explains the behaviour of our test error on average, it doesn’t give a complete understanding of how our test error estimate will act within any individual sample. This is where we find the benefit of understanding the error distribution. The distribution of the test error allows us to not only understand the average behaviour, but also how that behaviour may change from sample to sample.
+  
+
+```{r, Figure 1}
+anim_df <- df[,c(1,3,4)] %>%
+  pivot_longer(cols=-1, names_to="type", values_to="mse")
+anim_df[,c(1,3)] <- data.frame(lapply(anim_df[,c(1,3)], as.double), stringsAsFactors=FALSE)
+
+#line chart of just test and training
+meantable <- anim_df%>%
+  group_by(poldeg, type) %>%
+  summarise(med = median(mse))
+
+plot2 <- ggplot(meantable, aes(x= poldeg, y=med, colour=type))+
+  geom_line()+
+  geom_point() +
+  theme_minimal() +
+  ylim(0,40) +
+  ggtitle("Average Training and Test error as Flexibility Increases ") +
+  xlab("Polynomial Degree") +
+  ylab("Error") +
+  scale_colour_brewer("type", palette="Dark2")
+plot2 
+
+```
+
+## Flexibility's Influence on Test Error
+When changing the flexibility of a model, the test error distribution will go through three  *phases*, that affect both its expected value, and variance.  
+
+###	Phase 1: Decreasing Bias in Model  
+When our model is biased, we are forcing our data into constraints that don’t reflect the true relationship between the variables.  Since we have not captured the true relationship of the parameters, any sample drawn from our population will also have a more complicated relationship than that of our model, and have error from bias. This relationship is illustrated below, where our high error is largely the result of too much bias in the model. Both distributions are similar to each other, but far from zero.
+<center>
+![](phase1.png)
+</center>
+
+### Phase 2: Optimal Fit  
+Increasing the flexibility will reduce the bias which will decrease the error. The optimal error will have smaller error for both training and test, but they will both be pretty similar. If you have captured the true relationship of the data with your model (if there is one), the distributions should perfectly overlap. This is unlikely to happen, since your model will always have a bias towards any quirks in your training set, and thus perform better on that set most of the time. So we instead will interpret the optimal fit is when the test error reaches its minimum (before the variance causes the total error to start to increase). 
+<center>
+![](phase2.png)
+</center>
+
+### Phase 3:	Increasing Variance in Model  
+As we start to overfit our model, we introduce more error from variance than we are losing from decreasing bias. This has two effects on the distribution of the estimated test error. First, it causes the distribution to shift upwards as we have once again missed the true relationship in the population. This miss is different from bias however, as we have overfit our model to the specifics of the test set sample, thus new samples drawn from the same population will not have a similar error. This causes the distributions to shift away from each other. Additionally, the variance of the test error estimate will also increase. Overfitting means a higher penalty for samples that just happen to be different  from our training set, and a higher reward for those that just happen to have similar quirks. Ultimately that makes the estimates more unreliable, and thus have a higher variance.   
+
+<center>
+![](phase3.png)
+</center>
+
+  
+### Understanding with an Example
+This influence from flexibility can best be seen with an example. To illustrate this, we will use the Auto data from the ISLR package, and fit a model to predict mpg using a polynomial of horsepower. If we take a look at the scatterplot of the two variables below, we can see that the linear model might not be flexible enough, but anything more flexible than a polynomial of about 4, will very likely overfit to the training sample. The plot below shows the data with a loess fit. 
+
+
+```{r, Figure 3}
+#scatter of horse and mpg
+ggplot(Auto, aes(x=horsepower, y=mpg)) +
+  geom_point() +
+  geom_smooth(se=FALSE) +
+  theme_minimal() +
+  ggtitle("ISLR Auto Data Horsepower and MPG Scatterplot")
+```
+  
+We can see the effect on the distributions using the animated density plot below. Here we have taken 100 different samples, and fit a model that predicts mpg using a polynomial degree of 1 to 15 of horsepower. Here we can see the above hand drawn illustration and interpretation of the variable relationship play out. Initially, increasing the flexibility of our model eliminates bias and causes both distributions to shift down. At polynomial degree 4, they stop at the minimum, and then for polynomial degrees higher than that, variance is introduced, and the test error increases in both expected value and variance. 
+
+```{r, Figure 4, message = FALSE, eval = FALSE}
+#density of just test and training
+plot <- ggplot(anim_df, aes(x= mse, colour=type))+
+  geom_density()+
+  geom_rug(aes(y=0, colour=type), alpha=0.7) +
+  theme_minimal() +
+  transition_states(poldeg, 3, 2) + 
+  ease_aes('cubic-in-out') +
+  xlim(12,40)+
+  scale_colour_brewer("", palette="Dark2")+
+  ggtitle('Training and Test Error Distributions of Polynomial Degree {closest_state}',
+          subtitle = 'Frame {frame} of {nframes}') 
+anim_save("figure4.gif", plot)
+```
+<center>
+![png](figure4.gif)
+</center>
+
+## Sample to Sample Changes
+Here it is important to highlight the difference between a population and a sample, so we can better understand how an unfortunate test and training split can hurt error estimates. A population is all the data on what you are trying to make an inference on. For example, if I want to make an inference on the true relationship between mpg and horsepower, the Auto data is a sample of that. Generally we would be interested to make statements for mgp and horsepower for all possible cars, where all possible cars would be our population. If I want to make an inference on the relationship between mpg and horsepower *in the Auto dataset* (which is a weirdly specific realm to keep your inferences to but each to his own I guess) then this data is the population sample. For our sample to be representative, it needs to both be randomly drawn, and large enough.  Unfortunately, even when we draw our samples to be decently large in size, and random, we will still occasionally get some unrepresentative splits. A sample that is unlike the population will bring the validity of any inference we try to make using that sample (including predictive models) into disrepute. Below is an illustration on how the sample will influence the fit among other interpretations. 
+
+<center>
+![png](figure5popandsamp.png)
+</center>
+
+
+That being said, it’s highly unlikely to get a difference that dramatic in an actual sample. In reality, minor, almost invisible to the eye differences in your sample will create large differences in your MSE estimates. 
+
+### An Example of Sample Influence on Error
+The scatterplots below shows two of the training and test sample splits that were used in the phases example. One produced the best test error on the polynomial 15 model (MSE= 105) and the other, the worst (MSE=9837). Is there a remarkable difference?
+
+```{r, Figure 6, fig.width=8}
+#scatterplot 1
+
+#(df[1400:1500,])[which((df[1400:1500,])$Test==min((df[1400:1500,])$Test)),] smallest test mse was 72
+
+set.seed(72)
+tr_indx <- createDataPartition(Auto$mpg, p=(0.5))$Resample1
+sampd <- Auto
+sampd$sam <- rep('test', length(Auto$mpg))
+sampd[tr_indx,10] <- 'train'
+sampd$sam <- as.factor(sampd$sam)
+
+p1 <- ggplot(sampd, aes(x=horsepower, y=mpg, colour = sam), alpha=0.7) +
+  geom_point() +
+  theme_minimal()+
+  scale_colour_brewer("", palette="Dark2")
+
+#df[which(df$Test==max(df$Test)),] : largest test mse was seed 1
+set.seed(1)
+tr_indx <- createDataPartition(Auto$mpg, p=(0.5))$Resample1
+sampd <- Auto
+sampd$sam <- rep('test', length(Auto$mpg))
+sampd[tr_indx,10] <- 'train'
+sampd$sam <- as.factor(sampd$sam)
+
+p2 <- ggplot(sampd, aes(x=horsepower, y=mpg, colour = sam),alpha=0.7) +
+  geom_point() +
+  theme_minimal()+
+  scale_colour_brewer("", palette="Dark2")
+
+grid.arrange(p1, p2, ncol=2)
+```
+
+
+## How Our Estimation Method Influences Our Test Error Distribution
+A glaring issue with our test error estimate is its high variance, which means less certainty in the conclusions we draw from our test estimates. If we want a test error estimation method that is less susceptible to this issue of variance, we could try using a cross validation method. All methods, like the test error shown above, will still follow the general phases caused by increasing flexibility, but some have a lower overall variance (at the cost of more bias).    
+
+### The Phases Example Using Cross Validation
+When we originally looked at the test error, it was estimated with the validation set approach (test in the plot) for simplicity. Now, let’s redo those distribution estimations of error from the mpg and horsepower models, but also look at the distribution of the 10-fold (k10cv), and 5-fold cross (k5cv) validation methods.
+
+```{r, Figure 7, message = FALSE, eval = FALSE}
+#density of cv methods
+anim_df <- df[,c(1,4,6,7)] %>%
+  pivot_longer(cols=-1, names_to="type", values_to="mse")
+anim_df[,-2] <- data.frame(lapply(anim_df[,-2], as.double), stringsAsFactors=FALSE)
+plot2 <- ggplot(anim_df, aes(x= mse, colour=type))+
+  geom_density()+
+  geom_rug(aes(y=0, colour=type), alpha=0.7) +
+  theme_minimal() +
+  transition_states(poldeg, 3, 2) + 
+  ease_aes('cubic-in-out') +
+  xlim(12,40)+
+  ylim(0,3) +
+  ggtitle('Training and Test Error Distributions of Polynomial Degree {closest_state}',
+          subtitle = 'Frame {frame} of {nframes}')+
+  scale_colour_brewer("", palette="Dark2")
+anim_save("figure7.gif", plot2)
+
+```
+<center>
+![png](figure7.gif)
+</center>
+  
+Here we can see the bias variance trade off play out with our estimates of test error, just as they would with our model fit. Our cross-validation methods in order of increasing variance are: 
+
+> 5-fold CV < 10-fold CV < Validation Set Method
+
+The methods in order of increasing bias are:
+
+> 10-fold CV < 5-fold CV < Validation Set Method
+
+
+In general, the k-fold CV bias and variance depends on the value of k, where LOOCV (k=n) is approximately unbiased.
+
+## To Summarise...
+As the flexibility of our model increases, we know that the estimated model will have a decrease in bias and increase in variance. This change in our model causes both a change in the mean and variance of our estimated test error. A lot of the difference is caused by the increasing impact of our random sample split, however it is not something that is visually noticeable. Like the model, the method of test error estimation also has its own bias and variance trade off, and it can be balanced using cross validation methods.
+
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
