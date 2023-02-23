@@ -1,7 +1,6 @@
 ---
 title: "Hexmaps with sugarbag make it easier to see the electoral map"
-authors: 
-  - Di Cook
+author: Di Cook
 date: "2022-05-21T00:00:00Z"
 lastMod: "2022-05-2T00:00:00Z"
 categories:
@@ -26,7 +25,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-Australia is a land of wide open spaces where the population concentrates in small areas. It can make for misleading map visualisations on statistics related to people. The May 20, 2022 ABC article [The Australian election map has been lying to you](https://www.abc.net.au/news/2022-05-20/federal-election-map-lying/101076016) explains this very neatly. It has alsp provided a better alternative to examine election results, in the form of a hexmap of Australia. The hexmap provided in the article is almost certainly manually constructed which is find for a construct once, use many times purpose. 
+Australia is a land of wide open spaces where the population concentrates in small areas. It can make for misleading map visualisations on statistics related to people. The May 20, 2022 ABC article [The Australian election map has been lying to you](https://www.abc.net.au/news/2022-05-20/federal-election-map-lying/101076016) explains this very neatly. It has alsp provided a better alternative to examine election results, in the form of a hexmap of Australia. The hexmap provided in the article is almost certainly manually constructed which is find for a construct once, use many times purpose.
 
 When you want to be able to make a hexmap on new spatial data or if the spatial groups change, the R package sugarbag can be helpful.  This post explains how to do this, using the results as we have them today from yesterday's election. (We'll update these once the final results are released.)
 
@@ -42,7 +41,7 @@ library(tidyverse)
 library(plotly)
 ```
 
-Read in the spatial polygons, defining the boundaries. These files can be very large, and slow to draw. For these visualisations faster to draw is more important, so the boundaries can be simplified using `rmapshaper::ms_simplify`. 
+Read in the spatial polygons, defining the boundaries. These files can be very large, and slow to draw. For these visualisations faster to draw is more important, so the boundaries can be simplified using `rmapshaper::ms_simplify`.
 
 ```{r spatial-polygons, echo=TRUE}
 # Spatial polygons
@@ -50,7 +49,7 @@ electorates <- sf::st_read("2021-Cwlth_electoral_boundaries_ESRI/2021_ELB_region
 electorates_small <- electorates %>% rmapshaper::ms_simplify(keep = 0.01, keep_shapes = TRUE)
 ```
 
-Next we need the elction results. The ones here are manually  constructed from the [ABC results website](https://www.abc.net.au/news/elections/federal/2022/results?filter=all&sort=az&state=all). These results are joined to the map polygons, and colours are manually constructed to be one typically used by the party. The `ggplotly()` function enables labels to pop up on mouseover. 
+Next we need the elction results. The ones here are manually  constructed from the [ABC results website](https://www.abc.net.au/news/elections/federal/2022/results?filter=all&sort=az&state=all). These results are joined to the map polygons, and colours are manually constructed to be one typically used by the party. The `ggplotly()` function enables labels to pop up on mouseover.
 
 ```{r electoral-map, echo=TRUE, fig.width=12, fig.height=6, out.width="100%"}
 # Read in data on current electoral results
@@ -82,7 +81,7 @@ An interactive version can be found  [here](https://numbat.space/post/election_h
 
 The map is blue -- it looks like the coalition won the election in a landslide, doesn't it! (Please note the strange shape of the Cape of York is from the AEC spatial polygons provided! It is not due the the polygon thinning.)
 
-To convert this into a hexmap, automatically with sugarbag, we need to 
+To convert this into a hexmap, automatically with sugarbag, we need to
 
 1. Find the centroids of each polygon.
 2. Create a hexagon grid with a desired size of hexagon, `hs` controls this.
@@ -120,11 +119,11 @@ electorate_hexmap <- allocate(
 # Make the hexagons
 e_hex <- fortify_hexagon(data = electorate_hexmap,
                             sf_id = "Elect_div",
-                            hex_size = hs)  
+                            hex_size = hs)
 electorate_hexmap_new <- e_hex %>%
   left_join(new_major, by=c("Elect_div"="Electorate"))
 hexmap <- ggplot() +
-  geom_sf(data=electorates_small, 
+  geom_sf(data=electorates_small,
           fill="grey90", colour="white") +
   geom_polygon(data=electorate_hexmap_new,
              aes(x=long, y=lat,
@@ -145,9 +144,9 @@ hexmap
 
 An interactive version can be found  [here](https://numbat.space/post/election_hexmaps/hexmap.html)
 
-And that's it! The sugarbag hexmap will expand the densely populated small areas outwards, while maintaining proximity to neighbouring electorates and to the city centre. It is a type of [cartogram algorithm](https://en.wikipedia.org/wiki/Cartogram) with two important differences: (1) uses equal area for each hexagon instead of sized proportional to population, and (2) allows some hexagons to be separated so that the geographic positions are reasonably preserved. 
+And that's it! The sugarbag hexmap will expand the densely populated small areas outwards, while maintaining proximity to neighbouring electorates and to the city centre. It is a type of [cartogram algorithm](https://en.wikipedia.org/wiki/Cartogram) with two important differences: (1) uses equal area for each hexagon instead of sized proportional to population, and (2) allows some hexagons to be separated so that the geographic positions are reasonably preserved.
 
-The hexmap makes it easier to see the results distributed across the country, and clearly with the predominance of red, that Labor won. 
+The hexmap makes it easier to see the results distributed across the country, and clearly with the predominance of red, that Labor won.
 
 Data for this post can be found [here](https://numbat.space/post/election_hexmaps/electoral_2022.csv).
 
