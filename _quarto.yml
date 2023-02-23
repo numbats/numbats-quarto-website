@@ -9,6 +9,7 @@ website:
         text: People
       - href: posts/index.qmd
         text: Posts
+      - projects.qmd
       - events.qmd
       - href: courses.qmd
         text: Courses
