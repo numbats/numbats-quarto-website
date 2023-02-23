@@ -1,5 +1,13 @@
 ---
-title: "Monash NUMBATs"
+title: "Latest News"
+from: markdown+emoji
 ---
 
-News to go here
+* Welcome to post-doctoral research [Xiaoqian Wang](/people/current/wang-xiaoqian/) and visitors [Daniele Girolimetti](/people/visitors/girolimetto-daniele/) and [Chika Saka](/people/visitors/saka-chika/)!
+:smile: We're excited to welcome you!
+
+* WOMBAT is back in 2022, on *Communicating with Data*, with keynote Amanda Cox. More information about [WOMBAT 2022 is here](https://numbats.github.io/WOMBAT2022/)
+
+* Monash Master of Business Analytics: Strap on an explorer's backback and a skeptics hat and learn how to analyse data. [Find out more.](https://www.monash.edu/business/master-of-business-analytics#events)
+
+* The real numbats could use your help. If you would like to help with numbat conservation take a look at Project Numbat. You can buy numbat souvenirs or make donations to help with numbat conservation. Go to [Project Numbat](http://www.numbat.org.au).
