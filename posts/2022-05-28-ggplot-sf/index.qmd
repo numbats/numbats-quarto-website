@@ -1,9 +1,9 @@
 ---
 title: "How long do maps on ggplot facets take?"
-author: 
-  - H. Sherry Zhang
+author: H. Sherry Zhang
 date: '2022-05-27'
 slug: []
+image: firstpic.png
 categories:
   - data visualisation
   - teaching
