@@ -3,7 +3,6 @@ title: "My Idiot Brain Ruined My School's NAPLAN average, But Bootstrapping Coul
 author: Harriet Mason
 date: "2020-08-04T00:00:00Z"
 lastMod: "2020-08-04T00:00:00Z"
-image: sketch1.png
 categories:
   - data visualisation
   - statistics

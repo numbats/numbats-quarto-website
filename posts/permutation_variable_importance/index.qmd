@@ -3,7 +3,6 @@ title: "Using the Bachelor to Understand Permutation Variable Importance"
 author: Harriet Mason
 date: "2020-07-29T00:00:00Z"
 lastMod: "2020-07-29T00:00:00Z"
-image: draw6.png
 categories:
   - data visualisation
   - statistics
