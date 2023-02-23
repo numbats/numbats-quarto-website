@@ -1,7 +1,11 @@
 ---
-title: "Latest News"
+title: "Non-Uniform Monash Business Analytics Team"
 from: markdown+emoji
 ---
+
+![](/img/numbats_webimage.jpeg)
+
+## Latest News
 
 * Welcome to post-doctoral research [Xiaoqian Wang](/people/current/wang-xiaoqian/) and visitors [Daniele Girolimetti](/people/visitors/girolimetto-daniele/) and [Chika Saka](/people/visitors/saka-chika/)!
 :smile: We're excited to welcome you!
