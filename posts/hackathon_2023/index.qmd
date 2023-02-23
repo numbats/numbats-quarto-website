@@ -1,0 +1,36 @@
+---
+title: "Hackathon 2023"
+author: Numbats Rise-up
+date: "2023-02-24T00:00:00Z"
+lastMod: "2023-02-24T00:00:00Z"
+image: group.png
+categories:
+  - teaching
+  - community
+tags:
+  - R
+---
+
+Overview
+
+The third NUMBAT hackathon was held Feb 22-24, 2023 in San Remo, Vic. A hackathon is style like RopenSci events where attendees brainstorm potential projects, and join to gether in small groups to tackle a subset of these.
+
+Projects
+
+Projects tackled can be found at https://github.com/numbats/numbathackathon/issues.
+
+![Participants](group.jpg) 
+
+
+![Brainstorming the projects](projects.jpg) 
+
+
+
+![Making sushi](sushi.jpg) 
+
+
+
+![Aussie barbecue - love the aprons!](bbq.jpg) 
+
+
+![Pelican feeding](pelicans.jpg) 

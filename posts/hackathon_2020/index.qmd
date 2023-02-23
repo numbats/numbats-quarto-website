@@ -13,28 +13,14 @@ editor: visual
 image: feature.png
 ---
 
-
-<img src="/img/hackathon/ac_icon.png" />
+<img src="/img/hackathon/ac_icon.png"/>
 
 ## Overview
 
-The second ever NUMBAT hackathon was held at Abbotsford Convent Feb
-19-20, 2020. A hackathon is style like RopenSci events where attendees
-brainstorm potential projects, and join to gether in small groups to
-tackle a subset of these.
+The second ever NUMBAT hackathon was held at Abbotsford Convent Feb 19-20, 2020. A hackathon is style like RopenSci events where attendees brainstorm potential projects, and join to gether in small groups to tackle a subset of these.
 
 ## Projects
 
-Planned projects can be found at
-https://github.com/numbats/numbathack20/issues.
+Planned projects can be found at https://github.com/numbats/numbathackathon/issues. (In closed issues, too.)
 
-
-![png](numbat1.png)
-![png](numbat2.png)
-![png](numbat3.png)
-![png](numbat4.png)
-![png](numbat5.png)
-![png](numbat6.png)
-![png](numbat7.png)
-![png](numbat8.png)
-![png](abbotsford_convent.png)
+![png](numbat1.png) ![png](numbat2.png) ![png](numbat3.png) ![png](numbat4.png) ![png](numbat5.png) ![png](numbat6.png) ![png](numbat7.png) ![png](numbat8.png) ![png](abbotsford_convent.png)

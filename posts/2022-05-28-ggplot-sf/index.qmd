@@ -4,6 +4,7 @@ author: H. Sherry Zhang
 date: '2022-05-27'
 slug: []
 image: firstpic.png
+freeze: true
 categories:
   - data visualisation
   - teaching
