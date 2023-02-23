@@ -6,8 +6,10 @@
   {
     "listing": "/posts/index.html",
     "items": [
+      "/posts/2022-10-18-cran-rev-dep/index.html",
       "/posts/2022-05-28-ggplot-sf/index.html",
       "/posts/election_hexmaps/index.html",
+      "/posts/2022-02-18-do-you-want-a-monash-business-analytics-intern/index.html",
       "/posts/regularisation/index.html",
       "/posts/LDA/index.html",
       "/posts/pca/index.html",
