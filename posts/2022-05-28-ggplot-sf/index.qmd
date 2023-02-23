@@ -122,6 +122,7 @@ sir <- tibble(county = countiesE, year = yearsE, E = E) %>%
 What we would like to do here is to show the SIR values of each county on the map across years. This would require us to join the two datasets, supply the combined data into ggplot, plot the underlying map, fill the county polygon with `SIR`,  make facets with `year`, and lastly tweak the theme and the fill scale. Let's give this plot a name, say `target`: 
 
 ```{r echo = TRUE}
+#| warning: false
 combined <- ohio %>% 
   left_join(sir, by = c("NAME" = "county"))
 
@@ -148,6 +149,7 @@ Easy peasy.
 But, have you thought about **how long it would take to provide this plot to you?**
 
 ```{r}
+#| warning: false
 combined <- ohio %>% left_join(sir, by = c("NAME" = "county")) 
 
 make_plot <- function(data){
@@ -368,6 +370,7 @@ Looking at these points, something weird is going on here: by the end of the fir
 [^1]: To make a proper benchmark of time, ideally each plot (`p1` - `p21`) should be evaluated repetitively to obtain a distribution of the elapsed time. I set up a script with 50 repetitions and let it run overnight, but what I got next morning was "RStudio quit unexpectedly". I suspect there is something going on with opening and closing the graphic devices too many times...
 
 ```{r results='hide'}
+#| warning: false
 ohio2 <- ohio %>% rmapshaper::ms_simplify()
 
 combined2 <- ohio2 %>% left_join(sir, by = c("NAME" = "county"))
