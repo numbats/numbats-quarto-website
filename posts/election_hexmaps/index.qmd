@@ -3,6 +3,7 @@ title: "Hexmaps with sugarbag make it easier to see the electoral map"
 author: Di Cook
 date: "2022-05-21T00:00:00Z"
 lastMod: "2022-05-2T00:00:00Z"
+image: index_files/figure-html/hexmap-1.png
 categories:
   - data visualisation
   - statistics
@@ -21,7 +22,7 @@ knitr::opts_chunk$set(
 	message = FALSE,
 	warning = FALSE,
 	cache = TRUE,
-	eval = FALSE
+	eval = TRUE
 )
 ```
 
