@@ -3,7 +3,6 @@ title: "Mario Party: Destroyer of Friendships and Explainer of Convolutional Neu
 author: Harriet Mason
 date: "2020-08-11T00:00:00Z"
 lastMod: "2020-08-11T00:00:00Z"
-image: draw0.png
 categories:
   - data visualisation
   - statistics
