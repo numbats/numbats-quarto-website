@@ -1,0 +1,643 @@
+---
+title: "A Future Public Disturbance Explains LDA"
+authors: 
+  - Harriet Mason
+date: "2021-08-02T00:00:00Z"
+lastMod: "2020-08-03T00:00:00Z"
+output:
+    math: true
+categories:
+  - data visualisation
+  - statistics
+  - teaching
+  - machine learning
+tags:
+  - R
+  - teaching
+  - data visualisation
+  - statistics
+  - machine learning
+editor: visual
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE,
+                      include=TRUE, 
+                      message = FALSE, 
+                      warning = FALSE,
+                      comment = "#",
+                      fig.height = 4,
+                      fig.width = 6,
+                      fig.align = "center")
+library(tidyverse)
+library(LearnGeom)
+library(gganimate)
+library(mvtnorm)
+library(tidytext)
+library(sf)
+library(unglue)
+library(MASS)
+#library(xkcd)
+library(gridExtra)
+```
+
+# Bad Restaurants and LDA are Ruining my Life
+I would like to say that I'm the type of person who would never complain at a restaurant, but deep down I know I'm one bad day away from being the woman in a viral video pissing on the floor of a Starbucks because they didn't give her soy milk. If you would like to see the correlation that makes me think this, see the figure below:  
+
+<center>
+![](timeseries.png)
+</center>
+  
+Despite this clear character flaw which I refuse to talk about further, I  have never written an online review of a restaurant. I came close earlier this year when my sisters and I decided to spend money we didn't have on some fine dining, thinking it would be a nice night out. Unsurprisingly from the tone of this post, the experience turned out to be a nightmare. When our waiter eventually asked if we were OK I looked at her with a manic glint in my eyes and told her I was silently praying that something from the ceiling would fall and crush me, so I could escape the eternal purgatory of being trapped in this restaurant. Spending all my money to get the opportunity to wait hours for an onslaught of terrible food, was probably an indicator I had already died and this was some personalized version of hell. Here is a snippet of a review I got halfway through writing, and then forgot about until this very moment. 
+
+<center>
+![](review.png)
+</center>
+  
+You could consider my complaints to be wildly privilege and out of touch, but my dog died a year ago, and I would rather relive that than go to this restaurant again. If you are thinking to yourself that I seem to have unhinged emotional responses to slight upsets, you would be correct. So while we are on the topic of out of touch emotional responses, lets talk about Linear Discriminant Analysis (LDA). 
+
+Back when I learnt about LDA, I had a regularly maintained page in my notes called "LDA is ruining my life". Every tutorial for about 4 weeks would be me pointing to a section of the page and asking my tutor why all of it worked the way it did, and why I was too stupid to understand it. Ultimately my issue stemmed from one key question: Is LDA a classification or dimension reduction technique; and if its both, how are they related? I never figured it out, and after the exam, I decided it was something for people greater than myself to know. Or I decided it was not my problem any more. The distinction is unimportant. What is important is that a few weeks ago I overheard someone in the department talking about LDA and I had what I can only describe as machine learning based war flashbacks. So, thanks to this conversation, I reopened the page that hurt me to my soul, and made some plots to help me (and by extension you, the person reading this post) finally understand how LDA works. I'm going to break this down into two sections:
+
+1) How LDA classification works in the 1-dimensional case  
+2) How LDA dimension reduction works in the 2-dimensional case and then extends to classification.  
+
+For the running example, we are going to look at some restaurant reviews to maintain the theme of "things Harriet has disproportionate emotional reactions to". If anyone was looking for a sign that I'm running out of ideas, here it is.
+
+# LDA for 1 Dimensional-Classification  
+## Theory
+LDA is pretty straight forward as far as classification models go. Every time we use a classification model, we are implicitly asking "Which of these groups is more probable?", LDA just does this very literally. If you are unfamiliar with Bayes theorem (that would be alarming but I'm an adult who said "Who's Cyprus?" to my housemate the other day so I can hardly judge) it looks like this:
+
+$$P(Y=k|X=x) = \frac{P(K=k)P(X=x|K=k)}{P(X=x)}$$
+
+If you don't have an intuitive sense of Bayes theorem, its actually pretty easy to draw how it works. Lets say we have two groups, and we want to find the probability that an observation belongs to either Class 1 or Class 2 based on our predictors. Since there are two versions of the function (one for Class 1 and one for Class 2), we will have two different possible equations to plot, and so two different densities. To start with, **LDA assumes that both classes are  normally distributed and have the same variance**, so we only need to calculate three things, each of the group means and their shared variance. Once we have these values we can draw the associated normal density, that is $P(X=x|K=k)$  for each value of K.
+
+<center>
+![](1dimdraw.png)
+</center>
+  
+This is already looking pretty good, but what if each class is not equally probable? Well, we can make these densities more accurate by scaling them by their relative class probability, i.e. $P(K=k)$. So lets say that class 2 is much more likely than class 1, then we end up with this:
+
+<center>
+![](1dimscaledraw.png)
+</center>
+  
+Then to finish we just scale both of them down so that they follow the probability axioms. That is, we make sure the probability of belonging to Class 1 + the probability of belonging to Class 2 is not not greater than 1.
+
+<center>
+![](1dimnormdraw.png)
+</center>
+  
+With that we end up at the equation for Bayes theorem.  Unfortunately this theorem does not give us a classification rule, but rather relative probabilities. To make a rule we could calculate this probability for every class, and then classify our observation to whichever class spits out the largest value of this function, but that is a bit tedious. It would be much easier to have a single value where numbers above it are Class 2 and numbers below are Class 1. Lucky for us, the y-axis here gives a probability, which means for values of x where the Class 2 function is higher, Class 2 is more probable, and vice-versa for Class 1. Therefore, the best place to draw our boundary is when the densities overlap, and both classes are equally probable.
+
+<center>
+![](1dimbounddraw.png)
+</center>
+  
+This the basics how LDA classifies observations. The only thing to note, is that it doesn't do this on the scale of your X variable. It will scale X by some constant such that the classification bound drawn above is at 0, and this new scale is called the Linear Discriminant. To make this a little easier to understand, I can give a real example of 1-Dimensional LDA classification.
+
+## Example
+While it would be in character for me to sit alone in my room and write hundreds of spiteful restaurant reviews to make a data set, I'm not going to do that. For this analysis I'm going to use a Kaggle data set with about 1000 restaurant reviews, where each observations has two variables; the typed review and a yes/no indicator for whether or not the person liked the food.
+
+Unfortunately if we want to predict if someone liked the food based off their review, the raw version of this data isn't going to cut it. We need some comparable variables, which means we need a measure of how positive or negative the review is. For this, I'm going to keep it simple, and use a basic sentiment analysis. For those who don't know, there are several ways to assess the sentiment of a word, i.e. if it has positive or negative feelings associated with it. There are a number of "lexicons" that are just massive data sets that have a word (such as "hate" or "love") and an associated score for that words sentiment (-5 or +5). I'm going to use two of these for this example; 'AFINN' which gives words a score from -5 to 5, and 'bing' which rates words as either positive or negative (simplified to 1 or -1 here). To use these as variables in our example data set, I took the average sentiment of the words in the review for that lexicon. Finally we get a dataset with observations that look like this:
+
+```{r Example Review}
+# Load and Clean Data
+
+#define function to fix impropper imports
+fixstring <- function(string){
+  unlist(strsplit(string,"\n")) %>%
+    as_tibble() %>%
+  unglue_unnest(value,patterns="{Review}\t{Liked}")
+}
+
+#load data
+foodreviews <- read.table(file = "https://numbat.space/post/LDA/data/Restaurant_Reviews.tsv", 
+                          sep = '\t', header = TRUE)%>%
+  mutate(Review=as.character(Review))
+
+#review 7, 24, 31, 42, 44, 50,51, 54, 55, 56... are more than 1 review. 
+#need to clean the data
+
+#data with only error reviews
+foodreviewsedit <- foodreviews %>%
+  filter(str_detect(Review, '\t'))
+
+# data with only correct reviews
+fixedreviews <- foodreviews %>%
+  filter(!str_detect(Review, '\t'))
+
+# make each error into a df and append it to the correct entries
+for(i in 1:39){
+  strng <- paste0(foodreviewsedit[i,1],'\t',foodreviewsedit[i,2],'\n')
+  fixedreviews <- rbind(fixedreviews, fixstring(strng))
+}
+
+#id reviews
+fixedreviews$id <- 1:length(fixedreviews$Liked)
+
+#get sentiments
+# sent1 <- get_sentiments("afinn")
+# sent2 <- get_sentiments("bing")%>%
+#  mutate(sentiment=ifelse(sentiment=="negative",-1,1))
+# write_csv(sent1, file = "data/sent1.csv")  
+# write_csv(sent2, file = "data/sent2.csv")  
+sent1 <- read_csv("https://raw.githubusercontent.com/numbats/numbats-website/master/static/post/LDA/data/sent1.csv")
+sent2 <- read_csv("https://raw.githubusercontent.com/numbats/numbats-website/master/static/post/LDA/data/sent2.csv")
+
+#get each word of the review and find sentiment
+test <- fixedreviews  %>%
+  unnest_tokens(word, Review) %>% 
+  left_join(sent1)%>%
+  left_join(sent2)%>%
+  mutate(value=ifelse(is.na(value),0,value),
+         sentiment=ifelse(is.na(sentiment),0,sentiment)) %>%
+  group_by(id) %>%
+  summarise(afinn_sentiment=mean(value),
+            bing_sentiment=mean(sentiment))%>%
+  ungroup()
+
+
+#make variable of length
+test2 <- fixedreviews %>%
+  mutate(review_length = str_length(Review),
+         liked = ifelse(Liked==1, "Yes", "No"))%>%
+  filter(!(review_length>5000))
+
+#combine datas
+sum_review <- test2 %>%
+  left_join(test) %>%
+  dplyr::select(!Liked)
+
+#Example Reviews
+m <- sum_review[c(22,34,94,103, 199),] %>%
+  dplyr::select(!c(id, review_length))
+knitr::kable(m, digits=4, align="c")
+```
+*Note: These reviews are some of my favourites, they are not a random sample.*
+
+Right now, I'm not going to use both of these sentiments. We are still in the one dimensional classification case, so lets stick to the AFINN average. To see how this variable splits the reviews, lets make a density plot of the data similar to the one explained above.
+
+```{r, make A density plot of the reviews, eval=TRUE}
+#plot density of reviews on AFINN
+ggplot(sum_review, aes(x=afinn_sentiment, colour=liked)) +
+  geom_rug(alpha=0.7) +
+  geom_density() +
+  ##theme_xkcd() +
+  #theme(text=element_text(family="Harrietshandwriting")) +
+  xlab("AFINN Sentiment") +
+  ggtitle("Density of Average AFINN Sentiment for Food Reviews")+
+  scale_colour_brewer(palette="Dark2")
+```
+
+
+
+From this plot we can see that these distributions are neither normal, nor have similar variance. You will rarely have data that behaves exactly according to the assumptions. Does this mean we can't use LDA? Not really, it just means that if (or when) we end up with a boundary that is a bit different to what you would draw yourself, it is probably because of these incorrect assumptions. 
+
+If we perform LDA on this data, we can find the coefficient of linear discriminants. Earlier I said that LDA will perform classification on its own scale, and this is how we find it. This value is used the same way it would be in a regression function, where it gives us the coefficients in the formula:
+
+```{r, LDA Classification}
+# LDA Classification for reviews example
+lda.fit <- lda(liked ~ afinn_sentiment, data=sum_review)
+lda.pred = predict(lda.fit , sum_review)
+```
+
+$$x = 2.929\times AverageSentiment_{AFINN}$$
+Where x is the "linear discriminant" for that review. We can plot this variable (although it is just afinn_sentiment scaled by a constant) with the decision bound at 0 to see what our linear discriminant space looks like: 
+
+```{r, Find LD1 Values, eval=TRUE}
+#Find LD1 Values
+lda_1dim <- sum_review %>%
+  dplyr::select(c(Review, liked, afinn_sentiment)) %>%
+  cbind(lda.pred$x)
+
+#add to plot
+ggplot(lda_1dim, aes(x=LD1, colour=liked))+
+  geom_rug(alpha=0.7) +
+  geom_density() + 
+  geom_vline(xintercept=0, linetype=2)+
+  #theme_xkcd() +
+  #theme(text=element_text(family="Harrietshandwriting"))+
+  ggtitle("Density of LD1 for Food Reviews Data")+
+  scale_colour_brewer(palette="Dark2")
+```
+  
+
+It looks exactly the same except now the border for a 50% threshold is at 0. You may notice this is not where the densities overlap, and that is because LDA has assumed that distribution for "No" reviews is more spread out than it is. While it isn't perfect, with this example under our belts we can move onto using LDA for dimension reduction.
+
+# LDA For Dimension Reduction
+## Theory
+Now we move onto the dimension reduction aspect of LDA. Remember how in the previous example LDA changed the original variable to make its own scale, LD1? Well, that is the dimension reduction part working, although in that case it wasn't reducing the dimensionality, just scaling it. LDA dimension reduction is actually very similar to Principal Component Analysis (PCA) dimension reduction, in that it uses eigen-decomposition. To avoid going into some complicated details you can find elsewhere, whenever you read eigen-decomposition just think "we found direction of largest variance, represented it as a line, and projected data onto that line" and you know enough to make it through this post. 
+
+In my last post, I explained eigen-decomposition and how it is utilized in PCA, but it is much easier to understand when you to see it working. The animation below depicts a scatter plot of data, with a line that rotates around its centre. This line represents a potential direction for us to project our data onto (i.e. a 1-Dimensional representation). When we did PCA, we wanted to pick the line that has the highest variance, that is, had the fattest distribution when plotted as a density plot, and this animation lets us roughly see when that point is:
+
+```{r, Animation Data Function, eval=TRUE}
+# Made Data for Animation (Function)
+
+projectiondata <- function(xygroup, inc){
+  #input: xygroup= dataframe[x,y,group], inc=angle increment between projections
+  #make orthogonal projection onto line data frame
+  angles <- seq(1,180,inc) #rec 15 for inc
+  cpoint <- c(mean(xygroup[,1]), mean(xygroup[,2]))
+  firstframe <- cbind(xygroup, data.frame(matrix(nrow=length(xygroup[,1]), ncol=2*length(angles))))
+  for(i in seq(length(angles))){
+    liney <- CreateLineAngle(cpoint, angles[i])
+    allx <- NULL
+    ally <- NULL
+    for(j in seq(length(xygroup[,1]))){
+      point <- ProjectPoint(c(xygroup[j,1],xygroup[j,2]), liney)
+      #up to here
+      allx <- c(allx, point[1])
+      ally <- c(ally, point[2])
+      }
+  firstframe[,(2+2*i)] <- unname(allx)
+  firstframe[,(3+2*i)] <- unname(ally)
+  }
+  #change col names to angle with x axis
+  colnames(firstframe)[4:length(colnames(firstframe))] <- sort(rep(angles,2))
+  #make x values table
+  frame_x <- firstframe[c(1:3,2+(2*seq(length(angles))))] %>%
+    pivot_longer(cols=-(1:3), 
+                 names_to= "anglex", 
+                 values_to = "xval")
+  #make y values table
+  frame_y <- firstframe[c(1:3,3+(2*seq(length(angles))))] %>%
+    pivot_longer(cols=-(1:3), 
+                 names_to= "anglex", 
+                 values_to = "yval")
+  #combine x and y tables
+  frame_long <- left_join(frame_x, frame_y)
+  #make angles into numerics and also convert to radians
+  frame_long$anglex <- as.numeric(frame_long$anglex)*(pi/180)
+  #add in distance metric
+  frame_long <- frame_long %>%
+    mutate(projval = sqrt((xval-cpoint[1])^2 + (yval-cpoint[2])^2)) %>%
+    mutate(projval2 = ifelse(yval-cpoint[2]<0, projval*(-1), projval)) %>%
+    dplyr::select(-projval)
+  return(frame_long)
+}
+```
+
+```{r, Generate Data Frames, eval=TRUE}
+#Generate Data Frames
+
+#no class data for PCA
+sigs <- matrix(c(1,0.6,0.6, 1), nrow=2, byrow=TRUE)
+noclass <-  data.frame(rmvnorm(100, mean=c(0,0), sigs)) %>%
+  mutate(group=rep("None",100))
+
+#no correlation + groups
+nocorr <- data.frame(rmvnorm(100, mean=c(2,2))) %>%
+  rbind(data.frame(rmvnorm(100, mean=c(-1,-2)))) %>%
+  mutate(group=c(rep("1",100), rep("2", 100)))
+
+#positive correlation + groups
+sigs <- matrix(c(1,0.4,0.4, 1), nrow=2, byrow=TRUE)
+poscorr <- data.frame(rmvnorm(100, mean=c(2,2), sigs)) %>%
+  rbind(data.frame(rmvnorm(100, mean=c(-1,-2), sigs))) %>%
+  mutate(group=c(rep("1",100), rep("2", 100)))
+
+#negative correlation + groups
+sigs <- matrix(c(1,-0.7,-0.7, 1), nrow=2, byrow=TRUE)
+negcorr <- data.frame(rmvnorm(100, mean=c(2,2), sigs)) %>%
+  rbind(data.frame(rmvnorm(100, mean=c(-1,-2), sigs))) %>%
+  mutate(group=c(rep("1",100), rep("2", 100)))
+
+```
+
+```{r, PCA Animation Code, eval=FALSE}
+# PCA Animation Code
+
+#make animation data frame
+pca_anim <- projectiondata(noclass, 5)
+
+#make mean vector
+cpoint <- c(0, 0)
+
+#scatterplot animation
+pca_scatter <- ggplot(pca_anim, aes(x=X1, y=X2)) +
+  geom_point(alpha=0.3) +
+  geom_point(aes(x=xval, y=yval, colour="Projection"),alpha=0.7)+
+  geom_spoke(aes(x=cpoint[1], y=cpoint[2], angle=anglex, radius=5)) +
+  geom_spoke(aes(x=cpoint[1], y=cpoint[2], angle=(anglex)+pi, radius=5))+
+  transition_states(anglex, 1, 5)+
+  ggtitle('Scatter Plot of Data with 1-Dimensional Projection',
+          subtitle = 'Frame {frame} of {nframes}')+
+  #theme_xkcd() +
+  #theme(text=element_text(family="Harrietshandwriting"))+
+  scale_colour_brewer(palette="Dark2")
+anim_save("draw/pca_scatter.gif", pca_scatter)
+
+#density animation
+pca_density <- ggplot(pca_anim, aes(x=projval2, colour=group))+
+  geom_rug() +
+  geom_density() + 
+  transition_states(anglex, 1, 5) +
+  ggtitle("Density Plot of 1-Dimensional Projection",
+          subtitle = 'Frame {frame} of {nframes}') +
+  #theme_xkcd() +
+  #theme(text=element_text(family="Harrietshandwriting"))+
+  xlab("Projection Value")+
+  theme(legend.position = "none")+
+  scale_colour_brewer(palette="Dark2")
+anim_save("draw/pca_density.gif", pca_density)
+
+```
+
+<center>
+![](pca_scatter.gif){width=48%} ![](pca_density.gif){width=48%} 
+</center>
+
+The point of this is visually show you the value of eigen decomposition. It gives an instant analytical result for what we could try to find with the animation above.   
+
+How is this relevant to LDA? Well it also uses an eigen decomposition, but it isn't as straight forward as the PCA case. Now we have classes that we need to take into account. LDA decomposition works with the goal of minimising the overlap between classes. That is, if we plot the density of the two groups, we want the smallest possible overlap, as shown below.
+
+<center>
+![](overlapdraw.png)
+</center>
+  
+There are two components of the distributions that come into play when picking this direction:  
+1) Distance of Class Means. The importance of this bit is pretty obvious. If the two groups are further apart then they have less overlap. Regardless of the features of the data, this will always be an important aspect.  
+1) Class Variance and Covariance. While having data that is far away is nice, if there is another projection that brings the class means closer, *but* makes the resulting distribution steeper, it will result in less overlap.  
+Finding a balance between these two components is what allows us to maximise the distance between the two groups, and find the best 1-dimensional projection of the classes. The interaction of these two elements may not be easy to see above, but it will make a lot of sense with some animated examples. In these examples I have added a value called "VarDist" in the corner, I will get to the calculation of this value later, but for right now, know that it represents the interaction of these two components and we are looking to maximise it.
+
+To start, lets take the variance and covariance of the data completely out of the equation and look at a simple case where our variables have no correlation and our classes are just two bivariate normals with different means.  
+
+```{r, Nocorr Animations, eval=FALSE}
+#Nocorr Animations
+
+#make data
+nocorr_anim <- projectiondata(nocorr, 5)
+
+#add in VarDist
+nocorr_anim <- nocorr_anim %>%
+  group_by(anglex, group) %>%
+  summarise(groupmean=mean(projval2)^2, #total mean is 0 so dont have to subtract 
+            groupvar=var(projval2))%>% #group sizes are equal
+  summarise(VarDist=sum(groupmean)*(mean(groupvar))^(-1))%>%
+  right_join(nocorr_anim) 
+#for some reason I cant do this within the summarise func?
+nocorr_anim[,2] <- round(nocorr_anim[,2], digits=2)
+
+#and mean vector
+cpoint <- c(mean(nocorr$X1), mean(nocorr$X2))
+
+#scatterplot
+nocorr_scatter <- ggplot(nocorr_anim, aes(x=X1, y=X2)) +
+  geom_point(aes(colour=group),alpha=0.3) +
+  geom_point(aes(x=xval, y=yval, colour=group),alpha=0.7)+
+  geom_spoke(aes(x=cpoint[1], y=cpoint[2], angle=anglex, radius=5)) +
+  geom_spoke(aes(x=cpoint[1], y=cpoint[2], angle=(anglex)+pi, radius=5))+
+  transition_states(anglex, 1, 5)+
+  geom_label(aes(x=-3.5, y=4,label=paste("VarDist:",VarDist))) +
+  ggtitle('"No Correlation Data" with 1-Dimensional Projections',
+          subtitle = 'Frame {frame} of {nframes}')+
+  #theme_xkcd() +
+  #theme(text=element_text(family="Harrietshandwriting"))+
+  scale_colour_brewer(palette="Dark2")
+anim_save("draw/nocorr_scatter.gif", nocorr_scatter)
+
+#density
+nocorr_density <- ggplot(nocorr_anim, aes(x=projval2, colour=group))+
+  geom_rug() +
+  geom_density() + 
+  transition_states(anglex, 1, 5)+
+  ggtitle("Density Plot of 1-Dimensional Projection",
+          subtitle = 'Frame {frame} of {nframes}')+
+  #theme_xkcd() +
+  #theme(text=element_text(family="Harrietshandwriting"))+
+  xlab("Projection Value")+
+  scale_colour_brewer(palette="Dark2")
+anim_save("draw/nocorr_density.gif", nocorr_density)
+```
+
+<center>
+![](nocorr_scatter.gif){width=48%} ![](nocorr_density.gif){width=48%}
+</center>
+
+The animation shows two distributions that change in central location, but their shape stays the same. Since the scatter plot shape of each group is essentially circular (due to the 0 correlation of the variables), no matter what direction we project the data into the shape (and therefore variance) will be the same. This means we can ignore the variance and focus on maximising the distance between the means. This is achieved by projecting the data on the line that goes through the two group averages. Moving on from this simple example, lets make things more interesting and look at some data where the variables are correlated.
+
+```{r, Poscorr Animation, eval=FALSE}
+#Poscorr Animation
+
+#make data
+poscorr_anim <- projectiondata(poscorr, 5)
+
+#add in VarDist
+poscorr_anim <- poscorr_anim %>%
+  group_by(anglex, group) %>%
+  summarise(groupmean=mean(projval2)^2, #total mean is 0 so dont have to subtract 
+            groupvar=var(projval2))%>% #group sizes are equal
+  summarise(VarDist=sum(groupmean)*(mean(groupvar))^(-1))%>%
+  right_join(poscorr_anim) 
+#for some reason I cant do this within the summarise func?
+poscorr_anim[,2] <- round(poscorr_anim[,2], digits=2)
+
+#and mean vector
+cpoint <- c(mean(poscorr$X1), mean(poscorr$X2))
+
+#scatterplot
+poscorr_scatter <- ggplot(poscorr_anim, aes(x=X1, y=X2)) +
+  geom_point(aes(colour=group),alpha=0.3) +
+  geom_point(aes(x=xval, y=yval, colour=group),alpha=0.7)+
+  geom_spoke(aes(x=cpoint[1], y=cpoint[2], angle=anglex, radius=5)) +
+  geom_spoke(aes(x=cpoint[1], y=cpoint[2], angle=(anglex)+pi, radius=5))+
+  geom_label(aes(x=-3.5, y=4,label=paste("VarDist:",VarDist))) +
+  transition_states(anglex, 1, 5)+
+  ggtitle('Positively Correlated Data with 1-Dimensional Projection',
+          subtitle = 'Frame {frame} of {nframes}')+
+  #theme_xkcd() +
+  #theme(text=element_text(family="Harrietshandwriting"))+
+  scale_colour_brewer(palette="Dark2")
+anim_save("draw/poscorr_scatter.gif", poscorr_scatter)
+
+#density
+poscorr_density <- ggplot(poscorr_anim, aes(x=projval2, colour=group))+
+  geom_rug() +
+  geom_density() + 
+  transition_states(anglex, 1, 5)+
+  ggtitle("Density Plot of 1-Dimensional Projection",
+          subtitle = 'Frame {frame} of {nframes}')+
+  #theme_xkcd() +
+  #theme(text=element_text(family="Harrietshandwriting"))+
+  xlab("Projection Value")+
+  scale_colour_brewer(palette="Dark2")
+anim_save("draw/poscorr_density.gif", poscorr_density)
+```
+
+<center>
+![](poscorr_scatter.gif){width=48%} ![](poscorr_density.gif){width=48%}
+</center>
+
+  
+Now we can see two forces at play. Just as before, when the line goes through the two means the data is most separated, but this is no longer the only factor we need to consider. The positive correlation means that the direction we project the data onto can now also flatten or steepen the curve. We can no longer use the line that goes through the two means, because if another direction brings the distributions closer, but also significantly decreases the spread, that would be the preferable option. We can see this in example with negative correlation too.
+
+```{r, Negcorr Animation, eval=FALSE}
+#Negcorr Animation
+
+#make data
+negcorr_anim <- projectiondata(negcorr, 5)
+
+#add in VarDist
+negcorr_anim <- negcorr_anim %>%
+  group_by(anglex, group) %>%
+  summarise(groupmean=mean(projval2)^2, #total mean is 0 so dont have to subtract 
+            groupvar=var(projval2))%>% #group sizes are equal
+  summarise(VarDist=sum(groupmean)*(mean(groupvar))^(-1))%>%
+  right_join(negcorr_anim) 
+#for some reason I cant do this within the summarise func?
+negcorr_anim[,2] <- round(negcorr_anim[,2], digits=2)
+
+#and mean vector
+cpoint <- c(mean(negcorr$X1), mean(negcorr$X2))
+
+#scatterplot
+negcorr_scatter <- ggplot(negcorr_anim, aes(x=X1, y=X2)) +
+  geom_point(aes(colour=group),alpha=0.3) +
+  geom_point(aes(x=xval, y=yval, colour=group),alpha=0.7)+
+  geom_spoke(aes(x=cpoint[1], y=cpoint[2], angle=anglex, radius=5)) +
+  geom_spoke(aes(x=cpoint[1], y=cpoint[2], angle=(anglex)+pi, radius=5))+
+  geom_label(aes(x=-3.5, y=4,label=paste("VarDist:",VarDist))) +
+  transition_states(anglex, 1, 5)+
+  ggtitle('Negatively Correlated Data with 1-Dimensional Projection',
+          subtitle = 'Frame {frame} of {nframes}')+
+  #theme_xkcd() +
+  #theme(text=element_text(family="Harrietshandwriting"))+
+  scale_colour_brewer(palette="Dark2")
+
+anim_save("draw/negcorr_scatter.gif", negcorr_scatter)
+
+#density
+negcorr_density <- ggplot(negcorr_anim, aes(x=projval2, colour=group))+
+  geom_rug() +
+  geom_density() + 
+  transition_states(anglex, 1, 5)+
+  ggtitle("Density Plot of 1-Dimensional Projection",
+          subtitle = 'Frame {frame} of {nframes}')+
+  #theme_xkcd() +
+  #theme(text=element_text(family="Harrietshandwriting"))+
+  xlab("Projection Value")+
+  scale_colour_brewer(palette="Dark2")
+
+anim_save("draw/negcorr_density.gif", negcorr_density)
+```
+
+<center>
+![](negcorr_scatter.gif){width=48%} ![](negcorr_density.gif){width=48%}
+</center>
+
+Now that we have seen how this works intuitively, we can go through how this is calculated. So, how does LDA perform a decomposition that accounts for these two competing elements? It combines two matrices in the eigen-decomposition, the variance covariance matrix and a matrix of the between group averages.  
+
+First we want to minimise the within class variance of the projected data. The first important thing to note is that by the assumptions of LDA, all the classes have identical variance-covariance matrices. Therefore to calculate the matrix, we get the variance-covariance matrix of each isolated class, and then average them. The averaging shouldn't change the values (if your LDA assumptions are correct), it should just makes the estimate more accurate. This is illustrated in the picture below.
+
+<center>
+![](wcvdraw.png)
+</center>
+  
+Now that we have this matrix, how do we find the projection that minimises the variance instead of maximises? We just perform an eigen-decomposition on the inverse of the matrix. Now that we have taken care of the spread element of LDA, we can take care of the "separating the means" element. For this we create another matrix for the "between group differences". 
+
+This is just a matrix representation of the distance between the classes which is constructed using the method illustrated below. Much like with the eigen-decomposition of the variance-covariance matrix, how this matrix works is not of major significance.  
+
+<center>
+![](bcddraw.png)
+</center>
+  
+Since we are trying to maximise this, we do the eigen decomposition on the matrix. Finally, to get the direction we are projecting our data onto, we need to just take the eigen decomposition of the combination of these two matrices, that is the matrix $\Sigma_V^{-1}\Sigma_B$.
+
+In this case, what is the "VarDist" value that appears in the plots?. Well, when you do an eigen-decomposition it analytically finds the direction that maximises the distance between groups, but instead of solving it analytically, we could also solve it iteratively and just check the product of the group variance and between group difference in the 1 dimensional projection for a series of projections and select the one that maximises this value. That is the value that is shown in the corner of the animated plots and its calculation is shown in the formula below:  
+
+$$VarDist=({\frac{(n_1-1)s_1^2+(n_2-1)s_2^2}{n_1+n_2}})^{-1} \times \sum_{i=1}^2(\bar{x_k}-\bar{x})^2$$
+
+With this information, it should be clear how we get the 1-dimensional representation that best separates the two classes. While a technical understanding is fine, it is easier to see this come together with an example.
+
+## Example
+
+Following on from our example before, let's add in a second variable, the bing sentiment measure. Now that we have two variables we can plot them together on a scatterplot to see their relation.
+
+```{r, Reviews Scatter Plot, eval=TRUE}
+# Reviews Scatter Plot
+ggplot(sum_review, aes(x=afinn_sentiment, y=bing_sentiment, colour=liked))+
+  geom_point() +
+  #theme_xkcd() +
+  #theme(text=element_text(family="Harrietshandwriting")) +
+  xlab("AFINN Sentiment") +
+  ylab("Bing Sentiment") +
+  ggtitle("Scatter Plot of Food Review Sentiments")+
+  scale_colour_brewer(palette="Dark2")
+```
+
+This plot gives us a few things to note. First of all, this is clearly not two bivariate normal densities, as LDA will assume. Again, this just means our results will be slightly off. In addition to this there are a lot of 0 values for both the AFINN and bing sentiments. This can occur in two circumstances:  
+1) none of the words in the review appear in that lexicon because they are all neutral ("I'm uncertain I could call that food"), or  
+2) if the sentiment scores of the words in the review cancel each other out (e.g. "The food was so good I felt bad eating it").   
+Since this only impacts the assumptions of LDA we are going to power through.   
+
+Just like with the classification, we can perform LDA on this dataset and get a formula that calculates the Linear Discriminant for each review. In this example our coefficients give a function that looks like this:  
+
+```{r, Reviews 2dim LDA}
+# Reviews 2dim LDA
+lda.fit <- lda(liked ~ afinn_sentiment + bing_sentiment, data=sum_review)
+lda.pred = predict(lda.fit , sum_review)
+```
+
+$$ x = 0.800\times AverageSentiment_{AFINN} + 5.576\times Average Sentiment_{bing}$$
+Now, instead of the linear discriminant just scaling the variables so the 50/50 probability split is at 0, it is a linear combination of the two variables. How did it get these coefficients? Using the eigen-decomposition described above. Again, we can calculate the linear discriminant of each review, and in doing so, have a 1-dimensional projection of the data. Now that we have two variables, just like with PCA we can interpret their coefficient values. If the values are on the same scale (or you scaled them prior to performing your analysis) then this is a simple step of comparison. Unfortunately I did not do that (I wanted it to be clear which sentiment was which by the scale or I was being lazy, you pick) so instead we can plot it on the previous scatter plot and comment on the steepness of the slope. Below is a plot of the data with the line it is projected onto, as well as the resulting density.
+
+```{r, LD1 Dimension reduction and Density, eval=TRUE}
+# LD1 Dimension reduction and Density
+
+lda_2dim <- sum_review %>%
+  dplyr::select(c(Review, liked, afinn_sentiment, bing_sentiment)) %>%
+  cbind(lda.pred$x)
+
+ggplot(sum_review, aes(x=afinn_sentiment, y=bing_sentiment, colour=liked))+
+  geom_point() +
+  geom_abline(slope=0.8/5.576, intercept=0)+
+  #theme_xkcd() +
+  #theme(text=element_text(family="Harrietshandwriting"))+
+  xlab("AFINN Sentiment") +
+  ylab("Bing Sentiment") +
+  ggtitle("Scatter Plot of Food Review Sentiments")+
+  scale_colour_brewer(palette="Dark2")
+
+
+ggplot(lda_2dim, aes(x=LD1, colour=liked))+
+  geom_rug(alpha=0.7) +
+  geom_density() + 
+  geom_vline(xintercept=0, linetype=2)+
+  #theme_xkcd() +
+  #theme(text=element_text(family="Harrietshandwriting"))+
+  ggtitle("Density of LD1 for Food Reviews")+
+  scale_colour_brewer(palette="Dark2")
+```
+  
+
+Since the slope is not steep, we can see that AFINN sentiment contributes more to the dimension reduction than bing does, and is therefore more important when it comes to separating the groups. This is how we interpret the dimension reduction. You can see that I added the decision boundary in too. Once we have a single dimension that our data exist on, the classification is exactly as it was above, drawing the line where the two densities overlap (or not quite when we violate the assumptions).  
+
+# Conclusion 
+So to conclude, I have emotional problems that I often worry are slowly getting worse and will compound until in my 60s it all ends up being too much and I enter full blown psychosis. Oh and something-something about LDA.   
+  
+# Data Reference
+lucif3r. (2021, June). Restaurant Reviews: Dataset for Natural language Processing, Version 1. Retrieved June 30 2021 from https://www.kaggle.com/d4rklucif3r/restaurant-reviews.
+
+# Code
+
+The code to  reproduce these examples is available at the [numbat.space GitHub](https://raw.githubusercontent.com/numbats/numbats-website/master/content/post/LDA/index.Rmd). And data files are [here](https://github.com/numbats/numbats-website/tree/master/content/post/LDA/data).
+
+
+```{r, include=FALSE, eval=FALSE}
+library(spelling)
+rmd <- "lda.rmd"
+ignore <- readLines("WORDLIST")
+check_spelling <- spell_check_files(
+  rmd,
+  ignore = ignore,
+  lang = "en_GB"
+)
+if (nrow(check_spelling) > 0) {
+  print(check_spelling)
+  stop("Check spelling in Rmd files!")
+}
+```
+
+
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
