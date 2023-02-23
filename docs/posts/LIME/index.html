@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.129">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Harriet Mason">
+<meta name="dcterms.date" content="2020-10-13">
+
+<title>Monash NUMBATs - Baby Teeth are Temporary, Model Interpretability is Forever</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script src="https://kit.fontawesome.com/0fba9333d8.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Monash NUMBATs</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../people/index.html" rel="" target="">
+ <span class="menu-text">People</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../posts/index.html" rel="" target="">
+ <span class="menu-text">Posts</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../projects.html" rel="" target="">
+ <span class="menu-text">Projects</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../events.html" rel="" target="">
+ <span class="menu-text">Events</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../courses.html" rel="" target="">
+ <span class="menu-text">Courses</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html" rel="" target="">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../contact.html" rel="" target="">
+ <span class="menu-text">Contact</span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#focus-too-much-on-the-big-picture-get-10k-in-dental-bills" id="toc-focus-too-much-on-the-big-picture-get-10k-in-dental-bills" class="nav-link active" data-scroll-target="#focus-too-much-on-the-big-picture-get-10k-in-dental-bills">Focus Too Much On the Big Picture, Get $10k In Dental Bills</a></li>
+  <li><a href="#the-flexibility-and-interpretability-trade-off" id="toc-the-flexibility-and-interpretability-trade-off" class="nav-link" data-scroll-target="#the-flexibility-and-interpretability-trade-off">The Flexibility and Interpretability Trade Off</a></li>
+  <li><a href="#how-does-it-work" id="toc-how-does-it-work" class="nav-link" data-scroll-target="#how-does-it-work">How does it work?</a>
+  <ul class="collapse">
+  <li><a href="#tabular-data" id="toc-tabular-data" class="nav-link" data-scroll-target="#tabular-data">Tabular Data</a></li>
+  <li><a href="#images" id="toc-images" class="nav-link" data-scroll-target="#images">Images</a></li>
+  <li><a href="#text" id="toc-text" class="nav-link" data-scroll-target="#text">Text</a></li>
+  </ul></li>
+  <li><a href="#limitations-of-the-method" id="toc-limitations-of-the-method" class="nav-link" data-scroll-target="#limitations-of-the-method">Limitations of The Method</a></li>
+  <li><a href="#in-conclusion" id="toc-in-conclusion" class="nav-link" data-scroll-target="#in-conclusion">In Conclusion</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Baby Teeth are Temporary, Model Interpretability is Forever</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">data visualisation</div>
+    <div class="quarto-category">statistics</div>
+    <div class="quarto-category">teaching</div>
+    <div class="quarto-category">machine learning</div>
+  </div>
+  </div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Harriet Mason </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">13 October 2020</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="focus-too-much-on-the-big-picture-get-10k-in-dental-bills" class="level2">
+<h2 class="anchored" data-anchor-id="focus-too-much-on-the-big-picture-get-10k-in-dental-bills">Focus Too Much On the Big Picture, Get $10k In Dental Bills</h2>
+<p>When I found out baby teeth fall out, I realised the futility brushing them. The teeth are temporary, but those extra 5 minutes of playing Pokemon are forever. So I quit brushing my teeth. This wouldn’t have been too big a problem for a normal kid, but I also refused to drink water. A strangely pervasive problem in our family that started young (my brother was weaned off breast milk using chocolate Breaka) and lived into adulthood. I exclusively drank Golden Circle Raspberry Cordial, called it pink juice, carried it in my drink bottle, and I would sooner collapse from dehydration before I drank anything else. As you can imagine my teeth decayed at an alarming rate. A visit to the dentist in second grade told my parents something they were well aware of. If you let a child make their own terrible health decisions, they will cost you $10k in dental bills because apparently to a child, pain is an illusion. A lesson that should have been no surprise to them since that same year I made Mum let me slip my broken arm out of its cast to do my ballet examination, and I was still annoyed I only got a Merit. I don’t know if all kids are immune to pain and the consequences of their actions, but I certainly was. So for years I had 4 metal crowns, 13 fillings, and a sudden jolt of pain every time I accidentally got aluminium in my mouth. As an adult I leant my lesson and brush my teeth and floss twice a day. I mean I still don’t drink water, I just upgraded from Pink Juice to Pepsi Max. But I still consider a 50% improvement an inspiring story of growth.</p>
+<p>What is the point of this story? Is it related to today’s topic or has this blog become a digital diary where I decompress years of a being a child psychopath with irresponsible parents? Both. Although if my parents has a say in this blog they would probably argue they weren’t irresponsible, but rather thought the best way for us to learn was to experience the consequences of our decisions. The problem in my decision making as a child was I had too much of a focus on the long term. While it was true that the teeth were not permanent and would fall out, I still cringe at the idea of biting into metal packaging. Most methods of understanding machine learning models focus on the model as a whole, but in this post we are going to look at the local interpretation. LIME (Localised Interpretable Models) is a model interpretation method that can be applied to any machine learning algorithm, even if its a “black box” method by breaking it into smaller local models that are easy to interpret. To understand the value in this, we need to first look at the flexibility and interpretability trade off.</p>
+</section>
+<section id="the-flexibility-and-interpretability-trade-off" class="level2">
+<h2 class="anchored" data-anchor-id="the-flexibility-and-interpretability-trade-off">The Flexibility and Interpretability Trade Off</h2>
+<p>I have mentioned (at length) the bias and variance trade off that comes into play when considering the flexibility of a model. What I have not mentioned, is the interpretation trade off that happens at the same time. When we “localise” our model by increasing its flexibility, allowing it to better respond to changes in variables, we also “localise” the possible interpretation. This in turn, means that a single interpretation for the entire span of the possible inputs is no longer useful. At the extreme end of this trade off, we have models in which the intermediate steps are almost impossible to understand, called “black box” models. Early statistics courses introduce flexibility with quadratic models, and deal with the trade off by splitting the area of interpretation. Sadly this is not an idea that easily lends itself easily to more complicated models, a problem I have illustrated below.</p>
+<p><centre> <img src="draw1.png" class="img-fluid"> <centre></centre></centre></p>
+<p>As we start to get into more complicated models our interpretation methods slightly abandon this idea of localising our understanding and instead opt for completely new techniques, like permutation variable importance which I discussed in a previous post. Instead of inventing a new way to understand our models LIME tries to make the interpretation more “localised” in the same way that flexibility “localised” the model itself.</p>
+</section>
+<section id="how-does-it-work" class="level2">
+<h2 class="anchored" data-anchor-id="how-does-it-work">How does it work?</h2>
+<p>The main idea of LIME is the same main idea of calculus, which is if we zoom in a bunch we can approximate crazy non-linear functions with straight lines. These approximations are pretty good around that point, but get worse the further we move away. The way it works is actually quite simple and can be broken down into a handful a simple steps. 1. Make a localised dataset based on a single observation 2. Build a model on this localised dataset 3. Interpret that model. Some of the technicalities of the process change depending on the type of data we have (tabular, images or text) and I will go through each of them, but in essence, the idea is the same. I’m going to walk through trying to predict cavities based on the three types of data to illustrate the process of LIME, but keep in mind, I’m assuming we already have some trained model that is making prediction, and a set of test observations. Is crushing pain, blackening teeth, or an exclusive diet of raspberry cordial a predictor of cavities? Lets find out.</p>
+<section id="tabular-data" class="level3">
+<h3 class="anchored" data-anchor-id="tabular-data">Tabular Data</h3>
+<p>The first method we are going to look at is tabular data. Lets say instead of doing normal dentistry work my dentist wants to predict if I have cavities based on how often I say I brush my teeth, and how much sugar I eat a day. This is a hypothetical world and my hypothetical doctor is omnipotent apparently. He wants to classify his patients into 3 levels based on the financial commitment they are probably about to make to his family practice. He puts my teeth brushing and sugar intake into the model, and it looks like his family should start packing their swimmers, because they are about to go to Hawaii. But how did the model come up with the prediction? In enters, LIME.</p>
+<p>Illustrated below (and explained in this paragraph) is the process LIME will go through to understand this classification. First we select a single point to run our model on, in this case, me or an observation very close to me. Then LIME will generate some “pretend” data around it according to independent Gaussian distributions. As a side note, this means it ignores correlation, and can generate some points that are unlikely to occur in the real data. Then LIME will run our real data point point and all its fake friends through the black box model and find their hypothetical predictions. Similar to LOESS models, the observations are then reweighted based upon their distance to to the initial(only real) data point. Remember, we aren’t trying to understand the model overall, we are only interested in the area surrounding our point. Now, on our fake, weighted data, we train an easy to interpret model. Something like a tree model or linear regression. It doesn’t have to be even slightly similar to the black box model we are analysing, all that matters is that it is a model that is simple, easy to understand and easy to explain.</p>
+<p><centre> <img src="draw2.png" class="img-fluid"> <centre></centre></centre></p>
+</section>
+<section id="images" class="level3">
+<h3 class="anchored" data-anchor-id="images">Images</h3>
+<p>So my dentist is rubbing his hands together when my mum brings me in for a check-up. Once again ignoring normal dental procedures (I’m starting to wonder if this man is a dentist or some back alley scam artist my parents dug up to teach me a lesson) the dentist decides to take a normal photo of my teeth and predict the probability I have a cavity. His picture based model also suggests cavities, but once again, how did it make that decision? LIME is back to his rescue.</p>
+<p>Once again we select some observation from our dataset, in this case, a photo of my sad decaying teeth. Next, following the tabular method, we would want to create a fake dataset of similar observations, but this is where we run into our first problem. Distance is easy to see in tabular data, its our normal run of the mill Euclidean distance. But how do we define distance for pictures? What metric can we use to say how similar two pictures are. This isn’t a question LIME answers, or even tries to answer but the little algorithm that could does it’s best to work through it. On pictures, rather than making our fake observations a sample that is “close” to the observation in distance, it varies the “superpixels” of the image. Superpixels are just a group of pixels that are next to each other and look similar so they are grouped together. for example, if you had a picture of my face; my skin, hair, lips, etc. would each be their own superpixel. To make our new dataset, LIME turns random super pixels off to create our local dataset. i.e.&nbsp;the pixels in that group cease to exist, are changed to 0, become a black hole of lost information in the land of data. Now we have a bunch of pictures that we run through the black box model to get some cavity prediction. Once again a simple model (like a linear regression) is built using the superpixels as inputs and the probability of a cavity as an output. The image is coloured by LIME based on having a positive impact on the classification or a negative impact.</p>
+<p><centre> <img src="draw3.png" class="img-fluid"> <centre></centre></centre></p>
+</section>
+<section id="text" class="level3">
+<h3 class="anchored" data-anchor-id="text">Text</h3>
+<p>Finally after my dentist(?) finishes his dental(?) work, he decides to predict the chance of an expensive revisit based on my conversation with my Mum on our way out. This is a simple classification problem again and the model predicts I will be back with an expensive cavity. Finally, the dentist(??) implements LIME one more time.</p>
+<p>The method for text is almost identical to the images, only instead of superpixels, it turns words off and on. <centre> <img src="draw4.png" class="img-fluid"> <centre></centre></centre></p>
+</section>
+</section>
+<section id="limitations-of-the-method" class="level2">
+<h2 class="anchored" data-anchor-id="limitations-of-the-method">Limitations of The Method</h2>
+<p>The obvious problem with LIME is the same thing that made it a good idea, and the same reason some people think the earth is flat. If we zoom in too much, we lose sight of the big picture. Since our understanding is limited to single real observation from our dataset, and running it on every observation would be computationally painful, it is at our discretion which observations, and how many observations we run LIME on to understand what is under the hood of a black box model. While I only went through a general understanding of how the process works, there are other posts out there that discuss practical implementation of the model and some of the more technical aspects of how it works which are certainly worth a read.</p>
+</section>
+<section id="in-conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="in-conclusion">In Conclusion</h2>
+<p>If something is called “pink juice” it will give you cavities, and if your dentist uses machine learning algorithms instead of normal dental practices, he might not be an actual dentist.</p>
+<p><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"></a><br>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.— title: “Untitled” editor: visual</p>
+<hr>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

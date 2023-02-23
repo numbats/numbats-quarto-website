@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.129">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Harriet Mason">
+<meta name="dcterms.date" content="2020-08-11">
+
+<title>Monash NUMBATs - Mario Party: Destroyer of Friendships and Explainer of Convolutional Neural Networks</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script src="https://kit.fontawesome.com/0fba9333d8.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Monash NUMBATs</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../people/index.html" rel="" target="">
+ <span class="menu-text">People</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../posts/index.html" rel="" target="">
+ <span class="menu-text">Posts</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../projects.html" rel="" target="">
+ <span class="menu-text">Projects</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../events.html" rel="" target="">
+ <span class="menu-text">Events</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../courses.html" rel="" target="">
+ <span class="menu-text">Courses</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html" rel="" target="">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../contact.html" rel="" target="">
+ <span class="menu-text">Contact</span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#this-is-the-blog-of-a-mario-party-master" id="toc-this-is-the-blog-of-a-mario-party-master" class="nav-link active" data-scroll-target="#this-is-the-blog-of-a-mario-party-master">This is The Blog of a Mario Party Master</a></li>
+  <li><a href="#how-does-the-picture-look-to-a-computer" id="toc-how-does-the-picture-look-to-a-computer" class="nav-link" data-scroll-target="#how-does-the-picture-look-to-a-computer">How Does The Picture Look to a Computer</a></li>
+  <li><a href="#part-one-the-jumbled-picture-level" id="toc-part-one-the-jumbled-picture-level" class="nav-link" data-scroll-target="#part-one-the-jumbled-picture-level">Part One: The Jumbled Picture Level</a></li>
+  <li><a href="#part-2-the-blurry-image-level" id="toc-part-2-the-blurry-image-level" class="nav-link" data-scroll-target="#part-2-the-blurry-image-level">Part 2: The Blurry Image Level</a></li>
+  <li><a href="#theory-how-does-a-convolutional-neural-network-work" id="toc-theory-how-does-a-convolutional-neural-network-work" class="nav-link" data-scroll-target="#theory-how-does-a-convolutional-neural-network-work">Theory: How does a Convolutional Neural Network Work?</a></li>
+  <li><a href="#analogy-the-blurry-image-level" id="toc-analogy-the-blurry-image-level" class="nav-link" data-scroll-target="#analogy-the-blurry-image-level">Analogy: The Blurry Image Level</a></li>
+  <li><a href="#putting-it-together" id="toc-putting-it-together" class="nav-link" data-scroll-target="#putting-it-together">Putting It Together</a></li>
+  <li><a href="#mario-party-and-convolutional-neural-networks-a-neat-analogy-or-desperate-stretch-to-make-statistics-seem-fun" id="toc-mario-party-and-convolutional-neural-networks-a-neat-analogy-or-desperate-stretch-to-make-statistics-seem-fun" class="nav-link" data-scroll-target="#mario-party-and-convolutional-neural-networks-a-neat-analogy-or-desperate-stretch-to-make-statistics-seem-fun">Mario Party and Convolutional Neural Networks: A Neat Analogy or Desperate Stretch to Make Statistics Seem Fun?</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Mario Party: Destroyer of Friendships and Explainer of Convolutional Neural Networks</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">data visualisation</div>
+    <div class="quarto-category">statistics</div>
+    <div class="quarto-category">machine learning</div>
+    <div class="quarto-category">teaching</div>
+  </div>
+  </div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Harriet Mason </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">11 August 2020</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="this-is-the-blog-of-a-mario-party-master" class="level3">
+<h3 class="anchored" data-anchor-id="this-is-the-blog-of-a-mario-party-master">This is The Blog of a Mario Party Master</h3>
+<p>In pre-COVID times, my friends and I would gather around for a fun activity called “lets ruin our friendship by taking Mario party way too seriously”. The night always starts with laughter and few drinks, and ends with me standing on a chair, pointing at my closest friends, and screaming “I’m going to make you cry tears you thought were reserved for the death of your mother”. Once the moment has passed it seems a little dramatic, but at the time, we all truly believe that the speed you can get virtual candy out of a jar is an appropriate measure of human worth.</p>
+<center>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="marioparty.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><em>The last thing my friends see before I block them</em></figcaption><p></p>
+</figure>
+</div>
+</center>
+<p>There are several games that cause spite, but one called “Absent Minded”, pictured below, always sends us into an argument. Basically, you have 3 characters, and a slowly appearing image, and you have to find out which character is absent as the pictures become clearer. The faster you correctly identify, the more points you receive. I have never lost the game. Additionally there are 3 levels of this mini game, and so 3 different ways the images are shown to you: Jumbled Pictures, Blurred Pictures, and One At a Time.</p>
+<p><centre> <img src="marioparty3.jpg" class="img-fluid"> <em>Example: the “One At a Time” level</em> <centre></centre></centre></p>
+<p>Now, obviously the levels are meant for humans to play, and not for teaching machine learning, but the challenge each level presents gives us an interesting way to view the concepts. The jumbled picture level can show us how our typical machine learning algorithm will view an image. The blurred picture level shows the benefit of using convolutional neural networks, and the one at a time level can go in the trash! Sorry, not every analogy will fit perfectly into a machine learning theory.</p>
+<p><centre> <img src="draw1.png" class="img-fluid"> <centre></centre></centre></p>
+</section>
+<section id="how-does-the-picture-look-to-a-computer" class="level3">
+<h3 class="anchored" data-anchor-id="how-does-the-picture-look-to-a-computer">How Does The Picture Look to a Computer</h3>
+<p>Before I jump into explaining the concepts, I want to explain how your computer will “see” your image. Statistical models do not have eyes, and so for any picture we want to use, an observation needs to be converted in to a dataset. The process is illustrated below (although the variable size would be each pixel, and not limited by how small I can make my handwriting).</p>
+<p><centre> <img src="draw0.png" class="img-fluid"> <centre></centre></centre></p>
+<p>First our image is broken up into its individual pixels. For greyscale they are typically given a single number to represent its “darkness”, and colour images are given three different values for red, green, and blue (RGB). This dataset is what will be used to represent your model (although I will use the image rather than the dataset for visualisations).</p>
+</section>
+<section id="part-one-the-jumbled-picture-level" class="level3">
+<h3 class="anchored" data-anchor-id="part-one-the-jumbled-picture-level">Part One: The Jumbled Picture Level</h3>
+<section id="theory-whats-wrong-with-what-we-already-have" class="level4">
+<h4 class="anchored" data-anchor-id="theory-whats-wrong-with-what-we-already-have">Theory: What’s Wrong With What We Already Have</h4>
+<p>Technically, we could use any other machine learning algorithm to classify an image. We can call these “bag of pixel” methods as they don’t consider the pixels location in the image. They essentially cut the image up into pixels, shake them up in a bag, toss them out, and classify based off these values. Ultimately, the problem with any “bag of pixel” model, is that it fails to capture the shape of the image independent of its location. This means only images that have the right features in the right area are correctly classified.</p>
+</section>
+<section id="analogy-what-makes-the-jumbled-level-hard" class="level4">
+<h4 class="anchored" data-anchor-id="analogy-what-makes-the-jumbled-level-hard">Analogy: What Makes the Jumbled Level Hard</h4>
+<p><centre> <img src="marioparty1.jpg" class="img-fluid"> <centre></centre></centre></p>
+<p>The jumbled picture stage is interesting, because we cannot look at the characters as a whole to identify who is present. Since We cannot identify the pictures using the overall shape of the character, we need to look for the presence of independent key features. This reliance on identifiable features in the correct location is also what identifies our ordinary algorithms.</p>
+</section>
+<section id="putting-them-together" class="level4">
+<h4 class="anchored" data-anchor-id="putting-them-together">Putting Them Together</h4>
+<p>In reality, this jumbling in our pictures would be at a pixel level, not big chunks, but the minigame is more of a point of illustration rather than a technical tool to understand machine learning. Key features being in the right place can be used successfully to identify images, but ultimately we have “zoomed in” too far to see the relationship between pixels. We can conceptualise this further with an example.</p>
+<p>If we are trying to identify Mario, cap-looking pixels where Mario’s cap should be make it easy. If we have a picture where Mario doesn’t have his cap, that makes it hard. If we have a single picture where Mario is laying down so his cap is where his feet should be, that makes it even worse.</p>
+<p>This is essentially the problem with our regular Machine learning algorithms. Key features in the right place make classification easy. No key features makes classification hard. Key features in uncommon places will be incorrectly assumed to be something else, and cause misclassification. This is where the benefits of using a convolutional neural network come in.</p>
+</section>
+</section>
+<section id="part-2-the-blurry-image-level" class="level3">
+<h3 class="anchored" data-anchor-id="part-2-the-blurry-image-level">Part 2: The Blurry Image Level</h3>
+</section>
+<section id="theory-how-does-a-convolutional-neural-network-work" class="level3">
+<h3 class="anchored" data-anchor-id="theory-how-does-a-convolutional-neural-network-work">Theory: How does a Convolutional Neural Network Work?</h3>
+<p>Before we return to explaining machine learning concepts in terms of Mario Party, lets take a step back, and look at how convolutional neural networks work in general. The illustration below is an overview of the structure of a CNN. The information contained in the image undergoes several transformations using layers that can be classified as either “feature extraction”, or “classification”.</p>
+<p><centre> <img src="draw2.png" class="img-fluid"> <centre></centre></centre></p>
+<section id="feature-extraction-layers" class="level4">
+<h4 class="anchored" data-anchor-id="feature-extraction-layers">Feature Extraction Layers</h4>
+<p>Feature extraction is what really sets the CNN apart from other models. These layers make new variables that are more “computer vision friendly”. The process creates nodes that identify certain aspects of an image, such as Yoshi’s Shell or Peach’s hair, and converts them to variables we can use to make predictions. The most common (and technically interesting) layers used in the process are explained below. The “options” are specifically related to building CNN in the R package, Keras.</p>
+<section id="convolutional-layers" class="level5">
+<h5 class="anchored" data-anchor-id="convolutional-layers">Convolutional Layers</h5>
+<p><centre> <img src="draw3.png" class="img-fluid"> <centre></centre></centre></p>
+<p>The convolutional layer is what makes a neural network, a convolutional neural network. This layer creates a small window (called a kernel), that travels along the image and looks for a specific feature. The <strong>kernel_size</strong> option selects the size of the grid that is run along the image. Larger grids can overlook important details, while smaller grids can provide too much information and create noise. Typically the standard is somewhere in the range of a (3x3) grid. This information is taken from image to feature map using a filter. The filter is basically the type of feature we are looking for, when we run the kernel over the image. The number of times we do this, each with a unique filter, is the “depth” of the layer. In Keras, that is given by the <strong>filter</strong> option. As for which filters it uses, that is trained by the model.</p>
+<p>The only convolutional layer that takes information from the image is the first one. All the following feature maps are computed on the previous feature maps. The new filter is applied to some combination of the previous layers feature maps and thus more convolutional layers mean variables that represent more intricate features.</p>
+</section>
+<section id="max-pooling" class="level5">
+<h5 class="anchored" data-anchor-id="max-pooling">Max Pooling</h5>
+<p><centre> <img src="draw4.png" class="img-fluid"> <centre> Max Pooling is a step in our convolutional neural network that is essentially a dimension reduction of our feature maps. Literally just think of it as doing no transformation to the image, other than shrinking it down. As with all dimension reductions, the goal here is to get rid of the pixels that contain noise (e.g.&nbsp;white space) and keep the pixels that identify the image (e.g.&nbsp;Mario’s cap). This layer reduces our chance of overfitting, and thus is a key player in the bias and variance trade off in convolutional neural networks.</centre></centre></p>
+</section>
+<section id="how-does-it-work" class="level5">
+<h5 class="anchored" data-anchor-id="how-does-it-work">How does it work?</h5>
+<p>Just like the original image, feature maps can be seen as a grid of pixels. Max pooling sections each feature map into smaller non-overlapping grids, takes the largest value of those pixels, and moves it on to the next layer. The example illustration above is looking for the darkest pixel on a 2x2 grid. Grid size is important, we want to minimise the bias introduced into the model by keeping the grid small, but also eliminate noise and not make the grid so small the layer does nothing.</p>
+</section>
+<section id="why-the-maximum" class="level5">
+<h5 class="anchored" data-anchor-id="why-the-maximum">Why the Maximum?</h5>
+<p>Max pooling is a rather counter-intuitive layer, statistically speaking. Through practice, it seems that the maximum is the measure that minimises this information loss, rather than measures of central tendency as we would expect. As to why, the best analogy I’ve seen for the max pooling stage is from the data sceptic podcast. If you are looking for your keys, and everyone in the group says they don’t have them but one person, you aren’t going to take the median or average value. We are not looking for how much the picture looks like Mario’s cap on average, we are looking for any sign of Mario’s cap.</p>
+</section>
+</section>
+<section id="classification-layers" class="level4">
+<h4 class="anchored" data-anchor-id="classification-layers">Classification Layers</h4>
+<section id="dense" class="level5">
+<h5 class="anchored" data-anchor-id="dense">Dense</h5>
+<p>A dense layer allows takes the nodes from the previous convolutional layers, and make a fully connected layer. This essentially takes our feature maps as inputs and runs them through a typically neural network, which we won’t go into detail about here. Our final classification layer is also a dense layer, that outputs the probabilities of each classification option. This is the final output of the model.</p>
+</section>
+</section>
+<section id="dropout-layers" class="level4">
+<h4 class="anchored" data-anchor-id="dropout-layers">Dropout Layers</h4>
+<p>Unlike the previous layers, dropout layers can be placed among the feature extraction or classification layers. In fully connected neural networks its use is quite simple; it samples random nodes to remove from the layer, which prevents overfitting. This interpretation does not follow for dropout layers placed among the feature extraction layers (the reason is matrix multiplication but its not worth going into) however it still helps prevent overfitting. Sometimes the number of pooling layers is limited by the resolution of the image (we can only max pool it to be so small) so if we need an additional measure against overfitting, we can include dropout layers.</p>
+</section>
+</section>
+<section id="analogy-the-blurry-image-level" class="level3">
+<h3 class="anchored" data-anchor-id="analogy-the-blurry-image-level">Analogy: The Blurry Image Level</h3>
+<p><centre> <img src="marioparty2.jpg" class="img-fluid"> <centre></centre></centre></p>
+<p>Circling back to Mario Party, the blurry levels difficulties are different to the jumbled level. Here, we struggle to make out key features, but must use the overall shape and colour to identify the character. As the image becomes clearer, it becomes easier to see, and we are more certain of our answer, however this additional certainty does not come without cost. The longer you wait to select an answer in the minigame, the more likely it is that you lose. This ultimately means that if the differences between characters are too subtle, the amount of time it will take to identify the difference isn’t worth the cost, and we are better off guessing.</p>
+</section>
+<section id="putting-it-together" class="level3">
+<h3 class="anchored" data-anchor-id="putting-it-together">Putting It Together</h3>
+<p>Waiting for certainty in the minigame is similar to overfitting in our convolutional neural networks. The deeper we go, the more likely it is that we overfit, and the more computationally heavy it is. We can add in dropout layers, but eventually there is an upper limit on the certainty we can have in our prediction. Unlike the normal models however, CNNs can capture shape AND the key features, they just need to be deep enough.</p>
+</section>
+<section id="mario-party-and-convolutional-neural-networks-a-neat-analogy-or-desperate-stretch-to-make-statistics-seem-fun" class="level3">
+<h3 class="anchored" data-anchor-id="mario-party-and-convolutional-neural-networks-a-neat-analogy-or-desperate-stretch-to-make-statistics-seem-fun">Mario Party and Convolutional Neural Networks: A Neat Analogy or Desperate Stretch to Make Statistics Seem Fun?</h3>
+<p>Obviously the CNNs have more nuance to them than can be explained using a Mario Party minigame, but it doesn’t do a bad job of giving us a conceptual understanding. Normal algorithms are limited by their inability to identify characters independent of their location, an issue we can circumvent using CNNs. CNNs capture the shape and general features of a character. Although really the most important learning experience from this post should be that if you come to my house to play Mario Party you might end up dead in a ditch somewhere.</p>
+<p><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"></a><br>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
