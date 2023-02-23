@@ -1,7 +1,6 @@
 ---
 title: "How a 5th Grader Makes $1500 in a Single Night (and How They Could Make More Using MLE)"
-authors: 
-  - Harriet Mason
+author: Harriet Mason
 date: "2020-10-06T00:00:00Z"
 lastMod: "2020-10-06T00:00:00Z"
 output:
@@ -33,21 +32,21 @@ The last quote was probably the worst thing he taught us, at least for his finan
 
 
 # Probability and Likelihood
-When I first learnt about likelihood functions I had no idea what was going on. The introduction of $\theta$ and a new function which was basically just a joint density function threw me off. In this post, I want to go through the process of constructing a MLE function from the ground up, and try to avoid some pitfalls I fell into. To get started, here is a drawing of the general relationship between likelihood functions and joint density functions. 
+When I first learnt about likelihood functions I had no idea what was going on. The introduction of $\theta$ and a new function which was basically just a joint density function threw me off. In this post, I want to go through the process of constructing a MLE function from the ground up, and try to avoid some pitfalls I fell into. To get started, here is a drawing of the general relationship between likelihood functions and joint density functions.
 
 <centre>
 ![](draw1.png)
 <centre>
 
-The first thing that tripped me up is that these two functions are basically the same thing. They are but they also aren't. They describe the same *relationship* but they swap the elements that are unknown and the elements that are constant.  
+The first thing that tripped me up is that these two functions are basically the same thing. They are but they also aren't. They describe the same *relationship* but they swap the elements that are unknown and the elements that are constant.
 
 The joint probability density function finds the chance of a particular outcome given that we know what the underlying distribution of all the variables.
 <centre>
-![](draw2.5.png) 
+![](draw2.5.png)
 <centre>
 
 
-The likelihood function asks what is the chance of a specific underlying distribution given a particular set of outcomes.  
+The likelihood function asks what is the chance of a specific underlying distribution given a particular set of outcomes.
 
 <centre>
 ![](draw3.png)
@@ -55,16 +54,16 @@ The likelihood function asks what is the chance of a specific underlying distrib
 
 <centre>
 
-What is a shape parameter? Well, every distribution has *some* parameter that decides its shape. The exponential distribution has a single parameter that is also its mean and variance. The normal distribution has 2 different parameters that decide its shape, one for the mean and one for the variance. The result of changing these parameters is illustrated below.   
+What is a shape parameter? Well, every distribution has *some* parameter that decides its shape. The exponential distribution has a single parameter that is also its mean and variance. The normal distribution has 2 different parameters that decide its shape, one for the mean and one for the variance. The result of changing these parameters is illustrated below.
 
 <centre>
-![](draw1.1.png)  
+![](draw1.1.png)
 <centre>
 
 Since our distributions can entirely be determined by this shape parameter (or parameters), rather than trying to think of the density function that made a dataset, we can just boil this question down to finding the parameter that defines the distribution. $\theta$ in our likelihood function is what we use as a stand in for this unknown parameter. Finding the probability distribution of this unknown parameter given some set of outcomes is the goal of Maximum Likelihood Estimation (MLE).
- 
 
-# A Mercenary Child's Birthday Party 
+
+# A Mercenary Child's Birthday Party
 When I was in school I used to have birthday parties for financial profit. My parents strictly enforced the rule "party or present". Either you get to have a party, or you get a birthday present. This rule never bothered me because the idea of having my peers at my house touching all my stuff with their sticky hands wasn't particularly appealing. That was until I did some basic math. With an average of \$30 a kid, a party of about 30 would be enough to easily make close to \$1000. Once I got over the laughable ease with which I was about to make a bucket load of money, I started trying to figure out how to maximise revenue. The first issue I had to deal with was people giving actual physical gifts. To deal with this I started putting on the invitations that "I wanted to renovate my room with the money" or something along those lines. I found people were more welcome to giving me straight up cash if they thought it was going to something important. After that, my next biggest profit problem was less than optimal turn out. Holidays, other commitments, kids being grounded, ect., meant that only about 80% of those invited would come. My parents set a limit on the number of people I could have at our house and because they expected the worst (i.e. every single kid turns up) less than 100% turn out was cutting into profits. Eventually, thanks to the adoption of Facebook, I could organise my own events meaning I could give myself a bit of leeway and invite a handful over the limit. Now I had to figure out how many extra people I could invite before my parents noticed I was ignoring their instructions, or the probability any one student would turn up. This is what we are going to use MLE to estimate.
 
 ## Step 1: Identify Joint Density Function
@@ -88,7 +87,7 @@ The first assumption we are going to make about our students is that they are in
 
 ### Assumption 2: Identical
 Now our joint PMF is the product of 24 unique PMFs. The problem is, I don't really care about the individual students (they are all dollar signs to me). I only care about the overall proportion of students. Here we can simplify our problem further by assuming there is some overall class PMF, and every student is just a random variable drawn from that. To use this assumption in our joint density function, we just say the probability of every student coming is the same. Now we have 24 observations drawn from a single distribution, which means we only need a single individual PMF to define the PMF of all the students.
- 
+
 
 <centre>
 ![](draw12.png)
@@ -96,7 +95,7 @@ Now our joint PMF is the product of 24 unique PMFs. The problem is, I don't real
 
 
 ### Assumption 3: Identify The Distribution For Individual Parameters
-As a final step, we still need some individual PMF to put in the big product we have created. Since every student either comes or doesn't come, we can easily say the PMF for each student follows a Bernoulli distribution. Ultimately this step just depends on what outcome you want to measure, and since I only really care about a yes/no outcome, a Bernoulli will do just fine. Now we have a joint PMF to work with.  
+As a final step, we still need some individual PMF to put in the big product we have created. Since every student either comes or doesn't come, we can easily say the PMF for each student follows a Bernoulli distribution. Ultimately this step just depends on what outcome you want to measure, and since I only really care about a yes/no outcome, a Bernoulli will do just fine. Now we have a joint PMF to work with.
 
 <centre>
 ![](draw13.png)
@@ -117,10 +116,10 @@ But to simplify it here with the outcomes wouldn't be an accurate representation
 
 
 ## Step 3: Math Time : Logs and Derivatives and More Derivatives
-I mostly wanted to focus on the difference between a PMF/PDF and a likelihood function in this post, but for the sake of completeness I'm going to finish the estimation. That being said I'm not going to be very detailed. Our next step in the process is to take the log. 
+I mostly wanted to focus on the difference between a PMF/PDF and a likelihood function in this post, but for the sake of completeness I'm going to finish the estimation. That being said I'm not going to be very detailed. Our next step in the process is to take the log.
 
 ### Why take the log?
-The answer is really just mathematicians are lazy. From high school you may remember that when you want to find the maximum of a function you take the derivative and set it equal to 0. The thing is, we have a massive product right now, and the product rule is a pain to do. Especially when we have 24 functions multiplied together. Thanks to log laws, taking the log of this nightmare function both doesn't change the value the maximum is at (thanks to some math stuff I won't go into) and also means we have to take the derivative of a big sum instead of a big product, which is really easy. 
+The answer is really just mathematicians are lazy. From high school you may remember that when you want to find the maximum of a function you take the derivative and set it equal to 0. The thing is, we have a massive product right now, and the product rule is a pain to do. Especially when we have 24 functions multiplied together. Thanks to log laws, taking the log of this nightmare function both doesn't change the value the maximum is at (thanks to some math stuff I won't go into) and also means we have to take the derivative of a big sum instead of a big product, which is really easy.
 
 $$L(\theta)=\prod^{24}_{i=1}\theta^{x_i}(1-\theta)^{1-x_i}$$
 
@@ -152,9 +151,9 @@ Now that we have the solutions we can substitute in our values from our sample o
 
 $${\hat{\theta}} = 0.75$$
 
-  
-### The second derivative  
-The lazy of us ignore this step, although it is technically still important. I also tend to ignore it, and will do so here for the sake of brevity. Whoops. We already have our estimate, this is more about making sure we have a clean solution. Taking the second derivative ensures our estimate is a maximum, and not some other stationary point. 
+
+### The second derivative
+The lazy of us ignore this step, although it is technically still important. I also tend to ignore it, and will do so here for the sake of brevity. Whoops. We already have our estimate, this is more about making sure we have a clean solution. Taking the second derivative ensures our estimate is a maximum, and not some other stationary point.
 
 ## Conclusion
 I used all the money I made from birthday parties to buy about $10 000 worth of manga books because I was a huge Weeb. Sadly I ended up donating them all to the school that expelled me in year 11. Turns out being mercenary enough to make buckets of money as a child doesn't matter if you waste it all on books you are forced to give away when you move to Melbourne because student accommodation doesn't come with a wall of free library space. I'm sure there is a lesson in here somewhere.

@@ -1,7 +1,6 @@
 ---
 title: "Criminal Statistics in Baby Murder Court Cases"
-authors: 
-  - Harriet Mason
+author: Harriet Mason
 date: "2020-09-14T00:00:00Z"
 lastMod: "2020-09-14T00:00:00Z"
 output:

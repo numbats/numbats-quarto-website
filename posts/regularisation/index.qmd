@@ -1,7 +1,6 @@
 ---
 title: "Trying to Save My Housements (Specifically Tom) from Alcohol Poisoning with Regularisation"
-authors: 
-  - Harriet Mason
+author: Harriet Mason
 date: "2021-12-18T00:00:00Z"
 lastMod: "2021-12-18T00:00:00Z"
 output:
@@ -65,11 +64,11 @@ harriet_grades <- tibble(student = rep("Harriet",24),
        plot_semester=c(rep(3,4),rep(4,4), rep(5,2), rep(6,4),rep(7,3), rep(8,4),rep(9,3)),
        unitcode=c("ECC1000", "ETC2410", "FIT1045", "MTH1030",
                   "ECC1100", "ECC2000", "MTH2010", "MTH2232",
-                  "ETC3410", "MTH2021", 
+                  "ETC3410", "MTH2021",
                   "ETC3400", "ETC3450", "MTH2232", "MTH3051",
                   "ETC3250", "MTH2222", "MTH3241",
-                  "ECC3840", "ETC3555", "MTH3230", "MTH3260", 
-                  "ETC3541", "ETC1512", "ETC3550"), 
+                  "ECC3840", "ETC3555", "MTH3230", "MTH3260",
+                  "ETC3541", "ETC1512", "ETC3550"),
        #set 5512 to level 1 as it is a level 1 masters unit and 4541 to level 3 as its alone
        mark = c(78, 72, 84, 68,
                 77, 76, 54, 39,
@@ -96,7 +95,7 @@ tom_grades <- tibble(student = rep("Tom",22),
                 66, 66, 74, 78,
                 73, 63, 34, 63,
                 68, 57, 71,
-                80, 63, 73, 80, 
+                80, 63, 73, 80,
                 68, 72, 73))
 
 # Em Grades
@@ -120,8 +119,8 @@ zac_grades <- tibble(student = rep("Zac",32),
        year= c(rep(2017, 8), rep(2018, 8), rep(2019, 8), rep(2020, 8)),
        semester= c(rep(1,4), rep(2,4),rep(1,4), rep(2,4),rep(1,4), rep(2,4),rep(1,4), rep(2,4)),
        plot_semester = c(rep(1,4), rep(2,4),rep(3,4), rep(4,4),rep(5,4), rep(6,4),rep(7,4), rep(8,4)),
-       unitcode= c("ATS1338","ATS1353", "ATS1873", "ATS2065", 
-                   "ATS1339", "ATS1701", "ATS1945", "ATS2066", 
+       unitcode= c("ATS1338","ATS1353", "ATS1873", "ATS2065",
+                   "ATS1339", "ATS1701", "ATS1945", "ATS2066",
                    "ATS2682", "ATS2699", "ATS2706", "ATS3067",
                    "ATS2624", "ATS2671", "ATS2961", "ATS3068",
                    "ATS3340", "ATS3695", "ATS3705", "ATS3069",
@@ -146,7 +145,7 @@ grade_calc <- function(mark){
 
 #department function
 dep_calc <- function(unitcode){
-  substr(unitcode, 1, 3)  
+  substr(unitcode, 1, 3)
 }
 #level function
 level_calc <- function(unitcode){
@@ -165,17 +164,17 @@ plot1 <- ggplot(house_grades, aes(x=plot_semester, y=mark)) +
   geom_hline(yintercept=60, linetype=2) +
   geom_hline(yintercept=70, linetype=2) +
   geom_hline(yintercept=80, linetype=2) +
-  geom_text(x=0.9, y=52, label="Pass", colour="gray48", 
+  geom_text(x=0.9, y=52, label="Pass", colour="gray48",
             family="Harrietshandwriting")+
-  geom_text(x=1, y=62, label="Credit", colour="gray48", 
+  geom_text(x=1, y=62, label="Credit", colour="gray48",
             family="Harrietshandwriting")+
-  geom_text(x=1.2, y=72, label="Distinction", colour="gray48", 
+  geom_text(x=1.2, y=72, label="Distinction", colour="gray48",
             family="Harrietshandwriting")+
-  geom_text(x=1.4, y=82, label="High Distinction", colour="gray48", 
+  geom_text(x=1.4, y=82, label="High Distinction", colour="gray48",
             family="Harrietshandwriting")+
   geom_smooth(aes(colour= student, fill=student)) +
   facet_wrap(~student, ncol=2)+
-  xlab("Semester") + 
+  xlab("Semester") +
   ylab("Mark") + ggtitle("Figure 1") +
   theme(text=element_text(family="Harrietshandwriting"),
         axis.ticks.x = element_blank(),
@@ -238,38 +237,38 @@ for(i in seq(m)){
   trainset <- sample(length(house_grades_reg$student), size=0.75*length(house_grades_reg$student))
   house_train <- house_grades_reg[trainset,]
   house_test <- house_grades_reg[-trainset,]
-  
+
   #build a linear regression on the training set
   fit_lm <- lm(formula=mark~. + (student+online+unit_level+department)^2,data=house_train)
   #grade_coefs <- rbind(grade_coefs, coef(fit_lm))
   train_error1 <- c(train_error1, mean((house_train$mark - predict(fit_lm))^2))
   test_error1 <- c(test_error1, mean((house_test$mark - predict(fit_lm, house_test))^2))
-  
+
   #compare to a much simpler model
   fit_lm2 <- lm(formula=mark~student*online, data=house_train)
   train_error2 <- c(train_error2, mean((house_train$mark - predict(fit_lm2))^2))
   test_error2 <- c(test_error2, mean((house_test$mark - predict(fit_lm2, house_test))^2))
-  
+
   #just calculate the mean
   train_error3 <- c(train_error3, mean((house_train$mark - mean(house_train$mark))^2))
   test_error3 <- c(test_error3, mean((house_test$mark - mean(house_train$mark))^2))
 }
 
-#plot error difference 
-error_data <- tibble(error = c(test_error1, test_error2, 
-                               train_error1, train_error2, 
+#plot error difference
+error_data <- tibble(error = c(test_error1, test_error2,
+                               train_error1, train_error2,
                                train_error3, test_error3),
-                     model = c(rep("Complex",50), rep("Simple",50), 
+                     model = c(rep("Complex",50), rep("Simple",50),
                                rep("Complex",50), rep("Simple",50),
                                rep("Basic", 100)),
-                     Type = c(rep("Test",100), 
+                     Type = c(rep("Test",100),
                             rep("Train",100),
                             rep("Train", 50), rep("Test", 50))
                    )
 error_data <- error_data %>%
   mutate(model = factor(model, levels=c("Basic", "Simple", "Complex")))
 
-plot2 <- ggplot(error_data, aes(x=error, fill=Type, colour=Type)) + 
+plot2 <- ggplot(error_data, aes(x=error, fill=Type, colour=Type)) +
   geom_density(alpha=0.5) +
   geom_rug()+
   facet_wrap(~model, ncol=1) +
@@ -373,8 +372,8 @@ rss_sim <- rss_sim %>%
 
 
 # Just rss and Penalty for contour plots
-contour_data <- rss_sim %>% 
-  select(-lassoRSS) %>% 
+contour_data <- rss_sim %>%
+  select(-lassoRSS) %>%
   pivot_longer(cols=c(RSS, Penalty), names_to="Type", values_to="Error" ) %>%
   filter(lambda==20)
 
@@ -397,7 +396,7 @@ contourplot <- ggplot(contour_data, aes(x=b1, y=b2, z=Error, colour= Type)) +
         aspect.ratio = 1,legend.position = "none") +
   xlab("Beta 1") + ylab("Beta 2") + ggtitle("Figure 4")
 contourplot
-ggsave("contourplot.jpg", contourplot, width=12, height=8) 
+ggsave("contourplot.jpg", contourplot, width=12, height=8)
 ```
 
 ```{r, animateplot, eval=FALSE}
@@ -410,8 +409,8 @@ lambda_min <- rss_sim %>%
 #colour for animated plot
 paletteblend <- tibble(
   lambda = c(0.1, 0.2, 0.5, 1, 2, 3, 5, 10, 20, 35, 50, 100),
-  ocol = rev(c("#D7191C", "#C7222A", "#B82B38", "#A83446","#993D54", 
-           "#894662", "#7A4E70", "#6A577E", "#5B608C", "#4B699A", 
+  ocol = rev(c("#D7191C", "#C7222A", "#B82B38", "#A83446","#993D54",
+           "#894662", "#7A4E70", "#6A577E", "#5B608C", "#4B699A",
            "#3C72A8","#2C7BB6")))
 
 #set animation settings
@@ -424,7 +423,7 @@ saveGIF({
     anim_data1 <- rss_sim %>% filter(lambda==i)
     anim_data2 <- lambda_min %>% filter(lambda==i)
     anim_data3 <- paletteblend %>% filter(lambda==i)
-    
+
     #build animation frame
     p <- ggplot(anim_data1, aes(x=b1, y=b2)) +
       geom_contour(aes(z=lassoRSS), colour=anim_data3$ocol) +
@@ -472,14 +471,14 @@ cvfit <- cv.glmnet(x[tr_indx,], y[tr_indx], alpha=1)
 lam <- cvfit$lambda.min
 
 # make into data frame
-cv_df <- tibble(lambda=cvfit$lambda, 
+cv_df <- tibble(lambda=cvfit$lambda,
                 mse=cvfit$cvm,
-                mse_l=cvfit$cvlo, 
+                mse_l=cvfit$cvlo,
                 mse_h=cvfit$cvup)
 
 #ggpmot
-plot4 <- ggplot(cv_df, aes(x=lambda, y=mse, colour=mse)) + 
-  scale_colour_gradient(low="#313695", high = "#abd9e9") + 
+plot4 <- ggplot(cv_df, aes(x=lambda, y=mse, colour=mse)) +
+  scale_colour_gradient(low="#313695", high = "#abd9e9") +
   scale_x_log10() +
   geom_point()+
   geom_linerange(aes(ymin=mse_l, ymax=mse_h))+
@@ -502,7 +501,7 @@ We can also visualise how our coefficients change as $\lambda$ increases. Figure
 # normal lasso fit
 fit_lasso <- glmnet(x[tr_indx,], y[tr_indx], alpha=1)
 
-# make into data frame from 
+# make into data frame from
 
 # https://stackoverflow.com/questions/48978179/r-plotting-lasso-beta-coefficients
 
@@ -515,7 +514,7 @@ tmp$lambda <- fit_lasso$lambda[tmp$variable+1] # extract the lambda values
 tmp$norm <- apply(abs(beta[-1,]), 2, sum)[tmp$variable+1] # compute L1 norm
 
 #show final model in neat table
-lasso_mod <- as.data.frame(as.matrix(coef(cvfit, s = "lambda.min"))) 
+lasso_mod <- as.data.frame(as.matrix(coef(cvfit, s = "lambda.min")))
 lasso_mod$Variable <- rownames(lasso_mod)
 colnames(lasso_mod)[1] <- "Coefficient"
 rownames(lasso_mod) <- NULL
@@ -575,13 +574,13 @@ textdata <- textdata %>%
    mutate(across(where(is.numeric), round, 2))
 
 # plot
-plot7 <- ggplot(textdata, aes(x=Coefficient, y=Variable)) + 
+plot7 <- ggplot(textdata, aes(x=Coefficient, y=Variable)) +
   geom_bar(stat="identity", fill="#2c7bb6", colour="black") +
   theme_xkcd() +
   theme(text=element_text(family="Harrietshandwriting"),
         axis.title.y = element_blank()) +
   ggtitle("Figure 7") +
-  geom_text(aes(label = Coefficient, x=coef_text), family="Harrietshandwriting", size=3) 
+  geom_text(aes(label = Coefficient, x=coef_text), family="Harrietshandwriting", size=3)
 plot7
 ggsave("plot7.jpg", plot7, width=10, height=8)
 ```
@@ -603,23 +602,23 @@ for(i in seq(m)){
   #set seed and test/training set
   set.seed(i)
   tr_indx <- createDataPartition(house_grades$department, p=2/3)$Resample1
-  
+
   #mean rmse
   mean_error <- y[-tr_indx] - mean(house_grades_reg[tr_indx,]$mark)
   mean_rmse <- c(mean_rmse, sqrt(mean(mean_error^2)))
-  
+
   #lasso RMSE
   fit_lasso <- glmnet(x[tr_indx,], y[tr_indx], alpha=1)
   cvfit <- cv.glmnet(x[tr_indx,], y[tr_indx], alpha=1)
   lambda <- cvfit$lambda.min
   lasso_error <- y[-tr_indx] - predict(fit_lasso, newx = x[-tr_indx,], s =lambda)
   lasso_rmse <- c(lasso_rmse, sqrt(mean(lasso_error^2)))
-  
+
   #compare to a much simpler model
   fit_simple <- lm(formula=mark~student*online, data=house_grades_reg[tr_indx,])
   simple_error <- y[-tr_indx] - predict(fit_simple, house_grades_reg[-tr_indx,])
   simple_rmse <- c(simple_rmse,sqrt(mean(simple_error^2)))
-  
+
   #lm RMSE
   lm_fit <- lm(formula=mark~. + (student+online+unit_level+department)^2,
             data=house_grades_reg[tr_indx,])
@@ -647,12 +646,12 @@ RMSE_data <- tibble(mean = c(mean(lm_rmse),
                     model = c("OLS","Lasso","Simple", "Mean")) %>%
   mutate(model = factor(model, levels =  c("Mean","Simple","Lasso", "OLS")))
 
-plot8 <- ggplot(RMSE_data, aes(x=model, colour=model)) + 
+plot8 <- ggplot(RMSE_data, aes(x=model, colour=model)) +
   geom_linerange(aes(ymin=low, ymax=high), alpha=0.3, size=3) +
   geom_point(aes(y=mean)) +
   theme_xkcd() +
   theme(text=element_text(family="Harrietshandwriting"), legend.posit="none") +
-  ggtitle("Figure 8") + 
+  ggtitle("Figure 8") +
   scale_colour_brewer(palette = "RdYlBu") +
   labs(x="Model", y="RMSE")
 plot8
