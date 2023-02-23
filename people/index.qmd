@@ -1,5 +1,5 @@
 ---
-title: Non-Uniform Monash Business Analytics Team
+title: Meet the team
 listing:
   - id: current
     contents:
