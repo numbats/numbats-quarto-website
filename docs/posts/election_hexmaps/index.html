@@ -229,7 +229,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>When you want to be able to make a hexmap on new spatial data or if the spatial groups change, the R package sugarbag can be helpful. This post explains how to do this, using the results as we have them today from yesterday’s election. (We’ll update these once the final results are released.)</p>
 <p>Here’s how to get started. Download the current spatial boundaries for electorates, from <a href="https://www.aec.gov.au/Electorates/maps.htm">Australian Electoral Commission web site</a>.</p>
 <p>Load the libraries we need:</p>
-<div class="cell" data-hash="index_cache/html/libraries_7b5092c979c0e24bc4a3bd1e882d36df">
+<div class="cell" data-hash="index_cache/html/libraries_74a7adc2ed561695d557d4ae7a6cf583">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggthemes)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sugarbag)</span>
@@ -237,36 +237,50 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plotly)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Read in the spatial polygons, defining the boundaries. These files can be very large, and slow to draw. For these visualisations faster to draw is more important, so the boundaries can be simplified using <code>rmapshaper::ms_simplify</code>.</p>
-<div class="cell" data-hash="index_cache/html/spatial-polygons_2d19b98b1e026d92bf25bef12a3f10bc">
+<div class="cell" data-hash="index_cache/html/spatial-polygons_4d58a2f3b86637649d52fcd83c6b43c2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Spatial polygons</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>electorates <span class="ot">&lt;-</span> sf<span class="sc">::</span><span class="fu">st_read</span>(<span class="st">"2021-Cwlth_electoral_boundaries_ESRI/2021_ELB_region.shp"</span>)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>electorates_small <span class="ot">&lt;-</span> electorates <span class="sc">%&gt;%</span> rmapshaper<span class="sc">::</span><span class="fu">ms_simplify</span>(<span class="at">keep =</span> <span class="fl">0.01</span>, <span class="at">keep_shapes =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>electorates <span class="ot">&lt;-</span> sf<span class="sc">::</span><span class="fu">st_read</span>(<span class="st">"2021-Cwlth_electoral_boundaries_ESRI/2021_ELB_region.shp"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Reading layer `2021_ELB_region' from data source 
+  `/home/robjhyndman/git/numbats-quarto-website/posts/election_hexmaps/2021-Cwlth_electoral_boundaries_ESRI/2021_ELB_region.shp' 
+  using driver `ESRI Shapefile'
+Simple feature collection with 151 features and 9 fields
+Geometry type: MULTIPOLYGON
+Dimension:     XYZ
+Bounding box:  xmin: 96.81694 ymin: -43.74051 xmax: 167.998 ymax: -9.115517
+z_range:       zmin: 0 zmax: 0
+Geodetic CRS:  GDA94</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>electorates_small <span class="ot">&lt;-</span> electorates <span class="sc">%&gt;%</span> rmapshaper<span class="sc">::</span><span class="fu">ms_simplify</span>(<span class="at">keep =</span> <span class="fl">0.01</span>, <span class="at">keep_shapes =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Next we need the elction results. The ones here are manually constructed from the <a href="https://www.abc.net.au/news/elections/federal/2022/results?filter=all&amp;sort=az&amp;state=all">ABC results website</a>. These results are joined to the map polygons, and colours are manually constructed to be one typically used by the party. The <code>ggplotly()</code> function enables labels to pop up on mouseover.</p>
-<div class="cell" data-hash="index_cache/html/electoral-map_21bbe08322d3cd1230ff6ce448bdc06b">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Read in data on current electoral results</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>new <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"electoral_2022.csv"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Electorate<span class="sc">:</span>Party)</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>new_major <span class="ot">&lt;-</span> new <span class="sc">%&gt;%</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Party_maj =</span> <span class="fu">fct_collapse</span>(Party,</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">LNP =</span> <span class="fu">c</span>(<span class="st">"LIB"</span>, <span class="st">"LNP"</span>, <span class="st">"NAT"</span>)))</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>electorates_small <span class="ot">&lt;-</span> electorates_small <span class="sc">%&gt;%</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(new_major, <span class="at">by=</span><span class="fu">c</span>(<span class="st">"Elect_div"</span><span class="ot">=</span><span class="st">"Electorate"</span>))</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>map <span class="ot">&lt;-</span> <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data=</span>electorates_small,</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>                   <span class="fu">aes</span>(<span class="at">fill =</span> Party_maj,</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>                       <span class="at">label=</span>Elect_div),</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>                       <span class="at">colour=</span><span class="st">"white"</span>) <span class="sc">+</span></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="st">""</span>, <span class="at">values=</span><span class="fu">c</span>(<span class="st">"ALP"</span><span class="ot">=</span><span class="st">"#E13940"</span>,</span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>                                   <span class="st">"LNP"</span><span class="ot">=</span><span class="st">"#1C4F9C"</span>,</span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>                                   <span class="st">"GRN"</span><span class="ot">=</span><span class="st">"#009C3D"</span>,</span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>                                   <span class="st">"KAP"</span><span class="ot">=</span><span class="st">"#906E3E"</span>,</span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>                                   <span class="st">"CA"</span><span class="ot">=</span><span class="st">"#FFC000"</span>,</span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>                                   <span class="st">"IND"</span><span class="ot">=</span><span class="st">"#66b2b2"</span>,</span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>                                   <span class="st">"UNDEC"</span><span class="ot">=</span><span class="st">"#808080"</span>)) <span class="sc">+</span></span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_map</span>()</span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>map</span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="co">#ggplotly(map)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="index_cache/html/electoral-map_def3e062ec7254c2697825e38454e30a">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Read in data on current electoral results</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>new <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"electoral_2022.csv"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Electorate<span class="sc">:</span>Party)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>new_major <span class="ot">&lt;-</span> new <span class="sc">%&gt;%</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Party_maj =</span> <span class="fu">fct_collapse</span>(Party,</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">LNP =</span> <span class="fu">c</span>(<span class="st">"LIB"</span>, <span class="st">"LNP"</span>, <span class="st">"NAT"</span>)))</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>electorates_small <span class="ot">&lt;-</span> electorates_small <span class="sc">%&gt;%</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(new_major, <span class="at">by=</span><span class="fu">c</span>(<span class="st">"Elect_div"</span><span class="ot">=</span><span class="st">"Electorate"</span>))</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>map <span class="ot">&lt;-</span> <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data=</span>electorates_small,</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>                   <span class="fu">aes</span>(<span class="at">fill =</span> Party_maj,</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>                       <span class="at">label=</span>Elect_div),</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>                       <span class="at">colour=</span><span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="st">""</span>, <span class="at">values=</span><span class="fu">c</span>(<span class="st">"ALP"</span><span class="ot">=</span><span class="st">"#E13940"</span>,</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>                                   <span class="st">"LNP"</span><span class="ot">=</span><span class="st">"#1C4F9C"</span>,</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>                                   <span class="st">"GRN"</span><span class="ot">=</span><span class="st">"#009C3D"</span>,</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>                                   <span class="st">"KAP"</span><span class="ot">=</span><span class="st">"#906E3E"</span>,</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>                                   <span class="st">"CA"</span><span class="ot">=</span><span class="st">"#FFC000"</span>,</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>                                   <span class="st">"IND"</span><span class="ot">=</span><span class="st">"#66b2b2"</span>,</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>                                   <span class="st">"UNDEC"</span><span class="ot">=</span><span class="st">"#808080"</span>)) <span class="sc">+</span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_map</span>()</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>map</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/electoral-map-1.png" class="img-fluid" style="width:100.0%"></p>
+</div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#ggplotly(map)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>An interactive version can be found <a href="https://numbat.space/post/election_hexmaps/map.html">here</a>.</p>
 <p>The map is blue – it looks like the coalition won the election in a landslide, doesn’t it! (Please note the strange shape of the Cape of York is from the AEC spatial polygons provided! It is not due the the polygon thinning.)</p>
@@ -279,56 +293,59 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Join with election results.</li>
 <li>Make it interactive using <code>ggplotly()</code>.</li>
 </ol>
-<div class="cell" data-hash="index_cache/html/hexmap_2306f82e3ce114cd7a603f070e880cde">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Find centroids of polygons</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sf_use_s2</span>(<span class="cn">FALSE</span>)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>centroids <span class="ot">&lt;-</span> electorates <span class="sc">%&gt;%</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">create_centroids</span>(., <span class="st">"Elect_div"</span>)</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="do">## Create hexagon grid</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>hs <span class="ot">&lt;-</span> <span class="fl">0.8</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>grid <span class="ot">&lt;-</span> <span class="fu">create_grid</span>(<span class="at">centroids =</span> centroids,</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>                    <span class="at">hex_size =</span> hs,</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>                    <span class="at">buffer_dist =</span> <span class="dv">5</span>)</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="do">## Allocate polygon centroids to hexagon grid points</span></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>electorate_hexmap <span class="ot">&lt;-</span> <span class="fu">allocate</span>(</span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">centroids =</span> centroids,</span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">hex_grid =</span> grid,</span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">sf_id =</span> <span class="st">"Elect_div"</span>,</span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>  <span class="do">## same column used in create_centroids</span></span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>  <span class="at">hex_size =</span> hs,</span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>  <span class="do">## same size used in create_grid</span></span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>  <span class="at">hex_filter =</span> <span class="dv">10</span>,</span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>  <span class="at">focal_points =</span> capital_cities,</span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>  <span class="at">width =</span> <span class="dv">35</span>,</span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>  <span class="at">verbose =</span> <span class="cn">FALSE</span></span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Make the hexagons</span></span>
-<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>e_hex <span class="ot">&lt;-</span> <span class="fu">fortify_hexagon</span>(<span class="at">data =</span> electorate_hexmap,</span>
-<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>                            <span class="at">sf_id =</span> <span class="st">"Elect_div"</span>,</span>
-<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>                            <span class="at">hex_size =</span> hs)</span>
-<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>electorate_hexmap_new <span class="ot">&lt;-</span> e_hex <span class="sc">%&gt;%</span></span>
-<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(new_major, <span class="at">by=</span><span class="fu">c</span>(<span class="st">"Elect_div"</span><span class="ot">=</span><span class="st">"Electorate"</span>))</span>
-<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>hexmap <span class="ot">&lt;-</span> <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data=</span>electorates_small,</span>
-<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>          <span class="at">fill=</span><span class="st">"grey90"</span>, <span class="at">colour=</span><span class="st">"white"</span>) <span class="sc">+</span></span>
-<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_polygon</span>(<span class="at">data=</span>electorate_hexmap_new,</span>
-<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>             <span class="fu">aes</span>(<span class="at">x=</span>long, <span class="at">y=</span>lat,</span>
-<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>                 <span class="at">group =</span> hex_id,</span>
-<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>                 <span class="at">fill=</span>Party_maj,</span>
-<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>                 <span class="at">label=</span>Elect_div)) <span class="sc">+</span></span>
-<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="st">""</span>, <span class="at">values=</span><span class="fu">c</span>(<span class="st">"ALP"</span><span class="ot">=</span><span class="st">"#E13940"</span>,</span>
-<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a>                                 <span class="st">"LNP"</span><span class="ot">=</span><span class="st">"#1C4F9C"</span>,</span>
-<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>                                 <span class="st">"GRN"</span><span class="ot">=</span><span class="st">"#009C3D"</span>,</span>
-<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>                                 <span class="st">"KAP"</span><span class="ot">=</span><span class="st">"#906E3E"</span>,</span>
-<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a>                                 <span class="st">"CA"</span><span class="ot">=</span><span class="st">"#FFC000"</span>,</span>
-<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a>                                 <span class="st">"IND"</span><span class="ot">=</span><span class="st">"#66b2b2"</span>,</span>
-<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a>                                 <span class="st">"UNDEC"</span><span class="ot">=</span><span class="st">"#808080"</span>)) <span class="sc">+</span></span>
-<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_map</span>()</span>
-<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a>hexmap</span>
-<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a><span class="co">#ggplotly(hexmap)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-hash="index_cache/html/hexmap_c29b8cff851c96c8cf4bf3079f94f627">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Find centroids of polygons</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sf_use_s2</span>(<span class="cn">FALSE</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>centroids <span class="ot">&lt;-</span> electorates <span class="sc">%&gt;%</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">create_centroids</span>(., <span class="st">"Elect_div"</span>)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="do">## Create hexagon grid</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>hs <span class="ot">&lt;-</span> <span class="fl">0.8</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>grid <span class="ot">&lt;-</span> <span class="fu">create_grid</span>(<span class="at">centroids =</span> centroids,</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>                    <span class="at">hex_size =</span> hs,</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>                    <span class="at">buffer_dist =</span> <span class="dv">5</span>)</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="do">## Allocate polygon centroids to hexagon grid points</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>electorate_hexmap <span class="ot">&lt;-</span> <span class="fu">allocate</span>(</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">centroids =</span> centroids,</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">hex_grid =</span> grid,</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">sf_id =</span> <span class="st">"Elect_div"</span>,</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>  <span class="do">## same column used in create_centroids</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>  <span class="at">hex_size =</span> hs,</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>  <span class="do">## same size used in create_grid</span></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>  <span class="at">hex_filter =</span> <span class="dv">10</span>,</span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>  <span class="at">focal_points =</span> capital_cities,</span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>  <span class="at">width =</span> <span class="dv">35</span>,</span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>  <span class="at">verbose =</span> <span class="cn">FALSE</span></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Make the hexagons</span></span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>e_hex <span class="ot">&lt;-</span> <span class="fu">fortify_hexagon</span>(<span class="at">data =</span> electorate_hexmap,</span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>                            <span class="at">sf_id =</span> <span class="st">"Elect_div"</span>,</span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>                            <span class="at">hex_size =</span> hs)</span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>electorate_hexmap_new <span class="ot">&lt;-</span> e_hex <span class="sc">%&gt;%</span></span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(new_major, <span class="at">by=</span><span class="fu">c</span>(<span class="st">"Elect_div"</span><span class="ot">=</span><span class="st">"Electorate"</span>))</span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>hexmap <span class="ot">&lt;-</span> <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data=</span>electorates_small,</span>
+<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a>          <span class="at">fill=</span><span class="st">"grey90"</span>, <span class="at">colour=</span><span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_polygon</span>(<span class="at">data=</span>electorate_hexmap_new,</span>
+<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a>             <span class="fu">aes</span>(<span class="at">x=</span>long, <span class="at">y=</span>lat,</span>
+<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a>                 <span class="at">group =</span> hex_id,</span>
+<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a>                 <span class="at">fill=</span>Party_maj,</span>
+<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a>                 <span class="at">label=</span>Elect_div)) <span class="sc">+</span></span>
+<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="st">""</span>, <span class="at">values=</span><span class="fu">c</span>(<span class="st">"ALP"</span><span class="ot">=</span><span class="st">"#E13940"</span>,</span>
+<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a>                                 <span class="st">"LNP"</span><span class="ot">=</span><span class="st">"#1C4F9C"</span>,</span>
+<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a>                                 <span class="st">"GRN"</span><span class="ot">=</span><span class="st">"#009C3D"</span>,</span>
+<span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a>                                 <span class="st">"KAP"</span><span class="ot">=</span><span class="st">"#906E3E"</span>,</span>
+<span id="cb7-44"><a href="#cb7-44" aria-hidden="true" tabindex="-1"></a>                                 <span class="st">"CA"</span><span class="ot">=</span><span class="st">"#FFC000"</span>,</span>
+<span id="cb7-45"><a href="#cb7-45" aria-hidden="true" tabindex="-1"></a>                                 <span class="st">"IND"</span><span class="ot">=</span><span class="st">"#66b2b2"</span>,</span>
+<span id="cb7-46"><a href="#cb7-46" aria-hidden="true" tabindex="-1"></a>                                 <span class="st">"UNDEC"</span><span class="ot">=</span><span class="st">"#808080"</span>)) <span class="sc">+</span></span>
+<span id="cb7-47"><a href="#cb7-47" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_map</span>()</span>
+<span id="cb7-48"><a href="#cb7-48" aria-hidden="true" tabindex="-1"></a>hexmap</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/hexmap-1.png" class="img-fluid" style="width:100.0%"></p>
+</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#ggplotly(hexmap)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>An interactive version can be found <a href="https://numbat.space/post/election_hexmaps/hexmap.html">here</a></p>
 <p>And that’s it! The sugarbag hexmap will expand the densely populated small areas outwards, while maintaining proximity to neighbouring electorates and to the city centre. It is a type of <a href="https://en.wikipedia.org/wiki/Cartogram">cartogram algorithm</a> with two important differences: (1) uses equal area for each hexagon instead of sized proportional to population, and (2) allows some hexagons to be separated so that the geographic positions are reasonably preserved.</p>
