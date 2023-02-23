@@ -3,6 +3,20 @@ title: "Criminal Statistics in Baby Murder Court Cases"
 authors: 
   - Harriet Mason
 date: "2020-09-14T00:00:00Z"
+lastMod: "2020-09-14T00:00:00Z"
+output:
+  blogdown::html_page
+categories:
+  - data visualisation
+  - statistics
+  - machine learning
+  - teaching
+tags:
+  - R
+  - teaching
+  - data visualisation
+  - machine learning
+  - statistical models
 editor: visual
 ---
 
@@ -58,7 +72,7 @@ The original coronial inquest for the dingo ate my baby case agreed that Azaria 
 
 If we have a sample, it needs to be large enough to be an accurate representation of whatever population we are trying to understand. How large is large enough? It depends. For a rare event such as a dingo attack (there are surprisingly few, feel free to google it), you need a VERY large sample. With too small of a dataset the estimated probability of a rare event goes from improbable to impossible. Additionally, regardless of the size of our sample, we cannot use it to understand events that it has no representation for. Sample size is one of the most commonly cited problems in research critiques, but the problem goes much deeper than that. Most statistical tests (each of which have their own assumptions) typically rely on the sample to be REPRESENTATIVE of the population. Which means it needs to be large enough to capture the rarities of the data, and be an accurate, random sample of that population. Usually as statisticians we focus on averages, but outliers have their own value in of themselves. There are two main questions we should ask about our sample, and the prosecution should have asked about dingo attacks.
 
-**1. What is this a random sample of?** \
+**1. What is this a random sample of?**\
 If you have reason to suspect there might be a difference between all dingo attacks, vs the dingo attacks we know about we cannot fairly say we know the real probability of something like a dingo attack on a person. To think about what we have a sample of, we need to ask what might cause bias, correlation between observations, ect.\
 <centre> ![](draw5.png) <centre>
 
