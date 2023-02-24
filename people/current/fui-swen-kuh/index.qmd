@@ -3,7 +3,7 @@ email: swen.kuh@monash.edu
 title: Swen Kuh
 description: Postdoctoral Researcher
 twitter: swenkuh
-github: statsy238
+github: swenk238
 interests:
 - Social science
 - Hierarchical modelling

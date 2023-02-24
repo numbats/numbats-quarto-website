@@ -2,7 +2,7 @@
 email: lauren.kennedy@monash.edu
 title: Lauren Kennedy
 description: Lecturer in Statistics
-www:   https://jazzystats.com/about/
+www:   https://jazzystats.com/
 twitter: jazzystats
 github: lauken13
 interests:
