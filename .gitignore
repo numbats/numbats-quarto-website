@@ -1,6 +1,5 @@
 _site/*
 *_cache/
-_freeze/
 .quarto/*
 .Rproj.user
 /.quarto/
