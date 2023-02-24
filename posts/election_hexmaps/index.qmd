@@ -149,12 +149,12 @@ hexmap
 #ggplotly(hexmap)
 ```
 
-An interactive version can be found  [here](https://numbat.space/post/election_hexmaps/hexmap.html)
+An interactive version can be found  [here](hexmap.html)
 
 And that's it! The sugarbag hexmap will expand the densely populated small areas outwards, while maintaining proximity to neighbouring electorates and to the city centre. It is a type of [cartogram algorithm](https://en.wikipedia.org/wiki/Cartogram) with two important differences: (1) uses equal area for each hexagon instead of sized proportional to population, and (2) allows some hexagons to be separated so that the geographic positions are reasonably preserved.
 
 The hexmap makes it easier to see the results distributed across the country, and clearly with the predominance of red, that Labor won.
 
-Data for this post can be found [here](https://numbat.space/post/election_hexmaps/electoral_2022.csv).
+Data for this post can be found [here](electoral_2022.csv).
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
