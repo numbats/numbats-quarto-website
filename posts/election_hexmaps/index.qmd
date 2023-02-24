@@ -14,6 +14,10 @@ tags:
   - R
   - teaching
   - data visualisation
+resources:
+  - map.html
+  - hexmap.html
+  - electoral_2022.csv
 ---
 
 ```{r setup, include=FALSE}
@@ -80,7 +84,7 @@ map
 #ggplotly(map)
 ```
 
-An interactive version can be found  [here](https://numbat.space/post/election_hexmaps/map.html).
+An interactive version can be found  [here](map.html).
 
 The map is blue -- it looks like the coalition won the election in a landslide, doesn't it! (Please note the strange shape of the Cape of York is from the AEC spatial polygons provided! It is not due the the polygon thinning.)
 
