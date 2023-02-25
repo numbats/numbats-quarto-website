@@ -13,5 +13,5 @@ interests:
 user_groups:
 - Faculty
 - Current
-image: avatar.jpg
+image: RJH_square_small.jpg
 ---
