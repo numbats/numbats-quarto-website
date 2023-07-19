@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.129">
+<meta name="generator" content="quarto-1.3.433">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -19,9 +19,10 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -48,43 +49,13 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
-    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -120,7 +91,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 <script src="https://kit.fontawesome.com/0fba9333d8.js" crossorigin="anonymous"></script>
@@ -141,6 +113,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <span class="navbar-title">Monash NUMBATs</span>
     </a>
   </div>
+            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
@@ -175,7 +148,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
  <span class="menu-text">Contact</span></a>
   </li>  
 </ul>
-              <div id="quarto-search" class="" title="Search"></div>
+            <div class="quarto-navbar-tools ms-auto">
+</div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
@@ -233,9 +207,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </header>
 
 <p>If you’re a ggplot user, making faceted plots must be a tool in your belt. If you happen to do some spatial analysis, you would be familiar with maps. Today, I will show you my surprise findings about the rendering time to make faceted maps.</p>
-<div class="cell" data-layout-align="center">
-
-</div>
 <p>This example comes from <a href="https://www.paulamoraga.com/book-geospatial/sec-arealdataexamplest.html">Chapter 7</a> of Paula Moraga’s book <em>Geospatial Health Data: Modeling and Visualization with R-INLA and Shiny</em> and I have simplified it for this demonstration. In essence, there are two datasets:</p>
 <ol type="1">
 <li>Map data (<code>ohio</code>) with 88 Ohio counties in an <code>sf</code> object:</li>
@@ -266,9 +237,6 @@ Geodetic CRS:  NAD83
 <ol start="2" type="1">
 <li>Lung cancer data (<code>sir</code>) with standardized incidence ratios (SIRs) calculated for each county across 21 years (1968 - 1988):</li>
 </ol>
-<div class="cell" data-layout-align="center">
-
-</div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1,848 × 3
@@ -359,18 +327,6 @@ script
 </div>
 <p>Easy peasy.</p>
 <p>But, have you thought about <strong>how long it would take to provide this plot to you?</strong></p>
-<div class="cell" data-layout-align="center">
-
-</div>
-<div class="cell" data-layout-align="center">
-
-</div>
-<div class="cell" data-layout-align="center">
-
-</div>
-<div class="cell" data-layout-align="center">
-
-</div>
 <p>Let me show you some components of this plot as benchmarks on the timing, here I have:</p>
 <ol type="1">
 <li><p><code>P0</code>: a single map object (left): <strong>0.806 secs</strong></p></li>
@@ -495,9 +451,6 @@ script
 </div>
 <p>The three dotted vertical lines are where a new row takes place in the facet. The dashed line connects <code>p1</code> and <code>p2</code> and shows how the elapsed time would be if a <strong>linear interpolation</strong> between <code>p1</code> and <code>p2</code> is followed. <strong>Unfortunately, This is not the case from our plot.</strong></p>
 <p>Looking at these points, something weird is going on here: by the end of the first row, the increment from having six facets (<code>p6</code>) to seven facets (<code>p7</code>) is much larger than those in early plots (<code>p1</code> to <code>p5</code>). However, the end of the second row tells us something else: the increment from having 13 facets (<code>p13</code>) to 14 facets (<code>p14</code>) is almost negligible. This is also the case at the end of the third row (<code>p20</code> and <code>p21</code>)<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
-<div class="cell" data-layout-align="center">
-
-</div>
 </section>
 <section id="back-to-the-initial-problem" class="level3">
 <h3 class="anchored" data-anchor-id="back-to-the-initial-problem">Back to the initial problem</h3>
@@ -569,9 +522,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.129">
+<meta name="generator" content="quarto-1.3.433">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -19,7 +19,7 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
 </style>
@@ -57,7 +57,8 @@ ul.task-list li input[type="checkbox"] {
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 <script src="https://kit.fontawesome.com/0fba9333d8.js" crossorigin="anonymous"></script>
@@ -94,6 +95,7 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Monash NUMBATs</span>
     </a>
   </div>
+            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
@@ -128,7 +130,8 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Contact</span></a>
   </li>  
 </ul>
-              <div id="quarto-search" class="" title="Search"></div>
+            <div class="quarto-navbar-tools ms-auto">
+</div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
@@ -223,7 +226,7 @@ ul.task-list li input[type="checkbox"] {
 <p>So, after a bit of cleaning (removing punctuation, removing stop words, breaking observations up into single words, counting the frequency by person, diving each value by total number of words said in the chat by that person) I have a my dataframe. Each variable is someone who lives in the house, each observation is a word, and the values are how many times that word was said <em>relative to the number of words that person has sent in total</em>. So my value for the word “tom” is how many times I have said “tom” as a fraction of all the words I have sent to the chat. I could skip making the values a “relative” frequency, but then our PCA would likely just tell us that I am absolutely incapable of shutting up, rather than what words typify each speaker. Below is a glimpse at the data that we will run through the PCA.</p>
 <div class="cell">
 <div class="cell-output-display">
-<table class="table table-sm table-striped">
+<table class="table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: center;">word</th>
@@ -324,9 +327,6 @@ ul.task-list li input[type="checkbox"] {
 <section id="sharehouse-chat-loadings" class="level3">
 <h3 class="anchored" data-anchor-id="sharehouse-chat-loadings">Sharehouse Chat Loadings</h3>
 <p>To start off with, we need to use the loadings to interpret the PCs. The first two PC’s capture most of the variance, and so typically we focus on those two, however since we only have 4 variables (and so 4 possible PCs) I might as well do them all.</p>
-<div class="cell">
-
-</div>
 <p><img src="fig1.png" class="img-fluid"></p>
 <p>Keeping in mind what we covered above, we can analyse these plots. As a side note, the order of names (the x-axis of these plots) are arbitrary and organised only to make the words readable, so we only need to interpret the y-axis (the PC loadings). To begin lets start with PC1, the most important PC. Since all the loadings are negative, any persons use of a word will give that word a negative value on the first PC. To put it simply, words we say a lot as a combined group will have a large negative score, and words that we never say will sit around 0. There wont be any positive values on PC1 because each word’s value is the <span class="math inline">Housemate'sPCLoading\times{Housemate'sWordFrequency}</span>, summed up for all 4 of us. So since none of the words will have a negative frequency that could cancel out the negative loadings word’s wont have positive value on PC1. Here are the 4 loading interpreted in their positive direction:</p>
 <p><strong>PC1</strong>: Words <em>None</em> of us say - The overarching ways in which the four of us are similar thanks to generation and circumstances (of living together). This PC will likely contain words people who live together and people our age use. <strong>PC2</strong>: Words Tom never says - Out of all of us, the most distinct speaker of the group is Tom. <strong>PC3</strong>: Words that Em uses - Em is the next most distinct. <strong>PC4</strong>: Words Differentiate Zac and I - Zac and I were on the same side of all the other loadings, and so once all the other sources of variance have been dealt with, this is all that is left. It makes sense, as we are the oldest and closest friends, so our speech is the most similar.</p>
@@ -347,9 +347,6 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="sharehouse-chat-observations" class="level3">
 <h3 class="anchored" data-anchor-id="sharehouse-chat-observations">Sharehouse Chat Observations</h3>
-<div class="cell">
-
-</div>
 <p><img src="fig2.png" class="img-fluid"></p>
 <p>How do we interpret these plots? Well we need to use our interpretations of the loadings to understand what our axis represent. Since we established that PC1 represents words we all use, the distance below the line indicates how frequently the word is used between us all. For example, “yeah” and “house” are the most used words across the chat. This makes sense as we are pretty informal and all live together. We can do the same thing for PC2, which identified the ways Tom speaks differently. He uses “nbn” a lot because he is the one who set up the internet. “Tom” is a common word for Zac and I, not only because we love to bully our housemate Tom, but because we also have a few mutual friends (and some not friends) called Tom that we talk about in the chat.</p>
 <p>I sent all these plots to the group (I like to keep them informed) and Em said “I’m apparently the only one who laughs in this chat”. Now this brings up an interesting point in how this analysis was run, and it shows how PCA can bring out some patterns that may not be immediately recognisable in the data.</p>
@@ -359,9 +356,6 @@ ul.task-list li input[type="checkbox"] {
 <section id="biplot-putting-it-all-together" class="level2">
 <h2 class="anchored" data-anchor-id="biplot-putting-it-all-together">Biplot: Putting It All Together</h2>
 <p>Now these plots only show one principal component each, and also don’t have the loadings on them. I started by separating the elements of the plot, but making several plots when the information could be conveyed with a single plot is tiresome. Now that we understand each of the components by themselves, lets make a biplot to show how this information is usually conveyed all together.</p>
-<div class="cell">
-
-</div>
 <p><img src="fig3.png" class="img-fluid"></p>
 <p>Typically we use the first two principal components when we build the biplot because they contain the most variance, and thus the most information. This final plot is usually how a PCA is presented to us, with the observations and loadings plotted together and each axis representing a principal component. While the plot looks a little different now, the interpretations are still the same, and as a matter of fact understanding the observation is a little easier than before. Since we have the loadings on the plot too, we no longer need to hold the interpretation of the PCs in our mind to understand the observations. On the x axis, the further to the left a word is, the more we all use it, on the y-axis, the further down an observation is, the more Tom specifically uses it. Now we can make analysis of our observations using this combined information, rather than separating it. For example, looking at the biplot we can see that while “tom” is used a LOT in the chat overall, that is largely due to Zac and I, rather than Tom saying his own name.</p>
 <p>The biplot allows us to summarise most of the information covered in this post in a single figure, and knowing how to interpret it makes your life much easier. That being said, if you have a lot of loadings you might still need to separate the plots as a biplot can get messy and crowded when we have too many.</p>
@@ -401,9 +395,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
