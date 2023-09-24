@@ -27,8 +27,6 @@ format:
     css: styles.css
     toc: true
     html-math-method: katex
-    include-in-header:
-      file: header.html
 
 execute:
   freeze: auto
