@@ -1,0 +1,17 @@
+---
+email: david.wu1@monash.edu
+title: David Wu
+description: Postdoctoral Research Fellow
+www:   https://research.monash.edu/en/persons/david-wu
+twitter: davidjxwu
+github: dwu0042
+interests:
+- infectious diseases modelling
+- computational statistics
+- surrogate modelling
+- stochastic simulation
+user_groups:
+- Postdoc
+- Current
+image: avatar.jpg
+---
