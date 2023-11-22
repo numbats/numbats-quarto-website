@@ -3,7 +3,7 @@ email: stephanie.kobakian@monash.edu
 title: Stephanie Kobakian
 organizations:
 - name: PWC
-description: Data scientist
+description: Data Scientist
 twitter: srkobakian
 github: srkobakian
 interests:
