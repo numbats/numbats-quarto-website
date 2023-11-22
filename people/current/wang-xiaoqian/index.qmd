@@ -1,5 +1,5 @@
 ---
-email: Xiaoqian.Wang@monash.edu
+email: xiaoqian.wang@monash.edu
 title: Xiaoqian Wang
 description: Postdoctoral Researcher in Statistics
 www:   https://xqnwang.rbind.io/
@@ -12,6 +12,7 @@ interests:
 - distributed computing
 - ctatistical modeling
 user_groups:
+- Postdoc
 - Current
 image: avatar.jpg
 ---
