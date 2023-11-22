@@ -1,0 +1,17 @@
+---
+email: janith.wanniarachchi@monash.edu
+title: Janith Wanniarachchi
+description: PhD (Statistics)
+www:   https://janithwanni.netlify.app/
+twitter: janithcwanni
+github: janithwanni
+interests:
+- data visualization
+- explainable AI
+- statistical computing
+- state space models
+user_groups:
+- PhD Student
+- Current
+image: avatar.jpg
+---

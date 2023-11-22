@@ -1,34 +1,5 @@
 [
   {
-    "listing": "/posts/index.html",
-    "items": [
-      "/posts/reducing-teaching-duplication-with-unilur/index.html",
-      "/posts/hackathon_2023/index.html",
-      "/posts/2022-10-18-cran-rev-dep/index.html",
-      "/posts/2022-05-28-ggplot-sf/index.html",
-      "/posts/election_hexmaps/index.html",
-      "/posts/2022-02-18-do-you-want-a-monash-business-analytics-intern/index.html",
-      "/posts/regularisation/index.html",
-      "/posts/LDA/index.html",
-      "/posts/pca/index.html",
-      "/posts/internships/index.html",
-      "/posts/boosting/index.html",
-      "/posts/LIME/index.html",
-      "/posts/MLE/index.html",
-      "/posts/PopulationvsSample/index.html",
-      "/posts/FlexiblevsInflexible/index.html",
-      "/posts/ConvolutionalNeuralNetwork/index.html",
-      "/posts/bootstrapCI/index.html",
-      "/posts/permutation_variable_importance/index.html",
-      "/posts/bias_variance_flexibility/index.html",
-      "/posts/hackathon_2020/index.html"
-    ]
-  },
-  {
-    "listing": "/projects.html",
-    "items": []
-  },
-  {
     "listing": "/people/index.html",
     "items": [
       "/people/current/forbes-catherine/index.html",
@@ -79,6 +50,35 @@
       "/people/alumni/lee-stuart/index.html",
       "/people/alumni/talagala-thiyanga/index.html",
       "/people/alumni/laa-ursula/index.html"
+    ]
+  },
+  {
+    "listing": "/projects.html",
+    "items": []
+  },
+  {
+    "listing": "/posts/index.html",
+    "items": [
+      "/posts/reducing-teaching-duplication-with-unilur/index.html",
+      "/posts/hackathon_2023/index.html",
+      "/posts/2022-10-18-cran-rev-dep/index.html",
+      "/posts/2022-05-28-ggplot-sf/index.html",
+      "/posts/election_hexmaps/index.html",
+      "/posts/2022-02-18-do-you-want-a-monash-business-analytics-intern/index.html",
+      "/posts/regularisation/index.html",
+      "/posts/LDA/index.html",
+      "/posts/pca/index.html",
+      "/posts/internships/index.html",
+      "/posts/boosting/index.html",
+      "/posts/LIME/index.html",
+      "/posts/MLE/index.html",
+      "/posts/PopulationvsSample/index.html",
+      "/posts/FlexiblevsInflexible/index.html",
+      "/posts/ConvolutionalNeuralNetwork/index.html",
+      "/posts/bootstrapCI/index.html",
+      "/posts/permutation_variable_importance/index.html",
+      "/posts/bias_variance_flexibility/index.html",
+      "/posts/hackathon_2020/index.html"
     ]
   }
 ]
