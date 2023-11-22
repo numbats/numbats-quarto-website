@@ -1,0 +1,22 @@
+---
+email: damjan.vukcevic@monash.edu
+title: Damjan Vukcevic
+description: Associate Professor and Director of Engagement
+www:   http://damjan.vukcevic.net/
+twitter: VukcevicD
+github: dvukcevic
+scholar: 8PZ6cvoAAAAJ
+orcid: 0000-0001-7780-9586
+linkedin: damjanvukcevic
+interests:
+- applied statistics
+- bayesian inference
+- data science
+- election auditing
+- sequential analysis
+- statistical genomics
+user_groups:
+- Faculty
+- Current
+image: avatar.jpg
+---
