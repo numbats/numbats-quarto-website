@@ -7,10 +7,7 @@ from: markdown+emoji
 
 <h2>Latest News</h2>
 
-* Welcome to post-doctoral research [Xiaoqian Wang](/people/current/wang-xiaoqian/) and visitors [Daniele Girolimetti](/people/visitors/girolimetto-daniele/) and [Chika Saka](/people/visitors/saka-chika/)!
-:smile: We're excited to welcome you!
-
-* WOMBAT is back in 2022, on *Communicating with Data*, with keynote Amanda Cox. More information about [WOMBAT 2022 is here](https://numbats.github.io/WOMBAT2022/)
+* Welcome to associate professor [Damjan Vukcevic](/people/current/vukcevic-damjan/), postdoctoral researchers [Alexander Ek](/people/current/ek-alexander/) and [David Wu](/people/current/wu-david/), PhD students [Janith Wanniarachchi](/people/current/wanniarachchi-janith/), Floyd Everest and Filip Reierson, and master student Krisanat Anukarnsakulchularp! :smile: We're excited to welcome you!
 
 * Monash Master of Business Analytics: Strap on an explorer's backback and a skeptics hat and learn how to analyse data. [Find out more.](https://www.monash.edu/business/master-of-business-analytics#events)
 
