@@ -10,7 +10,6 @@ interests:
 - forecasting
 - statistical computing
 user_groups:
-- PhD Student
-- Current
+- Alumni
 image: avatar.jpg
 ---

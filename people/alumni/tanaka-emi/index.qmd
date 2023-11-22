@@ -12,6 +12,6 @@ interests:
 - statistical computing
 user_groups:
 - Faculty
-- Current
+- Alumni
 image: avatar.png
 ---

@@ -12,6 +12,6 @@ interests:
 - Bayesian inference
 user_groups:
 - Faculty
-- Current
+- Alumni
 image: avatar.png
 ---
