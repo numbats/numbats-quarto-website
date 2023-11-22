@@ -1,0 +1,18 @@
+---
+email: alexander.ek@monash.edu
+title: Alexander Ek
+description: Postdoctoral Researcher in Statistics
+www:   https://www.alexanderek.com/
+interests:
+- election integrity
+- optimisation & operations research
+- sequential analysis
+- statistical inference
+- decision-making under uncertainty
+- probability theory
+- statistical theory
+user_groups:
+- Postdoc
+- Current
+image: avatar.jpg
+---
