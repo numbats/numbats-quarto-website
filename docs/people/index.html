@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
   <meta charset="utf-8">
-  <meta name="generator" content="quarto-1.3.450">
+  <meta name="generator" content="quarto-1.4.533">
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -48,7 +48,13 @@
       "collapse-after": 3,
       "panel-placement": "end",
       "type": "overlay",
-      "limit": 20,
+      "limit": 50,
+      "keyboard-shortcut": [
+        "f",
+        "/",
+        "s"
+      ],
+      "show-item-context": false,
       "language": {
         "search-no-results-text": "No results",
         "search-matching-documents-text": "matching documents",
@@ -57,6 +63,7 @@
         "search-more-match-text": "more match in this document",
         "search-more-matches-text": "more matches in this document",
         "search-clear-button-title": "Clear",
+        "search-text-placeholder": "",
         "search-detached-cancel-button-title": "Cancel",
         "search-submit-button-title": "Submit",
         "search-label": "Search"
@@ -102,7 +109,7 @@
         const options = {
           valueNames: ['listing-title','listing-description','listing-image',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
           
-          searchColumns: [],
+          searchColumns: ["listing-title","listing-author","listing-image","listing-description"],
         };
 
         window['quarto-listings'] = window['quarto-listings'] || {};
@@ -166,15 +173,19 @@
     <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
   
     <link rel="stylesheet" href="../styles.css">
-  </head>
+  
+<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+</head>
 
 <body class="nav-fixed">
 
     <div id="quarto-search-results"></div>
       <header id="quarto-header" class="headroom fixed-top">
-        <nav class="navbar navbar-expand-lg navbar-dark ">
+        <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
           <div class="navbar-container container-fluid">
-          <div class="navbar-brand-container">
+          <div class="navbar-brand-container mx-auto">
         <a class="navbar-brand" href="../index.html">
         <span class="navbar-title">Monash NUMBATs</span>
         </a>
@@ -186,37 +197,37 @@
               <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav navbar-nav-scroll me-auto">
       <li class="nav-item">
-        <a class="nav-link active" href="../people/index.html" rel="" target="" aria-current="page">
-     <span class="menu-text">People</span></a>
+        <a class="nav-link active" href="../people/index.html" aria-current="page"> 
+    <span class="menu-text">People</span></a>
       </li>  
       <li class="nav-item">
-        <a class="nav-link" href="../posts/index.html" rel="" target="">
-     <span class="menu-text">Posts</span></a>
+        <a class="nav-link" href="../posts/index.html"> 
+    <span class="menu-text">Posts</span></a>
       </li>  
       <li class="nav-item">
-        <a class="nav-link" href="../projects.html" rel="" target="">
-     <span class="menu-text">Projects</span></a>
+        <a class="nav-link" href="../projects.html"> 
+    <span class="menu-text">Projects</span></a>
       </li>  
       <li class="nav-item">
-        <a class="nav-link" href="../events.html" rel="" target="">
-     <span class="menu-text">Events</span></a>
+        <a class="nav-link" href="../events.html"> 
+    <span class="menu-text">Events</span></a>
       </li>  
       <li class="nav-item">
-        <a class="nav-link" href="../courses.html" rel="" target="">
-     <span class="menu-text">Courses</span></a>
+        <a class="nav-link" href="../courses.html"> 
+    <span class="menu-text">Courses</span></a>
       </li>  
       <li class="nav-item">
-        <a class="nav-link" href="../about.html" rel="" target="">
-     <span class="menu-text">About</span></a>
+        <a class="nav-link" href="../about.html"> 
+    <span class="menu-text">About</span></a>
       </li>  
       <li class="nav-item">
-        <a class="nav-link" href="../contact.html" rel="" target="">
-     <span class="menu-text">Contact</span></a>
+        <a class="nav-link" href="../contact.html"> 
+    <span class="menu-text">Contact</span></a>
       </li>  
     </ul>
-                <div class="quarto-navbar-tools ms-auto">
-    </div>
               </div> <!-- /navcollapse -->
+              <div class="quarto-navbar-tools">
+    </div>
           </div> <!-- /container-fluid -->
         </nav>
     </header>
@@ -237,13 +248,14 @@
 
 
 
-    <div class="quarto-title-meta">
+    <div class="quarto-title-meta column-page">
 
         
       
         
       </div>
       
+
 
     </header>  
   <table>
@@ -258,7 +270,7 @@
   <h2 class="anchored" data-anchor-id="current">Current</h2>
   <div id="listing-current" class="quarto-listing quarto-listing-container-grid">
   <div class="list grid quarto-listing-cols-3">
-  <div class="g-col-1" data-index="0" data-listing-file-modified-sort="1700626330585" data-listing-reading-time-sort="1">
+  <div class="g-col-1" data-index="0" data-listing-file-modified-sort="1704847893293" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
   <a href="../people/current/ek-alexander/index.html" class="quarto-grid-link">
   <div class="quarto-grid-item card h-100 card-left">
   <p class="card-img-top">
@@ -275,7 +287,7 @@
   </div>
   </a>
   </div>
-  <div class="g-col-1" data-index="1" data-listing-file-modified-sort="1700620421206" data-listing-reading-time-sort="1">
+  <div class="g-col-1" data-index="1" data-listing-file-modified-sort="1677220765604" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
   <a href="../people/current/forbes-catherine/index.html" class="quarto-grid-link">
   <div class="quarto-grid-item card h-100 card-left">
   <p class="card-img-top">
@@ -292,7 +304,7 @@
   </div>
   </a>
   </div>
-  <div class="g-col-1" data-index="2" data-listing-file-modified-sort="1700620421205" data-listing-reading-time-sort="1">
+  <div class="g-col-1" data-index="2" data-listing-file-modified-sort="1677220765604" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
   <a href="../people/current/cynthia-huang/index.html" class="quarto-grid-link">
   <div class="quarto-grid-item card h-100 card-left">
   <p class="card-img-top">
@@ -309,7 +321,7 @@
   </div>
   </a>
   </div>
-  <div class="g-col-1" data-index="3" data-listing-file-modified-sort="1700625086113" data-listing-reading-time-sort="1">
+  <div class="g-col-1" data-index="3" data-listing-file-modified-sort="1704847893293" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
   <a href="../people/current/vukcevic-damjan/index.html" class="quarto-grid-link">
   <div class="quarto-grid-item card h-100 card-left">
   <p class="card-img-top">
@@ -326,7 +338,7 @@
   </div>
   </a>
   </div>
-  <div class="g-col-1" data-index="4" data-listing-file-modified-sort="1700620421206" data-listing-reading-time-sort="1">
+  <div class="g-col-1" data-index="4" data-listing-file-modified-sort="1677220765604" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
   <a href="../people/current/frazier-david/index.html" class="quarto-grid-link">
   <div class="quarto-grid-item card h-100 card-left">
   <p class="card-img-top">
@@ -343,7 +355,7 @@
   </div>
   </a>
   </div>
-  <div class="g-col-1" data-index="5" data-listing-file-modified-sort="1700629639974" data-listing-reading-time-sort="1">
+  <div class="g-col-1" data-index="5" data-listing-file-modified-sort="1704847893293" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
   <a href="../people/current/wu-david/index.html" class="quarto-grid-link">
   <div class="quarto-grid-item card h-100 card-left">
   <p class="card-img-top">
@@ -360,7 +372,7 @@
   </div>
   </a>
   </div>
-  <div class="g-col-1" data-index="6" data-listing-file-modified-sort="1700620421202" data-listing-reading-time-sort="1">
+  <div class="g-col-1" data-index="6" data-listing-file-modified-sort="1677220765600" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
   <a href="../people/current/cook-di/index.html" class="quarto-grid-link">
   <div class="quarto-grid-item card h-100 card-left">
   <p class="card-img-top">
@@ -377,7 +389,7 @@
   </div>
   </a>
   </div>
-  <div class="g-col-1" data-index="7" data-listing-file-modified-sort="1700620421243" data-listing-reading-time-sort="1">
+  <div class="g-col-1" data-index="7" data-listing-file-modified-sort="1677220765640" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
   <a href="../people/current/nibbering-didier/index.html" class="quarto-grid-link">
   <div class="quarto-grid-item card h-100 card-left">
   <p class="card-img-top">
@@ -394,7 +406,7 @@
   </div>
   </a>
   </div>
-  <div class="g-col-1" data-index="8" data-listing-file-modified-sort="1700620421218" data-listing-reading-time-sort="1">
+  <div class="g-col-1" data-index="8" data-listing-file-modified-sort="1677220765616" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
   <a href="../people/current/martin-gael/index.html" class="quarto-grid-link">
   <div class="quarto-grid-item card h-100 card-left">
   <p class="card-img-top">
@@ -411,7 +423,7 @@
   </div>
   </a>
   </div>
-  <div class="g-col-1" data-index="9" data-listing-file-modified-sort="1700620421202" data-listing-reading-time-sort="1">
+  <div class="g-col-1" data-index="9" data-listing-file-modified-sort="1677220765600" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
   <a href="../people/current/athansopoulos-george/index.html" class="quarto-grid-link">
   <div class="quarto-grid-item card h-100 card-left">
   <p class="card-img-top">
@@ -428,7 +440,7 @@
   </div>
   </a>
   </div>
-  <div class="g-col-1" data-index="10" data-listing-file-modified-sort="1700620421218" data-listing-reading-time-sort="1">
+  <div class="g-col-1" data-index="10" data-listing-file-modified-sort="1677220765616" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
   <a href="../people/current/mason-harriet/index.html" class="quarto-grid-link">
   <div class="quarto-grid-item card h-100 card-left">
   <p class="card-img-top">
@@ -445,7 +457,7 @@
   </div>
   </a>
   </div>
-  <div class="g-col-1" data-index="11" data-listing-file-modified-sort="1700625644389" data-listing-reading-time-sort="1">
+  <div class="g-col-1" data-index="11" data-listing-file-modified-sort="1704847893293" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
   <a href="../people/current/wanniarachchi-janith/index.html" class="quarto-grid-link">
   <div class="quarto-grid-item card h-100 card-left">
   <p class="card-img-top">
@@ -462,7 +474,7 @@
   </div>
   </a>
   </div>
-  <div class="g-col-1" data-index="12" data-listing-file-modified-sort="1700620421217" data-listing-reading-time-sort="1">
+  <div class="g-col-1" data-index="12" data-listing-file-modified-sort="1677220765616" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
   <a href="../people/current/leung-jessica/index.html" class="quarto-grid-link">
   <div class="quarto-grid-item card h-100 card-left">
   <p class="card-img-top">
@@ -479,7 +491,7 @@
   </div>
   </a>
   </div>
-  <div class="g-col-1" data-index="13" data-listing-file-modified-sort="1700620421274" data-listing-reading-time-sort="1">
+  <div class="g-col-1" data-index="13" data-listing-file-modified-sort="1677220765676" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
   <a href="../people/current/saunders-kate/index.html" class="quarto-grid-link">
   <div class="quarto-grid-item card h-100 card-left">
   <p class="card-img-top">
@@ -496,7 +508,7 @@
   </div>
   </a>
   </div>
-  <div class="g-col-1" data-index="14" data-listing-file-modified-sort="1700620421201" data-listing-reading-time-sort="1">
+  <div class="g-col-1" data-index="14" data-listing-file-modified-sort="1677220765600" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
   <a href="../people/current/ackermann-klaus/index.html" class="quarto-grid-link">
   <div class="quarto-grid-item card h-100 card-left">
   <p class="card-img-top">
@@ -513,7 +525,7 @@
   </div>
   </a>
   </div>
-  <div class="g-col-1" data-index="15" data-listing-file-modified-sort="1700620421217" data-listing-reading-time-sort="1">
+  <div class="g-col-1" data-index="15" data-listing-file-modified-sort="1677220765616" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
   <a href="../people/current/lydeamore-michael/index.html" class="quarto-grid-link">
   <div class="quarto-grid-item card h-100 card-left">
   <p class="card-img-top">
@@ -530,7 +542,7 @@
   </div>
   </a>
   </div>
-  <div class="g-col-1" data-index="16" data-listing-file-modified-sort="1700620421244" data-listing-reading-time-sort="1">
+  <div class="g-col-1" data-index="16" data-listing-file-modified-sort="1677220765640" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
   <a href="../people/current/ohara-wild-mitch/index.html" class="quarto-grid-link">
   <div class="quarto-grid-item card h-100 card-left">
   <p class="card-img-top">
@@ -547,7 +559,7 @@
   </div>
   </a>
   </div>
-  <div class="g-col-1" data-index="17" data-listing-file-modified-sort="1700620421244" data-listing-reading-time-sort="1">
+  <div class="g-col-1" data-index="17" data-listing-file-modified-sort="1677220765640" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
   <a href="../people/current/palihawadana-nuwani/index.html" class="quarto-grid-link">
   <div class="quarto-grid-item card h-100 card-left">
   <p class="card-img-top">
@@ -564,7 +576,7 @@
   </div>
   </a>
   </div>
-  <div class="g-col-1" data-index="18" data-listing-file-modified-sort="1700620421211" data-listing-reading-time-sort="1">
+  <div class="g-col-1" data-index="18" data-listing-file-modified-sort="1677220765608" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
   <a href="../people/current/lakshika-jayani/index.html" class="quarto-grid-link">
   <div class="quarto-grid-item card h-100 card-left">
   <p class="card-img-top">
@@ -581,7 +593,7 @@
   </div>
   </a>
   </div>
-  <div class="g-col-1" data-index="19" data-listing-file-modified-sort="1700620421243" data-listing-reading-time-sort="1">
+  <div class="g-col-1" data-index="19" data-listing-file-modified-sort="1677220765640" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
   <a href="../people/current/menendez-patricia/index.html" class="quarto-grid-link">
   <div class="quarto-grid-item card h-100 card-left">
   <p class="card-img-top">
@@ -598,7 +610,7 @@
   </div>
   </a>
   </div>
-  <div class="g-col-1" data-index="20" data-listing-file-modified-sort="1700620421217" data-listing-reading-time-sort="1">
+  <div class="g-col-1" data-index="20" data-listing-file-modified-sort="1677220765616" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
   <a href="../people/current/li-patrick/index.html" class="quarto-grid-link">
   <div class="quarto-grid-item card h-100 card-left">
   <p class="card-img-top">
@@ -615,7 +627,7 @@
   </div>
   </a>
   </div>
-  <div class="g-col-1" data-index="21" data-listing-file-modified-sort="1700620421210" data-listing-reading-time-sort="1">
+  <div class="g-col-1" data-index="21" data-listing-file-modified-sort="1704850141216" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
   <a href="../people/current/hyndman-rob-j/index.html" class="quarto-grid-link">
   <div class="quarto-grid-item card h-100 card-left">
   <p class="card-img-top">
@@ -632,7 +644,7 @@
   </div>
   </a>
   </div>
-  <div class="g-col-1" data-index="22" data-listing-file-modified-sort="1700620421232" data-listing-reading-time-sort="1">
+  <div class="g-col-1" data-index="22" data-listing-file-modified-sort="1677220765632" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
   <a href="../people/current/maya-ruben-loaiza/index.html" class="quarto-grid-link">
   <div class="quarto-grid-item card h-100 card-left">
   <p class="card-img-top">
@@ -649,7 +661,7 @@
   </div>
   </a>
   </div>
-  <div class="g-col-1" data-index="23" data-listing-file-modified-sort="1700620421279" data-listing-reading-time-sort="1">
+  <div class="g-col-1" data-index="23" data-listing-file-modified-sort="1677220765680" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
   <a href="../people/current/zhang-sherry/index.html" class="quarto-grid-link">
   <div class="quarto-grid-item card h-100 card-left">
   <p class="card-img-top">
@@ -666,7 +678,7 @@
   </div>
   </a>
   </div>
-  <div class="g-col-1" data-index="24" data-listing-file-modified-sort="1700620421207" data-listing-reading-time-sort="1">
+  <div class="g-col-1" data-index="24" data-listing-file-modified-sort="1677222358038" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
   <a href="../people/current/fui-swen-kuh/index.html" class="quarto-grid-link">
   <div class="quarto-grid-item card h-100 card-left">
   <p class="card-img-top">
@@ -683,7 +695,7 @@
   </div>
   </a>
   </div>
-  <div class="g-col-1" data-index="25" data-listing-file-modified-sort="1700626502354" data-listing-reading-time-sort="1">
+  <div class="g-col-1" data-index="25" data-listing-file-modified-sort="1704847893293" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
   <a href="../people/current/wang-xiaoqian/index.html" class="quarto-grid-link">
   <div class="quarto-grid-item card h-100 card-left">
   <p class="card-img-top">
@@ -700,7 +712,7 @@
   </div>
   </a>
   </div>
-  <div class="g-col-1" data-index="26" data-listing-file-modified-sort="1700620421279" data-listing-reading-time-sort="1">
+  <div class="g-col-1" data-index="26" data-listing-file-modified-sort="1677220765680" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
   <a href="../people/current/yang-yangzhuoran-fin/index.html" class="quarto-grid-link">
   <div class="quarto-grid-item card h-100 card-left">
   <p class="card-img-top">
@@ -727,7 +739,23 @@
   <h2 class="anchored" data-anchor-id="visitors">Visitors</h2>
   <div id="listing-visitor" class="quarto-listing quarto-listing-container-grid">
   <div class="list grid quarto-listing-cols-4">
-
+  <div class="g-col-1" data-index="0" data-listing-file-modified-sort="1704850089019" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+  <a href="../people/visitors/paulo.html" class="quarto-grid-link">
+  <div class="quarto-grid-item card h-100 card-left">
+  <p class="card-img-top">
+  <img src="../people/visitors/paulo.jpeg" class="thumbnail-image card-img" style="height: 150px;">
+  </p>
+  <div class="card-body post-contents">
+  <h5 class="no-anchor card-title listing-title">
+  Paulo Canas Rodrigues
+  </h5>
+  <div class="card-text listing-description">
+  Professor
+  </div>
+  </div>
+  </div>
+  </a>
+  </div>
   </div>
   <div class="listing-no-matching d-none">
   No matching items
@@ -743,7 +771,6 @@
         <input type="text" class="search form-control" placeholder="Filter">
       </div>
   </div>
-
   <table class="quarto-listing-table table">
   <thead>
   <tr>
@@ -758,7 +785,7 @@
   </tr>
   </thead>
   <tbody class="list">
-  <tr data-index="0" data-listing-file-modified-sort="1700620421192" data-listing-reading-time-sort="1" data-listing-title-sort="Anastasios Panagiotelis" data-listing-filename-sort="index.qmd">
+  <tr data-index="0" data-listing-file-modified-sort="1677220765592" data-listing-reading-time-sort="1" data-listing-word-count-sort="1" data-listing-title-sort="Anastasios Panagiotelis" data-listing-filename-sort="index.qmd">
   <td>
   <span class="listing-image"><img src="../people/alumni/panagiotelis-anastasios/avatar.png" style="height: 100px;"></span>
   </td>
@@ -769,7 +796,7 @@
   <span class="listing-description">Associate Professor</span>
   </td>
   </tr>
-  <tr data-index="1" data-listing-file-modified-sort="1700620421193" data-listing-reading-time-sort="1" data-listing-title-sort="Cameron Roach" data-listing-filename-sort="index.qmd">
+  <tr data-index="1" data-listing-file-modified-sort="1677220765592" data-listing-reading-time-sort="1" data-listing-word-count-sort="1" data-listing-title-sort="Cameron Roach" data-listing-filename-sort="index.qmd">
   <td>
   <span class="listing-image"><img src="../people/alumni/roach-cameron/avatar.jpg" style="height: 100px;"></span>
   </td>
@@ -780,7 +807,7 @@
   <span class="listing-description">PhD (Statistics)</span>
   </td>
   </tr>
-  <tr data-index="2" data-listing-file-modified-sort="1700620421194" data-listing-reading-time-sort="1" data-listing-title-sort="Dan Simpson" data-listing-filename-sort="index.qmd">
+  <tr data-index="2" data-listing-file-modified-sort="1677220765592" data-listing-reading-time-sort="1" data-listing-word-count-sort="1" data-listing-title-sort="Dan Simpson" data-listing-filename-sort="index.qmd">
   <td>
   <span class="listing-image"><img src="../people/alumni/simpson-dan/avatar.jpg" style="height: 100px;"></span>
   </td>
@@ -791,7 +818,7 @@
   <span class="listing-description">Professor of Analytics Engagement</span>
   </td>
   </tr>
-  <tr data-index="3" data-listing-file-modified-sort="1700620421201" data-listing-reading-time-sort="1" data-listing-title-sort="Earo Wang" data-listing-filename-sort="index.qmd">
+  <tr data-index="3" data-listing-file-modified-sort="1677220765600" data-listing-reading-time-sort="1" data-listing-word-count-sort="1" data-listing-title-sort="Earo Wang" data-listing-filename-sort="index.qmd">
   <td>
   <span class="listing-image"><img src="../people/alumni/wang-earo/avatar.jpg" style="height: 100px;"></span>
   </td>
@@ -802,7 +829,7 @@
   <span class="listing-description">Lecturer in Statistics</span>
   </td>
   </tr>
-  <tr data-index="4" data-listing-file-modified-sort="1700622415207" data-listing-reading-time-sort="1" data-listing-title-sort="Emi Tanaka" data-listing-filename-sort="index.qmd">
+  <tr data-index="4" data-listing-file-modified-sort="1704847893293" data-listing-reading-time-sort="1" data-listing-word-count-sort="1" data-listing-title-sort="Emi Tanaka" data-listing-filename-sort="index.qmd">
   <td>
   <span class="listing-image"><img src="../people/alumni/tanaka-emi/avatar.png" style="height: 100px;"></span>
   </td>
@@ -813,7 +840,7 @@
   <span class="listing-description">Senior Lecturer in Statistics</span>
   </td>
   </tr>
-  <tr data-index="5" data-listing-file-modified-sort="1700630318105" data-listing-reading-time-sort="1" data-listing-title-sort="Fan Cheng" data-listing-filename-sort="index.qmd">
+  <tr data-index="5" data-listing-file-modified-sort="1704847893293" data-listing-reading-time-sort="1" data-listing-word-count-sort="1" data-listing-title-sort="Fan Cheng" data-listing-filename-sort="index.qmd">
   <td>
   <span class="listing-image"><img src="../people/alumni/cheng-fan/avatar.jpg" style="height: 100px;"></span>
   </td>
@@ -824,7 +851,7 @@
   <span class="listing-description">Data Scientist</span>
   </td>
   </tr>
-  <tr data-index="6" data-listing-file-modified-sort="1700622500876" data-listing-reading-time-sort="1" data-listing-title-sort="Lauren Kennedy" data-listing-filename-sort="index.qmd">
+  <tr data-index="6" data-listing-file-modified-sort="1704847893293" data-listing-reading-time-sort="1" data-listing-word-count-sort="1" data-listing-title-sort="Lauren Kennedy" data-listing-filename-sort="index.qmd">
   <td>
   <span class="listing-image"><img src="../people/alumni/kennedy-lauren/avatar.png" style="height: 100px;"></span>
   </td>
@@ -835,7 +862,7 @@
   <span class="listing-description">Lecturer in Statistics</span>
   </td>
   </tr>
-  <tr data-index="7" data-listing-file-modified-sort="1700620421201" data-listing-reading-time-sort="1" data-listing-title-sort="Luis Torres" data-listing-filename-sort="index.qmd">
+  <tr data-index="7" data-listing-file-modified-sort="1677220765600" data-listing-reading-time-sort="1" data-listing-word-count-sort="1" data-listing-title-sort="Luis Torres" data-listing-filename-sort="index.qmd">
   <td>
   <span class="listing-image"><img src="../people/alumni/torres-luis/avatar.jpg" style="height: 100px;"></span>
   </td>
@@ -846,7 +873,7 @@
   <span class="listing-description">Postdoctoral Researcher (Statistics)</span>
   </td>
   </tr>
-  <tr data-index="8" data-listing-file-modified-sort="1700620421187" data-listing-reading-time-sort="1" data-listing-title-sort="Mahdi Abolghasemi" data-listing-filename-sort="index.qmd">
+  <tr data-index="8" data-listing-file-modified-sort="1677220765588" data-listing-reading-time-sort="1" data-listing-word-count-sort="1" data-listing-title-sort="Mahdi Abolghasemi" data-listing-filename-sort="index.qmd">
   <td>
   <span class="listing-image"><img src="../people/alumni/abolghasemi-mahdi/avatar.jpg" style="height: 100px;"></span>
   </td>
@@ -857,7 +884,7 @@
   <span class="listing-description">Post Doctoral Researcher (Data Science)</span>
   </td>
   </tr>
-  <tr data-index="9" data-listing-file-modified-sort="1700620421200" data-listing-reading-time-sort="1" data-listing-title-sort="Nathaniel Tomasetti" data-listing-filename-sort="index.qmd">
+  <tr data-index="9" data-listing-file-modified-sort="1677220765600" data-listing-reading-time-sort="1" data-listing-word-count-sort="1" data-listing-title-sort="Nathaniel Tomasetti" data-listing-filename-sort="index.qmd">
   <td>
   <span class="listing-image"><div class="listing-item-img-placeholder card-img-top" style="height: 100px;">&nbsp;</div></span>
   </td>
@@ -868,7 +895,7 @@
   <span class="listing-description">Data Scientist</span>
   </td>
   </tr>
-  <tr data-index="10" data-listing-file-modified-sort="1700620421194" data-listing-reading-time-sort="1" data-listing-title-sort="Nicholas Spyrison" data-listing-filename-sort="index.qmd">
+  <tr data-index="10" data-listing-file-modified-sort="1677220765592" data-listing-reading-time-sort="1" data-listing-word-count-sort="1" data-listing-title-sort="Nicholas Spyrison" data-listing-filename-sort="index.qmd">
   <td>
   <span class="listing-image"><img src="../people/alumni/spyrison-nicholas/avatar.jpeg" style="height: 100px;"></span>
   </td>
@@ -879,7 +906,7 @@
   <span class="listing-description">PhD (Information Technology)</span>
   </td>
   </tr>
-  <tr data-index="11" data-listing-file-modified-sort="1700620421200" data-listing-reading-time-sort="1" data-listing-title-sort="Nick Tierney" data-listing-filename-sort="index.qmd">
+  <tr data-index="11" data-listing-file-modified-sort="1677220765600" data-listing-reading-time-sort="1" data-listing-word-count-sort="1" data-listing-title-sort="Nick Tierney" data-listing-filename-sort="index.qmd">
   <td>
   <span class="listing-image"><img src="../people/alumni/tierney-nick/avatar.png" style="height: 100px;"></span>
   </td>
@@ -890,7 +917,7 @@
   <span class="listing-description">Research Software Engineer</span>
   </td>
   </tr>
-  <tr data-index="12" data-listing-file-modified-sort="1700620421192" data-listing-reading-time-sort="1" data-listing-title-sort="Pablo Montero Manso" data-listing-filename-sort="index.qmd">
+  <tr data-index="12" data-listing-file-modified-sort="1677220765592" data-listing-reading-time-sort="1" data-listing-word-count-sort="1" data-listing-title-sort="Pablo Montero Manso" data-listing-filename-sort="index.qmd">
   <td>
   <span class="listing-image"><img src="../people/alumni/manso-pablo-montero/avatar.jpeg" style="height: 100px;"></span>
   </td>
@@ -901,7 +928,7 @@
   <span class="listing-description">Post Doctoral Researcher (Statistics)</span>
   </td>
   </tr>
-  <tr data-index="13" data-listing-file-modified-sort="1700620421195" data-listing-reading-time-sort="1" data-listing-title-sort="Priyanga Dilini Talagala" data-listing-filename-sort="index.qmd">
+  <tr data-index="13" data-listing-file-modified-sort="1677220765592" data-listing-reading-time-sort="1" data-listing-word-count-sort="1" data-listing-title-sort="Priyanga Dilini Talagala" data-listing-filename-sort="index.qmd">
   <td>
   <span class="listing-image"><img src="../people/alumni/talagala-priyanga-dilini/avatar.jpg" style="height: 100px;"></span>
   </td>
@@ -912,7 +939,7 @@
   <span class="listing-description">Lecturer in Statistics</span>
   </td>
   </tr>
-  <tr data-index="14" data-listing-file-modified-sort="1700620421187" data-listing-reading-time-sort="1" data-listing-title-sort="Puwasala Gamakumara" data-listing-filename-sort="index.qmd">
+  <tr data-index="14" data-listing-file-modified-sort="1677220765588" data-listing-reading-time-sort="1" data-listing-word-count-sort="1" data-listing-title-sort="Puwasala Gamakumara" data-listing-filename-sort="index.qmd">
   <td>
   <span class="listing-image"><img src="../people/alumni/gamakumara-puwasala/avatar.jpg" style="height: 100px;"></span>
   </td>
@@ -923,7 +950,7 @@
   <span class="listing-description">Post Doctoral Researcher (Statistics)</span>
   </td>
   </tr>
-  <tr data-index="15" data-listing-file-modified-sort="1700620421199" data-listing-reading-time-sort="1" data-listing-title-sort="Ryan Thompson" data-listing-filename-sort="index.qmd">
+  <tr data-index="15" data-listing-file-modified-sort="1677220765596" data-listing-reading-time-sort="1" data-listing-word-count-sort="1" data-listing-title-sort="Ryan Thompson" data-listing-filename-sort="index.qmd">
   <td>
   <span class="listing-image"><img src="../people/alumni/thompson-ryan/avatar.jpg" style="height: 100px;"></span>
   </td>
@@ -934,7 +961,7 @@
   <span class="listing-description">PhD (Statistics)</span>
   </td>
   </tr>
-  <tr data-index="16" data-listing-file-modified-sort="1700620421187" data-listing-reading-time-sort="1" data-listing-title-sort="Sayani Gupta" data-listing-filename-sort="index.qmd">
+  <tr data-index="16" data-listing-file-modified-sort="1677220765588" data-listing-reading-time-sort="1" data-listing-word-count-sort="1" data-listing-title-sort="Sayani Gupta" data-listing-filename-sort="index.qmd">
   <td>
   <span class="listing-image"><img src="../people/alumni/gupta-sayani/avatar.jpg" style="height: 100px;"></span>
   </td>
@@ -945,7 +972,7 @@
   <span class="listing-description">PhD (Statistics)</span>
   </td>
   </tr>
-  <tr data-index="17" data-listing-file-modified-sort="1700620421188" data-listing-reading-time-sort="1" data-listing-title-sort="Sevvandi Kandanaarachchi" data-listing-filename-sort="index.qmd">
+  <tr data-index="17" data-listing-file-modified-sort="1677220765588" data-listing-reading-time-sort="1" data-listing-word-count-sort="1" data-listing-title-sort="Sevvandi Kandanaarachchi" data-listing-filename-sort="index.qmd">
   <td>
   <span class="listing-image"><img src="../people/alumni/kandanaarachchi-sevvandi/avatar.jpeg" style="height: 100px;"></span>
   </td>
@@ -956,7 +983,7 @@
   <span class="listing-description">Lecturer in Statistics</span>
   </td>
   </tr>
-  <tr data-index="18" data-listing-file-modified-sort="1700630285557" data-listing-reading-time-sort="1" data-listing-title-sort="Stephanie Kobakian" data-listing-filename-sort="index.qmd">
+  <tr data-index="18" data-listing-file-modified-sort="1704847893293" data-listing-reading-time-sort="1" data-listing-word-count-sort="1" data-listing-title-sort="Stephanie Kobakian" data-listing-filename-sort="index.qmd">
   <td>
   <span class="listing-image"><img src="../people/alumni/kobakian-stephanie/avatar.jpg" style="height: 100px;"></span>
   </td>
@@ -967,7 +994,7 @@
   <span class="listing-description">Data Scientist</span>
   </td>
   </tr>
-  <tr data-index="19" data-listing-file-modified-sort="1700620421192" data-listing-reading-time-sort="1" data-listing-title-sort="Stuart Lee" data-listing-filename-sort="index.qmd">
+  <tr data-index="19" data-listing-file-modified-sort="1677220765592" data-listing-reading-time-sort="1" data-listing-word-count-sort="1" data-listing-title-sort="Stuart Lee" data-listing-filename-sort="index.qmd">
   <td>
   <span class="listing-image"><img src="../people/alumni/lee-stuart/avatar.jpg" style="height: 100px;"></span>
   </td>
@@ -978,7 +1005,7 @@
   <span class="listing-description">Postdoctoral Researcher (Statistics)</span>
   </td>
   </tr>
-  <tr data-index="20" data-listing-file-modified-sort="1700620421196" data-listing-reading-time-sort="1" data-listing-title-sort="Thiyanga Talagala" data-listing-filename-sort="index.qmd">
+  <tr data-index="20" data-listing-file-modified-sort="1677220765596" data-listing-reading-time-sort="1" data-listing-word-count-sort="1" data-listing-title-sort="Thiyanga Talagala" data-listing-filename-sort="index.qmd">
   <td>
   <span class="listing-image"><img src="../people/alumni/talagala-thiyanga/avatar.jpg" style="height: 100px;"></span>
   </td>
@@ -989,7 +1016,7 @@
   <span class="listing-description">Lecturer in Statistics</span>
   </td>
   </tr>
-  <tr data-index="21" data-listing-file-modified-sort="1700620421192" data-listing-reading-time-sort="1" data-listing-title-sort="Ursula Laa" data-listing-filename-sort="index.qmd">
+  <tr data-index="21" data-listing-file-modified-sort="1677220765592" data-listing-reading-time-sort="1" data-listing-word-count-sort="1" data-listing-title-sort="Ursula Laa" data-listing-filename-sort="index.qmd">
   <td>
   <span class="listing-image"><img src="../people/alumni/laa-ursula/avatar.jpg" style="height: 100px;"></span>
   </td>
@@ -1001,7 +1028,6 @@
   </td>
   </tr>
   </tbody>
-
   </table>
   <div class="listing-no-matching d-none">
   No matching items
@@ -1092,10 +1118,9 @@
         // clear code selection
         e.clearSelection();
       });
-      function tippyHover(el, contentFn) {
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
         const config = {
           allowHTML: true,
-          content: contentFn,
           maxWidth: 500,
           delay: 100,
           arrow: false,
@@ -1105,8 +1130,17 @@
           interactive: true,
           interactiveBorder: 10,
           theme: 'quarto',
-          placement: 'bottom-start'
+          placement: 'bottom-start',
         };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
         window.tippy(el, config); 
       }
       const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1119,6 +1153,120 @@
           const id = href.replace(/^#\/?/, "");
           const note = window.document.getElementById(id);
           return note.innerHTML;
+        });
+      }
+      const xrefs = window.document.querySelectorAll('a.quarto-xref');
+      const processXRef = (id, note) => {
+        // Strip column container classes
+        const stripColumnClz = (el) => {
+          el.classList.remove("page-full", "page-columns");
+          if (el.children) {
+            for (const child of el.children) {
+              stripColumnClz(child);
+            }
+          }
+        }
+        stripColumnClz(note)
+        if (id === null || id.startsWith('sec-')) {
+          // Special case sections, only their first couple elements
+          const container = document.createElement("div");
+          if (note.children && note.children.length > 2) {
+            container.appendChild(note.children[0].cloneNode(true));
+            for (let i = 1; i < note.children.length; i++) {
+              const child = note.children[i];
+              if (child.tagName === "P" && child.innerText === "") {
+                continue;
+              } else {
+                container.appendChild(child.cloneNode(true));
+                break;
+              }
+            }
+            if (window.Quarto?.typesetMath) {
+              window.Quarto.typesetMath(container);
+            }
+            return container.innerHTML
+          } else {
+            if (window.Quarto?.typesetMath) {
+              window.Quarto.typesetMath(note);
+            }
+            return note.innerHTML;
+          }
+        } else {
+          // Remove any anchor links if they are present
+          const anchorLink = note.querySelector('a.anchorjs-link');
+          if (anchorLink) {
+            anchorLink.remove();
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      }
+      for (var i=0; i<xrefs.length; i++) {
+        const xref = xrefs[i];
+        tippyHover(xref, undefined, function(instance) {
+          instance.disable();
+          let url = xref.getAttribute('href');
+          let hash = undefined; 
+          if (url.startsWith('#')) {
+            hash = url;
+          } else {
+            try { hash = new URL(url).hash; } catch {}
+          }
+          if (hash) {
+            const id = hash.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note !== null) {
+              try {
+                const html = processXRef(id, note.cloneNode(true));
+                instance.setContent(html);
+              } finally {
+                instance.enable();
+                instance.show();
+              }
+            } else {
+              // See if we can fetch this
+              fetch(url.split('#')[0])
+              .then(res => res.text())
+              .then(html => {
+                const parser = new DOMParser();
+                const htmlDoc = parser.parseFromString(html, "text/html");
+                const note = htmlDoc.getElementById(id);
+                if (note !== null) {
+                  const html = processXRef(id, note);
+                  instance.setContent(html);
+                } 
+              }).finally(() => {
+                instance.enable();
+                instance.show();
+              });
+            }
+          } else {
+            // See if we can fetch a full url (with no hash to target)
+            // This is a special case and we should probably do some content thinning / targeting
+            fetch(url)
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.querySelector('main.content');
+              if (note !== null) {
+                // This should only happen for chapter cross references
+                // (since there is no id in the URL)
+                // remove the first header
+                if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                  note.children[0].remove();
+                }
+                const html = processXRef(null, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        }, function(instance) {
         });
       }
           let selectedAnnoteEl;
@@ -1162,6 +1310,7 @@
                 }
                 div.style.top = top - 2 + "px";
                 div.style.height = height + 4 + "px";
+                div.style.left = 0;
                 let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
                 if (gutterDiv === null) {
                   gutterDiv = window.document.createElement("div");
@@ -1187,6 +1336,32 @@
             });
             selectedAnnoteEl = undefined;
           };
+            // Handle positioning of the toggle
+        window.addEventListener(
+          "resize",
+          throttle(() => {
+            elRect = undefined;
+            if (selectedAnnoteEl) {
+              selectCodeLines(selectedAnnoteEl);
+            }
+          }, 10)
+        );
+        function throttle(fn, ms) {
+        let throttle = false;
+        let timer;
+          return (...args) => {
+            if(!throttle) { // first call gets through
+                fn.apply(this, args);
+                throttle = true;
+            } else { // all the others get throttled
+                if(timer) clearTimeout(timer); // cancel #2
+                timer = setTimeout(() => {
+                  fn.apply(this, args);
+                  timer = throttle = false;
+                }, ms);
+            }
+          };
+        }
           // Attach click handler to the DT
           const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
           for (const annoteDlNode of annoteDls) {

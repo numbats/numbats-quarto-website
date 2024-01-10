@@ -10,6 +10,7 @@ interests:
 - forecasting
 - time series
 - exploratory data analysis
+- anomaly detection
 user_groups:
 - Faculty
 - Current
