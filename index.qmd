@@ -7,6 +7,7 @@ from: markdown+emoji
 
 <h2>Latest News</h2>
 
+* Welcome to Professor [Paulo Rodrigues](/people/visitors/paulo.qmd), visiting us until June 2024.
 * Welcome to associate professor [Damjan Vukcevic](/people/current/vukcevic-damjan/), postdoctoral researchers [Alexander Ek](/people/current/ek-alexander/) and [David Wu](/people/current/wu-david/), PhD students [Janith Wanniarachchi](/people/current/wanniarachchi-janith/), Floyd Everest and Filip Reierson, and master student Krisanat Anukarnsakulchularp! :smile: We're excited to welcome you!
 
 * Monash Master of Business Analytics: Strap on an explorer's backback and a skeptics hat and learn how to analyse data. [Find out more.](https://www.monash.edu/business/master-of-business-analytics#events)

@@ -1,0 +1,20 @@
+
+---
+email: paulocanas@gmail.com
+title: Paulo Canas Rodrigues
+organizations:
+- name: Federal University of Bahia, Brazil
+description: Professor
+www: https://www.paulocanas.org
+scholar: KBtSLIEAAAAJ
+interests:
+- statistical learning
+- high-dimensional data
+- forecasting
+- time series
+- robust statistics
+- data visualization
+user_groups:
+- Visitors
+image: paulo.jpeg
+---
