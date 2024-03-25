@@ -1,7 +1,7 @@
 ---
 email: david.frazier@monash.edu
 title: David Frazier
-description: Associate Professor and ARC DECRA Fellow
+description: Professor
 www:   https://dtfrazier.netlify.com
 twitter: dtfraz
 github: dtfrazier

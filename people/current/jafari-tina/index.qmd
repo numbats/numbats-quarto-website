@@ -1,0 +1,14 @@
+---
+email: tina.rashidjafari@gmail.com
+title: Tina Rashid Jafari
+description: PhD (Statistics)
+github: Tinarj
+interests:
+- high-dimensional data
+- data analysis
+- data science
+user_groups:
+- PhD Student
+- Current
+image: avatar.png
+---

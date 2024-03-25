@@ -1,7 +1,7 @@
 ---
 email: mail@mitchelloharawild.com
 title: Mitch O'Hara-Wild
-description: Research Assistant
+description: PhD (Statistics)
 www:   https://www.mitchelloharawild.com/
 twitter: mitchoharawild
 github: mitchelloharawild

@@ -1,1 +1,6 @@
 /* css styles */
+
+img.card-img {
+  vertical-align: middle;
+  border-radius: 50%;
+}

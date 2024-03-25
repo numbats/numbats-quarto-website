@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.533">
+<meta name="generator" content="quarto-1.4.549">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -189,7 +189,7 @@ ul.task-list li input[type="checkbox"] {
 <h3 class="anchored" data-anchor-id="this-is-the-blog-of-a-mario-party-master">This is The Blog of a Mario Party Master</h3>
 <p>In pre-COVID times, my friends and I would gather around for a fun activity called “lets ruin our friendship by taking Mario party way too seriously”. The night always starts with laughter and few drinks, and ends with me standing on a chair, pointing at my closest friends, and screaming “I’m going to make you cry tears you thought were reserved for the death of your mother”. Once the moment has passed it seems a little dramatic, but at the time, we all truly believe that the speed you can get virtual candy out of a jar is an appropriate measure of human worth.</p>
 <center>
-<div class="img-fluid quarto-figure quarto-figure-center">
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="marioparty.jpg" class="img-fluid figure-img"></p>
 <figcaption><em>The last thing my friends see before I block them</em></figcaption>
@@ -445,7 +445,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      return note.innerHTML;
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
     }
   }
   for (var i=0; i<xrefs.length; i++) {

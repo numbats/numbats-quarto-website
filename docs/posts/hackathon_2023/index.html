@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.533">
+<meta name="generator" content="quarto-1.4.549">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -174,31 +174,31 @@ ul.task-list li input[type="checkbox"] {
 <p>The third NUMBAT hackathon was held Feb 22-24, 2023 in San Remo, Vic. A hackathon is style like RopenSci events where attendees brainstorm potential projects, and join to gether in small groups to tackle a subset of these.</p>
 <p>Projects</p>
 <p>Projects tackled can be found on <a href="https://github.com/numbats/numbathackathon/issues">github</a>.</p>
-<div class="img-fluid quarto-figure quarto-figure-center">
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="group.jpg" class="img-fluid figure-img"></p>
 <figcaption>Participants</figcaption>
 </figure>
 </div>
-<div class="img-fluid quarto-figure quarto-figure-center">
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="projects.jpg" class="img-fluid figure-img"></p>
 <figcaption>Brainstorming the projects</figcaption>
 </figure>
 </div>
-<div class="img-fluid quarto-figure quarto-figure-center">
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="sushi.jpg" class="img-fluid figure-img"></p>
 <figcaption>Making sushi</figcaption>
 </figure>
 </div>
-<div class="img-fluid quarto-figure quarto-figure-center">
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="bbq.jpg" class="img-fluid figure-img"></p>
 <figcaption>Aussie barbecue - love the aprons!</figcaption>
 </figure>
 </div>
-<div class="img-fluid quarto-figure quarto-figure-center">
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="pelicans.jpg" class="img-fluid figure-img"></p>
 <figcaption>Pelican feeding</figcaption>
@@ -369,7 +369,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      return note.innerHTML;
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
     }
   }
   for (var i=0; i<xrefs.length; i++) {

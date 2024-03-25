@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.533">
+<meta name="generator" content="quarto-1.4.549">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -158,7 +158,7 @@ Latest News
 </h2>
 <ul>
 <li><p>Welcome to Professor <a href="./people/visitors/paulo.html">Paulo Rodrigues</a>, visiting us until June 2024.</p></li>
-<li><p>Welcome to associate professor <a href="./people/current/vukcevic-damjan/">Damjan Vukcevic</a>, postdoctoral researchers <a href="./people/current/ek-alexander/">Alexander Ek</a> and <a href="./people/current/wu-david/">David Wu</a>, PhD students <a href="./people/current/wanniarachchi-janith/">Janith Wanniarachchi</a>, Floyd Everest and Filip Reierson, and master student Krisanat Anukarnsakulchularp! <span class="emoji" data-emoji="smile">😄</span> We’re excited to welcome you!</p></li>
+<li><p>Welcome to new PhD students <a href="./people/current/chapman-jarryd/">Jarryd Chapman</a>, <a href="./people/current/jafari-tina/">Tina Rashid Jafari</a> <span class="emoji" data-emoji="smile">😄</span> We’re excited to welcome you!</p></li>
 <li><p>Monash Master of Business Analytics: Strap on an explorer’s backback and a skeptics hat and learn how to analyse data. <a href="https://www.monash.edu/business/master-of-business-analytics#events">Find out more.</a></p></li>
 <li><p>The real numbats could use your help. If you would like to help with numbat conservation take a look at Project Numbat. You can buy numbat souvenirs or make donations to help with numbat conservation. Go to <a href="http://www.numbat.org.au">Project Numbat</a>.</p></li>
 </ul>
@@ -327,7 +327,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      return note.innerHTML;
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
     }
   }
   for (var i=0; i<xrefs.length; i++) {

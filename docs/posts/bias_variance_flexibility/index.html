@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.533">
+<meta name="generator" content="quarto-1.4.549">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -243,7 +243,7 @@ Increasing the flexibility will reduce the bias which will decrease the error. T
 </div>
 <p>We can see the effect on the distributions using the animated density plot below. Here we have taken 100 different samples, and fit a model that predicts mpg using a polynomial degree of 1 to 15 of horsepower. Here we can see the above hand drawn illustration and interpretation of the variable relationship play out. Initially, increasing the flexibility of our model eliminates bias and causes both distributions to shift down. At polynomial degree 4, they stop at the minimum, and then for polynomial degrees higher than that, variance is introduced, and the test error increases in both expected value and variance.</p>
 <center>
-<div class="img-fluid quarto-figure quarto-figure-center">
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="figure4.gif" class="img-fluid figure-img"></p>
 <figcaption>png</figcaption>
@@ -256,7 +256,7 @@ Increasing the flexibility will reduce the bias which will decrease the error. T
 <h2 class="anchored" data-anchor-id="sample-to-sample-changes">Sample to Sample Changes</h2>
 <p>Here it is important to highlight the difference between a population and a sample, so we can better understand how an unfortunate test and training split can hurt error estimates. A population is all the data on what you are trying to make an inference on. For example, if I want to make an inference on the true relationship between mpg and horsepower, the Auto data is a sample of that. Generally we would be interested to make statements for mgp and horsepower for all possible cars, where all possible cars would be our population. If I want to make an inference on the relationship between mpg and horsepower <em>in the Auto dataset</em> (which is a weirdly specific realm to keep your inferences to but each to his own I guess) then this data is the population sample. For our sample to be representative, it needs to both be randomly drawn, and large enough. Unfortunately, even when we draw our samples to be decently large in size, and random, we will still occasionally get some unrepresentative splits. A sample that is unlike the population will bring the validity of any inference we try to make using that sample (including predictive models) into disrepute. Below is an illustration on how the sample will influence the fit among other interpretations.</p>
 <center>
-<div class="img-fluid quarto-figure quarto-figure-center">
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="figure5popandsamp.png" class="img-fluid figure-img"></p>
 <figcaption>png</figcaption>
@@ -285,7 +285,7 @@ Increasing the flexibility will reduce the bias which will decrease the error. T
 <h3 class="anchored" data-anchor-id="the-phases-example-using-cross-validation">The Phases Example Using Cross Validation</h3>
 <p>When we originally looked at the test error, it was estimated with the validation set approach (test in the plot) for simplicity. Now, let’s redo those distribution estimations of error from the mpg and horsepower models, but also look at the distribution of the 10-fold (k10cv), and 5-fold cross (k5cv) validation methods.</p>
 <center>
-<div class="img-fluid quarto-figure quarto-figure-center">
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="figure7.gif" class="img-fluid figure-img"></p>
 <figcaption>png</figcaption>
@@ -473,7 +473,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      return note.innerHTML;
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
     }
   }
   for (var i=0; i<xrefs.length; i++) {
