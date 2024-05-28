@@ -11,4 +11,8 @@ listing:
       description: R packages for tidy time series analysis
       url: https://tidyverts.org
       image: img/tidyverts.jpg
+    - title: Quarto
+      description: Quarto resources designed for use at Monash University
+      url: quarto.qmd
+      image: img/quarto.png
 ---

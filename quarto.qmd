@@ -1,0 +1,139 @@
+---
+title: Quarto resources for use at Monash University
+---
+
+[Quarto](https://quarto.org) is a document authoring system that supports the use of R, Python, and Julia code in markdown documents. It is a powerful tool for creating reproducible documents that can be used for research, teaching, and more. This page contains various templates and extensions for using Quarto at Monash University.
+
+
+## [Monash Letter Template](https://github.com/numbats/monash-quarto-letter)
+
+This is a Quarto template that assists you in creating a letter on
+Monash University letterhead.
+
+<table>
+<tr><td valign="top">
+
+```
+quarto use template numbats/monash-quarto-letter
+```
+
+This will install the extension and create an example qmd file that you
+can use as a starting place for your letter.
+
+You may also use this format with an existing Quarto project or
+document. From the quarto project or document directory, run the
+following command to install this format:
+
+```
+quarto install extension numbats/monash-quarto-letter
+```
+
+</td><td valign="top">
+[![](https://github.com/numbats/monash-quarto-letter/raw/main/examples/template.png){width=700}](https://github.com/numbats/monash-quarto-letter)
+</td>
+</tr>
+</table>
+
+## [Monash Memo Template](https://github.com/numbats/monash-quarto-memo)
+
+This is a Quarto template that assists you in creating a memo, with optional Monash University branding.
+
+<table>
+<tr><td valign="top">
+
+```
+quarto use template numbats/monash-quarto-memo
+```
+
+This will install the extension and create an example qmd file that you
+can use as a starting place for your memo.
+
+You may also use this format with an existing Quarto project or
+document. From the quarto project or document directory, run the
+following command to install this format:
+
+```
+quarto install extension numbats/monash-quarto-memo
+```
+
+</td><td valign="top">
+[![](https://github.com/numbats/monash-quarto-memo/raw/main/examples/template.png){width=700}](https://github.com/numbats/monash-quarto-memo)
+</td>
+</tr>
+</table>
+
+
+## [Monash Working Paper Template](https://github.com/numbats/monash-quarto-workingpaper)
+
+This is a Quarto template that assists you in creating a working paper for the Department of Econometrics & Business Statistics, Monash University.
+
+<table>
+<tr><td valign="top">
+
+```
+quarto use template numbats/monash-quarto-workingpaper
+```
+
+This will install the extension and create an example qmd file that you
+can use as a starting place for your working paper.
+
+You may also use this format with an existing Quarto project or
+document. From the quarto project or document directory, run the
+following command to install this format:
+
+```
+quarto install extension numbats/monash-quarto-workingpaper
+```
+
+</td><td valign="top">
+[![](https://github.com/numbats/monash-quarto-workingpaper/raw/main/examples/template.png){width=900}](https://github.com/numbats/monash-quarto-workingpaper)
+</td>
+</tr>
+</table>
+
+## [Monash Report Template](https://github.com/numbats/monash-quarto-report)
+
+This is a Quarto template that assists you in creating a Monash University report.
+
+<table>
+<tr><td valign="top">
+
+```
+quarto use template numbats/monash-quarto-report
+```
+
+This will install the extension and create an example qmd file that you
+can use as a starting place for your report.
+
+You may also use this format with an existing Quarto project or
+document. From the quarto project or document directory, run the
+following command to install this format:
+
+```
+quarto install extension numbats/monash-quarto-report
+```
+
+</td><td valign="top">
+[![](https://github.com/numbats/monash-quarto-report/raw/main/examples/template.png){width=900}](https://github.com/numbats/monash-quarto-report)
+</td>
+</tr>
+</table>
+
+## [Monash Thesis Template](https://github.com/numbats/monash-quarto-thesis)
+
+This is a Quarto template for a Monash University thesis.
+
+<table>
+<tr><td valign="top">
+
+```
+quarto use template numbats/monash-quarto-thesis
+```
+
+This will copy the template to your current directory, which you can use as a starting place for your thesis.
+
+</td><td width=300 valign="top" align="right">
+[![](https://github.com/numbats/monash-quarto-thesis/raw/main/examples/template.png){width=300 fig-align='right'}](https://github.com/numbats/monash-quarto-thesis)
+</td>
+</tr>
+</table>
