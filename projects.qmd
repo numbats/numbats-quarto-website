@@ -13,6 +13,6 @@ listing:
       image: img/tidyverts.jpg
     - title: Quarto
       description: Quarto resources designed for use at Monash University
-      url: quarto.qmd
+      url: https://github.com/quarto-monash
       image: img/quarto.png
 ---
