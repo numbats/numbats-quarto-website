@@ -20,7 +20,7 @@ const imgHeight = "100%";
     <div class="quarto-grid-item card h-100 <%-`card-${align}`%><%= hideBorders ? ' borderless' : '' %>">
       <% if (item.image) { %>
         <p class="card-img-top">
-          <a class="listing-href" href="<%= item.url %>" target="_blank" rel="noopener"><img src="<%= item.image %>" class="thumbnail-image card-img" style="height: auto;" alt="<%= item['image-alt'] %>"></a>
+          <a class="listing-href" href="<%= item.url %>" target="_blank" rel="noopener"><img src="<%= item.image %>" class="thumbnail-image proj-img" style="height: auto; width: 100%;" alt="<%= item['image-alt'] %>"></a>
         </p>
       <% } else { %>
         <div class="card-img-bg" <%= imgHeight ? ` style="height: ${imgHeight};"` : '' %>>&nbsp;</div>

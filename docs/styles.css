@@ -6,3 +6,8 @@ img.card-img {
   width: auto;
   aspect-ratio: 1 !important;
 }
+
+img.proj-img {
+  vertical-align: middle;
+  border-radius: 50%;
+}
