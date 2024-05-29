@@ -3,4 +3,6 @@
 img.card-img {
   vertical-align: middle;
   border-radius: 50%;
+  width: auto;
+  aspect-ratio: 1 !important;
 }
