@@ -1,0 +1,36 @@
+---
+title: "Hackathon 2024"
+author: Numbats Rise-up
+date: "2024-05-28T00:00:00Z"
+lastMod: "2024-05-30T00:00:00Z"
+image: group.jpg
+categories:
+  - teaching
+  - community
+tags:
+  - R
+---
+
+Overview
+
+The fourth NUMBAT hackathon was held May 28-30, 2024 in Daylesford, Vic. A hackathon is style like RopenSci events where attendees brainstorm potential projects, and join to gether in small groups to tackle a subset of these.
+
+Projects
+
+Projects tackled can be found on [github](https://github.com/numbats/numbathackathon/issues).
+
+![Participants](group.jpg)
+
+
+![Working on the projects](project1.jpg)
+
+![Working on the projects](project2.jpg)
+
+![Working on the projects](project3.jpg)
+
+
+![and great food](dinner.jpg)
+
+
+
+
