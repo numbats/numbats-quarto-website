@@ -1,0 +1,19 @@
+
+---
+email: t.lumley@auckland.ac.nz
+title: Thomas Lumley
+organizations:
+- name: University of Auckland, New Zealand
+description: Professor
+www: https://profiles.auckland.ac.nz/t-lumley
+scholar: uDI-suQAAAAJ
+interests:
+- bioinformatics
+- medical statistics
+- design of medical trials
+- statistical computing
+- survey statistics
+user_groups:
+- Visitors
+image: thomas.png
+---

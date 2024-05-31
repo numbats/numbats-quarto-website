@@ -1,0 +1,20 @@
+
+---
+email: galit.shmueli@gmail.com
+title: Galit Shmueli
+organizations:
+- name: Tsing Hua University, Taiwai
+description: Professor
+www: https://www.galitshmueli.com
+scholar: kmy07ucAAAAJ
+interests:
+- explain or predict
+- statistical strategy
+- biosurveillance
+- online auctions
+- count data models
+- quality control
+user_groups:
+- Visitors
+image: galit.jpeg
+---
