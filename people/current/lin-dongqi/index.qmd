@@ -1,0 +1,17 @@
+---
+email: dongqi.lin@monash.edu
+title: Dongqi Lin
+description: Postdoctoral Research Fellow
+www:   https://research.monash.edu/en/persons/dongqi-lin
+github: dongqi-DQ
+interests:
+- atmospheric dynamics
+- extreme precipitation
+- radar remote sensing
+- boundary layer meteorology
+- large eddy simulation
+user_groups:
+- Postdoc
+- Current
+image: avatar.jpg
+---
