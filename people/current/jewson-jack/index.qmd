@@ -1,0 +1,16 @@
+---
+email: jack.jewson@monash.edu
+title: Jack Jewson
+description: Senior Lecturer in Statistics
+github: jejewson
+interests:
+- bayesian inference
+- robust inference
+- variable selection
+- structural learning
+- differential privacy
+user_groups:
+- Faculty
+- Current
+image: avatar.png
+---
