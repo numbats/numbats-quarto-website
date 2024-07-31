@@ -7,8 +7,7 @@ from: markdown+emoji
 
 <h2>Latest News</h2>
 
-* Welcome to Professors [Paulo Rodrigues](/people/visitors/paulo.qmd) and Professor [Thomas Lumley](/people/visitors/thomas.qmd), visiting us until June 2024, and [Galit Schmueli](/people/visitors/galit.qmd) visiting May 6-17.
-* Welcome to new PhD students [Jarryd Chapman](/people/current/chapman-jarryd/), [Tina Rashid Jafari ](/people/current/jafari-tina/) :smile: We're excited to welcome you!
+* WOMBAT (Workshop Organised by the Monash Business Analytics Team) 2024 will be Oct 22-23, Monash offices at 750 Collins St. The theme will be "Opening Doors with Open Source", and key noted by [Michael Lawrence](https://github.com/lawremi). HOLD THE DATE! More details to come.
 
 * Monash Master of Business Analytics: Strap on an explorer's backback and a skeptics hat and learn how to analyse data. [Find out more.](https://www.monash.edu/business/master-of-business-analytics#events)
 

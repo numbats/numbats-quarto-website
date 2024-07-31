@@ -1,0 +1,16 @@
+---
+email: krisanat.anukarnsakulchularp@monash.edu
+title: Krisanat Anukarnsakulchularp
+description: Tutor
+www:   https://github.com/KrisanatA
+github: KrisanatA
+interests:
+- multivariate data visualisation
+- spatio-temporal analysis
+- interactive graphics
+- network data analysis
+user_groups:
+- Tutor
+- Current
+image: avatar.png
+---

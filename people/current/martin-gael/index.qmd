@@ -13,6 +13,6 @@ interests:
 - count time series
 user_groups:
 - Faculty
-- Current
+- Alumni
 image: avatar.jpg
 ---

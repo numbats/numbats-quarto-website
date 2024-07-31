@@ -2,20 +2,22 @@
 title: Courses
 ---
 
-## [Bachelor of Commerce (Major in Business Analytics)](http://www.monash.edu/pubs/2019handbooks/aos/business-analytics/ug-bus-business-analytics.html)
+The Business Analytics group has two main educational offerings:
 
-## [Master of Business Analytics](https://www.monash.edu/business/master-of-business-analytics)
+-  [Bachelor of Commerce (Major in Business Analytics)](https://handbook.monash.edu/current/aos/BUSANLMJ01)
+- [Master of Business Analytics](https://handbook.monash.edu/current/courses/B6022)
 
-Arm yourself with computational statistical tools in the face of uncertainty.
+These degrees provide students with a advanced knowledge in applied statistics and data science, with a focus on open source software and open data. With this knowledge you can equip yourself with computational statistical tools to understand the world around you in the face of uncertainty.
 
-Some of the units in the MBAt are:
+Some of the unit descriptions are:
 
-- [ETC5510 Introduction to data analysis](https://mida.numbat.space)
+- [ETC5510 Introduction to data analysis (2020 original)](https://mida.numbat.space)
 - [ETC5512 Wild-caught data](https://wcd.numbat.space)
-- [ETC5521 Diving deeply into data exploration](https://eda.numbat.space)
+- [ETC5513 Reproducible and collaborative practices](https://rcp.numbat.space)
+- [ETC5521 Diving deeply into data exploration](https://ddde.numbat.space)
 - [ETC5523 Communicating with data](https://cwd.numbat.space)
 - [ETC5500 Applied forecasting](https://af.numbat.space)
 - [ETC5250 Introduction to machine learning](https://iml.numbat.space)
 - [ETC5450 Advanced R programming](https://arp.numbat.space)
 
-A full list of topics for the program can be seen [here](https://docs.google.com/document/d/1gfQhTXdZmO2EYl_a-v7ySilBjXM9bO00da7yTE6ZP_s/edit#heading=h.jd2um1n5bbn6)
+A full list of topics for the B.Comm BA major can be found [here](unit_information/BComm_unit_summaries.pdf) MBAt program can be seen [here](unit_information/MBAt_unit_summaries.pdf). 
