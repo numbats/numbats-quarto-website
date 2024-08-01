@@ -10,17 +10,17 @@ Hacky hour is a weekly session where NUMBATs members join to share and foster kn
 
 If you would like to subscribe to the calendar click [here](https://calendar.google.com/calendar/u/0?cid=Y19lODdmNWI3NTMwMWEyN2NjYjExNWFjYTQwZTcxMGFlM2ExMzY3NTllNDFkMDUzNWI5ZGY3OGUyYzEyZmFiMjg2QGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20) or head on over to the Events tab of this website to find out more.
 
-### Date & Time:
+### Date & Time
 
 Thursdays (mixed timing)
 10:30AM-12.00PM on NUMBATS Seminar;
 1.30-3PM on non-seminar weeks; with virtual option ([Zoom Link](https://monash.zoom.us/j/83384907817?pwd=gI2eLJzW2fgezxX4iPl59OASzNdSUc.1))
 
-### Location: 
+### Location
 
 Room 317, Building 6, 29 Ancora Imparo Way **or** Room 203, Building 6, 29 Ancora Imparo Way (check Current Schedule (@sec-current-schedule) to see where it's happening this week)
 
-### Format: 
+### Format 
 
 Hacky hour is held in two alternating formats.
 
@@ -36,7 +36,7 @@ Held on the off weeks and consists of Show & Tell sessions or workshops where ev
 #| echo: false
 #| warning: false
 #| message: false
-
+# remotes::install_github("cynthiahqy/ggtilecal")
 library(ggtilecal)
 library(dplyr)
 library(tibble)
