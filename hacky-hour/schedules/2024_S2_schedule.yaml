@@ -1,0 +1,128 @@
+- details: Kick Off
+  startDate: '2024-07-25'
+  endDate: '2024-07-25'
+  categories: Hacky Hour
+  startTime: '13:30:00'
+  endTime: '15:00:00'
+  room: Building 6 Room 203
+  emoji: 🚀
+- details: "Tales from Salzburg: useR! 2024 stories and learnt lessons"
+  startDate: '2024-08-01'
+  endDate: '2024-08-01'
+  categories: Hacky Hour
+  startTime: '10:30:00'
+  endTime: '12:00:00'
+  room: Building 6 Room 203
+  emoji: 👩🏻‍💻
+- details: Quarto for research outputs
+  startDate: '2024-08-08'
+  endDate: '2024-08-08'
+  categories: Study Group
+  startTime: '13:30:00'
+  endTime: '15:00:00'
+  room: Building 6 Room 203
+  emoji: 🎨
+- details: "Package Design Feedback prequel"
+  startDate: '2024-08-15'
+  endDate: '2024-08-15'
+  categories: Hacky Hour
+  startTime: '10:30:00'
+  endTime: '12:00:00'
+  room: Building 6 Room 317
+  emoji: 👩🏻‍💻
+- details: Package Design Feedback
+  startDate: '2024-08-22'
+  endDate: '2024-08-22'
+  categories: Break
+  startTime: '13:30:00'
+  endTime: '15:00:00'
+  room: Building 6 Room 203
+  emoji: 🎨
+- details: Plot Crimes
+  startDate: '2024-08-29'
+  endDate: '2024-08-29'
+  categories: Hacky Hour
+  startTime: '10:30:00'
+  endTime: '12:00:00'
+  room: Building 6 Room 317
+  emoji: 👩🏻‍💻
+- details: Git Group Therapy
+  startDate: '2024-09-05'
+  endDate: '2024-09-05'
+  categories: Study Group
+  startTime: '13:30:00'
+  endTime: '15:00:00'
+  room: Building 6 Room 203
+  emoji: 🎨
+- details: "Getting personal: Build your personal website sprint"
+  startDate: '2024-09-12'
+  endDate: '2024-09-12'
+  categories: Hacky hour
+  startTime: '10:30:00'
+  endTime: '12:00:00'
+  room: Building 6 Room 317
+  emoji: 👩🏻‍💻
+- details: Clear Concise Concrete Writing Tips
+  startDate: '2024-09-19'
+  endDate: '2024-09-19'
+  categories: Study Group
+  startTime: '13:30:00'
+  endTime: '15:00:00'
+  room: Building 6 Room 203
+  emoji: 🎨
+- details: Mid semester break
+  startDate: '2024-09-23'
+  endDate: '2024-09-27'
+  categories: Break
+  startTime: .na.character
+  endTime: .na.character
+  room: Monash University
+  emoji: 😴
+- details: Beating the writer's block in style and consistency
+  startDate: '2024-10-03'
+  endDate: '2024-10-03'
+  categories: Study Group
+  startTime: '13:30:00'
+  endTime: '15:00:00'
+  room: Building 6 Room 203
+  emoji: 🎨
+- details: Cool applications in webR
+  startDate: '2024-10-10'
+  endDate: '2024-10-10'
+  categories: Hacky Hour
+  startTime: '10:30:00'
+  endTime: '12:00:00'
+  room: Building 6 Room 317
+  emoji: 👩🏻‍💻
+- details: Spreading the joy of your package
+  startDate: '2024-10-17'
+  endDate: '2024-10-17'
+  categories: Study Group
+  startTime: '13:30:00'
+  endTime: '15:00:00'
+  room: Building 6 Room 203
+  emoji:  🎨
+- details: Shut up and Code session
+  startDate: '2024-10-24'
+  endDate: '2024-10-24'
+  categories: Hacky Hour
+  startTime: '10:30:00'
+  endTime: '12:00:00'
+  room: Building 6 Room 317
+  emoji: 👩🏻‍💻
+- details: "{{vctrs}} dojo"
+  startDate: '2024-10-31'
+  endDate: '2024-10-31'
+  categories: Debrief
+  startTime: '13:30:00'
+  endTime: '15:00:00'
+  room: Building  6 Room 203
+  emoji: 🎨
+- details: Debrief
+  startDate: '2024-11-07'
+  endDate: '2024-11-07'
+  categories: Debrief
+  startTime: .na.character
+  endTime: .na.character
+  room: Building 6 Room 317
+  emoji: 🎉

@@ -12,6 +12,8 @@ website:
       - href: posts/index.qmd
         text: Posts
       - projects.qmd
+      - href: hacky-hour/index.qmd
+        text: "Hacky Hour"
       - events.qmd
       - href: courses.qmd
         text: Courses

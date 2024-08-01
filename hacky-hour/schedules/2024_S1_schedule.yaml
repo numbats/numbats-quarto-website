@@ -1,0 +1,121 @@
+- details: Kick Off
+  startDate: '2024-02-29'
+  endDate: '2024-02-29'
+  categories: Hacky Hour
+  startTime: '11:00:00'
+  endTime: '12:30:00'
+  room: Building 6 Room 317
+  emoji: 🤓
+- details: Quarto-Craft Show & Tell
+  startDate: '2024-03-07'
+  endDate: '2024-03-07'
+  categories: Study Group
+  startTime: '13:30:00'
+  endTime: '15:00:00'
+  room: Building 6 Room 317
+  emoji: 🎨
+- details: Hacky Hour
+  startDate: '2024-03-14'
+  endDate: '2024-03-14'
+  categories: Hacky Hour
+  startTime: '11:00:00'
+  endTime: '12:30:00'
+  room: Building 6 Room 317
+  emoji: 🤓
+- details: Package Design Feedback Session
+  startDate: '2024-03-21'
+  endDate: '2024-03-21'
+  categories: Study Group
+  startTime: '13:30:00'
+  endTime: '15:00:00'
+  room: Building 6 Room 317
+  emoji: 🤔
+- details: CANCELLED for irregular scheduling of NUMBATS Seminar
+  startDate: '2024-03-28'
+  endDate: '2024-03-28'
+  categories: Cancelled
+  startTime: '11:00:00'
+  endTime: '12:30:00'
+  room: Building 6 Room 317
+  emoji: 😢
+- details: Mid-Semester Break
+  startDate: '2024-04-01'
+  endDate: '2024-04-05'
+  categories: Break
+  startTime: .na.character
+  endTime: .na.character
+  room: Monash University
+  emoji: 🧘
+- details: Hacky Hour
+  startDate: '2024-04-11'
+  endDate: '2024-04-11'
+  categories: Hacky Hour
+  startTime: '11:00:00'
+  endTime: '12:30:00'
+  room: Building 6 Room 317
+  emoji: 🤓
+- details: Package Design Feedback Session
+  startDate: '2024-04-18'
+  endDate: '2024-04-18'
+  categories: Study Group
+  startTime: '13:30:00'
+  endTime: '15:00:00'
+  room: Building 6 Room 317
+  emoji: 🤔
+- details: ANZAC DAY
+  startDate: '2024-04-25'
+  endDate: '2024-04-25'
+  categories: Break
+  startTime: .na.character
+  endTime: .na.character
+  room: Monash University
+  emoji: 🌺
+- details: Weird Quirks of R / R Puzzles
+  startDate: '2024-05-02'
+  endDate: '2024-05-02'
+  categories: Study Group
+  startTime: '13:30:00'
+  endTime: '15:00:00'
+  room: Building 6 Room 317
+  emoiji: 🧩
+- details: Hacky Hour
+  startDate: '2024-05-09'
+  endDate: '2024-05-09'
+  categories: Hacky Hour
+  startTime: '11:00:00'
+  endTime: '12:30:00'
+  room: Building 6 Room 317
+  emoji: 🤓
+- details: Interactivity Show & Tell
+  startDate: '2024-05-16'
+  endDate: '2024-05-16'
+  categories: Study Group
+  startTime: '13:30:00'
+  endTime: '15:00:00'
+  room: Building 6 Room 317
+  emoji: 🦒
+- details: Hacky Hour
+  startDate: '2024-05-23'
+  endDate: '2024-05-23'
+  categories: Hacky Hour
+  startTime: '11:00:00'
+  endTime: '12:30:00'
+  room: Building 6 Room 317
+  emoji: 🤓
+- details: NUMBATS Hackathon
+  startDate: '2024-05-28'
+  endDate: '2024-05-30'
+  categories: Hackathon
+  startTime: .na.character
+  endTime: .na.character
+  room: Daylesford
+  emoji: 🛌
+- details: Favourite R Packages & Debrief
+  startDate: '2024-06-06'
+  endDate: '2024-06-06'
+  categories: Debrief
+  startTime: .na.character
+  endTime: .na.character
+  room: .na.character
+  emoji: 🎉
+
