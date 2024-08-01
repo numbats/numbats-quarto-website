@@ -1,0 +1,151 @@
+---
+title: "NUMBAT Hacky hour"
+---
+
+# What is Hacky hour?
+
+Hacky hour is a weekly session where NUMBATs members join to share and foster knowledge on research software development with each other. The session aims to foster an environment for NUMBAT members to get feedback and ideas from those outside their usual mentoring network (usually their supervisors) on matters related to data science research software, facilitate peer mentoring, and network. Students would get an opportunity to present their work concisely (getting the practice they need), and teach concepts they learned and/or learn from others.
+
+# Session Schedule
+
+If you would like to subscribe to the calendar click [here](https://calendar.google.com/calendar/u/0?cid=Y19lODdmNWI3NTMwMWEyN2NjYjExNWFjYTQwZTcxMGFlM2ExMzY3NTllNDFkMDUzNWI5ZGY3OGUyYzEyZmFiMjg2QGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20). (Make sure you are logged into your Monash account)
+
+### Date & Time:
+
+Thursdays (mixed timing)
+10:30AM-12.00PM on NUMBATS Seminar;
+1.30-3PM on non-seminar weeks; with virtual option ([Zoom Link](https://monash.zoom.us/j/88083789821?pwd=8ZkgmibbXDAVf9nJm6ag6SuIDMLsTK.1))
+
+### Location: 
+
+Room 317, Building 6, 29 Ancora Imparo Way **or** Room 203, Building 6, 29 Ancora Imparo Way (check @sec-current-schedule to see where it's happening this week)
+
+### Format: 
+
+Hacky hour is held in two alternating formats.
+
+**Shut Up and Code**
+
+Held on the NUMBATS seminar weeks and consists of everyone working on their own projects in short bursts and sharing help with each other.
+
+**Study Group / Brown bag sessions**
+
+Held on the off weeks and consists of Show & Tell sessions or workshops where everyone shares the knowledge and questions they have gathered on different topics.
+
+### Audience/Focus:
+
+* This is NOT drop-in help session
+* Invitation by regular attendees
+* Software & tools focused. you don't need to be a pro at coding but it would be helpful to have a basic understanding.
+
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+
+library(ggtilecal)
+library(dplyr)
+library(tibble)
+library(lubridate)
+library(yaml)
+library(ggplot2)
+library(ggiraph)
+
+## for YAML collections
+yaml_date_nodes_to_tbl <- function(list) {
+    list |>
+        lapply(as.data.frame) |>
+        dplyr::bind_rows() |>
+        tibble::as_tibble()
+}
+
+## for data frames
+tidy_date_tbl <- function(df) {
+    df |>
+        dplyr::mutate(across(ends_with("Date"), ~ lubridate::ymd(.x))) |>
+        dplyr::mutate(endDate = dplyr::coalesce(endDate, startDate)) |>
+        dplyr::arrange(startDate)
+}
+
+verify_date_df <- function(df) {
+    assertr::verify(df, startDate <= endDate)
+}
+
+tidy_date_df_export <- function(df) {
+    df |>
+        dplyr::mutate(
+            startDate = format(startDate, "%Y-%m-%d"),
+            endDate = format(endDate, "%Y-%m-%d")
+        )
+}
+
+write_yaml_col_maj_FALSE <- function(x, file) {
+    write_yaml(x, file, column.major = FALSE)
+}
+
+plot_calendar <- function(tbl) {
+    tbl |>
+        gg_facet_wrap_months(unit_date) +
+        geom_text(aes(label = emoji), nudge_y = -0.25, nudge_x = -0.1, size = 3.5, na.rm = TRUE) +
+        geom_tile_interactive(
+            aes(
+                tooltip = paste(
+                    details |> tidyr::replace_na(""),
+                    ifelse(is.na(details), "", "@"),
+                    room |> tidyr::replace_na("")),
+                data_id = id
+            ),
+            alpha = 0.2,
+            fill = "transparent",
+            colour = "grey80"
+        )
+}
+
+render_calendar <- function(yaml_file) {
+    read_yaml(yaml_file) |>
+        yaml_date_nodes_to_tbl() |>
+        tidy_date_tbl() |>
+        verify_date_df() |>
+        dplyr::mutate(id = row_number()) |>
+        dplyr::relocate(id, .before = details) |>
+        reframe_events(startDate, endDate) |>
+        plot_calendar()
+}
+```
+
+### Current schedule {#sec-current-schedule}
+
+```{r}
+#| echo: false
+#| output: true
+ggiraph::girafe(ggobj = render_calendar(here::here("hacky-hour/schedules/2024_S2_schedule.yaml")))
+```
+
+## Motivation & Aim
+
+The use of software is generally a necessary, or even primary, component of research in statistics, but often statistically trained individuals are not well equipped or trained deeply on computer science, programming principles or even with handling real data. The main idea of this study group is to be greater than the sum of its parts, that is, rather than learning in isolation, we share knowledge and accelerate our learning – hopefully all while having fun! 
+
+The overarching aim of this study group is to foster an environment for Monash EBS students to get feedback and ideas from those outside their usual mentoring network (usually their supervisors) on matters related to data science research software, facilitate peer mentoring and network. The students get an opportunity to present their work concisely (getting the practice they need), teach concepts they learnt and/or learn from others. 
+
+## Code of conduct
+Use common sense - be kind and respectful. Criticism should be constructive and designed to improve a student's work. 
+
+```{=html}
+<details><summary>Previous schedules</summary>
+```
+
+### 2024 Semester 1 schedule
+
+```{r}
+#| echo: false
+#| output: true
+ggiraph::girafe(ggobj = render_calendar(here::here("hacky-hour/schedules/2024_S1_schedule.yaml")))
+```
+
+
+```{=html}
+</details>
+```
+
+
