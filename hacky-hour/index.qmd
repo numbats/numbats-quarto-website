@@ -4,21 +4,21 @@ title: "NUMBAT Hacky hour"
 
 # What is Hacky hour?
 
-Hacky hour is a weekly session where NUMBATs members join to share and foster knowledge on research software development with each other. The session aims to foster an environment for NUMBAT members to get feedback and ideas from those outside their usual mentoring network (usually their supervisors) on matters related to data science research software, facilitate peer mentoring, and network. Students would get an opportunity to present their work concisely (getting the practice they need), and teach concepts they learned and/or learn from others.
+Hacky hour is a weekly session where NUMBATs members join to share and foster knowledge on research software development with each other. The session aims to foster an environment for NUMBAT members to get feedback and ideas on matters related to data science research software, facilitate peer mentoring, and network. Students would get an opportunity to present their work concisely (getting the practice they need), and teach concepts they learned and/or learn from others.
 
 # Session Schedule
 
-If you would like to subscribe to the calendar click [here](https://calendar.google.com/calendar/u/0?cid=Y19lODdmNWI3NTMwMWEyN2NjYjExNWFjYTQwZTcxMGFlM2ExMzY3NTllNDFkMDUzNWI5ZGY3OGUyYzEyZmFiMjg2QGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20). (Make sure you are logged into your Monash account)
+If you would like to subscribe to the calendar click [here](https://calendar.google.com/calendar/u/0?cid=Y19lODdmNWI3NTMwMWEyN2NjYjExNWFjYTQwZTcxMGFlM2ExMzY3NTllNDFkMDUzNWI5ZGY3OGUyYzEyZmFiMjg2QGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20) or head on over to the Events tab of this website to find out more.
 
 ### Date & Time:
 
 Thursdays (mixed timing)
 10:30AM-12.00PM on NUMBATS Seminar;
-1.30-3PM on non-seminar weeks; with virtual option ([Zoom Link](https://monash.zoom.us/j/88083789821?pwd=8ZkgmibbXDAVf9nJm6ag6SuIDMLsTK.1))
+1.30-3PM on non-seminar weeks; with virtual option ([Zoom Link](https://monash.zoom.us/j/83384907817?pwd=gI2eLJzW2fgezxX4iPl59OASzNdSUc.1))
 
 ### Location: 
 
-Room 317, Building 6, 29 Ancora Imparo Way **or** Room 203, Building 6, 29 Ancora Imparo Way (check @sec-current-schedule to see where it's happening this week)
+Room 317, Building 6, 29 Ancora Imparo Way **or** Room 203, Building 6, 29 Ancora Imparo Way (check Current Schedule (@sec-current-schedule) to see where it's happening this week)
 
 ### Format: 
 
@@ -31,13 +31,6 @@ Held on the NUMBATS seminar weeks and consists of everyone working on their own 
 **Study Group / Brown bag sessions**
 
 Held on the off weeks and consists of Show & Tell sessions or workshops where everyone shares the knowledge and questions they have gathered on different topics.
-
-### Audience/Focus:
-
-* This is NOT drop-in help session
-* Invitation by regular attendees
-* Software & tools focused. you don't need to be a pro at coding but it would be helpful to have a basic understanding.
-
 
 ```{r}
 #| echo: false
