@@ -1,0 +1,13 @@
+/* Styles to center and pad images of current people */
+.card-img-top {
+  width: fit-content;
+}
+
+.card {
+  align-items: center;
+  padding: 1rem;
+}
+
+.card:hover {
+  box-shadow: 0 0.01rem 10px rgba(62, 62, 62, 0.2);
+}
