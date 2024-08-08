@@ -2,6 +2,8 @@
 title: Events
 ---
 
+WOMBAT (Workshop Organised by the Monash Business Analytics Team) 2024 will be Oct 22-23, Monash offices at 750 Collins St. The theme will be "Opening Doors with Open Source", and key noted by [Michael Lawrence](https://github.com/lawremi). HOLD THE DATES! More details [here](https://numbats.github.io/WOMBAT2024/). This will be in association with OceanR Hackathon held Oct 21, same location, organised by the Statistical Society of Australia Statistical Computing and Graphics Section. 
+
 We hold regular seminars during the semester period (March-June, August-Nov). And there are numerous other events organised or related to NUMBAT.
 
 You can add the events to your calendar via [iCal](https://calendar.google.com/calendar/ical/t0umouvaoo3h62kcfcj7vcfck8%40group.calendar.google.com/public/basic.ics) or [Google calendar](https://calendar.google.com/calendar?cid=dDB1bW91dmFvbzNoNjJrY2Zjajd2Y2ZjazhAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ).
