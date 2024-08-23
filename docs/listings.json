@@ -11,7 +11,7 @@
       "/people/current/cook-di/index.html",
       "/people/current/nibbering-didier/index.html",
       "/people/current/lin-dongqi/index.html",
-      "/people/current/martin-gael/index.html",
+      "/people/current/sverdrup-erik/index.html",
       "/people/current/athansopoulos-george/index.html",
       "/people/current/mason-harriet/index.html",
       "/people/current/jewson-jack/index.html",
@@ -22,6 +22,7 @@
       "/people/current/ackermann-klaus/index.html",
       "/people/current/anukarnsakulchularp-krisanat/index.html",
       "/people/current/lydeamore-michael/index.html",
+      "/people/current/nguyen-minh/index.html",
       "/people/current/ohara-wild-mitch/index.html",
       "/people/current/palihawadana-nuwani/index.html",
       "/people/current/lakshika-jayani/index.html",
@@ -33,6 +34,7 @@
       "/people/current/wang-xiaoqian/index.html",
       "/people/current/yang-yangzhuoran-fin/index.html",
       "/people/visitors/galit.html",
+      "/people/visitors/michael.html",
       "/people/visitors/paulo.html",
       "/people/visitors/thomas.html",
       "/people/alumni/panagiotelis-anastasios/index.html",
@@ -41,6 +43,7 @@
       "/people/alumni/wang-earo/index.html",
       "/people/alumni/tanaka-emi/index.html",
       "/people/alumni/cheng-fan/index.html",
+      "/people/alumni/martin-gael/index.html",
       "/people/alumni/kennedy-lauren/index.html",
       "/people/alumni/torres-luis/index.html",
       "/people/alumni/abolghasemi-mahdi/index.html",
@@ -60,6 +63,10 @@
       "/people/alumni/talagala-thiyanga/index.html",
       "/people/alumni/laa-ursula/index.html"
     ]
+  },
+  {
+    "listing": "/projects.html",
+    "items": []
   },
   {
     "listing": "/posts/index.html",
@@ -87,9 +94,5 @@
       "/posts/bias_variance_flexibility/index.html",
       "/posts/hackathon_2020/index.html"
     ]
-  },
-  {
-    "listing": "/projects.html",
-    "items": []
   }
 ]

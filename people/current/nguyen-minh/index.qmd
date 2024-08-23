@@ -1,0 +1,16 @@
+---
+email: minh.nguyen11@monash.edu
+title: Minh Nguyen
+description: PhD (Statistics)
+github: yvesypher
+linkedin: https://www.linkedin.com/in/minhnxnm
+interests:
+- data visualization
+- forecasting
+- graphical inference
+- data science
+user_groups:
+- PhD Student
+- Current
+image: avatar.png
+---

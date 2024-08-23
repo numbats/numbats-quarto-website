@@ -1,0 +1,14 @@
+---
+email: erik.sverdrup@monash.edu
+title: Erik Sverdrup
+description: Senior Lecturer in Statistics
+github: erikcs
+interests:
+- causal inference
+- statistical computing
+- data science
+user_groups:
+- Faculty
+- Current
+image: avatar.png
+---

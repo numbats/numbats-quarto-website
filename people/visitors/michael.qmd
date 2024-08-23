@@ -1,0 +1,16 @@
+
+---
+email: lawremi@gmail.com
+title: Michael Lawrence
+organizations:
+- name: Genentech
+description: Director of Data Science and Statistical Computing
+www: https://github.com/lawremi
+interests:
+- bioinformatics
+- statistical computing
+- open source software
+user_groups:
+- Visitors
+image: michael.jpeg
+---
