@@ -139,7 +139,7 @@ read_yaml(here::here("hacky-hour/schedules/2024_S2_schedule.yaml")) |>
       event = colDef(name = "Topic"), 
       start = colDef(name = "From"), 
       end = colDef(name = "End"),
-      room = colDef(name = "Room")
+      room = colDef(name = "Room No.")
     )
   )
 ```
