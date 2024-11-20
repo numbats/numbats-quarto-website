@@ -1,0 +1,14 @@
+---
+email: Zhuan.Leong@monash.edu
+title: Zhuan Kee (Vis) Leong
+description: PhD (Statistics)
+github: zkleong
+interests:
+- data analytics
+- statistics
+- infectious disease
+user_groups:
+- PhD Student
+- Current
+image: avatar.jpg
+---

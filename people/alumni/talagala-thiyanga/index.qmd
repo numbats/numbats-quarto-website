@@ -5,7 +5,7 @@ organizations:
 - name: University of Sri Jayewardenepura
 description: Lecturer in Statistics
 www:   https://thiyanga.netlify.com/
-twitter: thiyangt
+bluesky: thiyangt
 github: thiyangt
 interests:
 - time series

@@ -3,7 +3,7 @@ email: emi.tanaka@monash.edu
 title: Emi Tanaka
 description: Senior Lecturer in Statistics
 www:   http://emitanaka.org/
-twitter: statsgen
+bluesky: emitanaka.org
 github: emitanaka
 interests:
 - applied statistics

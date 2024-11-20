@@ -3,7 +3,7 @@ email: DiCook@monash.edu
 title: Di Cook
 description: Professor of Statistics
 www:   http://dicook.org/
-twitter: visnut@aus.social
+bluesky: visnut
 github: dicook
 interests:
 - statistical graphics

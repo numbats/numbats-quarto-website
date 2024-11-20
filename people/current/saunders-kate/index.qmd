@@ -2,7 +2,7 @@
 email: kate.saunders@monash.edu
 title: Kate Saunders
 description: Lecturer in Statistics
-twitter: KateRobSau
+bluesky: KateRobSau
 github: katerobsau
 interests:
 - extreme value theory

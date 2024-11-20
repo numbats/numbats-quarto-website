@@ -1,0 +1,17 @@
+---
+email: hannah.comiskey@monash.edu
+title: Hannah Comiskey
+description: Postdoctoral Researcher in Statistics
+www: https://research.monash.edu/en/persons/hannah-comiskey
+github: hannahcomiskey
+interests:
+- family planning
+- agronomy
+- time series analysis
+- spatial analysis
+- compositional analysis
+user_groups:
+- Postdoc
+- Current
+image: avatar.jpg
+---

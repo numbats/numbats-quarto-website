@@ -3,7 +3,7 @@ email: dan.simpson@monash.edu
 title: Dan Simpson
 description: Professor of Analytics Engagement
 www:   https://dpsimpson.github.io
-twitter: dan_p_simpson
+bluesky: dan_p_simpson
 github: dpsimpson
 interests:
 - spatial statistics

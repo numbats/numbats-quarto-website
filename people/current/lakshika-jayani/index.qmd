@@ -2,7 +2,7 @@
 email: jayani.piyadigamage@monash.edu
 title: P. G. Jayani Lakshika
 description: PhD (Statistics)
-twitter: LakshikaJayani
+bluesky: LakshikaJayani
 github: JayaniLakshika
 interests:
 - data visualization

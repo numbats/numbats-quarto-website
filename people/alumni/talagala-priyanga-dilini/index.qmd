@@ -5,7 +5,7 @@ organizations:
 - name: University of Moratuwa
 description: Lecturer in Statistics
 www:   https://prital.netlify.com/
-twitter: pridiltal
+bluesky: pridiltal
 github: pridiltal
 interests:
 - time series

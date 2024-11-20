@@ -3,7 +3,7 @@ email: Fin.Yang@monash.edu
 title: Yangzhuoran Fin Yang
 description: PhD (Statistics)
 www:   https://yangzhuoranyang.com
-twitter: YangzhuoranY
+bluesky: YangzhuoranY
 github: FinYang
 scholar: keAhMnIAAAAJ
 interests:

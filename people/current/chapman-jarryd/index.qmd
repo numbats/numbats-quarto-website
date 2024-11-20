@@ -2,8 +2,7 @@
 email: jarryd.chapman@monash.edu
 title: Jarryd Chapman
 description: PhD (Statistics)
-twitter: 
-github: 
+github: jarrydchapman
 interests:
 - spatio-temporal extremes
 - climate and weather extremes

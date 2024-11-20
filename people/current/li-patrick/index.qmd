@@ -2,7 +2,7 @@
 email: Patrick.Li@monash.edu
 title: Patrick Li
 description: PhD (Statistics)
-twitter: econoPatric
+bluesky: econoPatric
 github: TengMCing
 interests:
 - machine learning

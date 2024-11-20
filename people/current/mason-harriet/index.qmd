@@ -2,7 +2,7 @@
 email: harriet.mason1@monash.edu
 title: Harriet Mason
 description: PhD (Statistics)
-twitter: marriethason
+bluesky: marriethason
 github: harriet-mason
 interests:
 - statistical computing

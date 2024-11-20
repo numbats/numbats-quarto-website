@@ -5,7 +5,7 @@ organizations:
 - name: University of Auckland
 description: Lecturer in Statistics
 www:   https://earo.me/
-twitter: earowang
+bluesky: earowang
 github: earowang
 interests:
 - time series

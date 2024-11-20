@@ -3,7 +3,7 @@ email: cynthia.huang@monash.edu
 title: Cynthia Huang
 description: PhD (Statistics)
 www:   https://cynthiahqy.com
-twitter: cynthiahqy
+bluesky: cynthiahqy
 github: cynthiahqy
 interests:
 - data preparation and wrangling

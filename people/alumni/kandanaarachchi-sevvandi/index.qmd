@@ -5,7 +5,7 @@ organizations:
 - name: RMIT
 description: Lecturer in Statistics
 www:   https://sevvandi.netlify.com/
-twitter: Sevvandik
+bluesky: Sevvandik
 github: sevvandi
 interests:
 - anomaly detection

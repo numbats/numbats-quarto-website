@@ -4,7 +4,7 @@ title: Michael Lydeamore
 description: Lecturer in Statistics
 www:   https://research.monash.edu/en/persons/michael-lydeamore
 github: MikeLydeamore
-twitter: MikeLydeamore
+bluesky: likelydeamore
 interests:
 - computational statistics
 - infectious diseases modelling and epidemiology

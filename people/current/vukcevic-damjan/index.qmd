@@ -3,7 +3,7 @@ email: damjan.vukcevic@monash.edu
 title: Damjan Vukcevic
 description: Associate Professor and Director of Engagement
 www:   http://damjan.vukcevic.net/
-twitter: VukcevicD
+bluesky: VukcevicD
 github: dvukcevic
 scholar: 8PZ6cvoAAAAJ
 orcid: 0000-0001-7780-9586

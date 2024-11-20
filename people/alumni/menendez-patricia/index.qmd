@@ -3,7 +3,7 @@ email: Patricia.Menendez@monash.edu
 title: Patricia Menendez
 description: Senior Lecturer in Statistics
 www:   https://www.patriciamenendez.com/
-twitter: PM_maths
+bluesky: PM_maths
 github: okayama1
 interests:
 - statistics

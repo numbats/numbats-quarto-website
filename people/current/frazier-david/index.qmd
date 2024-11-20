@@ -3,7 +3,7 @@ email: david.frazier@monash.edu
 title: David Frazier
 description: Professor
 www:   https://dtfrazier.netlify.com
-twitter: dtfraz
+bluesky: dtfraz
 github: dtfrazier
 interests:
  - simulation-based inference

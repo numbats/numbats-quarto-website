@@ -3,7 +3,7 @@ email: Huize.Zhang@monash.edu
 title: Sherry Zhang
 description: PhD (Statistics)
 www:   https://huizezhangsh.netlify.com/
-twitter: huizezhangsh
+bluesky: huizezhangsherry
 github: huizezhang-sherry
 interests:
 - computational statistics

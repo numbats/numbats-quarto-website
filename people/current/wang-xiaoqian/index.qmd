@@ -3,7 +3,7 @@ email: xiaoqian.wang@monash.edu
 title: Xiaoqian Wang
 description: Postdoctoral Researcher in Statistics
 www:   https://xqnwang.rbind.io/
-twitter: Xia0qianWang
+bluesky: Xia0qianWang
 github: xqnwang
 scholar: NSnULNcAAAAJ
 interests:

@@ -2,7 +2,7 @@
 email: swen.kuh@monash.edu
 title: Swen Kuh
 description: Postdoctoral Researcher
-twitter: swenkuh
+bluesky: swenkuh
 github: swenk238
 interests:
 - Social science

@@ -3,7 +3,7 @@ email: janith.wanniarachchi@monash.edu
 title: Janith Wanniarachchi
 description: PhD (Statistics)
 www:   https://janithwanni.netlify.app/
-twitter: janithcwanni
+bluesky: janithcwanni
 github: janithwanni
 interests:
 - data visualization

@@ -5,7 +5,8 @@ organizations:
 - name: University of Natural Resources and Life Sciences (BOKU)
 description: Lecturer (Statistics)
 www:   https://uschilaa.github.io/
-twitter: UschiLaa
+bluesky: UschiLaa
+github: uschilaa
 interests:
 - statistical graphics
 - high-dimensional data

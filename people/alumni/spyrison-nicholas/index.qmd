@@ -3,7 +3,7 @@ email: spyrison@gmail.com
 title: Nicholas Spyrison
 description: PhD (Information Technology)
 www:   https://nspyrison.netlify.com/
-twitter: nspyrison
+bluesky: nspyrison
 github: nspyrison
 scholar: zzM9WVEAAAAJ
 interests:

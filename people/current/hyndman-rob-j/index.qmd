@@ -3,7 +3,7 @@ email: Rob.Hyndman@monash.edu
 title: Rob J Hyndman
 description: Professor of Statistics
 www: https://robjhyndman.com/
-twitter: robjhyndman
+bluesky: robjhyndman
 github: robjhyndman
 scholar: vamErfkAAAAJ
 interests:

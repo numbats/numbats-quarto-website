@@ -3,7 +3,7 @@ email: Sayani.Gupta@monash.edu
 title: Sayani Gupta
 description: PhD (Statistics)
 www:   https://sayani.netlify.com/
-twitter: SayaniGupta07
+bluesky: SayaniGupta07
 github: Sayani07
 interests:
 - computational statistics

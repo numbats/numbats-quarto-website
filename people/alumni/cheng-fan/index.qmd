@@ -5,7 +5,7 @@ organizations:
 - name: NSW Bureau of Crime Statistics and Research
 description: Data Scientist
 www:   https://fancheng.me/
-twitter: fanchengfc
+bluesky: fanchengfc
 github: ffancheng
 interests:
 - exploratory data analysis

@@ -4,7 +4,7 @@ title: Jessica Leung
 description: Lecturer in Business Analytics
 www:   https://research.monash.edu/en/persons/jessica-leung
 github: jessica-wyleung
-twitter: Jess_Leung1201
+bluesky: Jess_Leung1201
 interests:
 - optimisation
 - operations research

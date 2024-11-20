@@ -3,7 +3,7 @@ email: mail@mitchelloharawild.com
 title: Mitch O'Hara-Wild
 description: PhD (Statistics)
 www:   https://www.mitchelloharawild.com/
-twitter: mitchoharawild
+bluesky: mitchoharawild
 github: mitchelloharawild
 interests:
 - statistical computing
