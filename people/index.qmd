@@ -22,10 +22,12 @@ listing:
   - id: alumni
     contents:
       - "alumni/"
-    type: table
+    type: grid
     image-height: 100px
-    fields: [image, title, description]
-    grid-item-align: center
+    grid-columns: 8
+    page-size: 999
+    fields: [image, title]
+    grid-item-align: left
     sort-ui: [name]
     field-display-names:
       name: ""

@@ -1,0 +1,17 @@
+---
+email: susan.wei@monash.edu
+title: Susan Wei
+description: Associate Professor in Business Analytics
+www:   https://www.suswei.com
+github: suswei
+linkedin: susanwei
+interests:
+- deep learning
+- singular learning theory
+- statistical machine learning
+- bayesian statistics
+user_groups:
+- Faculty
+- Current
+image: avatar.jpg
+---

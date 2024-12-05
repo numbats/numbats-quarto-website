@@ -1,7 +1,7 @@
 ---
 email: swen.kuh@monash.edu
 title: Swen Kuh
-description: Postdoctoral Researcher
+description: Lecturer
 bluesky: swenkuh
 github: swenk238
 interests:
@@ -9,6 +9,6 @@ interests:
 - Hierarchical modelling
 - Bayesian inference
 user_groups:
-- Current
+- Alumni
 image: avatar.png
 ---
