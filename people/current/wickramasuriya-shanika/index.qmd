@@ -1,0 +1,15 @@
+---
+email: shanika.wickramasuriya@monash.edu
+title: Shanika Wickramasuriya
+description: Lecturer in Statistics
+github: ShanikaLW
+interests:
+- time series
+- forecasting
+- statistical computing
+- statistical modelling
+user_groups:
+- Faculty
+- Current
+image: avatar.png
+---
