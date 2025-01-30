@@ -1,5 +1,4 @@
 ---
-email: Fin.Yang@monash.edu
 title: Yangzhuoran Fin Yang
 description: PhD (Statistics)
 www:   https://yangzhuoranyang.com
@@ -12,6 +11,6 @@ interests:
 - financial econometrics
 - data analysis
 user_groups:
-- Current
+- Alumni
 image: avatar.jpg
 ---
