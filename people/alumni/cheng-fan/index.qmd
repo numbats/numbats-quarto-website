@@ -1,5 +1,4 @@
 ---
-email: Fan.Cheng@monash.edu
 title: Fan Cheng
 organizations:
 - name: NSW Bureau of Crime Statistics and Research

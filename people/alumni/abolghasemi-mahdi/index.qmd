@@ -1,5 +1,4 @@
 ---
-email: Mahdi.Abolghasemi@monash.edu
 title: Mahdi Abolghasemi
 description: Post Doctoral Researcher (Data Science)
 github: mahdiabolghasemi

@@ -1,5 +1,4 @@
 ---
-email: luis.torres@monash.edu
 title: Luis Torres
 description: Postdoctoral Researcher (Statistics)
 github: luisfciencias

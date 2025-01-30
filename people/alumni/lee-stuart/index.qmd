@@ -1,5 +1,4 @@
 ---
-email: stuart.a.lee@monash.edu
 title: Stuart Lee
 description: Postdoctoral Researcher (Statistics)
 www:   https://stuartlee.org/

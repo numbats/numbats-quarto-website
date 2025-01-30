@@ -1,5 +1,4 @@
 ---
-email: Patricia.Menendez@monash.edu
 title: Patricia Menendez
 description: Senior Lecturer in Statistics
 www:   https://www.patriciamenendez.com/

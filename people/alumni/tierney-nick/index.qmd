@@ -1,5 +1,4 @@
 ---
-email: Nicholas.Tierney@monash.edu
 title: Nick Tierney
 organizations:
 - name: Telethon Kids Institute

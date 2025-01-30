@@ -1,9 +1,9 @@
 ---
-email: NA
 title: Nathaniel Tomasetti
 organizations:
-- name: Coles, Australia
+- name: Mutinex, Australia
 description: Data Scientist
 user_groups:
 - Alumni
+image: nate.jpg
 ---

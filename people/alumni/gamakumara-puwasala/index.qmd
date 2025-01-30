@@ -1,5 +1,4 @@
 ---
-email: NA
 title: Puwasala Gamakumara
 description: Post Doctoral Researcher (Statistics)
 interests:
