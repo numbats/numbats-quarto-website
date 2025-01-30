@@ -532,6 +532,13 @@
     "text": "Style guide\n\nTemplates\n\nWebsite: quarto use template quarto-monash/unit\nSlides: quarto use template quarto-monash/presentation\n\nWe recommend following Tidyverse style guide for R code"
   },
   {
+    "objectID": "courses.html#creating-a-kaggle-competition",
+    "href": "courses.html#creating-a-kaggle-competition",
+    "title": "Courses",
+    "section": "Creating a kaggle competition",
+    "text": "Creating a kaggle competition\n\nInstructions and past data examples"
+  },
+  {
     "objectID": "posts/FlexiblevsInflexible/index.html",
     "href": "posts/FlexiblevsInflexible/index.html",
     "title": "4 Things We Can Learn About Conspiracy Theories and Model Flexibility",

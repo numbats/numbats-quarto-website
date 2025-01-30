@@ -43,3 +43,7 @@ A full list of topics for the B.Comm BA major can be found [here](unit_informati
     - Website: `quarto use template quarto-monash/unit`
     - Slides: `quarto use template quarto-monash/presentation`
 - We recommend following [Tidyverse style guide](https://style.tidyverse.org) for R code
+
+## Creating a kaggle competition
+
+- [Instructions and past data examples](https://ebsmonash.shinyapps.io/kaggle_instructions/)
