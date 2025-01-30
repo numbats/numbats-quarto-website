@@ -515,7 +515,21 @@
     "href": "courses.html",
     "title": "Courses",
     "section": "",
-    "text": "The Business Analytics group has two main educational offerings:\n\nBachelor of Commerce (Major in Business Analytics)\nMaster of Business Analytics\n\nThese degrees provide students with a advanced knowledge in applied statistics and data science, with a focus on open source software and open data. With this knowledge you can equip yourself with computational statistical tools to understand the world around you in the face of uncertainty.\nSome of the unit descriptions are:\n\nETC5510 Introduction to data analysis (2020 original)\nETC5512 Wild-caught data\nETC5513 Reproducible and collaborative practices\nETC5521 Diving deeply into data exploration\nETC5523 Communicating with data\nETC5500 Applied forecasting\nETC5250 Introduction to machine learning\nETC5450 Advanced R programming\n\nA full list of topics for the B.Comm BA major can be found here MBAt program can be seen here."
+    "text": "The Business Analytics group has two main educational offerings:\nThese degrees provide students with a advanced knowledge in applied statistics and data science, with a focus on open source software and open data. With this knowledge you can equip yourself with computational statistical tools to understand the world around you in the face of uncertainty.\nSome of the unit descriptions are:\nA full list of topics for the B.Comm BA major can be found here MBAt program can be seen here."
+  },
+  {
+    "objectID": "courses.html#additional-resources",
+    "href": "courses.html#additional-resources",
+    "title": "Courses",
+    "section": "Additional Resources",
+    "text": "Additional Resources\n\nFresh and local data\n\n  AFL (women and men) \n  cricket (women and men) \n  Occurrence data from Atlas of Living Australia \n Melbourne pedestrian sensor data \n Australian tourism  database available to Monash personnel\n Air quality  sourced from https://openaq.org\n\nTaxonomy of open data: Slides for ETC5512 show a useful taxonomy of data sources.\nData philosophy: Be conscious of diversity e.g. avoid data with binary gender/sex; Break boundaries e.g. for a sports example use women’s statistics."
+  },
+  {
+    "objectID": "courses.html#style-guide",
+    "href": "courses.html#style-guide",
+    "title": "Courses",
+    "section": "Style guide",
+    "text": "Style guide\n\nTemplates\n\nWebsite: quarto use template quarto-monash/unit\nSlides: quarto use template quarto-monash/presentation\n\nWe recommend following Tidyverse style guide for R code"
   },
   {
     "objectID": "posts/FlexiblevsInflexible/index.html",

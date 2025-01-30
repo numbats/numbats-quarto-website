@@ -21,3 +21,25 @@ Some of the unit descriptions are:
 - [ETC5450 Advanced R programming](https://arp.numbat.space)
 
 A full list of topics for the B.Comm BA major can be found [here](unit_information/BComm_unit_summaries.pdf) MBAt program can be seen [here](unit_information/MBAt_unit_summaries.pdf). 
+
+## Additional Resources
+
+### Fresh and local data
+
+- <a href="https://jimmyday12.github.io/fitzRoy/"> <img src="https://jimmyday12.github.io/fitzRoy/reference/figures/fitz_hex.png" width="100px"> AFL (women and men) </a>
+- <a href="http://pkg.robjhyndman.com/cricketdata/"> <img src="http://pkg.robjhyndman.com/cricketdata/reference/figures/cricketdata.png" width="100px"> cricket (women and men) </a>
+- <a href="https://galah.ala.org.au"> <img src="https://raw.githubusercontent.com/AtlasOfLivingAustralia/ala-labs/main/images/hex/galah_logo.png" width="100px"> Occurrence data from Atlas of Living Australia </a>
+- <a href="https://pkg.earo.me/rwalkr/"> Melbourne pedestrian sensor data </a>
+- <a href="https://www.tra.gov.au/en/data-and-research"> Australian tourism </a> database available to Monash personnel
+- <a href="https://numbats.github.io/airpurifyr/"> Air quality </a> sourced from https://openaq.org
+
+**Taxonomy of open data**: Slides for ETC5512 show a useful [taxonomy of data sources](https://wcd.numbat.space/lectures/lecture-01.html#29).
+
+**Data philosophy**: Be conscious of diversity e.g. avoid data with binary gender/sex; Break boundaries e.g. for a sports example use women's statistics.
+
+## Style guide
+
+- [Templates](https://github.com/quarto-monash)
+    - Website: `quarto use template quarto-monash/unit`
+    - Slides: `quarto use template quarto-monash/presentation`
+- We recommend following [Tidyverse style guide](https://style.tidyverse.org) for R code
