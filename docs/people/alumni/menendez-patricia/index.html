@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
   <meta charset="utf-8">
-  <meta name="generator" content="quarto-1.6.33">
+  <meta name="generator" content="quarto-1.7.13">
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -32,15 +32,16 @@
 <script src="../../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../../">
-<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-07ba0ad10f5680c660e360ac31d2f3b6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-66ab7fd5e73b7f0a764e0d49b3e29ab1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-f30a821bbb1df2287d0dfc1b4e570bfd.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-11c7bf51193c6345da17ebef1f800515.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
     <script id="quarto-search-options" type="application/json">{
       "location": "navbar",
       "copy-button": false,
@@ -169,7 +170,6 @@
     <tbody><tr>
       <td style="padding-right:20px;"><img src="avatar.jpg" width="300"></td>
       <td>
-                <a href="mailto:Patricia.Menendez@monash.edu"><i class="fa-regular fa-envelope"></i>&nbsp;&nbsp; Patricia.Menendez@monash.edu</a><br>
                         <a href="https://www.patriciamenendez.com/"><i class="fa-solid fa-link"></i>&nbsp;&nbsp; https://www.patriciamenendez.com/</a><br>
                                 <a href="https://github.com/okayama1"><i class="fa-brands fa-github"></i>&nbsp;&nbsp; @okayama1</a><br>
                                                 <br> <b>Interests:</b>
@@ -265,8 +265,6 @@
       });
       clipboard.on('success', onCopySuccess);
       if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-        // For code content inside modals, clipBoardJS needs to be initialized with a container option
-        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
         const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
           text: getTextToCopy,
           container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -377,7 +375,6 @@
           if (window.Quarto?.typesetMath) {
             window.Quarto.typesetMath(note);
           }
-          // TODO in 1.5, we should make sure this works without a callout special case
           if (note.classList.contains("callout")) {
             return note.outerHTML;
           } else {
