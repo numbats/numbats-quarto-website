@@ -44,6 +44,7 @@ library(lubridate)
 library(yaml)
 library(ggplot2)
 library(ggiraph)
+library(reactable)
 
 ## for YAML collections
 yaml_date_nodes_to_tbl <- function(list) {
@@ -109,11 +110,41 @@ render_calendar <- function(yaml_file) {
 
 ### Current schedule {#sec-current-schedule}
 
+:::: {.panel-tabset}
+
+### Calendar View
+
 ```{r}
 #| echo: false
 #| output: true
 ggiraph::girafe(ggobj = render_calendar(here::here("hacky-hour/schedules/2024_S2_schedule.yaml")))
 ```
+
+### Detailed View
+
+```{r}
+#| echo: false 
+#| output: true 
+read_yaml(here::here("hacky-hour/schedules/2024_S2_schedule.yaml")) |>
+  yaml_date_nodes_to_tbl() |>
+  tidy_date_tbl() |>
+  verify_date_df() |>
+  dplyr::mutate(id = row_number()) |>
+  dplyr::relocate(id, .before = details) |>
+  reframe_events(startDate, endDate) |>
+  select(unit_date, event = details, start = startTime, end = endTime, room) |>
+  reactable(
+    columns = list(
+      unit_date = colDef(name = "Date"), 
+      event = colDef(name = "Topic"), 
+      start = colDef(name = "From"), 
+      end = colDef(name = "End"),
+      room = colDef(name = "Room")
+    )
+  )
+```
+
+::::
 
 ## Motivation & Aim
 
