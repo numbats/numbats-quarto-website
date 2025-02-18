@@ -3,7 +3,7 @@ title: Contact
 ---
 
 
-{{< fa brands twitter size=2xl >}} [@numbats_rise_up](https://twitter.com/numbats_rise_up)
+{{< fa solid dove size=2xl >}} [@numbats_rise_up](https://bsky.app/profile/numbats-rise-up.bsky.social)
 
 {{< fa solid compass size=2xl >}} Enter Education Building, we are located primarily on level 3, and to the east
 
