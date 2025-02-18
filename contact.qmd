@@ -3,7 +3,7 @@ title: Contact
 ---
 
 
-{{< fa solid dove size=2xl >}} [@numbats_rise_up](https://bsky.app/profile/numbats-rise-up.bsky.social)
+{{< fa solid dove size=2xl >}} bluesky [@numbats_rise_up](https://bsky.app/profile/numbats-rise-up.bsky.social)
 
 {{< fa solid compass size=2xl >}} Enter Education Building, we are located primarily on level 3, and to the east
 

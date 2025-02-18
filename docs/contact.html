@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.37">
+<meta name="generator" content="quarto-1.6.33">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -35,10 +35,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-29e2c20b02301cfff04dc8050bf30c7e.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-07ba0ad10f5680c660e360ac31d2f3b6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-60b803a957d38296afff72810c59f445.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-f30a821bbb1df2287d0dfc1b4e570bfd.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -158,7 +158,7 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><i class="fa-solid fa-dove fa-2xl" aria-label="dove"></i> <a href="https://bsky.app/profile/numbats-rise-up.bsky.social"><span class="citation" data-cites="numbats_rise_up">@numbats_rise_up</span></a></p>
+<p><i class="fa-solid fa-dove fa-2xl" aria-label="dove"></i> bluesky <a href="https://bsky.app/profile/numbats-rise-up.bsky.social"><span class="citation" data-cites="numbats_rise_up">@numbats_rise_up</span></a></p>
 <p><i class="fa-solid fa-compass fa-2xl" aria-label="compass"></i> Enter Education Building, we are located primarily on level 3, and to the east</p>
 <p><i class="fa-solid fa-location-pin fa-2xl" aria-label="location-pin"></i> Monash University, Clayton Campus, Wellington Rd, Melbourne, 3800</p>
 <iframe width="900" height="450" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=145.1282358169556%2C-37.91752400787114%2C145.14043450355533%2C-37.910735616651344&amp;layer=mapnik&amp;marker=-37.91413852736896%2C145.13434080472712" style="border: 1px solid black">
@@ -250,6 +250,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -360,6 +362,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
+      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {

@@ -1,7 +1,7 @@
 ---
 email: Patrick.Li@monash.edu
 title: Patrick Li
-description: PhD (Statistics)
+description: Postdoctoral Researcher
 bluesky: econoPatric
 github: TengMCing
 interests:
@@ -9,7 +9,7 @@ interests:
 - computer vision
 - data visualisation
 user_groups:
-- PhD Student
+- post-doc
 - Current
 image: avatar.jpg
 ---
