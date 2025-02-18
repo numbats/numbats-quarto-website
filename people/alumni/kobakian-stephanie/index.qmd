@@ -1,5 +1,4 @@
 ---
-email: stephanie.kobakian@monash.edu
 title: Stephanie Kobakian
 organizations:
 - name: PWC

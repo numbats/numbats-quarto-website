@@ -1,5 +1,4 @@
 ---
-email: earo.wang@auckland.ac.nz
 title: Earo Wang
 organizations:
 - name: University of Auckland

@@ -1,5 +1,4 @@
 ---
-email: dan.simpson@monash.edu
 title: Dan Simpson
 description: Professor of Analytics Engagement
 www:   https://dpsimpson.github.io

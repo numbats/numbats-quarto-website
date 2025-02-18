@@ -1,5 +1,4 @@
 ---
-email: Sayani.Gupta@monash.edu
 title: Sayani Gupta
 description: PhD (Statistics)
 www:   https://sayani.netlify.com/

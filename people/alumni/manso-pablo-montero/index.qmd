@@ -1,5 +1,4 @@
 ---
-email: Pablo.MonteroManso@monash.edu
 title: Pablo Montero Manso
 description: Post Doctoral Researcher (Statistics)
 interests:

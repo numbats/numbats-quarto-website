@@ -1,5 +1,4 @@
 ---
-email: swen.kuh@monash.edu
 title: Swen Kuh
 description: Lecturer
 bluesky: swenkuh

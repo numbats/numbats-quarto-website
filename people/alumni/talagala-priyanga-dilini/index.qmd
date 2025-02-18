@@ -1,5 +1,4 @@
 ---
-email: NA
 title: Priyanga Dilini Talagala
 organizations:
 - name: University of Moratuwa
