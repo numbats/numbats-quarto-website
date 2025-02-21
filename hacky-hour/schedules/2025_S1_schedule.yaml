@@ -1,0 +1,106 @@
+- details: Kick Off & Suggestion
+  startDate: '2025-03-06'
+  endDate: '2025-03-06'
+  categories: Hacky Hour
+  startTime: '11:30:00'
+  endTime: '12:30:00'
+  room: Building 6 Room 317
+  emoji: 🤓
+- details: Personal Website Update Session
+  startDate: '2025-03-13'
+  endDate: '2025-03-13'
+  categories: Hacky Hour
+  startTime: '11:00:00'
+  endTime: '12:00:00'
+  room: Building 6 Room 317
+  emoji: 💻
+- details: Shut Up and Code 
+  startDate: '2025-03-20'
+  endDate: '2025-03-20'
+  categories: Study Group
+  startTime: '11:00:00'
+  endTime: '12:00:00'
+  room: Building 6 Room 317
+  emoji: 🤫
+- details: Write a Scrollytelling
+  startDate: '2025-03-27'
+  endDate: '2025-03-27'
+  categories: Hacky Hour
+  startTime: '11:00:00'
+  endTime: '12:00:00'
+  room: Building 6 Room 317
+  emoji: 🎨
+- details: Shut Up and Code
+  startDate: '2025-04-03'
+  endDate: '2025-04-03'
+  categories: Study Group
+  startTime: '11:00:00'
+  endTime: '12:00:00'
+  room: Building 6 Room 317
+  emoji: 🙊
+- details: Introduction to _brand.yml
+  startDate: '2025-04-10'
+  endDate: '2025-04-10'
+  categories: Hacky Hour
+  startTime: '11:00:00'
+  endTime: '12:00:00'
+  room: Building 6 Room 317
+  emoji: 🤓
+- details: Shut Up and Code
+  startDate: '2025-04-24'
+  endDate: '2025-04-24'
+  categories: Study Group
+  startTime: '11:00:00'
+  endTime: '12:00:00'
+  room: Building 6 Room 317
+  emoji: 🤐
+- details: Mid-Semester Break
+  startDate: '2025-04-14'
+  endDate: '2025-04-18'
+  categories: Break
+  startTime: .na.character
+  endTime: .na.character
+  room: Monash University
+  emoji: 🛏️
+- details: Github Action/API
+  startDate: '2025-05-01'
+  endDate: '2025-05-01'
+  categories: Hacky Hour
+  startTime: '11:00:00'
+  endTime: '12:00:00'
+  room: Building 6 Room 317
+  emoji: 🤖
+- details: Competition
+  startDate: '2025-05-08'
+  endDate: '2025-05-08'
+  categories: Hacky Hour
+  startTime: '11:00:00'
+  endTime: '12:00:00'
+  room: Building 6 Room 317
+  emoji: 🏆
+- details: Shut Up and Code
+  startDate: '2025-05-15'
+  endDate: '2025-05-15'
+  categories: Study Group
+  startTime: '11:00:00'
+  endTime: '12:00:00'
+  room: Building 6 Room 317
+  emoji: 🔇
+- details: 'Rflow: Targets'
+  startDate: '2025-05-22'
+  endDate: '2025-05-22'
+  categories: Hacky Hour
+  startTime: '11:00:00'
+  endTime: '12:00:00'
+  room: Building 6 Room 317
+  emoji: 🔁
+- details: Shut Up and Code
+  startDate: '2025-05-29'
+  endDate: '2025-05-29'
+  categories: Study Group
+  startTime: '11:00:00'
+  endTime: '12:00:00'
+  room: Building 6 Room 317
+  emoji: 😶
+
+
