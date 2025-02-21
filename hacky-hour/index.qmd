@@ -157,12 +157,12 @@ Use common sense - be kind and respectful. Criticism should be constructive and 
 <details><summary>Previous schedules</summary>
 ```
 
-### 2025 Semester 1 schedule
+### 2024 Semester 2 schedule
 
 ```{r}
 #| echo: false
 #| output: true
-ggiraph::girafe(ggobj = render_calendar(here::here("hacky-hour/schedules/2025_S1_schedule.yaml")))
+ggiraph::girafe(ggobj = render_calendar(here::here("hacky-hour/schedules/2024_S2_schedule.yaml")))
 ```
 
 
