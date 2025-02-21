@@ -12,13 +12,11 @@ If you would like to subscribe to the calendar click [here](https://calendar.goo
 
 ### Date & Time
 
-Thursdays (mixed timing)
-10:30AM-12.00PM on NUMBATS Seminar;
-1.30-3PM on non-seminar weeks; with virtual option ([Zoom Link](https://monash.zoom.us/j/83384907817?pwd=gI2eLJzW2fgezxX4iPl59OASzNdSUc.1))
+Hacky hour takes place on Thursdays from 11:00 AM to 12:00 PM, with a virtual option available via [Zoom](https://monash.zoom.us/j/85434858409?pwd=Mg56aOU9ht4c5DWuGqfqabpakFu9JZ.1). However, our first Hacky Hour on March 6th will be held from 11:30 AM to 12:30 PM. The Zoom link for the first meeting can be found [here](https://monash.zoom.us/j/6480938551?pwd=sEeL1EM5ydNEWWcFESvUYj3iNDM4Ci.1&omn=88361085281).
 
 ### Location
 
-Room 317, Building 6, 29 Ancora Imparo Way **or** Room 203, Building 6, 29 Ancora Imparo Way (check Current Schedule (@sec-current-schedule) to see where it's happening this week)
+Room 317, Building 6, 29 Ancora Imparo Way (check Current Schedule (@sec-current-schedule) to see where it's happening this week)
 
 ### Format 
 
@@ -117,7 +115,7 @@ render_calendar <- function(yaml_file) {
 ```{r}
 #| echo: false
 #| output: true
-ggiraph::girafe(ggobj = render_calendar(here::here("hacky-hour/schedules/2024_S2_schedule.yaml")))
+ggiraph::girafe(ggobj = render_calendar(here::here("hacky-hour/schedules/2025_S1_schedule.yaml")))
 ```
 
 ### Detailed View
@@ -125,7 +123,7 @@ ggiraph::girafe(ggobj = render_calendar(here::here("hacky-hour/schedules/2024_S2
 ```{r}
 #| echo: false 
 #| output: true 
-read_yaml(here::here("hacky-hour/schedules/2024_S2_schedule.yaml")) |>
+read_yaml(here::here("hacky-hour/schedules/2025_S1_schedule.yaml")) |>
   yaml_date_nodes_to_tbl() |>
   tidy_date_tbl() |>
   verify_date_df() |>
@@ -159,12 +157,12 @@ Use common sense - be kind and respectful. Criticism should be constructive and 
 <details><summary>Previous schedules</summary>
 ```
 
-### 2024 Semester 1 schedule
+### 2025 Semester 1 schedule
 
 ```{r}
 #| echo: false
 #| output: true
-ggiraph::girafe(ggobj = render_calendar(here::here("hacky-hour/schedules/2024_S1_schedule.yaml")))
+ggiraph::girafe(ggobj = render_calendar(here::here("hacky-hour/schedules/2025_S1_schedule.yaml")))
 ```
 
 
