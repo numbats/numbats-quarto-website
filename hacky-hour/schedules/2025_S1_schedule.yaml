@@ -21,8 +21,8 @@
   startTime: '11:00:00'
   endTime: '12:00:00'
   room: Building 6 Room 317
-  emoji: 🤫
-- details: Write a Scrollytelling
+  emoji: 👩🏻‍💻
+- details: Writing Scrollytelling articles
   startDate: '2025-03-27'
   endDate: '2025-03-27'
   categories: Hacky Hour
@@ -37,7 +37,7 @@
   startTime: '11:00:00'
   endTime: '12:00:00'
   room: Building 6 Room 317
-  emoji: 🙊
+  emoji: 👩🏻‍💻
 - details: Introduction to _brand.yml
   startDate: '2025-04-10'
   endDate: '2025-04-10'
@@ -53,7 +53,7 @@
   startTime: '11:00:00'
   endTime: '12:00:00'
   room: Building 6 Room 317
-  emoji: 🤐
+  emoji: 👩🏻‍💻
 - details: Mid-Semester Break
   startDate: '2025-04-14'
   endDate: '2025-04-18'
@@ -85,7 +85,7 @@
   startTime: '11:00:00'
   endTime: '12:00:00'
   room: Building 6 Room 317
-  emoji: 🔇
+  emoji: 👩🏻‍💻
 - details: 'Rflow: Targets'
   startDate: '2025-05-22'
   endDate: '2025-05-22'
@@ -101,6 +101,6 @@
   startTime: '11:00:00'
   endTime: '12:00:00'
   room: Building 6 Room 317
-  emoji: 😶
+  emoji: 👩🏻‍💻
 
 

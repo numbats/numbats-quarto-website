@@ -151,7 +151,7 @@ The use of software is generally a necessary, or even primary, component of rese
 The overarching aim of this study group is to foster an environment for Monash EBS students to get feedback and ideas from those outside their usual mentoring network (usually their supervisors) on matters related to data science research software, facilitate peer mentoring and network. The students get an opportunity to present their work concisely (getting the practice they need), teach concepts they learnt and/or learn from others. 
 
 ## Code of conduct
-Use common sense - be kind and respectful. Criticism should be constructive and designed to improve a student's work. 
+Use common sense - be kind and respectful. Criticism should be constructive and designed to improve a student's work.    
 
 ```{=html}
 <details><summary>Previous schedules</summary>
