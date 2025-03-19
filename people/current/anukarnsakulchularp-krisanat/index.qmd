@@ -1,7 +1,7 @@
 ---
 email: krisanat.anukarnsakulchularp@monash.edu
 title: Krisanat Anukarnsakulchularp
-description: Tutor
+description: PhD (Statistics)
 www:   https://github.com/KrisanatA
 github: KrisanatA
 interests:
@@ -10,7 +10,7 @@ interests:
 - interactive graphics
 - network data analysis
 user_groups:
-- Tutor
+- PhD Student
 - Current
 image: avatar.png
 ---
