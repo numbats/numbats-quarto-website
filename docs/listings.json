@@ -1,5 +1,36 @@
 [
   {
+    "listing": "/posts/index.html",
+    "items": [
+      "/posts/hackathon_2024/index.html",
+      "/posts/secret-santa-2023/index.html",
+      "/posts/reducing-teaching-duplication-with-unilur/index.html",
+      "/posts/hackathon_2023/index.html",
+      "/posts/2022-10-18-cran-rev-dep/index.html",
+      "/posts/2022-05-28-ggplot-sf/index.html",
+      "/posts/election_hexmaps/index.html",
+      "/posts/2022-02-18-do-you-want-a-monash-business-analytics-intern/index.html",
+      "/posts/regularisation/index.html",
+      "/posts/LDA/index.html",
+      "/posts/pca/index.html",
+      "/posts/internships/index.html",
+      "/posts/boosting/index.html",
+      "/posts/LIME/index.html",
+      "/posts/MLE/index.html",
+      "/posts/PopulationvsSample/index.html",
+      "/posts/FlexiblevsInflexible/index.html",
+      "/posts/ConvolutionalNeuralNetwork/index.html",
+      "/posts/bootstrapCI/index.html",
+      "/posts/permutation_variable_importance/index.html",
+      "/posts/bias_variance_flexibility/index.html",
+      "/posts/hackathon_2020/index.html"
+    ]
+  },
+  {
+    "listing": "/projects.html",
+    "items": []
+  },
+  {
     "listing": "/people/index.html",
     "items": [
       "/people/current/ek-alexander/index.html",
@@ -12,6 +43,7 @@
       "/people/current/nibbering-didier/index.html",
       "/people/current/lin-dongqi/index.html",
       "/people/current/sverdrup-erik/index.html",
+      "/people/current/everest-floyd/index.html",
       "/people/current/athansopoulos-george/index.html",
       "/people/current/comiskey-hannah/index.html",
       "/people/current/mason-harriet/index.html",
@@ -66,37 +98,6 @@
       "/people/alumni/laa-ursula/index.html",
       "/people/alumni/wang-xiaoqian/index.html",
       "/people/alumni/yang-yangzhuoran-fin/index.html"
-    ]
-  },
-  {
-    "listing": "/projects.html",
-    "items": []
-  },
-  {
-    "listing": "/posts/index.html",
-    "items": [
-      "/posts/hackathon_2024/index.html",
-      "/posts/secret-santa-2023/index.html",
-      "/posts/reducing-teaching-duplication-with-unilur/index.html",
-      "/posts/hackathon_2023/index.html",
-      "/posts/2022-10-18-cran-rev-dep/index.html",
-      "/posts/2022-05-28-ggplot-sf/index.html",
-      "/posts/election_hexmaps/index.html",
-      "/posts/2022-02-18-do-you-want-a-monash-business-analytics-intern/index.html",
-      "/posts/regularisation/index.html",
-      "/posts/LDA/index.html",
-      "/posts/pca/index.html",
-      "/posts/internships/index.html",
-      "/posts/boosting/index.html",
-      "/posts/LIME/index.html",
-      "/posts/MLE/index.html",
-      "/posts/PopulationvsSample/index.html",
-      "/posts/FlexiblevsInflexible/index.html",
-      "/posts/ConvolutionalNeuralNetwork/index.html",
-      "/posts/bootstrapCI/index.html",
-      "/posts/permutation_variable_importance/index.html",
-      "/posts/bias_variance_flexibility/index.html",
-      "/posts/hackathon_2020/index.html"
     ]
   }
 ]
