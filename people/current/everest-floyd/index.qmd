@@ -1,0 +1,14 @@
+---
+email: floyd.everest@monash.edu
+title: Floyd Everest
+description: PhD (Statistics)
+www:   https://floydeverest.com/
+interests:
+- election auditing
+- sequential analysis
+- bayesian inference
+- data science
+user_groups:
+- PhD Student
+- Current
+image: avatar.jpg
