@@ -15,10 +15,10 @@ website:
       - href: hacky-hour/index.qmd
         text: "Hacky Hour"
       - events.qmd
-      - href: courses.qmd
-        text: Courses
       - href: workshops/index.qmd
         text: Workshops
+      - href: courses.qmd
+        text: Courses
       - href: about.qmd
         text: About
       - contact.qmd
