@@ -17,6 +17,8 @@ website:
       - events.qmd
       - href: courses.qmd
         text: Courses
+      - href: workshops/index.qmd
+        text: Workshops
       - href: about.qmd
         text: About
       - contact.qmd

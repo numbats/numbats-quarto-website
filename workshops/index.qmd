@@ -1,0 +1,25 @@
+---
+title: "NUMBAT Workshops"
+---
+
+# About
+
+These workshops are designed to help develop data analysis and computing skills in the Monash and broader community. Workshops will be hands-on and primarily focus on using R. Most workshops will be hybrid, in-person for the Monash community and also with the possibility to join on zoom. They will be taught by experts on the topics from the [NUMBATs group](https://numbat.space/people/). 
+
+# Schedule
+
+You can add the events to your calendar via [iCal](https://calendar.google.com/calendar/ical/t0umouvaoo3h62kcfcj7vcfck8%40group.calendar.google.com/public/basic.ics) or [Google calendar](https://calendar.google.com/calendar?cid=dDB1bW91dmFvbzNoNjJrY2Zjajd2Y2ZjazhAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ).
+
+# Make a suggestion
+
+If you have requests for topics to be covered, you can provide this feedback through this [sheet](https://forms.gle/BLdEp9KMqmvstgWb7).
+
+# Tentative plan for 2025
+
+- Apr: Advanced R (Mitch O'Hara-Wild)
+- May: Take a data plot and make it better (Di Cook)
+- Jun: Interactive web applications with Shiny for R (Mitch O'Hara-Wild)
+- Jul: Quarto for research productivity (Cynthia Huang)
+- Aug: Web-scraped data collection and quality management (Cynthia Huang & Mitch O'Hara-Wild)
+- Sep: Visually exploring your data (Di Cook)
+- Nov: Publishing your software (Di Cook)
