@@ -23,3 +23,13 @@ If you have requests for topics to be covered, you can provide this feedback thr
 - Aug: Web-scraped data collection and quality management (Cynthia Huang & Mitch O'Hara-Wild)
 - Sep: Visually exploring your data (Di Cook)
 - Nov: Publishing your software (Di Cook)
+
+# Other workshops 
+
+## Monash
+
+[eResearch maintains a list](https://docs.erc.monash.edu/training/) of other groups offering workshops and links to the workshops on campus. These are primarily run by eResearch and the [Monash Bioinformatics Platform](https://www.monash.edu/researchinfrastructure/bioinformatics/training). The [eResearch newsletter](https://mailchi.mp/e0c3342ff59a/eresearch-march-2025-newsletter) provides regular details, also. 
+
+## Elsewhere
+
+The [Statistical Society of Australia](https://www.statsoc.org.au/Events-calendar), in particular the Statistical Computing and Visualisation Section, regularly run workshops which are listed on their events page.
