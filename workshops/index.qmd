@@ -24,6 +24,15 @@ If you have requests for topics to be covered, you can provide this feedback thr
 - Sep: Visually exploring your data (Di Cook)
 - Nov: Publishing your software (Di Cook)
 
+# Self-paced materials 
+
+The web resource [https://startr.numbat.space](https://startr.numbat.space) provides these self-paced learning modules:
+
+- Getting started with R
+- Tidy data analysis
+- Statistical modelling
+- Quarto basics, for reproducible publications 
+
 # Other workshops 
 
 ## Monash
