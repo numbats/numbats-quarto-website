@@ -658,6 +658,20 @@
     "text": "These workshops are designed to help develop data analysis and computing skills in the Monash and broader community. Workshops will be hands-on and primarily focus on using R. Most workshops will be hybrid, in-person for the Monash community and also with the possibility to join on zoom. They will be taught by experts on the topics from the NUMBATs group."
   },
   {
+    "objectID": "workshops/index.html#monash",
+    "href": "workshops/index.html#monash",
+    "title": "NUMBAT Workshops",
+    "section": "Monash",
+    "text": "Monash\neResearch maintains a list of other groups offering workshops and links to the workshops on campus. These are primarily run by eResearch and the Monash Bioinformatics Platform. The eResearch newsletter provides regular details, also."
+  },
+  {
+    "objectID": "workshops/index.html#elsewhere",
+    "href": "workshops/index.html#elsewhere",
+    "title": "NUMBAT Workshops",
+    "section": "Elsewhere",
+    "text": "Elsewhere\nThe Statistical Society of Australia, in particular the Statistical Computing and Visualisation Section, regularly run workshops which are listed on their events page."
+  },
+  {
     "objectID": "contact.html",
     "href": "contact.html",
     "title": "Contact",
@@ -1160,19 +1174,5 @@
     "title": "Stuart Lee",
     "section": "",
     "text": "https://stuartlee.org/\n                           @_StuartLee\n                           @sa-lee\n                                                 Interests:\n        \n          statistical graphicsexploratory data analysishigh-dimensional statisticscomputation and design"
-  },
-  {
-    "objectID": "workshops/index.html#monash",
-    "href": "workshops/index.html#monash",
-    "title": "NUMBAT Workshops",
-    "section": "Monash",
-    "text": "Monash\neResearch maintains a list of other groups offering workshops and links to the workshops on campus. These are primarily run by eResearch and the Monash Bioinformatics Platform. The eResearch newsletter provides regular details, also."
-  },
-  {
-    "objectID": "workshops/index.html#elsewhere",
-    "href": "workshops/index.html#elsewhere",
-    "title": "NUMBAT Workshops",
-    "section": "Elsewhere",
-    "text": "Elsewhere\nThe Statistical Society of Australia, in particular the Statistical Computing and Visualisation Section, regularly run workshops which are listed on their events page."
   }
 ]
