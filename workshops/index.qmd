@@ -42,3 +42,26 @@ The web resource [https://startr.numbat.space](https://startr.numbat.space) prov
 ## Elsewhere
 
 The [Statistical Society of Australia](https://www.statsoc.org.au/Events-calendar), in particular the Statistical Computing and Visualisation Section, regularly run workshops which are listed on their events page.
+
+<!-- topic list:
+- basics of tidy data wrangling
+- basic data visualisation with ggplot2
+- making maps
+- reproducible data analysis (quarto)
+- collaborative data analysis (git)
+- publishing your software
+- packaging your software for sharing
+- communicating your data with a web app
+- finding and wrangling wild-caught data
+- forecasting
+- basic statistical models
+- advanced statistical models
+- cluster analysis
+- classfication
+- high-dimensional data analysis
+- utilising LLMs in data analysis
+- running computing intensive code simply on basic equipment
+- working with text data
+- making your research website
+- web scraping
+-->
