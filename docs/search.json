@@ -655,7 +655,7 @@
     "href": "workshops/index.html",
     "title": "NUMBAT Workshops",
     "section": "",
-    "text": "These workshops are designed to help develop data analysis and computing skills in the Monash and broader community. Workshops will be hands-on and primarily focus on using R. Most workshops will be hybrid, in-person for the Monash community and also with the possibility to join on zoom. They will be taught by experts on the topics from the NUMBATs group."
+    "text": "These workshops are designed to help develop data analysis and computing skills in the Monash and broader community. Workshops will be hands-on and primarily focus on using R. Most workshops will be hybrid, in-person for the Monash community and also with the possibility to join on zoom. They will be taught by experts on the topics from the NUMBATs group.\nWorkshops are organised along three themes:\n\nLearning from data: extracting data from various sources, tidying, wrangling, modelling, analysis, exploratory data graphics.\nData science productivity: reproducibility, collaboration, literate programming, efficient coding, sharing code.\nCommunicating with data: effective visualisation, storytelling, engineering interactive web apps, publishing software."
   },
   {
     "objectID": "workshops/index.html#monash",

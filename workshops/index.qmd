@@ -6,6 +6,12 @@ title: "NUMBAT Workshops"
 
 These workshops are designed to help develop data analysis and computing skills in the Monash and broader community. Workshops will be hands-on and primarily focus on using R. Most workshops will be hybrid, in-person for the Monash community and also with the possibility to join on zoom. They will be taught by experts on the topics from the [NUMBATs group](https://numbat.space/people/). 
 
+Workshops are organised along three themes: 
+
+- **Learning from data**: extracting data from various sources, tidying, wrangling, modelling, analysis, exploratory data graphics.
+- **Data science productivity**: reproducibility, collaboration, literate programming, efficient coding, sharing code.
+- **Communicating with data**: effective visualisation, storytelling, engineering interactive web apps, publishing software.
+
 # Schedule
 
 You can add the full range of events to your calendar via [iCal](https://calendar.google.com/calendar/ical/t0umouvaoo3h62kcfcj7vcfck8%40group.calendar.google.com/public/basic.ics) or [Google calendar](https://calendar.google.com/calendar?cid=dDB1bW91dmFvbzNoNjJrY2Zjajd2Y2ZjazhAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ).
@@ -16,13 +22,14 @@ If you have requests for topics to be covered, you can provide this feedback thr
 
 # Tentative plan for 2025
 
-- Apr: Advanced R (Mitch O'Hara-Wild)
-- May: Take a data plot and make it better (Di Cook)
-- Jun: Interactive web applications with Shiny for R (Mitch O'Hara-Wild)
-- Jul: Quarto for research productivity (Cynthia Huang)
-- Aug: 
-- Sep: Visually exploring your data (Di Cook)
-- Nov: Publishing your software (Di Cook)
+- Apr: **Learning from data** - Forecasting (Mitch O'Hara-Wild)
+- May: **Communicating with data** - Take a data plot and make it better (Di Cook)
+- Jun: **Data science productivity** - Quarto presentations, notebooks and papers (Cynthia Huang)
+- Jul: **Learning from data** - Visual data exploration (Di Cook)
+- Aug: **Data science productivity**  - Packaging your code (Michael Lydeamore)
+- Sep: **Communicating with data** - Developing a shiny app (Mitch O'Hara-Wild, Janith Wanniarachchi)
+- Oct: **Learning from data** - ??
+- Nov: **Data science productivity** - Turning your software into a publication (Di Cook)
 
 # Self-paced materials 
 
@@ -43,25 +50,3 @@ The web resource [https://startr.numbat.space](https://startr.numbat.space) prov
 
 The [Statistical Society of Australia](https://www.statsoc.org.au/Events-calendar), in particular the Statistical Computing and Visualisation Section, regularly run workshops which are listed on their events page.
 
-<!-- topic list:
-- basics of tidy data wrangling
-- basic data visualisation with ggplot2
-- making maps
-- reproducible data analysis (quarto)
-- collaborative data analysis (git)
-- publishing your software
-- packaging your software for sharing
-- communicating your data with a web app
-- finding and wrangling wild-caught data
-- forecasting
-- basic statistical models
-- advanced statistical models
-- cluster analysis
-- classfication
-- high-dimensional data analysis
-- utilising LLMs in data analysis
-- running computing intensive code simply on basic equipment
-- working with text data
-- making your research website
-- web scraping
--->
