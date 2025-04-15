@@ -8,19 +8,21 @@ These workshops are designed to help develop data analysis and computing skills 
 
 Workshops are organised along three themes: 
 
-- **Learning from data**: extracting data from various sources, tidying, wrangling, modelling, analysis, exploratory data graphics.
-- **Data science productivity**: reproducibility, collaboration, literate programming, efficient coding, sharing code.
-- **Communicating with data**: effective visualisation, storytelling, engineering interactive web apps, publishing software.
+- <span style="color: #3B99B1;">**Learning from data**</span>: extracting data from various sources, tidying, wrangling, modelling, analysis, exploratory data graphics.
+- <span style="color: #56B29E;">**Data science productivity**</span>: reproducibility, collaboration, literate programming, efficient coding, sharing code.
+- <span style="color: #9FC095;">**Communicating with data**</span>: effective visualisation, storytelling, engineering interactive web apps, publishing software.
 
-# Schedule
+Workshops are also grade on three levels: 
 
-You can add the full range of events to your calendar via [iCal](https://calendar.google.com/calendar/ical/t0umouvaoo3h62kcfcj7vcfck8%40group.calendar.google.com/public/basic.ics) or [Google calendar](https://calendar.google.com/calendar?cid=dDB1bW91dmFvbzNoNjJrY2Zjajd2Y2ZjazhAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ).
+- <span style="color: #EACB2B;">**Beginner**</span>: A basic knowledge of R, and using RStudio, is all that is needed to understand the content.
+- <span style="color: #E87700;">**Intermediate**</span>: Along with a basic knowledge, some additional experience such as comfortable with the content of [R4DS](https://r4ds.hadley.nz).
+- <span style="color: #F5191C;">**Advanced**</span>: This level is for experienced analysts wishing to advanced their level of understanding on particular specialty areas. 
 
 # Make a suggestion
 
 If you have requests for topics to be covered, you can provide this feedback through this [sheet](https://forms.gle/BLdEp9KMqmvstgWb7).
 
-# Tentative plan for 2025
+# Schedule for 2025
 
 ```{r}
 #| echo: false
@@ -40,7 +42,7 @@ schedule <- schedule |>
   mutate(topic = factor(topic, levels = c("Learning from data", 
                                           "Communicating with data", 
                                           "Data science productivity"))) |>
-  mutate(level = factor(level, levels = c("Introductory", 
+  mutate(level = factor(level, levels = c("Beginner", 
                                           "Intermediate", 
                                           "Advanced")))
 topic_clr <- divergingx_hcl(7, 
@@ -88,6 +90,9 @@ schedule |>
 #    )) |>
   cols_align("left")
 ```
+
+You can add the full range of NUMBAT events to your calendar via [iCal](https://calendar.google.com/calendar/ical/t0umouvaoo3h62kcfcj7vcfck8%40group.calendar.google.com/public/basic.ics) or [Google calendar](https://calendar.google.com/calendar?cid=dDB1bW91dmFvbzNoNjJrY2Zjajd2Y2ZjazhAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ).
+
 
 # Self-paced materials 
 
