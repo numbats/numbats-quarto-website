@@ -1,0 +1,13 @@
+---
+email: Didier.Nibbering@monash.edu
+title: Didier Nibbering
+description: Associate Professor in Econometrics
+interests:
+- high-dimensional inference
+- forecasting
+- bayesian statistics
+user_groups:
+- Faculty
+- Current
+image: avatar.jpg
+---
