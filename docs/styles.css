@@ -11,3 +11,11 @@ img.proj-img {
   vertical-align: middle;
   border-radius: 50%;
 }
+
+table a {
+  color: #191970;
+}
+
+table a:hover {
+  color: #EACB2B;
+}

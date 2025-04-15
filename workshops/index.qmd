@@ -22,14 +22,72 @@ If you have requests for topics to be covered, you can provide this feedback thr
 
 # Tentative plan for 2025
 
-- Apr: **Learning from data** - Forecasting (Mitch O'Hara-Wild)
-- May: **Communicating with data** - Take a data plot and make it better (Di Cook)
-- Jun: **Data science productivity** - Quarto presentations, notebooks and papers (Cynthia Huang)
-- Jul: **Learning from data** - Visual data exploration (Di Cook)
-- Aug: **Data science productivity**  - Packaging your code (Michael Lydeamore)
-- Sep: **Communicating with data** - Developing a shiny app (Mitch O'Hara-Wild, Janith Wanniarachchi)
-- Oct: **Learning from data** - ??
-- Nov: **Data science productivity** - Turning your software into a publication (Di Cook)
+```{r}
+#| echo: false
+#| message: false
+#| error: false
+#| warning: false
+library(readr)
+library(dplyr)
+library(gt)
+library(glue)
+library(lubridate)
+library(colorspace)
+schedule <- read_csv("schedule.csv")
+schedule <- schedule |>
+  mutate(date = dmy(date)) |>
+  mutate(titlelink = ifelse(is.na(link), title, glue("[{title}]({link})"))) |>
+  mutate(topic = factor(topic, levels = c("Learning from data", 
+                                          "Communicating with data", 
+                                          "Data science productivity"))) |>
+  mutate(level = factor(level, levels = c("Introductory", 
+                                          "Intermediate", 
+                                          "Advanced")))
+topic_clr <- divergingx_hcl(7, 
+    palette = "Zissou 1")[c(1,2,3)]
+level_clr <- divergingx_hcl(7, 
+    palette = "Zissou 1")[c(4,6,7)] #sequential_hcl(3, 
+    #palette = "Emrld", rev = TRUE, alpha=0.5)
+schedule |>
+  arrange(desc(date)) |>
+  select(month, date, time, titlelink, instructor, location, topic, level) |>
+  gt() |>
+    gt::fmt_markdown(columns = titlelink) |>
+    cols_label(titlelink = "title") |> 
+    gt::cols_width(
+      month ~ px(50),
+      date ~ px(120),
+      time ~ px(100),
+      titlelink ~ px(200),
+      instructor ~ px(100),
+      location ~ px(100),
+      topic ~ px(150),
+      level ~ px(100)) |>
+  tab_style(
+    style = cell_text(size = "smaller"),
+    locations = cells_body(columns = month:time)
+  ) |>
+  tab_style(
+    style = cell_text(size = "smaller"),
+    locations = cells_body(columns = instructor:level)
+  ) |>
+  data_color(columns = topic, 
+             method = "factor",
+             target_columns = titlelink:topic,
+             palette = topic_clr) |>
+  data_color(columns = level, 
+             method = "factor",
+             palette = level_clr) |>
+  opt_row_striping(row_striping = FALSE) |>
+  #  tab_style(
+#    style = list(
+#      cell_text(weight = "bold", color = "black")
+#      ),
+#    locations = cells_body(
+#      columns = titlelink,
+#    )) |>
+  cols_align("left")
+```
 
 # Self-paced materials 
 
