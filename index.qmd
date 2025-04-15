@@ -7,9 +7,11 @@ from: markdown+emoji
 
 <h2>Latest News</h2>
 
-* WOMBAT (Workshop Organised by the Monash Business Analytics Team) 2024 was held Oct 22-23, Monash offices at 750 Collins St, on the theme "Opening Doors with Open Source", and key noted by [Michael Lawrence](https://github.com/lawremi). More details [here](https://numbats.github.io/WOMBAT2024/).
+* SAVE THE DATE! WOMBAT (Workshop Organised by the Monash Business Analytics Team) 2025 will be held Sep 29-30 in Melbourne. 
 
-* Welcome to new post-doc Hannah Comiskey, and new associate professor Susan Wei!
+* Welcome back Tas (Anastasios Panagiotelis)!
+
+* NUMBATS will be offering regular workshops for the Monash Community, starting in May. See the [workshop page](https://numbat.space/workshops/) for current details. 
 
 * Congratulations to Patrick (Weihao) Li for successfully completing your PhD.
 
