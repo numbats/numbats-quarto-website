@@ -37,7 +37,7 @@ library(lubridate)
 library(colorspace)
 schedule <- read_csv("schedule.csv")
 schedule <- schedule |>
-  mutate(date = dmy(date)) |>
+  #mutate(date = ifelse(!is.na(dmy(date)), dmy(date), date)) |>
   mutate(titlelink = ifelse(is.na(link), title, glue("[{title}]({link})"))) |>
   mutate(topic = factor(topic, levels = c("Learning from data", 
                                           "Communicating with data", 
@@ -51,15 +51,16 @@ level_clr <- divergingx_hcl(7,
     palette = "Zissou 1")[c(4,6,7)] #sequential_hcl(3, 
     #palette = "Emrld", rev = TRUE, alpha=0.5)
 schedule |>
-  arrange(desc(date)) |>
-  select(month, date, time, titlelink, instructor, location, topic, level) |>
+  #arrange(desc(date)) |>
+  select(date, time, registration, titlelink, instructor, location, topic, level) |>
   gt() |>
     gt::fmt_markdown(columns = titlelink) |>
     cols_label(titlelink = "title") |> 
     gt::cols_width(
-      month ~ px(50),
-      date ~ px(120),
+      #month ~ px(50),
+      date ~ px(200),
       time ~ px(100),
+      registration ~ px(80),
       titlelink ~ px(200),
       instructor ~ px(100),
       location ~ px(100),
@@ -67,7 +68,7 @@ schedule |>
       level ~ px(100)) |>
   tab_style(
     style = cell_text(size = "smaller"),
-    locations = cells_body(columns = month:time)
+    locations = cells_body(columns = date:registration)
   ) |>
   tab_style(
     style = cell_text(size = "smaller"),
