@@ -36,9 +36,11 @@ library(glue)
 library(lubridate)
 library(colorspace)
 schedule <- read_csv("schedule.csv")
+regtext <- "Sign up"
 schedule <- schedule |>
   #mutate(date = ifelse(!is.na(dmy(date)), dmy(date), date)) |>
   mutate(titlelink = ifelse(is.na(link), title, glue("[{title}]({link})"))) |>
+  mutate(reglink = ifelse(registration == "TBA", " ", glue("[{regtext}]({registration})"))) |>
   mutate(topic = factor(topic, levels = c("Learning from data", 
                                           "Communicating with data", 
                                           "Data science productivity"))) |>
@@ -52,28 +54,30 @@ level_clr <- divergingx_hcl(7,
     #palette = "Emrld", rev = TRUE, alpha=0.5)
 schedule |>
   #arrange(desc(date)) |>
-  select(date, time, registration, titlelink, instructor, location, topic, level) |>
+  select(date, time, reglink, titlelink, instructor, location, topic, level) |>
   gt() |>
-    gt::fmt_markdown(columns = titlelink) |>
+    gt::fmt_markdown(columns = c(titlelink, reglink)) |>
     cols_label(titlelink = "title") |> 
     gt::cols_width(
       #month ~ px(50),
       date ~ px(200),
       time ~ px(100),
-      registration ~ px(80),
+      reglink ~ px(250),
       titlelink ~ px(200),
       instructor ~ px(100),
       location ~ px(100),
       topic ~ px(150),
       level ~ px(100)) |>
   tab_style(
-    style = cell_text(size = "smaller"),
-    locations = cells_body(columns = date:registration)
+    style = cell_text(size = "small"),
+    locations = cells_body(columns = date:time)
   ) |>
   tab_style(
     style = cell_text(size = "smaller"),
     locations = cells_body(columns = instructor:level)
   ) |>
+  tab_style(cell_text(size="large"),
+            locations = cells_body(columns = reglink:titlelink)) |>
   data_color(columns = topic, 
              method = "factor",
              target_columns = titlelink:topic,
@@ -82,13 +86,15 @@ schedule |>
              method = "factor",
              palette = level_clr) |>
   opt_row_striping(row_striping = FALSE) |>
-  #  tab_style(
-#    style = list(
-#      cell_text(weight = "bold", color = "black")
-#      ),
-#    locations = cells_body(
-#      columns = titlelink,
-#    )) |>
+  cols_label(
+    date = "Date",
+    time = "Time", 
+    reglink = "Register",
+    titlelink = "Title",
+    instructor = "Instructor",
+    location = "Room",
+    topic = "Category",
+    level = "") |> 
   cols_align("left")
 ```
 
