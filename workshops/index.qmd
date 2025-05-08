@@ -33,6 +33,7 @@ library(readr)
 library(dplyr)
 library(gt)
 library(glue)
+library(stringr)
 library(lubridate)
 library(colorspace)
 schedule <- read_csv("schedule.csv")
@@ -40,7 +41,11 @@ regtext <- "Sign up"
 schedule <- schedule |>
   #mutate(date = ifelse(!is.na(dmy(date)), dmy(date), date)) |>
   mutate(titlelink = ifelse(is.na(link), title, glue("[{title}]({link})"))) |>
-  mutate(reglink = ifelse(registration == "TBA", " ", glue("[{regtext}]({registration})"))) |>
+  mutate(reglink = ifelse(registration == "TBA", " ",
+                          glue("[{regtext}]({registration})"))) |>
+  mutate(reglink = ifelse(str_detect(registration, "available"),
+                          registration,
+                          reglink)) |>
   mutate(topic = factor(topic, levels = c("Learning from data", 
                                           "Communicating with data", 
                                           "Data science productivity"))) |>
