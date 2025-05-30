@@ -7,7 +7,7 @@ from: markdown+emoji
 
 <h2>Latest News</h2>
 
-* SAVE THE DATE! WOMBAT (Workshop Organised by the Monash Business Analytics Team) 2025 will be held Sep 29-30 in Melbourne. 
+* SAVE THE DATE! [WOMBAT (Workshop Organised by the Monash Business Analytics Team) 2025](https://wombat2025.numbat.space) will be held Sep 29-30 in Melbourne. 
 
 * Welcome back Tas (Anastasios Panagiotelis)!
 
