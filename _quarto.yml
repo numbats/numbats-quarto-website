@@ -1,7 +1,10 @@
 project:
   type: website
   output-dir: docs
-
+  render:
+    - "*.qmd"
+    - "!unit_information/*.qmd"
+    
 website:
   title: "Monash NUMBATs"
   navbar:
