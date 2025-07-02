@@ -12,7 +12,7 @@ The Master of Business Analytics synopsis is
 
 > Become empowered as a quantitative citizen. By leveraging open data and the most powerful open source software available today you will learn how to fish, rather than be fed. This course is designed to develop thinking, computing and analytic skills for working with data for evidence-based solutions of today's problems. You will learn how to critically assess information provided by others by sourcing and analysing data yourself, with a strong emphasis on ethical and reproducible methods. This course is suitable for those with undergraduate degrees in quantitative disciplines including mathematics, statistics, computer science and engineering. The content is student-centred, inclusive, accessible and participants will be expected to operate as a connected cohort of like-minded people ready to build a better society.
 
-and students completing this degree are expected to be able to:
+Students completing this degree are expected to be:
 
 1. Critical and creative scholars who:
 
@@ -26,15 +26,15 @@ and students completing this degree are expected to be able to:
     - exhibit cross-cultural competence 
     - demonstrate ethical values
     
-3. effective data analysts able to:
+3. Effective data analysts able to:
 
     - identify and collect appropriate and relevant data
     - write computer scripts and programs to wrangle and plot data, fit models, make predictions and produce reproducible reports, presentations and web apps
     - interpret statistical models in the context of real data problems, and translate technical results into practical solutions.
     
-Students must complete 12 core units and 4 elective units. 
+Students must complete 11 core units and 4 elective units.
 
-The following are core units and must be taken by all students:
+The following 9 core units must be taken by all students:
 
 - ETC5510 Introduction to data analysis
 - ETC5512 Wild-caught data
@@ -46,14 +46,14 @@ The following are core units and must be taken by all students:
 - ETC5250 Introduction to machine learning
 - ETC5543 Business analytics creative activity
 
-And **two of the four units** from the following list,
+And **at least two** of the following four units:
 
 - ETC5580 Advanced statistical modelling
 - ETF5500 High dimensional data analysis
 - ETC5450 Advanced R programming
 - ETC5555 Statistical machine mining
 
-And **four elective units** from the following list, or others by special request. 
+And a further **four elective units** from the following list, or others by special request.
 
 - ETC5410 Bayesian inference and data analysis
 - ETF5248 Optimisation for business
@@ -164,7 +164,7 @@ See materials on unit website: [https://rcp.numbat.space](https://rcp.numbat.spa
 
 ## Unit synopsis
 
-This unit presents data analysis, statistical modelling and decision-making in the presence of uncertainty, using a computational approach.  You will use different frameworks of probability that are useful for analysing real-world problems. Topics covered will include exploratory data analysis, simulation, permutation and randomisation methods, Bayesian analysis, decision theory, and model assessment and diagnosis.
+This unit presents data analysis, statistical modelling and decision-making in the presence of uncertainty, using a computational approach.  You will use different frameworks of probability that are helpful for analysing real-world problems. Topics covered will include probability distributions, statistical inference (classical & Bayesian), simulation, permutation and randomisation methods, regression models, decision theory, and model assessment and diagnosis.
 
 
 ## Learning outcomes
@@ -178,17 +178,17 @@ This unit presents data analysis, statistical modelling and decision-making in t
 
 ## Topics covered include
 
-* Review of tidy data 
+* Review of tidy data
 * Estimation
 * Hypothesis testing
 * Resampling techniques, including the bootstrap
 * Probability and probability distributions
+* Randomisation
 * Maximum likelihood estimation
 * Bayesian inference
 * Decision theory
 * Regression models, including multiple regression
 * Model performance and diagnostics
-* Re-sampling with regression models
 
 ## Recommended reading
 
@@ -217,7 +217,7 @@ Beyond modelling and prediction, data might have many more stories to tell. Expl
 
 ## Topics covered include
 
-* Overview. Why this course? What is EDA?
+* Overview. Why this unit? What is EDA?
 * Learning from history
 * Initial data analysis and model diagnostics: Model dependent exploration and how it differs from EDA
 * Using computational tools to determine whether what is seen in the data can be assumed to apply more broadly
@@ -238,7 +238,7 @@ See the materials on the unit website [https://ddde.numbat.space](https://ddde.n
 
 ## Unit synopsis
 
-This course teaches communication skills related to data analysis. You'll learn to build a website, a web app, reports and presentations as part of a data analysis workflow.
+This unit teaches communication skills related to data analysis. You'll learn to build a website, a web app, reports and presentations as part of a data analysis workflow.
 
 ## Learning outcomes
 
@@ -462,17 +462,27 @@ Mardia, K. V., J.T. Kent, J.M. Bibby, (1979). *Multivariate Analysis.*
 
 Izenman, A. J. (2008). *Modern multivariate statistical techniques. Regression, classification and manifold learning*
 
-# ETC5543: 
+# ETC5543: Business analytics creative activity
 
 ## Unit synopsis
 
-This course involves successful completion of an internship or conduct an original research project.
+This unit involves successful completion of an internship or conduct an original research project.
 
 ## Learning outcomes
 
 1. Obtain experience working in a job or conducting research.
 2. Apply analytics learning in a practical or research setting.
 3. Effectively communicate analytics use in the work environment, or in the process of research.
+
+## Types of projects
+
+A wide variety of projects can be tackled in this unit. The project needs to
+involve a substantial data analysis or modelling component. It can focus on a
+related activity, such as developing analytics software or dashboards, as long
+as this is accompanied by relevant analysis or validation using data.
+
+A key feature of all projects is an emphasis on reproducibility and clear
+communication.
 
 # ETC5410 Bayesian inference and data analysis
 
