@@ -217,7 +217,7 @@ Beyond modelling and prediction, data might have many more stories to tell. Expl
 
 ## Topics covered include
 
-* Overview. Why this course? What is EDA?
+* Overview. Why this unit? What is EDA?
 * Learning from history
 * Initial data analysis and model diagnostics: Model dependent exploration and how it differs from EDA
 * Using computational tools to determine whether what is seen in the data can be assumed to apply more broadly
@@ -238,7 +238,7 @@ See the materials on the unit website [https://ddde.numbat.space](https://ddde.n
 
 ## Unit synopsis
 
-This course teaches communication skills related to data analysis. You'll learn to build a website, a web app, reports and presentations as part of a data analysis workflow.
+This unit teaches communication skills related to data analysis. You'll learn to build a website, a web app, reports and presentations as part of a data analysis workflow.
 
 ## Learning outcomes
 
@@ -466,7 +466,7 @@ Izenman, A. J. (2008). *Modern multivariate statistical techniques. Regression, 
 
 ## Unit synopsis
 
-This course involves successful completion of an internship or conduct an original research project.
+This unit involves successful completion of an internship or conduct an original research project.
 
 ## Learning outcomes
 
