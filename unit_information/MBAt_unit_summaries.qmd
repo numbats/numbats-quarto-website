@@ -164,7 +164,7 @@ See materials on unit website: [https://rcp.numbat.space](https://rcp.numbat.spa
 
 ## Unit synopsis
 
-This unit presents data analysis, statistical modelling and decision-making in the presence of uncertainty, using a computational approach.  You will use different frameworks of probability that are useful for analysing real-world problems. Topics covered will include exploratory data analysis, simulation, permutation and randomisation methods, Bayesian analysis, decision theory, and model assessment and diagnosis.
+This unit presents data analysis, statistical modelling and decision-making in the presence of uncertainty, using a computational approach.  You will use different frameworks of probability that are helpful for analysing real-world problems. Topics covered will include probability distributions, statistical inference (classical & Bayesian), simulation, permutation and randomisation methods, regression models, decision theory, and model assessment and diagnosis.
 
 
 ## Learning outcomes
@@ -178,17 +178,17 @@ This unit presents data analysis, statistical modelling and decision-making in t
 
 ## Topics covered include
 
-* Review of tidy data 
+* Review of tidy data
 * Estimation
 * Hypothesis testing
 * Resampling techniques, including the bootstrap
 * Probability and probability distributions
+* Randomisation
 * Maximum likelihood estimation
 * Bayesian inference
 * Decision theory
 * Regression models, including multiple regression
 * Model performance and diagnostics
-* Re-sampling with regression models
 
 ## Recommended reading
 
