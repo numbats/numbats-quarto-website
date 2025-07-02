@@ -462,7 +462,7 @@ Mardia, K. V., J.T. Kent, J.M. Bibby, (1979). *Multivariate Analysis.*
 
 Izenman, A. J. (2008). *Modern multivariate statistical techniques. Regression, classification and manifold learning*
 
-# ETC5543: 
+# ETC5543: Business analytics creative activity
 
 ## Unit synopsis
 
@@ -473,6 +473,16 @@ This course involves successful completion of an internship or conduct an origin
 1. Obtain experience working in a job or conducting research.
 2. Apply analytics learning in a practical or research setting.
 3. Effectively communicate analytics use in the work environment, or in the process of research.
+
+## Types of projects
+
+A wide variety of projects can be tackled in this unit. The project needs to
+involve a substantial data analysis or modelling component. It can focus on a
+related activity, such as developing analytics software or dashboards, as long
+as this is accompanied by relevant analysis or validation using data.
+
+A key feature of all projects is an emphasis on reproducibility and clear
+communication.
 
 # ETC5410 Bayesian inference and data analysis
 
