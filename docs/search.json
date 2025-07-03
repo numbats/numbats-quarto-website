@@ -592,7 +592,7 @@
     "href": "contact.html",
     "title": "Contact",
     "section": "",
-    "text": "bluesky @numbats_rise_up\n Enter Education Building, we are located primarily on level 3, and to the east\n Monash University, Clayton Campus, Wellington Rd, Melbourne, 3800\n\n\nView Larger Map"
+    "text": "{{&lt; fa solid dove size=2xl &gt;}} bluesky @numbats_rise_up\n{{&lt; fa solid compass size=2xl &gt;}} Enter Education Building, we are located primarily on level 3, and to the east\n{{&lt; fa solid location-pin size=2xl &gt;}} Monash University, Clayton Campus, Wellington Rd, Melbourne, 3800\n\n\nView Larger Map"
   },
   {
     "objectID": "about.html",
