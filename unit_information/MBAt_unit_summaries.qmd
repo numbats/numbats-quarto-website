@@ -1,7 +1,7 @@
 ---
 title: Monash Master of Business Analytics
 subtitle: Unit Summaries
-author: Di Cook and Rob Hyndman
+author: MBAt academics
 branding: true
 linestretch: 1.3
 format: memo-pdf
@@ -286,10 +286,10 @@ This unit develops your ability to model multi-dimensional data using statistica
 * Resampling: LOOCV, cross-validation, training/test
 * Dimension reduction: PCA, PP, MDS, regularisation
 * High-d vis: tours, par coords, mosaic plots
-* Classification: logistic, LDA, trees, SVM, NN, deep learning
+* Classification: logistic, LDA, trees, SVM, NN
 * Ensembles and boosting: forest, xgboost
 * Explainability and interpretability
-* Unsupervised classification: k-means, hierarchical clustering
+* Unsupervised classification: k-means, hierarchical clustering, mixture models
 * Model choice, diagnostics
 
 ## Textbook
@@ -377,7 +377,7 @@ Hyndman & Athansopoulos (2021). *Forecasting: principles and practice*. 3rd edit
 
 ## Unit synopsis
 
-This unit covers the methods and practice of statistical machine learning for modern data analysis problems. Topics covered will include recommender systems, social networks, text mining, matrix decomposition and completion, and sparse multivariate methods. All computing will be conducted using the R programming language.
+This unit covers the methods and practice of statistical machine learning for modern data analysis problems and takes a deeper look at many of the methods introduced in ETC5250: Introduction to Machine Learning. Particular focus will be placed on how to effectively learn model parameters and methods to guard against overfitting. Topics covered will include deep neural networks with dropout, image recognition, text mining and generation, and sparse multivariate methods. All computing will be conducted using the R programming language.
 
 ## Learning outcomes
 
@@ -396,7 +396,7 @@ This unit covers the methods and practice of statistical machine learning for mo
 * CNNs (Convolutional neural network)
 * SVM, margin classifier, kernels
 * Text mining, Vector space model, Bag of Words, N-grams
-* Text and sequence learning, word embeddings, word2vec, Bias and fairness
+* Text and sequence learning, word embeddings, word2vec, RNN (Recurrent neural networks), LSTMs (Long Short Term Memory)
 * Implementation of most algorithms used in class from scratch using matrix operation (Linear models, gradient descent, Neural networks with matrices by hand and with code)
 * Applied Machine Learning project as group work
 
