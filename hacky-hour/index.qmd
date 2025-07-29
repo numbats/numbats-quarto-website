@@ -8,27 +8,27 @@ Hacky hour is a weekly session where NUMBATs members join to share and foster kn
 
 # Session Schedule
 
-If you would like to subscribe to the calendar click [here](https://calendar.google.com/calendar/u/0?cid=Y19lODdmNWI3NTMwMWEyN2NjYjExNWFjYTQwZTcxMGFlM2ExMzY3NTllNDFkMDUzNWI5ZGY3OGUyYzEyZmFiMjg2QGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20) or head on over to the Events tab of this website to find out more.
+If you would like to subscribe to the calendar click [here](https://calendar.google.com/calendar?cid=dDB1bW91dmFvbzNoNjJrY2Zjajd2Y2ZjazhAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ) or head on over to the Events tab of this website to find out more.
 
 ### Date & Time
 
-Hacky hour takes place on Thursdays from 11:00 AM to 12:00 PM, with a virtual option available via [Zoom](https://monash.zoom.us/j/85434858409?pwd=Mg56aOU9ht4c5DWuGqfqabpakFu9JZ.1). However, our first Hacky Hour on March 6th will be held from 11:30 AM to 12:30 PM. The Zoom link for the first meeting can be found [here](https://monash.zoom.us/j/6480938551?pwd=sEeL1EM5ydNEWWcFESvUYj3iNDM4Ci.1&omn=88361085281).
+Hacky hour takes place on Thursdays from 11:00 AM to 12:30 PM, with a virtual option available via [Zoom](https://monash.zoom.us/j/6480938551?pwd=sEeL1EM5ydNEWWcFESvUYj3iNDM4Ci.1). 
 
 ### Location
 
-Room 317, Building 6, 29 Ancora Imparo Way (check Current Schedule (@sec-current-schedule) to see where it's happening this week)
+Room 317, Building 6, 29 Ancora Imparo Way (check Current Schedule (@sec-current-schedule) to see where it's happening this week). Except for the second week (TBC)
 
 ### Format 
 
-Hacky hour is held in two alternating formats.
+Hacky hour is held in two formats.
 
-**Shut Up and Code**
+Shut Up and Code
 
-Held on the NUMBATS seminar weeks and consists of everyone working on their own projects in short bursts and sharing help with each other.
+Consists of everyone working on their own projects in short bursts and sharing help with each other.
 
-**Study Group / Brown bag sessions**
+Study Group / Brown bag sessions
 
-Held on the off weeks and consists of Show & Tell sessions or workshops where everyone shares the knowledge and questions they have gathered on different topics.
+Consists of Show & Tell sessions or workshops where everyone shares the knowledge and questions they have gathered on different topics.
 
 ```{r}
 #| echo: false
@@ -115,7 +115,7 @@ render_calendar <- function(yaml_file) {
 ```{r}
 #| echo: false
 #| output: true
-ggiraph::girafe(ggobj = render_calendar(here::here("hacky-hour/schedules/2025_S1_schedule.yaml")))
+ggiraph::girafe(ggobj = render_calendar(here::here("hacky-hour/schedules/2025_S2_schedule.yaml")))
 ```
 
 ### Detailed View
@@ -123,7 +123,7 @@ ggiraph::girafe(ggobj = render_calendar(here::here("hacky-hour/schedules/2025_S1
 ```{r}
 #| echo: false 
 #| output: true 
-read_yaml(here::here("hacky-hour/schedules/2025_S1_schedule.yaml")) |>
+read_yaml(here::here("hacky-hour/schedules/2025_S2_schedule.yaml")) |>
   yaml_date_nodes_to_tbl() |>
   tidy_date_tbl() |>
   verify_date_df() |>
@@ -157,6 +157,14 @@ Use common sense - be kind and respectful. Criticism should be constructive and 
 <details><summary>Previous schedules</summary>
 ```
 
+### 2025 Semester 1 schedule
+
+```{r}
+#| echo: false
+#| output: true
+ggiraph::girafe(ggobj = render_calendar(here::here("hacky-hour/schedules/2025_S1_schedule.yaml")))
+```
+
 ### 2024 Semester 2 schedule
 
 ```{r}
@@ -164,7 +172,6 @@ Use common sense - be kind and respectful. Criticism should be constructive and 
 #| output: true
 ggiraph::girafe(ggobj = render_calendar(here::here("hacky-hour/schedules/2024_S2_schedule.yaml")))
 ```
-
 
 ```{=html}
 </details>
