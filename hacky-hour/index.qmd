@@ -12,7 +12,7 @@ If you would like to subscribe to the calendar click [here](https://calendar.goo
 
 ### Date & Time
 
-Hacky hour takes place on Thursdays from 11:00 AM to 12:30 PM, with a virtual option available via [Zoom](https://monash.zoom.us/j/6480938551?pwd=sEeL1EM5ydNEWWcFESvUYj3iNDM4Ci.1). 
+Hacky hour takes place on Thursdays from 11:00 AM to 12:30 PM, with a virtual option available via [Zoom](https://monash.zoom.us/j/81899931654?pwd=k6f0auIOAUa4ZOCPoC8fPIYhgpmzVP.1). 
 
 ### Location
 
@@ -22,11 +22,11 @@ Room 317, Building 6, 29 Ancora Imparo Way (check Current Schedule (@sec-current
 
 Hacky hour is held in two formats.
 
-Shut Up and Code
+#### Shut Up and Code
 
 Consists of everyone working on their own projects in short bursts and sharing help with each other.
 
-Study Group / Brown bag sessions
+#### Study Group / Brown bag sessions
 
 Consists of Show & Tell sessions or workshops where everyone shares the knowledge and questions they have gathered on different topics.
 
