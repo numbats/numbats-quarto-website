@@ -51,7 +51,7 @@ And **at least two** of the following four units:
 - ETC5580 Advanced statistical modelling
 - ETF5500 High dimensional data analysis
 - ETC5450 Advanced R programming
-- ETC5555 Statistical machine mining
+- ETC5555 Statistical machine learning
 
 And a further **four elective units** from the following list, or others by special request.
 
