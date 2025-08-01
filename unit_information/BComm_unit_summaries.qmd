@@ -30,7 +30,7 @@ The following are elective units that can contribute towards the major (first di
 - ETC2410 Introductory econometrics 
 - BEX3726: Engaging with international business
 - ETC3550: Applied forecasting
-- ETC3555: Statistical machine mining
+- ETC3555: Statistical machine learning
 - ETC3580: Advanced statistical modelling
 - ETF3500: High dimensional data analysis
 - FIT1045: Algorithms and programming fundamentals in python
