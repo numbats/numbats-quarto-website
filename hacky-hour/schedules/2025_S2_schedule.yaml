@@ -62,22 +62,22 @@
   endTime: '12:30:00'
   room: Building 6 Room 317
   emoji: 💾
-- details: Mid-Semester Break
-  startDate: '2025-09-22'
-  endDate: '2025-09-26'
-  categories: Break
-  startTime: .na.character
-  endTime: .na.character
-  room: Monash University
-  emoji: 🛏️
 - details: Shut Up and Code 
-  startDate: '2025-10-02'
-  endDate: '2025-10-02'
+  startDate: '2025-09-25'
+  endDate: '2025-09-25'
   categories: Study Group
   startTime: '11:00:00'
   endTime: '12:30:00'
   room: Building 6 Room 317
   emoji: 👩🏻‍💻
+- details: Mid-Semester Break
+  startDate: '2025-09-29'
+  endDate: '2025-10-03'
+  categories: Break
+  startTime: .na.character
+  endTime: .na.character
+  room: Monash University
+  emoji: 🛏️
 - details: Shut Up and Code 
   startDate: '2025-10-09'
   endDate: '2025-10-09'
