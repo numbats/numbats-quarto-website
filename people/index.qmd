@@ -11,14 +11,6 @@ listing:
     page-size: 999
     fields: [title, description, image]
     grid-item-align: left
-  - id: visitor
-    contents:
-      - "visitors/"
-    type: grid
-    image-height: 150px
-    grid-columns: 4
-    fields: [title, description, image]
-    grid-item-align: left
   - id: alumni
     contents:
       - "alumni/"
@@ -42,10 +34,6 @@ css: styles.css
 :::{#current}
 :::
 
-## Visitors
-
-:::{#visitor}
-:::
 
 ## Alumni
 

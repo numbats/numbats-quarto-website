@@ -9,11 +9,13 @@ from: markdown+emoji
 
 * SAVE THE DATE! [WOMBAT (Workshop Organised by the Monash Business Analytics Team) 2025](https://wombat2025.numbat.space) will be held Sep 29-30 in Melbourne. 
 
-* Welcome back Tas (Anastasios Panagiotelis)!
+* Welcome to visitors [Natalia Da Silva](https://natydasilva.github.io/natydasilva/) and [Ignacio Alvarez](https://github.com/nachalca) from Universidad de la República, Montevideo, Uruguay, with us until the end of 2025.
 
-* NUMBATS will be offering regular workshops for the Monash Community, starting in May. See the [workshop page](https://numbat.space/workshops/) for current details. 
+* Farewell to [David Wu](https://github.com/dwu0042) who has been a valuable member of NUMBATs for several years. Wishing him the best in his future endeavours.
 
-* Congratulations to Patrick (Weihao) Li for successfully completing your PhD.
+* Congratulations to Dr Cynthia Huang, on being conferred the doctorate!
+
+* NUMBATS is offering regular workshops for the Monash Community. See the [workshop page](https://numbat.space/workshops/) for current details. 
 
 * Monash Master of Business Analytics: Strap on an explorer's backback and a skeptics hat and learn how to analyse data. [Find out more.](https://www.monash.edu/business/master-of-business-analytics#events)
 

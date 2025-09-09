@@ -3,9 +3,9 @@ title: Projects
 listing:
   template: projects.ejs
   contents:
-    - title: WOMBAT 2024
-      description: Workshop Organised by the Monash Business Analytics Team 2024 Communicating with Data
-      url: https://numbats.github.io/WOMBAT2024/
+    - title: WOMBAT 2025
+      description: Workshop Organised by the Monash Business Analytics Team 2025 designing data driven discoveries
+      url: https://wombat2025.numbat.space
       image: img/wombat2022.png
     - title: tidyverts
       description: R packages for tidy time series analysis
