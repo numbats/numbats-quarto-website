@@ -149,6 +149,8 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#occurrence-data-from-atlas-of-living-australia" id="toc-occurrence-data-from-atlas-of-living-australia" class="nav-link" data-scroll-target="#occurrence-data-from-atlas-of-living-australia">Occurrence data from Atlas of Living Australia</a></li>
   <li><a href="#melbourne-pedestrian-sensor-data" id="toc-melbourne-pedestrian-sensor-data" class="nav-link" data-scroll-target="#melbourne-pedestrian-sensor-data">Melbourne pedestrian sensor data</a></li>
   <li><a href="#australian-tourism" id="toc-australian-tourism" class="nav-link" data-scroll-target="#australian-tourism">Australian tourism</a></li>
+  <li><a href="#triple-js-hottest-100-australian-songs" id="toc-triple-js-hottest-100-australian-songs" class="nav-link" data-scroll-target="#triple-js-hottest-100-australian-songs">Triple J’s Hottest 100 Australian songs</a></li>
+  <li><a href="#australian-flights" id="toc-australian-flights" class="nav-link" data-scroll-target="#australian-flights">Australian flights</a></li>
   <li><a href="#bushfires" id="toc-bushfires" class="nav-link" data-scroll-target="#bushfires">Bushfires</a></li>
   <li><a href="#air-quality" id="toc-air-quality" class="nav-link" data-scroll-target="#air-quality">Air quality</a></li>
   <li><a href="#notes" id="toc-notes" class="nav-link" data-scroll-target="#notes">Notes</a></li>
@@ -177,20 +179,20 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="afl-women-and-men" class="level2">
-<h2 class="anchored" data-anchor-id="afl-women-and-men">AFL (women and men)</h2>
+<section id="afl-women-and-men" class="level3">
+<h3 class="anchored" data-anchor-id="afl-women-and-men">AFL (women and men)</h3>
 <p>The <a href="https://jimmyday12.github.io/fitzRoy/">fitzRoy</a> package allows samples of AFL player and team statistics to be created.</p>
 </section>
-<section id="cricket-women-and-men" class="level2">
-<h2 class="anchored" data-anchor-id="cricket-women-and-men">cricket (women and men)</h2>
+<section id="cricket-women-and-men" class="level3">
+<h3 class="anchored" data-anchor-id="cricket-women-and-men">cricket (women and men)</h3>
 <p>The <a href="http://pkg.robjhyndman.com/cricketdata/">cricketdata</a> package allows samples of player and team scores for different types of matches.</p>
 </section>
-<section id="occurrence-data-from-atlas-of-living-australia" class="level2">
-<h2 class="anchored" data-anchor-id="occurrence-data-from-atlas-of-living-australia">Occurrence data from Atlas of Living Australia</h2>
+<section id="occurrence-data-from-atlas-of-living-australia" class="level3">
+<h3 class="anchored" data-anchor-id="occurrence-data-from-atlas-of-living-australia">Occurrence data from Atlas of Living Australia</h3>
 <p>The <a href="https://galah.ala.org.au">galah</a> package provides occurrence data from <a href="https://www.ala.org.au">Atlas of Living Australia</a>.</p>
 </section>
-<section id="melbourne-pedestrian-sensor-data" class="level2">
-<h2 class="anchored" data-anchor-id="melbourne-pedestrian-sensor-data">Melbourne pedestrian sensor data</h2>
+<section id="melbourne-pedestrian-sensor-data" class="level3">
+<h3 class="anchored" data-anchor-id="melbourne-pedestrian-sensor-data">Melbourne pedestrian sensor data</h3>
 <p>The <a href="https://www.pedestrian.melbourne.vic.gov.au/">Melbourne pedestrian sensor data</a> provide hourly counts of pedestrians walking past 63 sensors in downtown Melbourne. Some sensors have been installed since July 2009. This data can be accessed using the <a href="https://github.com/earowang/rwalkr">rwalkr</a> package.</p>
 <p>This data is useful for studying temporal trends at multiple sites. Some locations have strong daily patterns, and week day patterns, and some have none. Samples of the data is available in some R packages, including <a href="https://tsibble.tidyverts.org/index.html">tsibble</a>.</p>
 <p>Some potential educational exercises for this data set are:</p>
@@ -204,8 +206,8 @@ ul.task-list li input[type="checkbox"] {
 <li>Combine with weather data to examine relationship between pedestrians and tempoerature or precipitation.</li>
 </ul>
 </section>
-<section id="australian-tourism" class="level2">
-<h2 class="anchored" data-anchor-id="australian-tourism">Australian tourism</h2>
+<section id="australian-tourism" class="level3">
+<h3 class="anchored" data-anchor-id="australian-tourism">Australian tourism</h3>
 <p>The <a href="https://www.tra.gov.au/en/about-tra/services">Australian tourism</a> database is available to educational institutions. The data has quarterly information on domestic overnight trips to regional locations categorised by purpose.</p>
 <p>Some potential educational exercises for this data set are:</p>
 <ul>
@@ -215,11 +217,19 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <p>Subsets are available in various R packages including <a href="https://tsibble.tidyverts.org/index.html">tsibble</a>.</p>
 </section>
-<section id="bushfires" class="level2">
-<h2 class="anchored" data-anchor-id="bushfires">Bushfires</h2>
+<section id="triple-js-hottest-100-australian-songs" class="level3">
+<h3 class="anchored" data-anchor-id="triple-js-hottest-100-australian-songs">Triple J’s Hottest 100 Australian songs</h3>
+<p>This data is scraped from Triple J’s 2025 survey and is made available in the R package <a href="https://github.com/katerobsau/hottest100">hottest100</a>.</p>
 </section>
-<section id="air-quality" class="level2">
-<h2 class="anchored" data-anchor-id="air-quality">Air quality</h2>
+<section id="australian-flights" class="level3">
+<h3 class="anchored" data-anchor-id="australian-flights">Australian flights</h3>
+<p>Information about airline travel in Australia. It is available in the R package <a href="https://tinarj.github.io/auflights/">auflights</a>.</p>
+</section>
+<section id="bushfires" class="level3">
+<h3 class="anchored" data-anchor-id="bushfires">Bushfires</h3>
+</section>
+<section id="air-quality" class="level3">
+<h3 class="anchored" data-anchor-id="air-quality">Air quality</h3>
 <p>Air quality is sourced from https://openaq.org.</p>
 </section>
 <section id="notes" class="level2">

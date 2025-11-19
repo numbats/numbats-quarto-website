@@ -2,19 +2,19 @@
 title: Fresh and local data sets for teaching
 ---
 
-## AFL (women and men)
+### AFL (women and men)
 
 The [fitzRoy](https://jimmyday12.github.io/fitzRoy/) package allows samples of AFL player and team statistics to be created.
 
-## cricket (women and men)
+### cricket (women and men)
 
 The [cricketdata](http://pkg.robjhyndman.com/cricketdata/) package allows samples of player and team scores for different types of matches.
 
-## Occurrence data from Atlas of Living Australia
+### Occurrence data from Atlas of Living Australia
 
 The [galah](https://galah.ala.org.au) package provides occurrence data from [Atlas of Living Australia](https://www.ala.org.au).
 
-## Melbourne pedestrian sensor data
+### Melbourne pedestrian sensor data
 
 The [Melbourne pedestrian sensor data](https://www.pedestrian.melbourne.vic.gov.au/) provide hourly counts of pedestrians walking past 63 sensors in downtown Melbourne. Some sensors have been installed since July 2009. This data can be accessed using the [rwalkr](https://github.com/earowang/rwalkr) package.
 
@@ -30,7 +30,7 @@ Some potential educational exercises for this data set are:
 - Forecast counts a few hours or days or months ahead.
 - Combine with weather data to examine relationship between pedestrians and tempoerature or precipitation.
 
-## Australian tourism
+### Australian tourism
 
 The [Australian tourism](https://www.tra.gov.au/en/about-tra/services) database is available to educational institutions. The data has quarterly information on domestic overnight trips to regional locations categorised by purpose.  
 
@@ -42,9 +42,17 @@ Some potential educational exercises for this data set are:
 
 Subsets are available in various R packages including [tsibble](https://tsibble.tidyverts.org/index.html).  
 
-## Bushfires
+### Triple J's Hottest 100 Australian songs
 
-## Air quality
+This data is scraped from Triple J's 2025 survey and is made available in the R package [hottest100](https://github.com/katerobsau/hottest100).
+
+### Australian flights
+
+Information about airline travel in Australia. It is available in the R package [auflights](https://tinarj.github.io/auflights/).
+
+### Bushfires
+
+### Air quality
 
 Air quality is sourced from https://openaq.org. 
 
