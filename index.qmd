@@ -7,13 +7,17 @@ from: markdown+emoji
 
 <h2>Latest News</h2>
 
-* SAVE THE DATE! [WOMBAT (Workshop Organised by the Monash Business Analytics Team) 2025](https://wombat2025.numbat.space) will be held Sep 29-30 in Melbourne. 
+* Congratulations to Dr Nuwani Palihawadana, on being conferred the doctorate!
 
-* Welcome to visitors [Natalia Da Silva](https://natydasilva.github.io/natydasilva/) and [Ignacio Alvarez](https://github.com/nachalca) from Universidad de la República, Montevideo, Uruguay, with us until the end of 2025.
+* Welcome to visitors [Heather Turner](https://www.heatherturner.net), [Simon Urbanek](https://urbanek.info) and [Nick Tierney](https://www.njtierney.com) visiting in November.  [Natalia Da Silva](https://natydasilva.github.io/natydasilva/) and [Ignacio Alvarez](https://github.com/nachalca) from Universidad de la República, Montevideo, Uruguay, are with us until the end of 2025.
+
+* We are hosting [R Dev Day](https://contributor.r-project.org/events/r-dev-days/) November 21 at 750 Collins. 
+
+* [NUMBAT Hackathon](https://github.com/numbats/numbathackathon/issues) is running November 18-20. There are many projects being worked on.
+
+* [WOMBAT (Workshop Organised by the Monash Business Analytics Team) 2025](https://wombat2025.numbat.space) was held Sep 29-30 in Melbourne. 
 
 * Farewell to [David Wu](https://github.com/dwu0042) who has been a valuable member of NUMBATs for several years. Wishing him the best in his future endeavours.
-
-* Congratulations to Dr Cynthia Huang, on being conferred the doctorate!
 
 * NUMBATS is offering regular workshops for the Monash Community. See the [workshop page](https://numbat.space/workshops/) for current details. 
 
