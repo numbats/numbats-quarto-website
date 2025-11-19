@@ -1,0 +1,53 @@
+---
+title: Fresh and local data sets for teaching
+---
+
+## AFL (women and men)
+
+The [fitzRoy](https://jimmyday12.github.io/fitzRoy/) package allows samples of AFL player and team statistics to be created.
+
+## cricket (women and men)
+
+The [cricketdata](http://pkg.robjhyndman.com/cricketdata/) package allows samples of player and team scores for different types of matches.
+
+## Occurrence data from Atlas of Living Australia
+
+The [galah](https://galah.ala.org.au) package provides occurrence data from [Atlas of Living Australia](https://www.ala.org.au).
+
+## Melbourne pedestrian sensor data
+
+The [Melbourne pedestrian sensor data](https://www.pedestrian.melbourne.vic.gov.au/) provide hourly counts of pedestrians walking past 63 sensors in downtown Melbourne. Some sensors have been installed since July 2009. This data can be accessed using the [rwalkr](https://github.com/earowang/rwalkr) package.
+
+This data is useful for studying temporal trends at multiple sites. Some locations have strong daily patterns, and week day patterns, and some have none. Samples of the data is available in some R packages, including [tsibble](https://tsibble.tidyverts.org/index.html).
+
+Some potential educational exercises for this data set are:
+
+- Subset in time.
+- Make plots of series at a sensor to study daily, weekly, or longer term trends.
+- Compare patterns series at different sensors using plots.
+- Explore missing value patterns.
+- Examine approaches to imputing missing values.
+- Forecast counts a few hours or days or months ahead.
+- Combine with weather data to examine relationship between pedestrians and tempoerature or precipitation.
+
+## Australian tourism
+
+The [Australian tourism](https://www.tra.gov.au/en/about-tra/services) database is available to educational institutions. The data has quarterly information on domestic overnight trips to regional locations categorised by purpose.  
+
+Some potential educational exercises for this data set are:
+
+- Subset in time.
+- Make plots of quarterly counts.
+- Compare quarterly counts for different regions, and for different travel purposes.
+
+Subsets are available in various R packages including [tsibble](https://tsibble.tidyverts.org/index.html).  
+
+## Bushfires
+
+## Air quality
+
+Air quality is sourced from https://openaq.org. 
+
+## Notes
+
+**Data philosophy**: Be conscious of diversity e.g. avoid data with binary gender/sex; Break boundaries e.g. for a sports example use women's statistics.

@@ -2,14 +2,14 @@
 title: Courses
 ---
 
-The Business Analytics group has two main educational offerings:
+The Business Analytics group has two main educational offerings, with details from the handbook at:
 
 -  [Bachelor of Commerce (Major in Business Analytics)](https://handbook.monash.edu/current/aos/BUSANLMJ01)
 - [Master of Business Analytics](https://handbook.monash.edu/current/courses/B6022)
 
 These degrees provide students with a advanced knowledge in applied statistics and data science, with a focus on open source software and open data. With this knowledge you can equip yourself with computational statistical tools to understand the world around you in the face of uncertainty.
 
-Some of the unit descriptions are:
+Some of the unit websites are:
 
 - [ETC5510 Introduction to data analysis (2020 original)](https://mida.numbat.space)
 - [ETC5512 Wild-caught data](https://wcd.numbat.space)
@@ -20,22 +20,13 @@ Some of the unit descriptions are:
 - [ETC5250 Introduction to machine learning](https://iml.numbat.space)
 - [ETC5450 Advanced R programming](https://arp.numbat.space)
 
-A full list of topics for the B.Comm BA major can be found [here](unit_information/BComm_unit_summaries.pdf) MBAt program can be seen [here](unit_information/MBAt_unit_summaries.pdf). 
+A full list of current topics for the B.Comm BA major can be found [here](unit_information/BComm_unit_summaries.pdf) and the MBAt program can be seen [here](unit_information/MBAt_unit_summaries.pdf). 
 
 ## Additional Resources
 
 ### Fresh and local data
 
-- <a href="https://jimmyday12.github.io/fitzRoy/"> <img src="https://jimmyday12.github.io/fitzRoy/reference/figures/fitz_hex.png" width="100px"> AFL (women and men) </a>
-- <a href="http://pkg.robjhyndman.com/cricketdata/"> <img src="http://pkg.robjhyndman.com/cricketdata/reference/figures/cricketdata.png" width="100px"> cricket (women and men) </a>
-- <a href="https://galah.ala.org.au"> <img src="https://raw.githubusercontent.com/AtlasOfLivingAustralia/ala-labs/main/images/hex/galah_logo.png" width="100px"> Occurrence data from Atlas of Living Australia </a>
-- <a href="https://pkg.earo.me/rwalkr/"> Melbourne pedestrian sensor data </a>
-- <a href="https://www.tra.gov.au/en/data-and-research"> Australian tourism </a> database available to Monash personnel
-- <a href="https://numbats.github.io/airpurifyr/"> Air quality </a> sourced from https://openaq.org
-
-**Taxonomy of open data**: Slides for ETC5512 show a useful [taxonomy of data sources](https://wcd.numbat.space/lectures/lecture-01.html#29).
-
-**Data philosophy**: Be conscious of diversity e.g. avoid data with binary gender/sex; Break boundaries e.g. for a sports example use women's statistics.
+We have a teaching philosophy to use fresh and local data, as defined in [these slides](https://wcd.numbat.space/lectures/lecture-01.html#29). These resources can be found at [this website](data.html).
 
 ## Style guide
 
@@ -43,6 +34,10 @@ A full list of topics for the B.Comm BA major can be found [here](unit_informati
     - Website: `quarto use template quarto-monash/unit`
     - Slides: `quarto use template quarto-monash/presentation`
 - We recommend following [Tidyverse style guide](https://style.tidyverse.org) for R code
+
+## Introductory R lessons
+
+A set of self-paced lessons to get started with R can be found at [https://startr.numbat.space](https://startr.numbat.space).
 
 ## Creating a kaggle competition
 

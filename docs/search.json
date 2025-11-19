@@ -595,32 +595,74 @@
     "text": "Code of conduct\nUse common sense - be kind and respectful. Criticism should be constructive and designed to improve a student’s work.\nPrevious schedules\n\n2025 Semester 1 schedule\n\n\n\n\n\n\n\n\n2024 Semester 2 schedule"
   },
   {
-    "objectID": "courses.html",
-    "href": "courses.html",
-    "title": "Courses",
+    "objectID": "data.html",
+    "href": "data.html",
+    "title": "Fresh and local data sets for teaching",
     "section": "",
-    "text": "The Business Analytics group has two main educational offerings:\nThese degrees provide students with a advanced knowledge in applied statistics and data science, with a focus on open source software and open data. With this knowledge you can equip yourself with computational statistical tools to understand the world around you in the face of uncertainty.\nSome of the unit descriptions are:\nA full list of topics for the B.Comm BA major can be found here MBAt program can be seen here."
+    "text": "The fitzRoy package allows samples of AFL player and team statistics to be created."
   },
   {
-    "objectID": "courses.html#additional-resources",
-    "href": "courses.html#additional-resources",
-    "title": "Courses",
-    "section": "Additional Resources",
-    "text": "Additional Resources\n\nFresh and local data\n\n  AFL (women and men) \n  cricket (women and men) \n  Occurrence data from Atlas of Living Australia \n Melbourne pedestrian sensor data \n Australian tourism  database available to Monash personnel\n Air quality  sourced from https://openaq.org\n\nTaxonomy of open data: Slides for ETC5512 show a useful taxonomy of data sources.\nData philosophy: Be conscious of diversity e.g. avoid data with binary gender/sex; Break boundaries e.g. for a sports example use women’s statistics."
+    "objectID": "data.html#afl-women-and-men",
+    "href": "data.html#afl-women-and-men",
+    "title": "Fresh and local data sets for teaching",
+    "section": "",
+    "text": "The fitzRoy package allows samples of AFL player and team statistics to be created."
   },
   {
-    "objectID": "courses.html#style-guide",
-    "href": "courses.html#style-guide",
-    "title": "Courses",
-    "section": "Style guide",
-    "text": "Style guide\n\nTemplates\n\nWebsite: quarto use template quarto-monash/unit\nSlides: quarto use template quarto-monash/presentation\n\nWe recommend following Tidyverse style guide for R code"
+    "objectID": "data.html#cricket-women-and-men",
+    "href": "data.html#cricket-women-and-men",
+    "title": "Fresh and local data sets for teaching",
+    "section": "cricket (women and men)",
+    "text": "cricket (women and men)\nThe cricketdata package allows samples of player and team scores for different types of matches."
   },
   {
-    "objectID": "courses.html#creating-a-kaggle-competition",
-    "href": "courses.html#creating-a-kaggle-competition",
-    "title": "Courses",
-    "section": "Creating a kaggle competition",
-    "text": "Creating a kaggle competition\n\nInstructions and past data examples"
+    "objectID": "data.html#occurrence-data-from-atlas-of-living-australia",
+    "href": "data.html#occurrence-data-from-atlas-of-living-australia",
+    "title": "Fresh and local data sets for teaching",
+    "section": "Occurrence data from Atlas of Living Australia",
+    "text": "Occurrence data from Atlas of Living Australia\nThe galah package provides occurrence data from Atlas of Living Australia."
+  },
+  {
+    "objectID": "data.html#melbourne-pedestrian-sensor-data",
+    "href": "data.html#melbourne-pedestrian-sensor-data",
+    "title": "Fresh and local data sets for teaching",
+    "section": "Melbourne pedestrian sensor data",
+    "text": "Melbourne pedestrian sensor data\nThe Melbourne pedestrian sensor data provide hourly counts of pedestrians walking past 63 sensors in downtown Melbourne. Some sensors have been installed since July 2009. This data can be accessed using the rwalkr package.\nThis data is useful for studying temporal trends at multiple sites. Some locations have strong daily patterns, and week day patterns, and some have none. Samples of the data is available in some R packages, including tsibble.\nSome potential educational exercises for this data set are:\n\nSubset in time.\nMake plots of series at a sensor to study daily, weekly, or longer term trends.\nCompare patterns series at different sensors using plots.\nExplore missing value patterns.\nExamine approaches to imputing missing values.\nForecast counts a few hours or days or months ahead.\nCombine with weather data to examine relationship between pedestrians and tempoerature or precipitation."
+  },
+  {
+    "objectID": "data.html#australian-tourism",
+    "href": "data.html#australian-tourism",
+    "title": "Fresh and local data sets for teaching",
+    "section": "Australian tourism",
+    "text": "Australian tourism\nThe Australian tourism database is available to educational institutions. The data has quarterly information on domestic overnight trips to regional locations categorised by purpose.\nSome potential educational exercises for this data set are:\n\nSubset in time.\nMake plots of quarterly counts.\nCompare quarterly counts for different regions, and for different travel purposes.\n\nSubsets are available in various R packages including tsibble."
+  },
+  {
+    "objectID": "data.html#bushfires",
+    "href": "data.html#bushfires",
+    "title": "Fresh and local data sets for teaching",
+    "section": "Bushfires",
+    "text": "Bushfires"
+  },
+  {
+    "objectID": "data.html#air-quality",
+    "href": "data.html#air-quality",
+    "title": "Fresh and local data sets for teaching",
+    "section": "Air quality",
+    "text": "Air quality\nAir quality is sourced from https://openaq.org."
+  },
+  {
+    "objectID": "data.html#notes",
+    "href": "data.html#notes",
+    "title": "Fresh and local data sets for teaching",
+    "section": "Notes",
+    "text": "Notes\nData philosophy: Be conscious of diversity e.g. avoid data with binary gender/sex; Break boundaries e.g. for a sports example use women’s statistics."
+  },
+  {
+    "objectID": "contact.html",
+    "href": "contact.html",
+    "title": "Contact",
+    "section": "",
+    "text": "{{&lt; fa solid dove size=2xl &gt;}} bluesky @numbats_rise_up\n{{&lt; fa solid compass size=2xl &gt;}} Enter Education Building, we are located primarily on level 3, and to the east\n{{&lt; fa solid location-pin size=2xl &gt;}} Monash University, Clayton Campus, Wellington Rd, Melbourne, 3800\n\n\nView Larger Map"
   },
   {
     "objectID": "about.html",
@@ -630,11 +672,39 @@
     "text": "NUMBATs is the name for our research group, Non-Uniform Monash Business Analytics Team, in the Econometrics and Business Statistics Department. We meet regularly to openly exchange and discuss research ideas and activity in an actively supportive and creative environment. People outside the group are welcome to attend, and can sign up to receive notifications about topics for each meeting, or check the calendar on the web site.\nOur mission is to advance methodology for making data analysis easier. We develop new techniques for statistical modeling and visualisation, and work hard to make these available to the general public by distributing open source software, mostly using R.\nIt is also our goal to raise awareness of Australian fauna and flora, particularly many of the beautiful endangered species. For example, in reality, numbats are insectivores, mostly found in Western Australia, and we encourage you to contribute to the conservation efforts by donating or purchasing products from Project Numbat."
   },
   {
-    "objectID": "contact.html",
-    "href": "contact.html",
-    "title": "Contact",
+    "objectID": "courses.html",
+    "href": "courses.html",
+    "title": "Courses",
     "section": "",
-    "text": "{{&lt; fa solid dove size=2xl &gt;}} bluesky @numbats_rise_up\n{{&lt; fa solid compass size=2xl &gt;}} Enter Education Building, we are located primarily on level 3, and to the east\n{{&lt; fa solid location-pin size=2xl &gt;}} Monash University, Clayton Campus, Wellington Rd, Melbourne, 3800\n\n\nView Larger Map"
+    "text": "The Business Analytics group has two main educational offerings, with details from the handbook at:\nThese degrees provide students with a advanced knowledge in applied statistics and data science, with a focus on open source software and open data. With this knowledge you can equip yourself with computational statistical tools to understand the world around you in the face of uncertainty.\nSome of the unit websites are:\nA full list of current topics for the B.Comm BA major can be found here and the MBAt program can be seen here."
+  },
+  {
+    "objectID": "courses.html#additional-resources",
+    "href": "courses.html#additional-resources",
+    "title": "Courses",
+    "section": "Additional Resources",
+    "text": "Additional Resources\n\nFresh and local data\nWe have a teaching philosophy to use fresh and local data, as defined in these slides. These resources can be found at this website."
+  },
+  {
+    "objectID": "courses.html#style-guide",
+    "href": "courses.html#style-guide",
+    "title": "Courses",
+    "section": "Style guide",
+    "text": "Style guide\n\nTemplates\n\nWebsite: quarto use template quarto-monash/unit\nSlides: quarto use template quarto-monash/presentation\n\nWe recommend following Tidyverse style guide for R code"
+  },
+  {
+    "objectID": "courses.html#introductory-r-lessons",
+    "href": "courses.html#introductory-r-lessons",
+    "title": "Courses",
+    "section": "Introductory R lessons",
+    "text": "Introductory R lessons\nA set of self-paced lessons to get started with R can be found at https://startr.numbat.space."
+  },
+  {
+    "objectID": "courses.html#creating-a-kaggle-competition",
+    "href": "courses.html#creating-a-kaggle-competition",
+    "title": "Courses",
+    "section": "Creating a kaggle competition",
+    "text": "Creating a kaggle competition\n\nInstructions and past data examples"
   },
   {
     "objectID": "events.html",
