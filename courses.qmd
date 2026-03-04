@@ -26,7 +26,7 @@ A full list of current topics for the B.Comm BA major can be found [here](unit_i
 
 ### Fresh and local data
 
-We have a teaching philosophy to use fresh and local data, as defined in [these slides](https://wcd.numbat.space/lectures/lecture-01.html#29). These resources can be found at [this website](data.html).
+We have a teaching philosophy to use fresh and local data, as defined in [these slides](https://wcd.numbat.space/week1/#/flavours-of-open-data). These resources can be found at [this website](data.html).
 
 ## Style guide
 
