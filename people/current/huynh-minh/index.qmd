@@ -1,0 +1,16 @@
+---
+email: minh.huynh@monash.edu
+title: Minh Huynh
+description: Senior Lecturer in Statistics
+www:   https://research.monash.edu/en/persons/minh-huynh/
+github: m2huynh
+interests:
+- statistics education
+- sport analytics
+- data science
+- applied statistics
+user_groups:
+- Faculty
+- Current
+image: avatar.jpg
+---
