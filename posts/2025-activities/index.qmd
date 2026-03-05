@@ -63,6 +63,7 @@ The [NUMBATs Hackathon](https://github.com/numbats/numbathackathon/issues) was h
 ::: {.column width=33%}
 
 ![](hackathon1.jpg)
+
 ![](hackathon4.jpg)
 
 :::
