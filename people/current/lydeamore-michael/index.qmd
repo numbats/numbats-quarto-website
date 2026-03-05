@@ -2,7 +2,7 @@
 email: michael.lydeamore@monash.edu
 title: Michael Lydeamore
 description: Senior Lecturer in Statistics
-www:   https://research.monash.edu/en/persons/michael-lydeamore
+www:   https://www.michaellydeamore.com
 github: MikeLydeamore
 bluesky: likelydeamore
 interests:
