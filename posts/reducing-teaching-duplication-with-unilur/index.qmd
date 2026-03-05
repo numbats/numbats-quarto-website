@@ -1,6 +1,7 @@
 ---
 date: 2023-07-19
 title: "Reducing duplication in teaching materials"
+author: "Michael Lydeamore"
 slug: reducing-teaching-duplication
 categories:
     - quarto
