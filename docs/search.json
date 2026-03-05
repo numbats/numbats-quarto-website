@@ -329,6 +329,55 @@
     "text": "This is a post on various activities that happened in 2025!"
   },
   {
+    "objectID": "posts/2025-activities/index.html#wombat",
+    "href": "posts/2025-activities/index.html#wombat",
+    "title": "2025 was a busy year!",
+    "section": "WOMBAT",
+    "text": "WOMBAT\nThe workshop was held Sep 29-30, and featured Nicola Rennie, from the Office for National Statistics in the United Kingdom, as the keynote speaker. Cynthia Huang and Mitch O’Hara-Wild are the lead organisers, with substantial help from many others, Michael Lydeamore, Hannah Comiskey, Elio Campitelli, Janith Wanniarachchi, Krisanat Anukarnsakulchularp, Maliny Po. There were about 80 attendees from academia, industry and government. Day 1 hosted 8 workshops:\n\nIntroduction to Regression Analysis in R\nVisualising Uncertainty\nIntroduction to R packages\nTidy time series analysis and forecasting\nEfficiency Analysis in Python: A Hands-On Tutorial on Stochastic Frontier Analysis and Data Envelopment Analysis\nGetting Started with C++ for Faster Statistical Modelling in R\nReproducible Reporting and Research with Quarto\nBuilding Better Figures: A Scientific Graphic Design Workshop"
+  },
+  {
+    "objectID": "posts/2025-activities/index.html#hackathon",
+    "href": "posts/2025-activities/index.html#hackathon",
+    "title": "2025 was a busy year!",
+    "section": "Hackathon",
+    "text": "Hackathon\nThe NUMBATs Hackathon was held Nov 18-20. These are the projects that were developed during these two days:\n\nMarking app integrated with GitHub Classroom\nData validation app for checking data for list of problems\nDept network map showing research connections between faculty and students.\nWebsite and links for fresh, local data for teaching started, and some new datasets added (Australian airline travel, Triple J’s Hottest 100, walktober).\nA new R package to conduct block-based bootstrap blockstrap\nEnhancements to speed up the R package mcmsupply\nCode to organise into a package to hide patterns in missing values like the words “Oh no” if explored correctly.\nA new package to automate your CV from ORCID and spreadsheets, quarto-vitae.\nA web site for the new MBAT Club.\nA new package called StealLikeBayes that puts the best code from other sources in a convenient form."
+  },
+  {
+    "objectID": "posts/2025-activities/index.html#r-dev-day",
+    "href": "posts/2025-activities/index.html#r-dev-day",
+    "title": "2025 was a busy year!",
+    "section": "R Dev Day",
+    "text": "R Dev Day\nR Dev Day - Australia (programming base R and help document writing including language translation) was held Nov 21 and had about 40 attendees. Two patches were made available for base R."
+  },
+  {
+    "objectID": "posts/2025-activities/index.html#oceaniar",
+    "href": "posts/2025-activities/index.html#oceaniar",
+    "title": "2025 was a busy year!",
+    "section": "OceaniaR",
+    "text": "OceaniaR\nOceaniaR 2025 was held at ANU, Canberra Nov 23. Three Monash faculty and studens attended. About 30 participants. Several projects developed: autoAlt, ggplot2 battles, refresh of Australia maps and new maps for the Pacific. See the details on the issues page."
+  },
+  {
+    "objectID": "posts/2025-activities/index.html#visitors",
+    "href": "posts/2025-activities/index.html#visitors",
+    "title": "2025 was a busy year!",
+    "section": "Visitors",
+    "text": "Visitors\n– Aug 18-Dec 31 Natalia Da Silva, Universidad de la República, Montevideo, Uruguay – Aug 18-Dec 31 [Ignacio Alvarez (https://nachalca.github.io/nacho-pagina/), Universidad de la República, Montevideo, Uruguay – Nov 10-21 Heather Turner, University of Warwick, UK – Nov 17-20 Simon Urbanek, University of Auckland – Nov 18-20 Nick Tierney, Software Engineer, Credibly Curious"
+  },
+  {
+    "objectID": "posts/2025-activities/index.html#secret-santa",
+    "href": "posts/2025-activities/index.html#secret-santa",
+    "title": "2025 was a busy year!",
+    "section": "Secret Santa",
+    "text": "Secret Santa\nThe 2025 Secret Santa shared lots of presents, and lots of present steals happening! (Honey, jam, candles, hand-crocheted birds, stuffed toys, pottery, coffee, games, special drinks, pictures, …)"
+  },
+  {
+    "objectID": "posts/2025-activities/index.html#r-packages",
+    "href": "posts/2025-activities/index.html#r-packages",
+    "title": "2025 was a busy year!",
+    "section": "R packages",
+    "text": "R packages\nThe group contributed a lot of code to R this year:\n\n109 R packages on CRAN authored by current faculty and students.\n8,920,064 combined downloads this year, just from the Posit mirror.\n9 new packages in 2025"
+  },
+  {
     "objectID": "posts/2022-05-28-ggplot-sf/index.html",
     "href": "posts/2022-05-28-ggplot-sf/index.html",
     "title": "How long do maps on ggplot facets take?",
@@ -1153,54 +1202,5 @@
     "title": "Projects",
     "section": "",
     "text": "WOMBAT 2025\n          \n\n          \n            Workshop Organised by the Monash Business Analytics Team 2025 designing data driven discoveries\n          \n\n          \n          \n            \n              \n              \n            \n          \n          \n        \n      \n\n      \n\n    \n  \n\n  \n    \n      \n        \n          \n        \n      \n      \n        \n          tidyverts\n          \n\n          \n            R packages for tidy time series analysis\n          \n\n          \n          \n            \n              \n              \n            \n          \n          \n        \n      \n\n      \n\n    \n  \n\n  \n    \n      \n        \n          \n        \n      \n      \n        \n          Quarto\n          \n\n          \n            Quarto resources designed for use at Monash University\n          \n\n          \n          \n            \n              \n              \n            \n          \n          \n        \n      \n\n      \n\n    \n  \n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "posts/2025-activities/index.html#wombat",
-    "href": "posts/2025-activities/index.html#wombat",
-    "title": "2025 was a busy year!",
-    "section": "WOMBAT",
-    "text": "WOMBAT\nThe workshop was held Sep 29-30, and featured Nicola Rennie, from the Office for National Statistics in the United Kingdom, as the keynote speaker. Cynthia Huang and Mitch O’Hara-Wild are the lead organisers, with substantial help from many others, Michael Lydeamore, Hannah Comiskey, Elio Campitelli, Janith Wanniarachchi, Krisanat Anukarnsakulchularp, Maliny Po. There were about 80 attendees from academia, industry and government. Day 1 hosted 8 workshops:\n\nIntroduction to Regression Analysis in R\nVisualising Uncertainty\nIntroduction to R packages\nTidy time series analysis and forecasting\nEfficiency Analysis in Python: A Hands-On Tutorial on Stochastic Frontier Analysis and Data Envelopment Analysis\nGetting Started with C++ for Faster Statistical Modelling in R\nReproducible Reporting and Research with Quarto\nBuilding Better Figures: A Scientific Graphic Design Workshop"
-  },
-  {
-    "objectID": "posts/2025-activities/index.html#hackathon",
-    "href": "posts/2025-activities/index.html#hackathon",
-    "title": "2025 was a busy year!",
-    "section": "Hackathon",
-    "text": "Hackathon\nThe NUMBATs Hackathon was held Nov 18-20. These are the projects that were developed during these two days:\n\nMarking app integrated with GitHub Classroom\nData validation app for checking data for list of problems\nDept network map showing research connections between faculty and students.\nWebsite and links for fresh, local data for teaching started, and some new datasets added (Australian airline travel, Triple J’s Hottest 100, walktober).\nA new R package to conduct block-based bootstrap blockstrap\nEnhancements to speed up the R package mcmsupply\nCode to organise into a package to hide patterns in missing values like the words “Oh no” if explored correctly.\nA new package to automate your CV from ORCID and spreadsheets, quarto-vitae.\nA web site for the new MBAT Club.\nA new package called StealLikeBayes that puts the best code from other sources in a convenient form."
-  },
-  {
-    "objectID": "posts/2025-activities/index.html#r-dev-day",
-    "href": "posts/2025-activities/index.html#r-dev-day",
-    "title": "2025 was a busy year!",
-    "section": "R Dev Day",
-    "text": "R Dev Day\nR Dev Day - Australia (programming base R and help document writing including language translation) was held Nov 21 and had about 40 attendees. Two patches were made available for base R."
-  },
-  {
-    "objectID": "posts/2025-activities/index.html#oceaniar",
-    "href": "posts/2025-activities/index.html#oceaniar",
-    "title": "2025 was a busy year!",
-    "section": "OceaniaR",
-    "text": "OceaniaR\nOceaniaR 2025 was held at ANU, Canberra Nov 23. Three Monash faculty and studens attended. About 30 participants. Several projects developed: autoAlt, ggplot2 battles, refresh of Australia maps and new maps for the Pacific. See the details on the issues page."
-  },
-  {
-    "objectID": "posts/2025-activities/index.html#visitors",
-    "href": "posts/2025-activities/index.html#visitors",
-    "title": "2025 was a busy year!",
-    "section": "Visitors",
-    "text": "Visitors\n– Aug 18-Dec 31 Natalia Da Silva, Universidad de la República, Montevideo, Uruguay – Aug 18-Dec 31 [Ignacio Alvarez (https://nachalca.github.io/nacho-pagina/), Universidad de la República, Montevideo, Uruguay – Nov 10-21 Heather Turner, University of Warwick, UK – Nov 17-20 Simon Urbanek, University of Auckland – Nov 18-20 Nick Tierney, Software Engineer, Credibly Curious"
-  },
-  {
-    "objectID": "posts/2025-activities/index.html#secret-santa",
-    "href": "posts/2025-activities/index.html#secret-santa",
-    "title": "2025 was a busy year!",
-    "section": "Secret Santa",
-    "text": "Secret Santa\nThe 2025 Secret Santa shared lots of presents, and lots of present steals happening! (Honey, jam, candles, hand-crocheted birds, stuffed toys, pottery, coffee, games, special drinks, pictures, …)"
-  },
-  {
-    "objectID": "posts/2025-activities/index.html#r-packages",
-    "href": "posts/2025-activities/index.html#r-packages",
-    "title": "2025 was a busy year!",
-    "section": "R packages",
-    "text": "R packages\nThe group contributed a lot of code to R this year:\n\n109 R packages on CRAN authored by current faculty and students.\n8,920,064 combined downloads this year, just from the Posit mirror.\n9 new packages in 2025"
   }
 ]
