@@ -1,0 +1,16 @@
+---
+email: vincent.su@monash.edu
+title: Vincent Su
+description: PhD (Statistics)
+www:   https://github.com/lordtahdus
+github: lordtahdus
+interests:
+- forecasting
+- time series
+- financial markets
+- building startups?
+user_groups:
+- PhD Student
+- Current
+image: avatar.png
+---
