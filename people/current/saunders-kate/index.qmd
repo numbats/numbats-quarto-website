@@ -1,7 +1,8 @@
 ---
 email: kate.saunders@monash.edu
 title: Kate Saunders
-description: Lecturer in Statistics
+description: Senior Lecturer in Statistics
+www:   https://katerobsau.github.io/website-quarto/
 bluesky: KateRobSau
 github: katerobsau
 interests:

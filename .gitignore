@@ -38,3 +38,4 @@ Temporary Items
 /.luarc.json
 
 **/*.quarto_ipynb
+.positai
