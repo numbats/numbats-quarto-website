@@ -1,0 +1,275 @@
+---
+title: "Quarto Slide Extension"
+description: "How can we bring our slides to the next level (Appropriately)?"
+author:
+  - name: Krisanat Anukarnsakulchularp
+date: 2026-06-09
+categories: 
+  - Quarto
+  - Presentation
+  - Quarto Extension
+execute:
+  echo: true
+---
+
+# How Can We Improve Our Slides to the Next Level (Appropriately)?
+
+We've all seen the bad slides, where every bullet point flies in from a different direction, the fonts are too small, and someone has just discovered the "Spin" animation and uses it everywhere.
+
+But there's also the other kind: slides that feel right, polished and intentional, where the animations actually help capture the audience's attention, where the code on screen has context, and the timeline doesn't look like it was thrown together in a hurry. That's the version we should all be aiming for.
+
+Emil Hvitfeldt has built a collection of Quarto RevealJS extensions that make the *good* kind of levelling up easy, though they also make the *bad* kind more accessible. The responsibility ultimately falls on the user, and we should be grateful to have these tools available. They solve real presentation problems like "How do I show a conversation?", "How do I reveal a timeline one step at a time?", and "How do I make code blocks look like they belong in a real editor?", ***not*** "How do I make my text spin around?" This post walks through some of Emil's work.
+
+But first, we need a quick detour to understand the different extension types, because not all extensions work the same way. And before that, **what even is an extension to begin with?**
+
+
+## Quarto Extensions
+
+When you install a Quarto extension, it will be one of three things: a **filter**, a **RevealJS plugin**, or a **format**. They each do different things and slot into your YAML differently.
+
+
+### Filter
+
+A **filter** is a Lua script that modifies the abstract syntax tree (AST) during the rendering process, between the reader and the writer. You can think of a **filter** as a **curator** in an art gallery, whose job is to sort and prepare different types of pieces — a painting (paragraph), a photograph (image), and so on — before the exhibition opens to the public.
+
+Filters can be added to your YAML like this:
+
+`````yaml
+format: revealjs
+filters:
+  - roughnotation
+  - more-fragments
+`````
+
+
+### RevealJS Plugins
+
+A **RevealJS plugin** is a JavaScript (and sometimes CSS) bundle that runs *inside your browser* when the presentation loads, handling things like slide transitions and fragment events. If the filter is a curator who organises the pieces, the **RevealJS plugin** is the **presentation crew** who arrive on the day and wire up the exhibition with new equipment — projectors, lighting, and interactive screens that respond to what happens live in the gallery.
+
+You can hook these up under `revealjs-plugins` in your YAML:
+
+`````yaml
+format: revealjs
+revealjs-plugins:
+  - codewindow
+`````
+
+
+### Formats
+
+A **format** extension is a **predefined exhibition setup** for the gallery. Instead of configuring everything from scratch, someone has already fully designed the exhibition for you to simply apply. The content is the same, but how it is presented changes.
+
+A custom format can be specified in your YAML as follows:
+
+`````yaml
+format: letterbox-revealjs 
+`````
+
+Now that we understand the difference between Quarto extension types, here comes the fun stuff.
+
+
+## 1. `quarto-revealjs-more-fragments`
+
+**Type:** Filter
+
+**Install:** `quarto add extension EmilHvitfeldt/quarto-revealjs-more-fragments`
+
+**Docs:** [emilhvitfeldt.github.io/quarto-revealjs-more-fragments](https://emilhvitfeldt.github.io/quarto-revealjs-more-fragments/)
+
+RevealJS out of the box gives you fragments: fade-in, fade-out, highlight-red. But after a while, these can start to feel dull.
+
+`more-fragments` adds additional fragment animations by leveraging the [Animate.css](https://animate.style/) and [Magic.css](https://www.minimamente.com/project/magic/) libraries and making these animations available as fragment classes. For example:
+
+- **Attention seekers** — `bounce`, `shake`
+- **Entrances** — `bounceIn`, `zoomIn`
+- **Exits** — `bounceOut`, `zoomOut`
+- **Magic animations** — `magin`, `vanishIn`
+
+Using them is as simple as adding a class to your text:
+
+`````markdown
+This sentence has a [bouncing]{.fragment .bounce} word in it.
+`````
+
+**When should we use this?**
+
+Any talk where you want to draw attention to a particular word through animation. The library has many options, which means nothing is stopping you from using all of them, however, this is **not a sensible** approach. Pick one or two that suit your talk and stick with them. Too much animation can do more harm than good.
+
+
+## 2. `quarto-roughnotation` 
+
+**Type:** Filter
+
+**Install:** `quarto install extension EmilHvitfeldt/quarto-roughnotation`
+
+**Docs:** [emilhvitfeldt.github.io/quarto-roughnotation](https://emilhvitfeldt.github.io/quarto-roughnotation/)
+
+This filter wraps the [roughnotation](https://roughnotation.com/) JavaScript library, which draws animated, hand-sketched annotations directly on your slide content as you present, wobbly underlines, hand-drawn circles, crossed-out text, brackets, highlights, all drawn in real time.
+
+To use this filter, add `roughnotation` to your YAML filters, then add the `.rn-fragment` class to the text you want to annotate.
+
+`````yaml
+filters:
+  - roughnotation
+`````
+
+`````markdown
+I will be [highlighted]{.rn-fragment}, and so will [these words here]{.rn-fragment}
+`````
+
+To set a different annotation type, use `rn-type`, for duration, use `rn-animationDuration`, for color, use `rn-color`. There are many more options, set them after the class as follows:
+
+`````markdown
+[highlighted]{.rn-fragment rn-type=underline rn-color=red}
+`````
+
+**When should we use this?**
+
+In my opinion, this is preferable to `quarto-revealjs-more-fragments`, it's less exaggerated/distracted and easier on the audience.
+
+
+## 3. `quarto-timeline`
+
+**Type:** Filter
+
+**Install:** `quarto add EmilHvitfeldt/quarto-timeline`
+
+**Docs:** [emilhvitfeldt.github.io/quarto-timeline](https://emilhvitfeldt.github.io/quarto-timeline/)
+
+When trying to create a timeline, you usually reach for a table or Gantt chart and wonder why it still doesn't look quite right. `quarto-timeline` might be the answer. It's a proper timeline component built entirely from nested divs, with a clean markup syntax:
+
+`````markdown
+::: {.timeline .vertical}
+::: {.event data-label="2020"}
+**Project Started** - Initial concept and planning phase.
+:::
+::: {.event data-label="2021"}
+**First Release** - Launched version 1.0 to early users.
+:::
+::: {.event data-label="2022"}
+**Major Update** - Rewrote core engine for performance.
+:::
+:::
+`````
+
+The `data-label` attribute is your marker, year, version, number, month, or whatever fits your content. Layout can be controlled using classes like `.vertical`.
+
+Where it gets really nice is when fragments are added to the timeline. Add `.fragment-slide` to the outer div and `.fragment` to individual events to reveal them one at a time:
+
+`````markdown
+::: {.timeline .vertical .fragment-slide}
+::: {.event data-label="2020"}
+**Project Started** - Initial concept and planning phase.
+:::
+::: {.event .fragment data-label="2021"}
+**First Release** - Launched version 1.0 to early users.
+:::
+::: {.event .fragment data-label="2022"}
+**Major Update** - Rewrote core engine for performance.
+:::
+:::
+`````
+
+**When should we use this?**
+
+Project roadmaps, progress histories, anything with a narrative arc attached to it.
+
+
+## 4. `quarto-revealjs-chat-bubbles`
+
+**Type:** RevealJS Plugin
+
+**Install:** `quarto add EmilHvitfeldt/quarto-revealjs-chat-bubbles`
+
+**Docs:** [emilhvitfeldt.github.io/quarto-revealjs-chat-bubbles](https://emilhvitfeldt.github.io/quarto-revealjs-chat-bubbles/)
+
+Yes, chat bubbles, like iMessage, on your slides. The extension adds styled message bubbles that you can position left or right to distinguish between speakers, making it easy to represent conversations, dialogues, user quotes, Q&A exchanges, and more. Set it up in your YAML as follows:
+
+`````yaml
+format:
+  revealjs: default
+revealjs-plugins:
+  - chat-bubbles
+`````
+
+`````markdown
+::: {.chat}
+::: {.bubble-right}
+Hey, are you coming tonight?
+:::
+
+::: {.fragment .bubble-left}
+Yeah! What time does it start?
+:::
+
+::: {.fragment .bubble-right}
+Doors open at 7
+:::
+:::
+`````
+
+**When should we use this?**
+
+Any time you want to show a conversation, for me, a message exchange between me and my supervisors.
+
+
+## 5. `quarto-revealjs-codewindow`
+
+**Type:** RevealJS Plugin
+
+**Install:** `quarto add emilhvitfeldt/quarto-revealjs-codewindow`
+
+**GitHub:** [github.com/EmilHvitfeldt/quarto-revealjs-codewindow](https://github.com/EmilHvitfeldt/quarto-revealjs-codewindow)
+
+When you put a code block on your slide, someone in the audience might ask which file type it is. It's a small thing with an easy fix. `codewindow` adds a styled browser/editor-style window around your code blocks, complete with a file tab at the top. The tab label is set by adding plain text before the code chunk.
+
+````` markdown
+::: {.codewindow}
+```{{scss}}
+.pink {
+  color: pink;
+}
+```
+:::
+`````
+
+The icon is added via the `.sass` class on the div, and the plain text before the code chunk becomes the file name. It's a small upgrade, but one that can make your slides feel noticeably more polished.
+
+**When should we use this?**
+
+If you're teaching or presenting code across different file formats, this can save you from having to explain which file you're currently showing.
+
+
+## 6. `quarto-revealjs-letterbox`
+
+**Type:** Format
+
+**Install:** `quarto use template EmilHvitfeldt/quarto-revealjs-letterbox`
+
+**GitHub:** [github.com/EmilHvitfeldt/quarto-revealjs-letterbox](https://github.com/EmilHvitfeldt/quarto-revealjs-letterbox)
+
+This one is different from the rest of the extensions in this post, it provides a full format extension rather than something you add to an existing presentation. Inspired by the old xaringan letterbox style, it renders your slides at a specific aspect ratio, which is helpful when you want to place images at precise positions on your slide.
+
+Because it's a format, you use it in your YAML like this:
+
+`````yaml
+format: letterbox-revealjs
+`````
+
+The format also adds two handy layout classes: `.image-right` and `.image-left` for placing images behind the slide content.
+
+**When should we use this?**
+
+I use it everywhere, it makes absolute positioning easier and ensures slides look consistent across different screen aspect ratios.
+
+
+## Quick Reference
+
+| Extension | Type | Install with | What it does |
+|---|---|---|---|
+| `quarto-revealjs-more-fragments` | Filter | `quarto add` | 90+ animation classes for fragments |
+| `quarto-roughnotation` | Filter | `quarto add` | Hand-drawn animated annotations |
+| `quarto-timeline` | Filter | `quarto add` | Styled timelines with fragment reveal |
+| `quarto-revealjs-chat-bubbles` | RevealJS Plugin | `quarto add` | Chat bubble layouts for dialogue |
+| `quarto-revealjs-codewindow` | RevealJS Plugin | `quarto add` | Editor-style code blocks with file tabs |
+| `quarto-revealjs-letterbox` | Format | `quarto use template` | Floating panel presentation aesthetic |
