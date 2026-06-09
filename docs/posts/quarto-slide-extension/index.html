@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.31">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Krisanat Anukarnsakulchularp">
+<meta name="dcterms.date" content="2026-06-09">
+<meta name="description" content="How can we bring our slides to the next level (Appropriately)?">
+
+<title>Quarto Slide Extension – Monash NUMBATs</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-6cf4e2d6b46edd166d3594c3ee75fa60.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Monash NUMBATs</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../people/index.html"> 
+<span class="menu-text">People</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../posts/index.html"> 
+<span class="menu-text">Posts</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../projects.html"> 
+<span class="menu-text">Projects</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../hacky-hour/index.html"> 
+<span class="menu-text">Hacky Hour</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../events.html"> 
+<span class="menu-text">Events</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../workshops/index.html"> 
+<span class="menu-text">Workshops</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../courses.html"> 
+<span class="menu-text">Courses</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../contact.html"> 
+<span class="menu-text">Contact</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#how-can-we-improve-our-slides-to-the-next-level-appropriately" id="toc-how-can-we-improve-our-slides-to-the-next-level-appropriately" class="nav-link active" data-scroll-target="#how-can-we-improve-our-slides-to-the-next-level-appropriately">How Can We Improve Our Slides to the Next Level (Appropriately)?</a>
+  <ul class="collapse">
+  <li><a href="#quarto-extensions" id="toc-quarto-extensions" class="nav-link" data-scroll-target="#quarto-extensions">Quarto Extensions</a>
+  <ul class="collapse">
+  <li><a href="#filter" id="toc-filter" class="nav-link" data-scroll-target="#filter">Filter</a></li>
+  <li><a href="#revealjs-plugins" id="toc-revealjs-plugins" class="nav-link" data-scroll-target="#revealjs-plugins">RevealJS Plugins</a></li>
+  <li><a href="#formats" id="toc-formats" class="nav-link" data-scroll-target="#formats">Formats</a></li>
+  </ul></li>
+  <li><a href="#quarto-revealjs-more-fragments" id="toc-quarto-revealjs-more-fragments" class="nav-link" data-scroll-target="#quarto-revealjs-more-fragments">1. <code>quarto-revealjs-more-fragments</code></a></li>
+  <li><a href="#quarto-roughnotation" id="toc-quarto-roughnotation" class="nav-link" data-scroll-target="#quarto-roughnotation">2. <code>quarto-roughnotation</code></a></li>
+  <li><a href="#quarto-timeline" id="toc-quarto-timeline" class="nav-link" data-scroll-target="#quarto-timeline">3. <code>quarto-timeline</code></a></li>
+  <li><a href="#quarto-revealjs-chat-bubbles" id="toc-quarto-revealjs-chat-bubbles" class="nav-link" data-scroll-target="#quarto-revealjs-chat-bubbles">4. <code>quarto-revealjs-chat-bubbles</code></a></li>
+  <li><a href="#quarto-revealjs-codewindow" id="toc-quarto-revealjs-codewindow" class="nav-link" data-scroll-target="#quarto-revealjs-codewindow">5. <code>quarto-revealjs-codewindow</code></a></li>
+  <li><a href="#quarto-revealjs-letterbox" id="toc-quarto-revealjs-letterbox" class="nav-link" data-scroll-target="#quarto-revealjs-letterbox">6. <code>quarto-revealjs-letterbox</code></a></li>
+  <li><a href="#quick-reference" id="toc-quick-reference" class="nav-link" data-scroll-target="#quick-reference">Quick Reference</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Quarto Slide Extension</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Quarto</div>
+    <div class="quarto-category">Presentation</div>
+    <div class="quarto-category">Quarto Extension</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    How can we bring our slides to the next level (Appropriately)?
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Krisanat Anukarnsakulchularp </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">9 June 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="how-can-we-improve-our-slides-to-the-next-level-appropriately" class="level1">
+<h1>How Can We Improve Our Slides to the Next Level (Appropriately)?</h1>
+<p>We’ve all seen the bad slides, where every bullet point flies in from a different direction, the fonts are too small, and someone has just discovered the “Spin” animation and uses it everywhere.</p>
+<p>But there’s also the other kind: slides that feel right, polished and intentional, where the animations actually help capture the audience’s attention, where the code on screen has context, and the timeline doesn’t look like it was thrown together in a hurry. That’s the version we should all be aiming for.</p>
+<p>Emil Hvitfeldt has built a collection of Quarto RevealJS extensions that make the <em>good</em> kind of levelling up easy, though they also make the <em>bad</em> kind more accessible. The responsibility ultimately falls on the user, and we should be grateful to have these tools available. They solve real presentation problems like “How do I show a conversation?”, “How do I reveal a timeline one step at a time?”, and “How do I make code blocks look like they belong in a real editor?”, <strong><em>not</em></strong> “How do I make my text spin around?” This post walks through some of Emil’s work.</p>
+<p>But first, we need a quick detour to understand the different extension types, because not all extensions work the same way. And before that, <strong>what even is an extension to begin with?</strong></p>
+<section id="quarto-extensions" class="level2">
+<h2 class="anchored" data-anchor-id="quarto-extensions">Quarto Extensions</h2>
+<p>When you install a Quarto extension, it will be one of three things: a <strong>filter</strong>, a <strong>RevealJS plugin</strong>, or a <strong>format</strong>. They each do different things and slot into your YAML differently.</p>
+<section id="filter" class="level3">
+<h3 class="anchored" data-anchor-id="filter">Filter</h3>
+<p>A <strong>filter</strong> is a Lua script that modifies the abstract syntax tree (AST) during the rendering process, between the reader and the writer. You can think of a <strong>filter</strong> as a <strong>curator</strong> in an art gallery, whose job is to sort and prepare different types of pieces — a painting (paragraph), a photograph (image), and so on — before the exhibition opens to the public.</p>
+<p>Filters can be added to your YAML like this:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> revealjs</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">filters</span><span class="kw">:</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> roughnotation</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> more-fragments</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="revealjs-plugins" class="level3">
+<h3 class="anchored" data-anchor-id="revealjs-plugins">RevealJS Plugins</h3>
+<p>A <strong>RevealJS plugin</strong> is a JavaScript (and sometimes CSS) bundle that runs <em>inside your browser</em> when the presentation loads, handling things like slide transitions and fragment events. If the filter is a curator who organises the pieces, the <strong>RevealJS plugin</strong> is the <strong>presentation crew</strong> who arrive on the day and wire up the exhibition with new equipment — projectors, lighting, and interactive screens that respond to what happens live in the gallery.</p>
+<p>You can hook these up under <code>revealjs-plugins</code> in your YAML:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> revealjs</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">revealjs-plugins</span><span class="kw">:</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> codewindow</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="formats" class="level3">
+<h3 class="anchored" data-anchor-id="formats">Formats</h3>
+<p>A <strong>format</strong> extension is a <strong>predefined exhibition setup</strong> for the gallery. Instead of configuring everything from scratch, someone has already fully designed the exhibition for you to simply apply. The content is the same, but how it is presented changes.</p>
+<p>A custom format can be specified in your YAML as follows:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> letterbox-revealjs </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Now that we understand the difference between Quarto extension types, here comes the fun stuff.</p>
+</section>
+</section>
+<section id="quarto-revealjs-more-fragments" class="level2">
+<h2 class="anchored" data-anchor-id="quarto-revealjs-more-fragments">1. <code>quarto-revealjs-more-fragments</code></h2>
+<p><strong>Type:</strong> Filter</p>
+<p><strong>Install:</strong> <code>quarto add extension EmilHvitfeldt/quarto-revealjs-more-fragments</code></p>
+<p><strong>Docs:</strong> <a href="https://emilhvitfeldt.github.io/quarto-revealjs-more-fragments/">emilhvitfeldt.github.io/quarto-revealjs-more-fragments</a></p>
+<p>RevealJS out of the box gives you fragments: fade-in, fade-out, highlight-red. But after a while, these can start to feel dull.</p>
+<p><code>more-fragments</code> adds additional fragment animations by leveraging the <a href="https://animate.style/">Animate.css</a> and <a href="https://www.minimamente.com/project/magic/">Magic.css</a> libraries and making these animations available as fragment classes. For example:</p>
+<ul>
+<li><strong>Attention seekers</strong> — <code>bounce</code>, <code>shake</code></li>
+<li><strong>Entrances</strong> — <code>bounceIn</code>, <code>zoomIn</code></li>
+<li><strong>Exits</strong> — <code>bounceOut</code>, <code>zoomOut</code></li>
+<li><strong>Magic animations</strong> — <code>magin</code>, <code>vanishIn</code></li>
+</ul>
+<p>Using them is as simple as adding a class to your text:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>This sentence has a <span class="co">[</span><span class="ot">bouncing</span><span class="co">]</span>{.fragment .bounce} word in it.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>When should we use this?</strong></p>
+<p>Any talk where you want to draw attention to a particular word through animation. The library has many options, which means nothing is stopping you from using all of them, however, this is <strong>not a sensible</strong> approach. Pick one or two that suit your talk and stick with them. Too much animation can do more harm than good.</p>
+</section>
+<section id="quarto-roughnotation" class="level2">
+<h2 class="anchored" data-anchor-id="quarto-roughnotation">2. <code>quarto-roughnotation</code></h2>
+<p><strong>Type:</strong> Filter</p>
+<p><strong>Install:</strong> <code>quarto install extension EmilHvitfeldt/quarto-roughnotation</code></p>
+<p><strong>Docs:</strong> <a href="https://emilhvitfeldt.github.io/quarto-roughnotation/">emilhvitfeldt.github.io/quarto-roughnotation</a></p>
+<p>This filter wraps the <a href="https://roughnotation.com/">roughnotation</a> JavaScript library, which draws animated, hand-sketched annotations directly on your slide content as you present, wobbly underlines, hand-drawn circles, crossed-out text, brackets, highlights, all drawn in real time.</p>
+<p>To use this filter, add <code>roughnotation</code> to your YAML filters, then add the <code>.rn-fragment</code> class to the text you want to annotate.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">filters</span><span class="kw">:</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> roughnotation</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>I will be <span class="co">[</span><span class="ot">highlighted</span><span class="co">]</span>{.rn-fragment}, and so will <span class="co">[</span><span class="ot">these words here</span><span class="co">]</span>{.rn-fragment}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>To set a different annotation type, use <code>rn-type</code>, for duration, use <code>rn-animationDuration</code>, for color, use <code>rn-color</code>. There are many more options, set them after the class as follows:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">highlighted</span><span class="co">]</span>{.rn-fragment rn-type=underline rn-color=red}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>When should we use this?</strong></p>
+<p>In my opinion, this is preferable to <code>quarto-revealjs-more-fragments</code>, it’s less exaggerated/distracted and easier on the audience.</p>
+</section>
+<section id="quarto-timeline" class="level2">
+<h2 class="anchored" data-anchor-id="quarto-timeline">3. <code>quarto-timeline</code></h2>
+<p><strong>Type:</strong> Filter</p>
+<p><strong>Install:</strong> <code>quarto add EmilHvitfeldt/quarto-timeline</code></p>
+<p><strong>Docs:</strong> <a href="https://emilhvitfeldt.github.io/quarto-timeline/">emilhvitfeldt.github.io/quarto-timeline</a></p>
+<p>When trying to create a timeline, you usually reach for a table or Gantt chart and wonder why it still doesn’t look quite right. <code>quarto-timeline</code> might be the answer. It’s a proper timeline component built entirely from nested divs, with a clean markup syntax:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>::: {.timeline .vertical}</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>::: {.event data-label="2020"}</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>**Project Started** - Initial concept and planning phase.</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>::: {.event data-label="2021"}</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>**First Release** - Launched version 1.0 to early users.</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>::: {.event data-label="2022"}</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>**Major Update** - Rewrote core engine for performance.</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>:::</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The <code>data-label</code> attribute is your marker, year, version, number, month, or whatever fits your content. Layout can be controlled using classes like <code>.vertical</code>.</p>
+<p>Where it gets really nice is when fragments are added to the timeline. Add <code>.fragment-slide</code> to the outer div and <code>.fragment</code> to individual events to reveal them one at a time:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>::: {.timeline .vertical .fragment-slide}</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>::: {.event data-label="2020"}</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>**Project Started** - Initial concept and planning phase.</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>::: {.event .fragment data-label="2021"}</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>**First Release** - Launched version 1.0 to early users.</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>::: {.event .fragment data-label="2022"}</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>**Major Update** - Rewrote core engine for performance.</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>:::</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>When should we use this?</strong></p>
+<p>Project roadmaps, progress histories, anything with a narrative arc attached to it.</p>
+</section>
+<section id="quarto-revealjs-chat-bubbles" class="level2">
+<h2 class="anchored" data-anchor-id="quarto-revealjs-chat-bubbles">4. <code>quarto-revealjs-chat-bubbles</code></h2>
+<p><strong>Type:</strong> RevealJS Plugin</p>
+<p><strong>Install:</strong> <code>quarto add EmilHvitfeldt/quarto-revealjs-chat-bubbles</code></p>
+<p><strong>Docs:</strong> <a href="https://emilhvitfeldt.github.io/quarto-revealjs-chat-bubbles/">emilhvitfeldt.github.io/quarto-revealjs-chat-bubbles</a></p>
+<p>Yes, chat bubbles, like iMessage, on your slides. The extension adds styled message bubbles that you can position left or right to distinguish between speakers, making it easy to represent conversations, dialogues, user quotes, Q&amp;A exchanges, and more. Set it up in your YAML as follows:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">revealjs</span><span class="kw">:</span><span class="at"> default</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">revealjs-plugins</span><span class="kw">:</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> chat-bubbles</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>::: {.chat}</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>::: {.bubble-right}</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>Hey, are you coming tonight?</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>::: {.fragment .bubble-left}</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>Yeah! What time does it start?</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>::: {.fragment .bubble-right}</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>Doors open at 7</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>:::</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>When should we use this?</strong></p>
+<p>Any time you want to show a conversation, for me, a message exchange between me and my supervisors.</p>
+</section>
+<section id="quarto-revealjs-codewindow" class="level2">
+<h2 class="anchored" data-anchor-id="quarto-revealjs-codewindow">5. <code>quarto-revealjs-codewindow</code></h2>
+<p><strong>Type:</strong> RevealJS Plugin</p>
+<p><strong>Install:</strong> <code>quarto add emilhvitfeldt/quarto-revealjs-codewindow</code></p>
+<p><strong>GitHub:</strong> <a href="https://github.com/EmilHvitfeldt/quarto-revealjs-codewindow">github.com/EmilHvitfeldt/quarto-revealjs-codewindow</a></p>
+<p>When you put a code block on your slide, someone in the audience might ask which file type it is. It’s a small thing with an easy fix. <code>codewindow</code> adds a styled browser/editor-style window around your code blocks, complete with a file tab at the top. The tab label is set by adding plain text before the code chunk.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>::: {.codewindow}</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="in">```{scss}</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="in">.pink {</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="in">  color: pink;</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="in">}</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>:::</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The icon is added via the <code>.sass</code> class on the div, and the plain text before the code chunk becomes the file name. It’s a small upgrade, but one that can make your slides feel noticeably more polished.</p>
+<p><strong>When should we use this?</strong></p>
+<p>If you’re teaching or presenting code across different file formats, this can save you from having to explain which file you’re currently showing.</p>
+</section>
+<section id="quarto-revealjs-letterbox" class="level2">
+<h2 class="anchored" data-anchor-id="quarto-revealjs-letterbox">6. <code>quarto-revealjs-letterbox</code></h2>
+<p><strong>Type:</strong> Format</p>
+<p><strong>Install:</strong> <code>quarto use template EmilHvitfeldt/quarto-revealjs-letterbox</code></p>
+<p><strong>GitHub:</strong> <a href="https://github.com/EmilHvitfeldt/quarto-revealjs-letterbox">github.com/EmilHvitfeldt/quarto-revealjs-letterbox</a></p>
+<p>This one is different from the rest of the extensions in this post, it provides a full format extension rather than something you add to an existing presentation. Inspired by the old xaringan letterbox style, it renders your slides at a specific aspect ratio, which is helpful when you want to place images at precise positions on your slide.</p>
+<p>Because it’s a format, you use it in your YAML like this:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> letterbox-revealjs</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The format also adds two handy layout classes: <code>.image-right</code> and <code>.image-left</code> for placing images behind the slide content.</p>
+<p><strong>When should we use this?</strong></p>
+<p>I use it everywhere, it makes absolute positioning easier and ensures slides look consistent across different screen aspect ratios.</p>
+</section>
+<section id="quick-reference" class="level2">
+<h2 class="anchored" data-anchor-id="quick-reference">Quick Reference</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Extension</th>
+<th>Type</th>
+<th>Install with</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>quarto-revealjs-more-fragments</code></td>
+<td>Filter</td>
+<td><code>quarto add</code></td>
+<td>90+ animation classes for fragments</td>
+</tr>
+<tr class="even">
+<td><code>quarto-roughnotation</code></td>
+<td>Filter</td>
+<td><code>quarto add</code></td>
+<td>Hand-drawn animated annotations</td>
+</tr>
+<tr class="odd">
+<td><code>quarto-timeline</code></td>
+<td>Filter</td>
+<td><code>quarto add</code></td>
+<td>Styled timelines with fragment reveal</td>
+</tr>
+<tr class="even">
+<td><code>quarto-revealjs-chat-bubbles</code></td>
+<td>RevealJS Plugin</td>
+<td><code>quarto add</code></td>
+<td>Chat bubble layouts for dialogue</td>
+</tr>
+<tr class="odd">
+<td><code>quarto-revealjs-codewindow</code></td>
+<td>RevealJS Plugin</td>
+<td><code>quarto add</code></td>
+<td>Editor-style code blocks with file tabs</td>
+</tr>
+<tr class="even">
+<td><code>quarto-revealjs-letterbox</code></td>
+<td>Format</td>
+<td><code>quarto use template</code></td>
+<td>Floating panel presentation aesthetic</td>
+</tr>
+</tbody>
+</table>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
