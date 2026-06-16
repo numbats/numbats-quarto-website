@@ -4,6 +4,7 @@ description: "How can we bring our slides to the next level (Appropriately)?"
 author:
   - name: Krisanat Anukarnsakulchularp
 date: 2026-06-09
+image: quarto.png
 categories: 
   - Quarto
   - Presentation
