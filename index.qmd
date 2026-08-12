@@ -11,7 +11,7 @@ from: markdown+emoji
 
 * Congratulations to newly credentialed [Dr Jayani P. Gamage](https://jayanilakshika.netlify.app) and [Dr Harriet Mason](https://harrietmason.netlify.app)!
 
-* WOMBAT is scheduled for Nov 30-Dec 1 2026. See details at  [wombat2026.numbat.space](https://wombat2026.numbat.space).)
+* WOMBAT is scheduled for Nov 30-Dec 1 2026. See details at  [wombat2026.numbat.space](https://wombat2026.numbat.space).
 
 * Monash Master of Business Analytics: Strap on an explorer's backback and a skeptics hat and learn how to analyse data. [Find out more.](https://www.monash.edu/business/master-of-business-analytics#events)
 
