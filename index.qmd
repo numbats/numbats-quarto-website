@@ -7,13 +7,11 @@ from: markdown+emoji
 
 <h2>Latest News</h2>
 
-* Farewell to [Dr Cynthia Huang](https://www.cynthiahqy.com), now at LMU in Munich, Germany, for a couple of years!
+* Farewell to [Dr Jayani P. Gamage](https://jayanilakshika.netlify.app), now at Curtin University in Perth, Western Australia, for a couple of years!
 
-* Welcome to visitors [Arek Lipiecki](https://github.com/lipiecki), PhD student visiting from Wrocław University of Science and Technology. 
+* Congratulations to newly credentialed [Dr Jayani P. Gamage](https://jayanilakshika.netlify.app) and [Dr Harriet Mason](https://harrietmason.netlify.app)!
 
-* We are aiming to hold WOMBAT in the first week of December 2026. Stay tuned! (See details from 2025 [here](https://wombat2025.numbat.space).)
-
-* NUMBATS is offering regular workshops for the Monash Community. See the [workshop page](https://numbat.space/workshops/) for current details. 
+* WOMBAT is scheduled for Nov 30-Dec 1 2026. See details at  [wombat2026.numbat.space](https://wombat2026.numbat.space).)
 
 * Monash Master of Business Analytics: Strap on an explorer's backback and a skeptics hat and learn how to analyse data. [Find out more.](https://www.monash.edu/business/master-of-business-analytics#events)
 
