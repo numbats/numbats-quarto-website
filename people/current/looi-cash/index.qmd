@@ -1,0 +1,15 @@
+---
+email: cash.looi@monash.edu
+title: Cash Looi 
+description: PhD (Econometrics)
+www:   https://cashlooi.github.io/website/
+linkedin: https://www.linkedin.com/in/cashlooi/
+interests:
+- categorical data analysis
+- bayesian methods
+- housing affordability
+user_groups:
+- PhD Student
+- Current
+image: avatar.png
+---
