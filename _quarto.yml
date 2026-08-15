@@ -25,6 +25,8 @@ website:
       - href: about.qmd
         text: About
       - contact.qmd
+      - href: roster/roster.qmd
+        text: "Open Source Roster"
 
 date-format: "D MMMM YYYY"
 

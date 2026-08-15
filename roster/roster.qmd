@@ -1,0 +1,61 @@
+---
+title: "Open Source Roster"
+subtitle: "The NUMBATs GitFut stats and open-source contributions."
+format:
+  html:
+    output-file: index.html
+---
+
+A casual look at our team's open-source activity via [GitFut](https://gitfut.com/). Cards are based on recent GitHub activity.
+
+```{r}
+#| echo: false
+#| results: 'asis'
+#| message: false
+
+library(dplyr)
+library(jsonlite)
+
+team <- read.csv("team.csv", stringsAsFactors = FALSE)
+
+# Helper function to fetch score from GitFut meta tags
+colnames(team) <- tolower(trimws(colnames(team)))
+
+get_gitfut_score <- function(github_user) {
+  if (is.null(github_user) || is.na(github_user) || trimws(github_user) == "") {
+    return(0)
+  }
+  
+  api_url <- paste0("https://gitfut.com/api/card/", trimws(github_user))
+  
+  tryCatch({
+    res <- jsonlite::fromJSON(api_url)
+    # Extract the overall rating from the API response
+    score <- if (!is.null(res$overall)) res$overall else 0
+    return(as.numeric(score))
+  }, error = function(e) {
+    return(0) # Fallback if user doesn't exist or API is unreachable
+  })
+}
+
+# Fetch scores and arrange descending
+team <- team |> 
+  rowwise() |> 
+  mutate(score = get_gitfut_score(github)) |> 
+  ungroup() |> 
+  arrange(desc(score))
+
+cat("::: {.grid}\n\n")
+
+
+for (i in seq_len(nrow(team))) {
+  cat(sprintf(
+    "::: {.g-col-12 .g-col-sm-6 .g-col-md-3 .gitfut-card}\n[![%s](https://gitfut.com/%s.png)](https://github.com/%s)\n:::\n\n",
+    team$name[i],
+    team$github[i],
+    team$github[i]
+  ))
+}
+
+cat(":::\n")
+```
