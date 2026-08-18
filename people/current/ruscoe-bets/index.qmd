@@ -1,0 +1,16 @@
+---
+email: bets.ruscoe@monash.edu
+title: Bets Ruscoe 
+description: PhD (Econometrics)
+www:   https://betsruscoe.github.io/website/
+linkedin: https://www.linkedin.com/in/betsruscoe/
+interests:
+- algorithmic fairness
+- treatment rules
+- trains
+- bass guitar
+user_groups:
+- PhD Student
+- Current
+image: avatar.jpg
+---
