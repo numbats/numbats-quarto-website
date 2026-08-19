@@ -1,0 +1,15 @@
+---
+email: nicklas.klein@monash.edu
+title: Nicklas Klein
+description: Senior Lecturer
+www:   https://research.monash.edu/en/persons/nicklas-klein
+github: NicklasKlein
+interests:
+- operations research
+- optimisation
+- business analytics
+user_groups:
+- Faculty
+- Current
+image: avatar.png
+---
