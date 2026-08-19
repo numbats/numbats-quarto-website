@@ -10,6 +10,6 @@ interests:
 - machine learning
 user_groups:
 - PhD Student
-- Current
+- Alumni
 image: avatar.png
 ---

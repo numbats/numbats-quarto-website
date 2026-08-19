@@ -12,6 +12,6 @@ interests:
 - compositional analysis
 user_groups:
 - Postdoc
-- Current
+- Alumni
 image: avatar.jpg
 ---

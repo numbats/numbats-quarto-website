@@ -13,6 +13,6 @@ from: markdown+emoji
 
 * WOMBAT is scheduled for Nov 30-Dec 1 2026. See details at  [wombat2026.numbat.space](https://wombat2026.numbat.space).
 
-* Monash Master of Business Analytics: Strap on an explorer's backback and a skeptics hat and learn how to analyse data. [Find out more.](https://www.monash.edu/business/master-of-business-analytics#events)
+* Monash Master of Business Analytics: Strap on an explorer's backpack and a skeptics hat and learn how to analyse data. [Find out more.](https://www.monash.edu/business/master-of-business-analytics#events)
 
 * The real numbats could use your help. If you would like to help with numbat conservation take a look at Project Numbat. You can buy numbat souvenirs or make donations to help with numbat conservation. Go to [Project Numbat](http://www.numbat.org.au).
