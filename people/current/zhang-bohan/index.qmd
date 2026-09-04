@@ -1,0 +1,15 @@
+---
+email: Bohan.Zhang@monash.edu
+title: Bohan Zhang
+description: Postdoctoral Research Fellow
+github: angelpone
+www: https://research.monash.edu/en/persons/bohan-zhang/
+interests:
+- forecast reconciliation
+- forecast combination
+- probabilistic forecasting
+user_groups:
+- Postdoc
+- Current
+image: avatar.jpg
+---
