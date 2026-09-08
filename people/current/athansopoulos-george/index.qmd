@@ -2,6 +2,7 @@
 email: george.athanasopoulos@monash.edu
 title: George Athanasopoulos
 description: Professor of Statistics and Head of Department
+github: GeorgeAthana
 interests:
 - forecasting
 - time series

@@ -2,6 +2,7 @@
 email: Anastasios.Panagiotelis@monash.edu
 title: Anastasios Panagiotelis
 description: Professor
+github: anastasiospanagiotelis
 interests:
 - forecasting
 - dependence modelling

@@ -16,11 +16,24 @@ A casual look at our team's open-source activity via [GitFut](https://gitfut.com
 library(dplyr)
 library(jsonlite)
 
-team <- read.csv("team.csv", stringsAsFactors = FALSE)
+# Read names and GitHub usernames from current members' profile metadata.
+profile_files <- list.files(
+  "../people/current", pattern = "\\.qmd$", recursive = TRUE, full.names = TRUE
+)
 
-# Helper function to fetch score from GitFut meta tags
-colnames(team) <- tolower(trimws(colnames(team)))
+team <- bind_rows(
+  tibble(name = character(), github = character()),
+  lapply(profile_files, function(path) {
+    profile <- rmarkdown::yaml_front_matter(path)
+    tibble(
+      name = profile$title,
+      github = if (is.null(profile$github)) NA_character_ else trimws(profile$github)
+    )
+  })
+) |>
+  filter(!is.na(github), github != "")
 
+# Helper function to fetch score from GitFut
 get_gitfut_score <- function(github_user) {
   if (is.null(github_user) || is.na(github_user) || trimws(github_user) == "") {
     return(0)
