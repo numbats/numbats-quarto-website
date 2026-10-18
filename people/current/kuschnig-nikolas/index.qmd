@@ -1,0 +1,16 @@
+---
+email: nikolas.kuschnig@monash.edu
+title: Nikolas Kuschnig
+description: Senior Lecturer
+www: https://www.kuschnig.eu/
+github: nk027
+scholar: szCDZPEAAAAJ
+interests:
+- applied econometrics
+- environmental economics
+- machine learning
+user_groups:
+- Faculty
+- Current
+image: avatar.jpg
+---
