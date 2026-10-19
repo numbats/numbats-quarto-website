@@ -7,9 +7,7 @@ from: markdown+emoji
 
 <h2>Latest News</h2>
 
-* Farewell to [Dr Jayani P. Gamage](https://jayanilakshika.netlify.app), now at Curtin University in Perth, Western Australia, for a couple of years!
-
-* Congratulations to newly credentialed [Dr Jayani P. Gamage](https://jayanilakshika.netlify.app) and [Dr Harriet Mason](https://harrietmason.netlify.app)!
+* Congratulations to newly credentialed [Dr Jayani P. Gamage](https://jayanilakshika.netlify.app) and [Dr Harriet Mason](https://harrietmason.netlify.app)! Wishing them all the best in their new positions at Curtin University and University of Queensland, respectively.
 
 * WOMBAT is scheduled for Nov 30-Dec 1 2026. See details at  [wombat2026.numbat.space](https://wombat2026.numbat.space).
 

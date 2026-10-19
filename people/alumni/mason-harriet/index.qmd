@@ -10,7 +10,6 @@ interests:
 - data storytelling
 - visual explanations
 user_groups:
-- PhD Student
-- Current
+- Alumni
 image: avatar.jpg
 ---
